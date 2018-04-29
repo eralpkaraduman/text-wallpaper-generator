@@ -1,4 +1,5 @@
 /*eslint no-undef: ["error", { "process": true }] */
+const pkg = require('../package.json');
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -77,6 +78,7 @@ module.exports = {
 			name: 'vendor'
 		}),
 		new HtmlWebpackPlugin({
+			title: pkg.title,
 			template: 'index.html'
 		}),
 		extractSass

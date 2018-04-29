@@ -19,14 +19,21 @@ $flat_silver: #bdc3c7;
 $flat_concrete: #95a5a6;
 $flat_asbestos: #7f8c80;
 
-h1 {
-  text-align: center
-}
-
-body {
+.root, html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Fira Mono', Fallback, sans-serif;
+}
+
+.root {
+  display: flex;
+  flex-direction: column;
   background-color: $flat_clouds;
   color: $flat_midnight_blue;
-  font-family: 'Fira Mono', Fallback, sans-serif;
+}
+
+.row {
+  height: 100%;
 }
