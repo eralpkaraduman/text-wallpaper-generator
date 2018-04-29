@@ -1,3 +1,4 @@
+.DS_Store
 coverage/
 dist/
 node_modules/
@@ -5,3 +6,4 @@ node_modules/
 *.iml
 npm-debug.log
 package-lock.json
+.vscode
