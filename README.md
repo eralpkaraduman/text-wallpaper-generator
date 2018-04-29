@@ -11,6 +11,7 @@ A minimalistic Webpack 2 ES6 boilerplate project.
 [![npm][npm]][npm-url]
       
 - [Node.js](http://es6-features.org)
+- [NVM]([nvm-url])
 
 ## Features
 
@@ -34,6 +35,7 @@ A minimalistic Webpack 2 ES6 boilerplate project.
 
 ## Commands
 
+- `nvm use` - tell nvm to use right node version
 - `npm start` - start the dev server
 - `npm run build` - create build in `dist` folder
 - `npm run lint` - run an ESLint check
@@ -47,6 +49,8 @@ _webpack-es6-boilerplate_ is available under MIT.
 
 [npm]: https://img.shields.io/badge/npm-5.3.0-blue.svg
 [npm-url]: https://npmjs.com/
+
+[nvm-url]: https://github.com/creationix/nvm
 
 [node]: https://img.shields.io/node/v/webpack-es6-boilerplate.svg
 [node-url]: https://nodejs.org
