@@ -1,6 +1,9 @@
-import sayHello from './hello';
+import 'typeface-fira-mono';
+import 'flatui-colors';
+import 'flexboxgrid';
+
+import App from './App';
 import './index.scss';
 
-document.getElementById('root').innerHTML = sayHello();
-
-
+const app = new App();
+app.onStart();

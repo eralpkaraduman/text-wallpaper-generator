@@ -9,7 +9,7 @@ module.exports = Merge(CommonConfig, {
   ],
   devServer: {
     publicPath: '/',
-    port: 9000,
+    port: 3000,
     contentBase: path.join(process.cwd(), 'dist'), // static file location
     host: 'localhost',
     historyApiFallback: true, // true for index.html upon 404, object for multiple paths
