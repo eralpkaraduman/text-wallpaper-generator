@@ -1,6 +1,6 @@
 {
   "name": "webpack-es6-boilerplate",
-  "title": "Webpack ES6 (Opinionated) Boilerplate",
+  "title": "Text Wallpaper Generator",
   "version": "1.0.1",
   "author": "Joseph Luccisano <joseph.luccisano@gmail.com> (https://jluccisano.github.io)",
   "description": "A delightfully Webpack ES6 Boilerplate",
@@ -54,5 +54,9 @@
     "webpack": "3.5.5",
     "webpack-dev-server": "2.7.1",
     "webpack-merge": "4.1.0"
+  },
+  "dependencies": {
+    "html2canvas": "^1.0.0-alpha.12",
+    "normalize.css": "^8.0.0"
   }
 }

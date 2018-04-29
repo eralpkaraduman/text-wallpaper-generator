@@ -22,18 +22,27 @@ $flat_asbestos: #7f8c80;
 .root, html, body {
   margin: 0;
   padding: 0;
+  border: 0;
   height: 100%;
-  width: 100%;
-  font-family: 'Fira Mono', Fallback, sans-serif;
 }
 
 .root {
   display: flex;
   flex-direction: column;
-  background-color: $flat_clouds;
-  color: $flat_midnight_blue;
 }
 
-.row {
+.wallpaper, .wallpaper-text {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.wallpaper {
   height: 100%;
+  background-color: $flat_wet_asphalt;
+}
+
+.wallpaper-text {
+  color: $flat_clouds;
+  font-family: 'Fira Mono', Fallback, sans-serif;
 }

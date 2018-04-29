@@ -1,3 +1,4 @@
+import 'normalize.css/normalize.css';
 import 'typeface-fira-mono';
 import 'flatui-colors';
 import 'flexboxgrid';
