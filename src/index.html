@@ -2,7 +2,7 @@
 <html lang="en"></html>
 <html>
   <head>
-    <title>Webpack ES6 Boilerplate</title>
+    <title><%= htmlWebpackPlugin.options.title %></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <meta name="theme-color" content="#000000">
@@ -10,10 +10,18 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div class="row middle-xs" id="root">
-      <div class="col-xs-12">
-          <h1>It Works!</h1>
+    <div class="root">
+      <!-- App Layout Begin  -->
+      <div class="row">
+        <div class="col-xs-12">
+            <div class="row middle-xs center-xs">
+              <div class="col-xs">
+                <h1>It Works!</h1>
+              </div>
+            </div>
+        </div>
       </div>
+      <!-- App Layout End  -->
     </div>
   </body>
 </html>

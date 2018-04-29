@@ -1,5 +1,6 @@
 {
   "name": "webpack-es6-boilerplate",
+  "title": "Webpack ES6 (Opinionated) Boilerplate",
   "version": "1.0.1",
   "author": "Joseph Luccisano <joseph.luccisano@gmail.com> (https://jluccisano.github.io)",
   "description": "A delightfully Webpack ES6 Boilerplate",
