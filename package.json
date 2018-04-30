@@ -29,7 +29,9 @@
     "lint": "eslint ./src/**.js",
     "coverage": "jest --coverage --config=conf/jest.config.js",
     "test": "jest --config=conf/jest.config.js",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "upload": "cd dist && s3-upload ../conf/aws-upload.conf.js",
+    "deploy": "npm run build && npm run upload"
   },
   "devDependencies": {
     "babel-core": "6.26.0",
@@ -53,7 +55,8 @@
     "typeface-fira-mono": "0.0.54",
     "webpack": "3.5.5",
     "webpack-dev-server": "2.7.1",
-    "webpack-merge": "4.1.0"
+    "webpack-merge": "4.1.0",
+    "s3-upload": "^0.1.0"
   },
   "dependencies": {
     "blob.js": "^1.0.1",

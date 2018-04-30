@@ -8,7 +8,23 @@ import FileSaver from 'file-saver';
 import './index.scss';
 
 // UTILS
-const callOnNextFrame = callback => () => window.setTimeout(callback, 0);
+const callOnNextFrame = callback => () => window.setTimeout(callback, 0.2);
+
+// debounce function based on: https://davidwalsh.name/javascript-debounce-function
+function debounce(func, wait, immediate) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
+}
 
 
 // IMAGE GENERATION
@@ -33,28 +49,55 @@ window.onDownloadImage = downloadImage;
 
 // TEXT INPUT
 const wallpaperTextInput = document.getElementById('wallpaper-text-input');
-
-wallpaperTextInput.value =
-`TEXT WALLPAPER GENERATOR!✨
-=========================== 
+const initialTextValue = 
+`
+textwallpaper.online
+TEXT WALLPAPER GENERATOR!✨
+ =========================== 
 
 Perfect for writing notes and reminders,
 or server info like IP's and URL's.
 
 BUT HOW? 🤔
-=========== 
+ =========== 
 Change this text,
 Select text color and size,
 Select background color and size,
 Click DOWNLOAD button above!`;
 
-function handleOnTextChanged() {
+wallpaperTextInput.value = initialTextValue;
+const defaultDebounceWait = 50;
+
+const handleOnTextChanged = debounce(() => {
 	wallpaperTextInput.style.height = 'auto';
 	wallpaperTextInput.style.height = wallpaperTextInput.scrollHeight + 'px';
-}
+}, defaultDebounceWait);
+
+const handleOnTextInputFocus = debounce(() => {
+	if (wallpaperTextInput.value === initialTextValue) {
+		wallpaperTextInput.value = '';
+		callOnNextFrame(handleOnTextChanged)();
+	}
+}, defaultDebounceWait);
+
+const handleOnTextInputUnfocus = debounce(() => {
+	const {value} = wallpaperTextInput;
+	if (!value || value.length <= 0) {
+		wallpaperTextInput.value = initialTextValue;
+		callOnNextFrame(handleOnTextChanged)();
+	}
+}, defaultDebounceWait);
+
 wallpaperTextInput.addEventListener('change', handleOnTextChanged, false);
 wallpaperTextInput.addEventListener('cut', callOnNextFrame(handleOnTextChanged), false);
 wallpaperTextInput.addEventListener('paste', callOnNextFrame(handleOnTextChanged), false);
 wallpaperTextInput.addEventListener('drop', callOnNextFrame(handleOnTextChanged), false);
 wallpaperTextInput.addEventListener('keydown', callOnNextFrame(handleOnTextChanged), false);
+wallpaperTextInput.addEventListener('keyup', callOnNextFrame(handleOnTextChanged), false);
+wallpaperTextInput.addEventListener('keypress', callOnNextFrame(handleOnTextChanged), false);
+wallpaperTextInput.addEventListener('focus', handleOnTextInputFocus, false);
+wallpaperTextInput.addEventListener('blur', handleOnTextInputUnfocus, false);
+wallpaperTextInput.addEventListener('focusout', handleOnTextInputUnfocus, false);
+wallpaperTextInput.addEventListener('touchleave', handleOnTextInputUnfocus, false);
+wallpaperTextInput.addEventListener('touchcancel', handleOnTextInputUnfocus, false);
 handleOnTextChanged();
