@@ -8,11 +8,15 @@ import FileSaver from 'file-saver';
 import './index.scss';
 
 // UTILS
-
 const callOnNextFrame = callback => () => window.setTimeout(callback, 0);
+
 
 // IMAGE GENERATION
 let imageOptions = { format: 'image/jpeg', fileName: 'wallpaper.jpg' };
+let html2canvasOptions = {
+	windowWidth: 1920,
+	windowHeght: 1080
+};
 
 function downloadCanvas(canvas) {
 	canvas.toBlob(blob => FileSaver.saveAs(blob, imageOptions.fileName));
@@ -20,18 +24,18 @@ function downloadCanvas(canvas) {
 
 function downloadImage() {
 	const targetElement = document.querySelector('#wallpaper');
-	html2canvas(targetElement) // TODO: pass options
+	html2canvas(targetElement, html2canvasOptions)
 		.then(canvas => downloadCanvas(canvas));
 }
 
 window.onDownloadImage = downloadImage;
 
-// TEXT INPUT
 
+// TEXT INPUT
 const wallpaperTextInput = document.getElementById('wallpaper-text-input');
 
 wallpaperTextInput.value =
-	`TEXT WALLPAPER GENERATOR!✨
+`TEXT WALLPAPER GENERATOR!✨
 =========================== 
 
 Perfect for writing notes and reminders,
