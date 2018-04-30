@@ -46,3 +46,21 @@ $flat_asbestos: #7f8c80;
   color: $flat_clouds;
   font-family: 'Fira Mono', Fallback, sans-serif;
 }
+
+.wallpaper-text-input {
+  color: $flat_clouds;
+  caret-color: $flat_clouds;
+  border: 0px solid;
+  background-color: transparent;
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  resize: none;
+}
+
+.wallpaper-text-input:focus {
+  outline: none;
+}

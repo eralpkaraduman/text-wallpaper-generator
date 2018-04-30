@@ -29,3 +29,23 @@ button.addEventListener('click', () => {
 });
 
 
+
+const wallpaperTextInput = document.getElementById('wallpaper-text-input');
+
+function resizeTextInput() {
+	wallpaperTextInput.style.height = 'auto';
+	wallpaperTextInput.style.height = wallpaperTextInput.scrollHeight + 'px';
+}
+function callOnNextFrame(callback) {
+	return function() {
+		window.setTimeout(callback, 0);
+	};
+}
+
+
+wallpaperTextInput.addEventListener('change', resizeTextInput, false);
+wallpaperTextInput.addEventListener('cut', callOnNextFrame(resizeTextInput), false);
+wallpaperTextInput.addEventListener('paste', callOnNextFrame(resizeTextInput), false);
+wallpaperTextInput.addEventListener('drop', callOnNextFrame(resizeTextInput), false);
+wallpaperTextInput.addEventListener('keydown', callOnNextFrame(resizeTextInput), false);
+resizeTextInput();
