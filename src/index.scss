@@ -24,6 +24,7 @@ $flat_asbestos: #7f8c80;
   padding: 0;
   border: 0;
   height: 100%;
+  font-family: 'Fira Mono', Fallback, sans-serif;
 }
 
 .root {
@@ -45,7 +46,6 @@ $flat_asbestos: #7f8c80;
 
 .wallpaper-text {
   color: $flat_clouds;
-  font-family: 'Fira Mono', Fallback, sans-serif;
 }
 
 .wallpaper-text-input {
@@ -64,4 +64,31 @@ $flat_asbestos: #7f8c80;
 
 .wallpaper-text-input:focus {
   outline: none;
+}
+
+.menu-container {
+  position: fixed;
+  padding: 10px;
+  margin: 10px;
+  background-color: $flat_midnight_blue; /* The Fallback */
+  background-color: rgba(black, 0.2);
+  top: 0;
+  left: 0;
+  border-radius: 0.25em;
+}
+
+a:link, a:visited {
+    font-weight: bold;
+    background-color: $flat_clouds;
+    color: $flat_wet_asphalt;
+    padding: 10px 10px;
+    text-align: center; 
+    text-decoration: none !important;
+    display: inline-block;
+    border-radius: 0.25em;
+}
+
+a:hover, a:active {
+    color: $flat_clouds;
+    background-color: $flat_nephritis;
 }

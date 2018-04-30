@@ -100,4 +100,5 @@ wallpaperTextInput.addEventListener('blur', handleOnTextInputUnfocus, false);
 wallpaperTextInput.addEventListener('focusout', handleOnTextInputUnfocus, false);
 wallpaperTextInput.addEventListener('touchleave', handleOnTextInputUnfocus, false);
 wallpaperTextInput.addEventListener('touchcancel', handleOnTextInputUnfocus, false);
+
 handleOnTextChanged();
