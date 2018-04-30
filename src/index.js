@@ -28,10 +28,12 @@ function debounce(func, wait, immediate) {
 
 
 // IMAGE GENERATION
+
 let imageOptions = { format: 'image/jpeg', fileName: 'wallpaper.jpg' };
 let html2canvasOptions = {
-	windowWidth: 1920,
-	windowHeght: 1080
+	windowWidth: window.screen.width,
+	windowHeight: window.screen.height,
+	scale: window.devicePixelRatio
 };
 
 function downloadCanvas(canvas) {

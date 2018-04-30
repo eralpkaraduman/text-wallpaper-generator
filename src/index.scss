@@ -24,7 +24,8 @@ $flat_asbestos: #7f8c80;
   padding: 0;
   border: 0;
   height: 100%;
-  font-family: 'Fira Mono', Fallback, sans-serif;
+  font-family: 'Fira Mono';
+  background-color: $flat_wet_asphalt;
 }
 
 .root {
@@ -40,8 +41,8 @@ $flat_asbestos: #7f8c80;
 
 .wallpaper {
   height: 100%;
-  background-color: $flat_wet_asphalt;
   padding: 20px;
+  background-color: $flat_wet_asphalt;
 }
 
 .wallpaper-text {
@@ -78,6 +79,7 @@ $flat_asbestos: #7f8c80;
 }
 
 a:link, a:visited {
+    font-family: 'Fira Mono';
     font-weight: bold;
     background-color: $flat_clouds;
     color: $flat_wet_asphalt;
