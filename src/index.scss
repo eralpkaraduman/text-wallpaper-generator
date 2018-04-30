@@ -40,6 +40,7 @@ $flat_asbestos: #7f8c80;
 .wallpaper {
   height: 100%;
   background-color: $flat_wet_asphalt;
+  padding: 20px;
 }
 
 .wallpaper-text {
@@ -50,7 +51,7 @@ $flat_asbestos: #7f8c80;
 .wallpaper-text-input {
   color: $flat_clouds;
   caret-color: $flat_clouds;
-  border: 0px solid;
+  border: none;
   background-color: transparent;
   width: 100%;
   text-align: center;

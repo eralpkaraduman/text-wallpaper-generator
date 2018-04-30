@@ -28,24 +28,32 @@ button.addEventListener('click', () => {
 	});
 });
 
-
+// TEXT INPUT
 
 const wallpaperTextInput = document.getElementById('wallpaper-text-input');
 
-function resizeTextInput() {
+wallpaperTextInput.value =
+`TEXT WALLPAPER GENERATOR!✨
+=========================== 
+
+Perfect for writing notes and reminders,
+or server info like IP's and URL's.
+
+BUT HOW? 🤔
+=========== 
+Change this text,
+Select text color and size,
+Select background color and size,
+Click DOWNLOAD button above!`;
+
+const callOnNextFrame = callback => () => window.setTimeout(callback, 0);
+function handleOnTextChanged() {
 	wallpaperTextInput.style.height = 'auto';
 	wallpaperTextInput.style.height = wallpaperTextInput.scrollHeight + 'px';
 }
-function callOnNextFrame(callback) {
-	return function() {
-		window.setTimeout(callback, 0);
-	};
-}
-
-
-wallpaperTextInput.addEventListener('change', resizeTextInput, false);
-wallpaperTextInput.addEventListener('cut', callOnNextFrame(resizeTextInput), false);
-wallpaperTextInput.addEventListener('paste', callOnNextFrame(resizeTextInput), false);
-wallpaperTextInput.addEventListener('drop', callOnNextFrame(resizeTextInput), false);
-wallpaperTextInput.addEventListener('keydown', callOnNextFrame(resizeTextInput), false);
-resizeTextInput();
+wallpaperTextInput.addEventListener('change', handleOnTextChanged, false);
+wallpaperTextInput.addEventListener('cut', callOnNextFrame(handleOnTextChanged), false);
+wallpaperTextInput.addEventListener('paste', callOnNextFrame(handleOnTextChanged), false);
+wallpaperTextInput.addEventListener('drop', callOnNextFrame(handleOnTextChanged), false);
+wallpaperTextInput.addEventListener('keydown', callOnNextFrame(handleOnTextChanged), false);
+handleOnTextChanged();
