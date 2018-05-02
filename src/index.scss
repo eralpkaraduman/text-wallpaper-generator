@@ -68,29 +68,58 @@ $flat_asbestos: #7f8c80;
 }
 
 .menu-container {
-  position: fixed;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  
+  margin: 0px;
   padding: 10px;
-  margin: 10px;
   background-color: $flat_midnight_blue; /* The Fallback */
   background-color: rgba(black, 0.2);
-  top: 0;
-  left: 0;
   border-radius: 0.25em;
 }
 
+.button-container {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  flex-wrap: wrap;
+  flex-grow: 0;
+  flex-shrink: 0;
+  justify-content: center;
+}
+
+$color-rectangle-size: 19px;
+
+a {
+  min-width: $color-rectangle-size;
+  font-size: 1em;
+  font-family: 'Fira Mono';
+  font-weight: bold;
+  padding: 10px 10px;
+  margin: 0px;
+  text-decoration: none !important;
+  display: inline-block;
+  border-radius: 0.25em;
+  text-align: center;
+}
+
 a:link, a:visited {
-    font-family: 'Fira Mono';
-    font-weight: bold;
-    background-color: $flat_clouds;
-    color: $flat_wet_asphalt;
-    padding: 10px 10px;
-    text-align: center; 
-    text-decoration: none !important;
-    display: inline-block;
-    border-radius: 0.25em;
+  color: $flat_wet_asphalt;
+  background-color: $flat_clouds;
 }
 
 a:hover, a:active {
-    color: $flat_clouds;
-    background-color: $flat_nephritis;
+  color: $flat_clouds;
+  background-color: $flat_nephritis;
+}
+
+.colorRectangle {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  background-color: red;
+  width: $color-rectangle-size;
+	height: $color-rectangle-size;
+  border-radius: 0.15em;
 }

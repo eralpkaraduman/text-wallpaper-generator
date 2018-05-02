@@ -10,8 +10,9 @@ import './index.scss';
 // UTILS
 const callOnNextFrame = callback => () => window.setTimeout(callback, 0.2);
 
-// debounce function based on: https://davidwalsh.name/javascript-debounce-function
-function debounce(func, wait, immediate) {
+const defaultDebounceWait = 50;
+function debounce(func, wait = defaultDebounceWait, immediate = false) {
+	// based on: https://davidwalsh.name/javascript-debounce-function
 	var timeout;
 	return function() {
 		var context = this, args = arguments;
@@ -25,7 +26,6 @@ function debounce(func, wait, immediate) {
 		if (callNow) func.apply(context, args);
 	};
 }
-
 
 // IMAGE GENERATION
 
@@ -46,10 +46,8 @@ function downloadImage() {
 		.then(canvas => downloadCanvas(canvas));
 }
 
-window.onDownloadImage = downloadImage;
-
-
 // TEXT INPUT
+const menu = document.getElementById('menu');
 const wallpaperTextInput = document.getElementById('wallpaper-text-input');
 const initialTextValue = 
 `
@@ -67,11 +65,19 @@ Select text color and size,
 Select background color and size,
 Click DOWNLOAD button above!`;
 
-wallpaperTextInput.value = initialTextValue;
-const defaultDebounceWait = 50;
-
 const handleOnTextChanged = debounce(() => {
 	wallpaperTextInput.style.height = 'auto';
+	
+	const menuShouldBeHidden = 
+		wallpaperTextInput.value === initialTextValue ||
+		wallpaperTextInput.value.length < 1;
+
+	const isMenuHidden = menu.style.display === 'none';
+	const isMenuVisible = menu.style.display === 'flex';
+
+	if (menuShouldBeHidden && !isMenuHidden) menu.style.display = 'none';
+	if (!menuShouldBeHidden && !isMenuVisible) menu.style.display = 'flex';
+
 	wallpaperTextInput.style.height = wallpaperTextInput.scrollHeight + 'px';
 }, defaultDebounceWait);
 
@@ -88,7 +94,7 @@ const handleOnTextInputUnfocus = debounce(() => {
 		wallpaperTextInput.value = initialTextValue;
 		callOnNextFrame(handleOnTextChanged)();
 	}
-}, defaultDebounceWait);
+});
 
 wallpaperTextInput.addEventListener('change', handleOnTextChanged, false);
 wallpaperTextInput.addEventListener('cut', callOnNextFrame(handleOnTextChanged), false);
@@ -103,4 +109,9 @@ wallpaperTextInput.addEventListener('focusout', handleOnTextInputUnfocus, false)
 wallpaperTextInput.addEventListener('touchleave', handleOnTextInputUnfocus, false);
 wallpaperTextInput.addEventListener('touchcancel', handleOnTextInputUnfocus, false);
 
+// BEGIN
+
+wallpaperTextInput.value = initialTextValue;
+window.handleOnDownloadButtonClick = downloadImage;
 handleOnTextChanged();
+
