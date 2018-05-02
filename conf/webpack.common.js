@@ -79,7 +79,11 @@ module.exports = {
 		}),
 		new HtmlWebpackPlugin({
 			title: pkg.title,
-			template: 'index.html'
+			template: 'index.html',
+			minify: {
+				removeComments: true,
+				collapseWhitespace: true
+			}
 		}),
 		extractSass
 	]
