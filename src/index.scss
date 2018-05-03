@@ -69,11 +69,8 @@ $flat_asbestos: #7f8c80;
 
 .menu-container {
   position: absolute;
-  top: 10px;
-  left: 10px;
-  
-  margin: 0px;
-  padding: 10px;
+  margin: 10px;
+  padding: 5px;
   background-color: $flat_midnight_blue; /* The Fallback */
   background-color: rgba(black, 0.2);
   border-radius: 0.25em;
@@ -96,8 +93,8 @@ a {
   font-size: 1em;
   font-family: 'Fira Mono';
   font-weight: bold;
-  padding: 10px 10px;
-  margin: 0px;
+  padding: 10px;
+  margin: 5px;
   text-decoration: none !important;
   display: inline-block;
   border-radius: 0.25em;

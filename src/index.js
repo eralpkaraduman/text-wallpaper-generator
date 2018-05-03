@@ -47,7 +47,6 @@ function downloadImage() {
 }
 
 // TEXT INPUT
-const menu = document.getElementById('menu');
 const wallpaperTextInput = document.getElementById('wallpaper-text-input');
 const initialTextValue = 
 `
@@ -67,17 +66,6 @@ Click DOWNLOAD button above!`;
 
 const handleOnTextChanged = debounce(() => {
 	wallpaperTextInput.style.height = 'auto';
-	
-	const menuShouldBeHidden = 
-		wallpaperTextInput.value === initialTextValue ||
-		wallpaperTextInput.value.length < 1;
-
-	const isMenuHidden = menu.style.display === 'none';
-	const isMenuVisible = menu.style.display === 'flex';
-
-	if (menuShouldBeHidden && !isMenuHidden) menu.style.display = 'none';
-	if (!menuShouldBeHidden && !isMenuVisible) menu.style.display = 'flex';
-
 	wallpaperTextInput.style.height = wallpaperTextInput.scrollHeight + 'px';
 }, defaultDebounceWait);
 
@@ -115,3 +103,4 @@ wallpaperTextInput.value = initialTextValue;
 window.handleOnDownloadButtonClick = downloadImage;
 handleOnTextChanged();
 
+// const menu = document.getElementById('menu');
