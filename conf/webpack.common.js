@@ -70,6 +70,12 @@ module.exports = {
 			options: {
 				name: "fonts/[name].[ext]",
 			}
+		}, {
+			test: /\.(svg)$/,
+			loader: "file-loader",
+			options: {
+				name: "svg/[name].[ext]",
+			}
 		}]
 	},
 	plugins: [

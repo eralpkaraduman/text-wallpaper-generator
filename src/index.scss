@@ -33,7 +33,7 @@ $flat_asbestos: #7f8c80;
   flex-direction: column;
 }
 
-.wallpaper, .wallpaper-text {
+.wallpaper, .wallpaper-text, .intro {
   margin: 0;
   padding: 0;
   border: 0;
@@ -45,7 +45,7 @@ $flat_asbestos: #7f8c80;
   background-color: $flat_wet_asphalt;
 }
 
-.wallpaper-text {
+.wallpaper-text, .intro {
   color: $flat_clouds;
 }
 
@@ -67,13 +67,19 @@ $flat_asbestos: #7f8c80;
   outline: none;
 }
 
-.menu-container {
-  position: absolute;
-  margin: 10px;
-  padding: 5px;
+.menu {
   background-color: $flat_midnight_blue; /* The Fallback */
   background-color: rgba(black, 0.2);
   border-radius: 0.25em;
+}
+
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  margin-top: 5px;
 }
 
 .button-container {
@@ -89,16 +95,21 @@ $flat_asbestos: #7f8c80;
 $color-rectangle-size: 19px;
 
 a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+
   min-width: $color-rectangle-size;
-  font-size: 1em;
+  min-height: $color-rectangle-size;
+  font-size: 0.6em;
   font-family: 'Fira Mono';
-  font-weight: bold;
-  padding: 10px;
+  
+  padding: 5px;
   margin: 5px;
   text-decoration: none !important;
-  display: inline-block;
   border-radius: 0.25em;
-  text-align: center;
 }
 
 a:link, a:visited {
@@ -119,4 +130,17 @@ a:hover, a:active {
   width: $color-rectangle-size;
 	height: $color-rectangle-size;
   border-radius: 0.15em;
+}
+
+.button-icon {
+  display:inline-block;
+  font-size: 2.0em;
+  
+  // line-height: 50px;
+  // background-color:black;
+  // color:white;
+  // width: $color-rectangle-size;
+  // height: $color-rectangle-size;
+  text-align: center;
+  vertical-align: middle;
 }

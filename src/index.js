@@ -1,4 +1,5 @@
 import 'normalize.css/normalize.css';
+import 'font-awesome/css/font-awesome.css';
 import 'flatui-colors';
 import 'flexboxgrid';
 import 'typeface-fira-mono';
@@ -46,42 +47,47 @@ function downloadImage() {
 		.then(canvas => downloadCanvas(canvas));
 }
 
+// INTRO
+// const introText = 
+// `
+// textwallpaper.online
+// TEXT WALLPAPER GENERATOR!✨
+//  =========================== 
+
+// Perfect for writing notes and reminders,
+// or server info like IP's and URL's.
+
+// BUT HOW? 🤔
+//  =========== 
+// Change this text,
+// Select text color and size,
+// Select background color and size,
+// Click DOWNLOAD button above!`;
+
+// const introTextElement = document.getElementById('intro-text');
+// introTextElement.value = introText;
+
 // TEXT INPUT
 const wallpaperTextInput = document.getElementById('wallpaper-text-input');
-const initialTextValue = 
-`
-textwallpaper.online
-TEXT WALLPAPER GENERATOR!✨
- =========================== 
-
-Perfect for writing notes and reminders,
-or server info like IP's and URL's.
-
-BUT HOW? 🤔
- =========== 
-Change this text,
-Select text color and size,
-Select background color and size,
-Click DOWNLOAD button above!`;
 
 const handleOnTextChanged = debounce(() => {
 	wallpaperTextInput.style.height = 'auto';
 	wallpaperTextInput.style.height = wallpaperTextInput.scrollHeight + 'px';
-}, defaultDebounceWait);
+});
 
 const handleOnTextInputFocus = debounce(() => {
-	if (wallpaperTextInput.value === initialTextValue) {
-		wallpaperTextInput.value = '';
-		callOnNextFrame(handleOnTextChanged)();
-	}
-}, defaultDebounceWait);
+	// if (wallpaperTextInput.value === initialTextValue) {
+	// 	wallpaperTextInput.value = '';
+	// 	callOnNextFrame(handleOnTextChanged)();
+	// }
+});
 
 const handleOnTextInputUnfocus = debounce(() => {
-	const {value} = wallpaperTextInput;
-	if (!value || value.length <= 0) {
-		wallpaperTextInput.value = initialTextValue;
-		callOnNextFrame(handleOnTextChanged)();
-	}
+	// const {value} = wallpaperTextInput;
+	// if (!value || value.length <= 0) {
+	// 	wallpaperTextInput.value = initialTextValue;
+	// 	callOnNextFrame(handleOnTextChanged)();
+	// }
 });
 
 wallpaperTextInput.addEventListener('change', handleOnTextChanged, false);
@@ -99,7 +105,7 @@ wallpaperTextInput.addEventListener('touchcancel', handleOnTextInputUnfocus, fal
 
 // BEGIN
 
-wallpaperTextInput.value = initialTextValue;
+// wallpaperTextInput.value = initialTextValue;
 window.handleOnDownloadButtonClick = downloadImage;
 handleOnTextChanged();
 
