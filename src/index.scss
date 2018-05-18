@@ -103,7 +103,8 @@ a {
 
   min-width: $color-rectangle-size;
   min-height: $color-rectangle-size;
-  font-size: 0.6em;
+  font-size: 1em;
+  font-weight: bold;
   font-family: 'Fira Mono';
   
   padding: 5px;
@@ -134,7 +135,8 @@ a:hover, a:active {
 
 .button-icon {
   display:inline-block;
-  font-size: 2.0em;
+  font-size: 0.8em;
+  font-weight: bold;
   
   // line-height: 50px;
   // background-color:black;
@@ -152,20 +154,24 @@ ul, li {
 }
 
 li {
-  margin-left: 1em;
+  margin-left: 1.1em;
 }
 
-li span { margin-left: -0.2em; }
+li div { margin-left: -0.35em; }
 
 .intro {
-  background-color: red;
   text-align: left;
   max-width: 300px;
   height: 100%;
 }
 
 .intro-content {
-  background-color: pink;
   margin: 0px;
   padding: 0px;
+}
+
+.intro-start-button {
+  margin: 0px;
+  margin-top: 10px;
+  padding: 10px;
 }
