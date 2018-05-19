@@ -47,26 +47,6 @@ function downloadImage() {
 		.then(canvas => downloadCanvas(canvas));
 }
 
-// INTRO
-// const introText = 
-// `
-// textwallpaper.online
-// TEXT WALLPAPER GENERATOR!✨
-//  =========================== 
-
-// Perfect for writing notes and reminders,
-// or server info like IP's and URL's.
-
-// BUT HOW? 🤔
-//  =========== 
-// Change this text,
-// Select text color and size,
-// Select background color and size,
-// Click DOWNLOAD button above!`;
-
-// const introTextElement = document.getElementById('intro-text');
-// introTextElement.value = introText;
-
 // TEXT INPUT
 const wallpaperTextInput = document.getElementById('wallpaper-text-input');
 
@@ -110,3 +90,11 @@ window.handleOnDownloadButtonClick = downloadImage;
 handleOnTextChanged();
 
 // const menu = document.getElementById('menu');
+
+// input handlers
+function handleOnIntroStartButtonClicked() {
+	alert('handleOnIntroStartButtonClicked');
+}
+
+// bind input handlers
+document.getElementById('intro-start-button').onclick = handleOnIntroStartButtonClicked;
