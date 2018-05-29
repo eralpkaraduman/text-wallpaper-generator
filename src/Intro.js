@@ -2,13 +2,19 @@ import {getElement} from './utils';
 
 export default class Intro {
 	
-	static INTRO_COMPLETED_EVENT = 'INTRO_COMPLETED';
-	
 	introElement = null;
 	startButtonElement = null;
+	onCompleteHandler = null;
+	
+	
+	
+	
+	constructor({onComplete}) {
+		this.onCompleteHandler = onComplete;
+		
+	}
 	
 	onStart = () => {
-		console.log('onStart');
 		this.introElement = getElement('intro');
 		
 		this.startButtonElement = getElement('intro-start-button');
@@ -16,7 +22,7 @@ export default class Intro {
 	}
 	
 	handleOnStartButtonClicked = () => {
-		window.dispatchEvent(new Event(Intro.INTRO_COMPLETED_EVENT));
+		this.onCompleteHandler();
 	}
 	
 	onHide = () => {

@@ -5,6 +5,15 @@ import * as utils from './utils';
 export default class Menu {
 	menuElement = null;
 	
+	constructor({onDownloadClicked}) {
+		this.handleOnColorButtonClicked = null;
+		this.handleOnIncreaseFontSizeButtonClicked = null;
+		this.handleOnDecreaseFontSizeButtonClicked = null;
+		this.handleOnImageWidthButtonClicked = null;
+		this.handleOnImageHeightButtonClicked = null;
+		this.handleOnDownloadButtonClicked = onDownloadClicked;
+	}
+	
 	onStart = () => {
 		this.menuElement = utils.getElement('menu');
 		
@@ -30,28 +39,6 @@ export default class Menu {
 	onHide = () => {
 		this.menuElement.style.display = 'none';
 	}
-	
-	// button handlers
-
-	handleOnColorButtonClicked = () => {
-		console.log('OnColorButtonClicked');
-	}
-	handleOnIncreaseFontSizeButtonClicked = () => {
-		console.log('OnIncreaseFontSizeButtonClicked');
-	}
-	handleOnDecreaseFontSizeButtonClicked = () => {
-		console.log('OnDecreaseFontSizeButtonClicked');
-	}
-	handleOnImageWidthButtonClicked = () => {
-		console.log('OnImageWidthButtonClicked');
-	}
-	handleOnImageHeightButtonClicked = () => {
-		console.log('OnImageHeightButtonClicked');
-	}
-	handleOnDownloadButtonClicked = () => {
-		console.log('OnDownloadButtonClicked');
-	}
-	
 }
 
 

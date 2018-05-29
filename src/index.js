@@ -49,26 +49,6 @@ function downloadImage() {
 		.then(canvas => downloadCanvas(canvas));
 }
 
-// INTRO
-// const introText = 
-// `
-// textwallpaper.online
-// TEXT WALLPAPER GENERATOR!✨
-//  =========================== 
-
-// Perfect for writing notes and reminders,
-// or server info like IP's and URL's.
-
-// BUT HOW? 🤔
-//  =========== 
-// Change this text,
-// Select text color and size,
-// Select background color and size,
-// Click DOWNLOAD button above!`;
-
-// const introTextElement = document.getElementById('intro-text');
-// introTextElement.value = introText;
-
 // TEXT INPUT
 const wallpaperTextInput = document.getElementById('wallpaper-text-input');
 
@@ -107,24 +87,19 @@ wallpaperTextInput.addEventListener('touchcancel', handleOnTextInputUnfocus, fal
 
 // BEGIN
 
-// wallpaperTextInput.value = initialTextValue;
-window.handleOnDownloadButtonClick = downloadImage;
-handleOnTextChanged();
-
-// const menu = document.getElementById('menu');
-
-//
-
-
-const intro = new Intro();
-intro.onStart();
-
-const menu = new Menu();
-menu.onStart();
-
-
-window.addEventListener(Intro.INTRO_COMPLETED_EVENT, function() {
-	intro.onHide();
-	menu.onShow();
+const intro = new Intro({
+	onComplete: () => {
+		intro.onHide();
+		menu.onShow();
+	}
 });
 
+intro.onStart();
+
+const menu = new Menu({
+	onDownloadClicked: () => {
+		downloadImage();
+	}
+});
+
+menu.onStart();
