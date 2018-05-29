@@ -24,7 +24,7 @@ module.exports = {
 		path: path.join(process.cwd(), 'dist'),
 		filename: '[name].[hash].js',
 		publicPath: '/',
-		sourceMapFilename: '[name].map'
+		sourceMapFilename: '[name].[hash].js.map'
 	},
 
 	resolve: {
@@ -41,13 +41,19 @@ module.exports = {
 		}, {
 			test: /\.js$/,
 			exclude: /node_modules/,
-			use: {
-				loader: 'babel-loader',
-				options: {
-					presets: ['env']
-				}
-			}
-		}, {
+			loader: 'babel-loader'
+			
+		}, 
+		{ test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&mimetype=application/font-woff" },
+		{ test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" },
+		{
+			test: /font-awesome\.config\.js/,
+			use: [
+				{ loader: 'style-loader' },
+				{ loader: 'font-awesome-loader' }
+			]
+		},
+		{
 			test: /\.(css|scss)$/,
 			use: extractSass.extract({
 				use: [{
@@ -60,23 +66,10 @@ module.exports = {
 					options: {
 						sourceMap: true
 					}
-				}],
-				// use style-loader in development
-				fallback: 'style-loader'
+				}]
 			})
-		}, {
-			test: /\.(ttf|eot|woff|woff2)$/,
-			loader: "file-loader",
-			options: {
-				name: "fonts/[name].[ext]",
-			}
-		}, {
-			test: /\.(svg)$/,
-			loader: "file-loader",
-			options: {
-				name: "svg/[name].[ext]",
-			}
-		}]
+		}
+		]
 	},
 	plugins: [
 		new CleanWebpackPlugin(['dist'], { root: process.cwd() }),

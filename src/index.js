@@ -1,5 +1,5 @@
 import 'normalize.css/normalize.css';
-import 'font-awesome/css/font-awesome.css';
+import 'font-awesome/scss/font-awesome.scss';
 import 'flatui-colors';
 import 'flexboxgrid';
 import 'typeface-fira-mono';
@@ -7,6 +7,8 @@ import 'blob.js';
 import html2canvas from 'html2canvas';
 import FileSaver from 'file-saver';
 import './index.scss';
+import Intro from './Intro';
+import Menu from './Menu';
 
 // UTILS
 const callOnNextFrame = callback => () => window.setTimeout(callback, 0.2);
@@ -110,3 +112,19 @@ window.handleOnDownloadButtonClick = downloadImage;
 handleOnTextChanged();
 
 // const menu = document.getElementById('menu');
+
+//
+
+
+const intro = new Intro();
+intro.onStart();
+
+const menu = new Menu();
+menu.onStart();
+
+
+window.addEventListener(Intro.INTRO_COMPLETED_EVENT, function() {
+	intro.onHide();
+	menu.onShow();
+});
+

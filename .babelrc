@@ -1,3 +1,9 @@
 {
-  "presets": ["env"] //automatically determine the Babel plugins and polyfills you need based on your supported environments.
+  "presets": [
+    ["env", {"modules": false, "debug": true}],
+    "stage-0"
+  ],
+  "plugins": [
+    ["transform-class-properties", { "spec": true }]
+  ]
 }
