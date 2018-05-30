@@ -66,5 +66,8 @@
     "font-awesome": "^5.0.13",
     "html2canvas": "^1.0.0-alpha.12",
     "normalize.css": "^8.0.0"
+  },
+  "engines": {
+    "yarn": "YARN NO LONGER USED - use npm instead."
   }
 }
