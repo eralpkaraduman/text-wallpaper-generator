@@ -16,18 +16,16 @@
 
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
-  <!-- App Begin -->
   <div id="root" class="root">
     <%= require('html-loader!./menu.html') %>
-      <div id="wallpaper" class="row center-xs middle-xs wallpaper">
-        <%= require('html-loader!./intro.html') %>
-        <div class="col-xs-12 wallpaper-text">
-          <textarea spellcheck="false" class="wallpaper-text-input" type="text" id="wallpaper-text-input">
-          </textarea>
-        </div>
+    <%= require('html-loader!./intro.html') %>
+    <div id="wallpaper" class="row center-xs middle-xs wallpaper">
+      <div class="col-xs-12 wallpaper-text">
+        <textarea spellcheck="false" class="wallpaper-text-input" type="text" id="wallpaper-text-input">
+        </textarea>
       </div>
+    </div>
   </div>
-  <!-- App Layout End -->
 </body>
 
 </html>

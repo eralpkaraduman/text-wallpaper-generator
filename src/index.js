@@ -1,5 +1,5 @@
 import 'normalize.css/normalize.css';
-import 'font-awesome/css/font-awesome.css';
+import 'font-awesome/scss/font-awesome.scss';
 import 'flatui-colors';
 import 'flexboxgrid';
 import 'typeface-fira-mono';
@@ -7,6 +7,8 @@ import 'blob.js';
 import html2canvas from 'html2canvas';
 import FileSaver from 'file-saver';
 import './index.scss';
+import Intro from './Intro';
+import Menu from './Menu';
 
 // UTILS
 const callOnNextFrame = callback => () => window.setTimeout(callback, 0.2);
@@ -85,16 +87,19 @@ wallpaperTextInput.addEventListener('touchcancel', handleOnTextInputUnfocus, fal
 
 // BEGIN
 
-// wallpaperTextInput.value = initialTextValue;
-window.handleOnDownloadButtonClick = downloadImage;
-handleOnTextChanged();
+const intro = new Intro({
+	onComplete: () => {
+		intro.onHide();
+		menu.onShow();
+	}
+});
 
-// const menu = document.getElementById('menu');
+intro.onStart();
 
-// input handlers
-function handleOnIntroStartButtonClicked() {
-	alert('handleOnIntroStartButtonClicked');
-}
+const menu = new Menu({
+	onDownloadClicked: () => {
+		downloadImage();
+	}
+});
 
-// bind input handlers
-document.getElementById('intro-start-button').onclick = handleOnIntroStartButtonClicked;
+menu.onStart();

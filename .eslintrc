@@ -6,8 +6,11 @@
         "jest": true
     },
     "extends": "eslint:recommended",
+    "parser": "babel-eslint",
     "parserOptions": {
-        "sourceType": "module"
+        "sourceType": "module",
+        "allowImportExportEverywhere": false,
+        "codeFrame": false
     },
     "rules": {
         "indent": [
@@ -28,6 +31,7 @@
         ],
         "no-console": [
             "warn"
-        ]
+        ],
+        "strict": 0
     }
 }
