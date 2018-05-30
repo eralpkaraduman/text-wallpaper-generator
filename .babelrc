@@ -1,6 +1,6 @@
 {
   "presets": [
-    ["env", {"modules": false, "debug": true}],
+    ["env", {"modules": false, "debug": false}],
     "stage-0"
   ],
   "plugins": [
