@@ -9,26 +9,7 @@ import FileSaver from 'file-saver';
 import './index.scss';
 import Intro from './Intro';
 import Menu from './Menu';
-
-// UTILS
-const callOnNextFrame = callback => () => window.setTimeout(callback, 0.2);
-
-const defaultDebounceWait = 50;
-function debounce(func, wait = defaultDebounceWait, immediate = false) {
-	// based on: https://davidwalsh.name/javascript-debounce-function
-	var timeout;
-	return function() {
-		var context = this, args = arguments;
-		var later = function() {
-			timeout = null;
-			if (!immediate) func.apply(context, args);
-		};
-		var callNow = immediate && !timeout;
-		clearTimeout(timeout);
-		timeout = setTimeout(later, wait);
-		if (callNow) func.apply(context, args);
-	};
-}
+import TextEditor from './TextEditor';
 
 // IMAGE GENERATION
 
@@ -49,57 +30,24 @@ function downloadImage() {
 		.then(canvas => downloadCanvas(canvas));
 }
 
-// TEXT INPUT
-const wallpaperTextInput = document.getElementById('wallpaper-text-input');
-
-const handleOnTextChanged = debounce(() => {
-	wallpaperTextInput.style.height = 'auto';
-	wallpaperTextInput.style.height = wallpaperTextInput.scrollHeight + 'px';
-});
-
-const handleOnTextInputFocus = debounce(() => {
-	// if (wallpaperTextInput.value === initialTextValue) {
-	// 	wallpaperTextInput.value = '';
-	// 	callOnNextFrame(handleOnTextChanged)();
-	// }
-});
-
-const handleOnTextInputUnfocus = debounce(() => {
-	// const {value} = wallpaperTextInput;
-	// if (!value || value.length <= 0) {
-	// 	wallpaperTextInput.value = initialTextValue;
-	// 	callOnNextFrame(handleOnTextChanged)();
-	// }
-});
-
-wallpaperTextInput.addEventListener('change', handleOnTextChanged, false);
-wallpaperTextInput.addEventListener('cut', callOnNextFrame(handleOnTextChanged), false);
-wallpaperTextInput.addEventListener('paste', callOnNextFrame(handleOnTextChanged), false);
-wallpaperTextInput.addEventListener('drop', callOnNextFrame(handleOnTextChanged), false);
-wallpaperTextInput.addEventListener('keydown', callOnNextFrame(handleOnTextChanged), false);
-wallpaperTextInput.addEventListener('keyup', callOnNextFrame(handleOnTextChanged), false);
-wallpaperTextInput.addEventListener('keypress', callOnNextFrame(handleOnTextChanged), false);
-wallpaperTextInput.addEventListener('focus', handleOnTextInputFocus, false);
-wallpaperTextInput.addEventListener('blur', handleOnTextInputUnfocus, false);
-wallpaperTextInput.addEventListener('focusout', handleOnTextInputUnfocus, false);
-wallpaperTextInput.addEventListener('touchleave', handleOnTextInputUnfocus, false);
-wallpaperTextInput.addEventListener('touchcancel', handleOnTextInputUnfocus, false);
-
 // BEGIN
-
-const intro = new Intro({
-	onComplete: () => {
-		intro.onHide();
-		menu.onShow();
-	}
-});
-
-intro.onStart();
-
 const menu = new Menu({
 	onDownloadClicked: () => {
 		downloadImage();
 	}
 });
 
+const textEditor = new TextEditor();
+
+const intro = new Intro({
+	onComplete: () => {
+		intro.onHide();
+		menu.onShow();
+		textEditor.onShow();
+		textEditor.focus();
+	}
+});
+
+intro.onStart();
 menu.onStart();
+textEditor.onStart();
