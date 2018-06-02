@@ -1,9 +1,11 @@
 import * as utils from './utils';
 
-
-
 export default class Menu {
 	menuElement = null;
+	width = null;
+	height = null;
+	scale = null;
+	color = null;
 	
 	constructor({onDownloadClicked}) {
 		this.handleOnColorButtonClicked = null;
@@ -16,6 +18,11 @@ export default class Menu {
 	
 	onStart = () => {
 		this.menuElement = utils.getElement('menu');
+
+		// initial state
+		this.width =  window.screen.width;
+		this.height =  window.screen.height;
+		this.scale = window.devicePixelRatio;
 		
 		const buttons = {
 			'menu-button-color-button': this.handleOnColorButtonClicked,

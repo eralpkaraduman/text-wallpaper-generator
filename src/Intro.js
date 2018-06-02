@@ -6,9 +6,6 @@ export default class Intro {
 	startButtonElement = null;
 	onCompleteHandler = null;
 	
-	
-	
-	
 	constructor({onComplete}) {
 		this.onCompleteHandler = onComplete;
 		

@@ -36,18 +36,11 @@ export default class TextEditor {
 	});
 
 	handleOnTextInputFocus = debounce(() => {
-		// if (wallpaperTextInput.value === initialTextValue) {
-		// 	wallpaperTextInput.value = '';
-		// 	callOnNextFrame(handleOnTextChanged)();
-		// }
+		callOnNextFrame(this.handleOnTextChanged)();
 	});
 
 	handleOnTextInputUnfocus = debounce(() => {
-		// const {value} = wallpaperTextInput;
-		// if (!value || value.length <= 0) {
-		// 	wallpaperTextInput.value = initialTextValue;
-		// 	callOnNextFrame(handleOnTextChanged)();
-		// }
+		callOnNextFrame(this.handleOnTextChanged)();
 	});
 
 	onShow = () => {

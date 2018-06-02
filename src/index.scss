@@ -43,6 +43,8 @@ $flat_asbestos: #7f8c80;
   height: 100%;
   padding: 20px;
   background-color: $flat_wet_asphalt;
+  // font-feature-settings: "liga" 0;
+  // font-variant-ligatures: none;
 }
 
 .wallpaper-text, .intro {
@@ -62,6 +64,9 @@ $flat_asbestos: #7f8c80;
   margin: 0;
   outline: none;
   resize: none;
+
+  // font-feature-settings: "liga" 0;
+  // font-variant-ligatures: none;
 }
 
 .wallpaper-text-input:focus {
