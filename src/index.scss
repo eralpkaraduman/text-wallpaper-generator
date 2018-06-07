@@ -19,6 +19,11 @@ $flat_silver: #bdc3c7;
 $flat_concrete: #95a5a6;
 $flat_asbestos: #7f8c80;
 
+$color-rectangle-size: 20px;
+$menu-button-padding: 10px;
+$menu-item-count: 6;
+$menu-window-width: ($color-rectangle-size + (2 *$menu-button-padding)) * $menu-item-count;
+
 .root, html, body {
   margin: 0;
   padding: 0;
@@ -79,6 +84,28 @@ $flat_asbestos: #7f8c80;
   border-radius: 0.25em;
 }
 
+.menu-active {
+	@extend .menu;
+	border-radius: 0.25em 0.25em 0 0;
+}
+
+.menu-window {
+	background-color: $flat_midnight_blue; /* The Fallback */
+  background-color: rgba(black, 0.2);
+	border-radius: 0;
+	width: $menu-window-width;
+	border-radius: 0 0 0.25em 0.25em;
+}
+
+.menu-window-content {
+	background-color: $flat_clouds;
+	width: 100%;
+	height: 50px;
+	margin: 5px;
+	margin-top: 0px;
+	border-radius: 0.25em;
+}
+
 .menu-container {
   display: flex;
   flex-direction: column;
@@ -97,8 +124,6 @@ $flat_asbestos: #7f8c80;
   flex-shrink: 0;
   justify-content: center;
 }
-
-$color-rectangle-size: 19px;
 
 a {
   display: flex;
@@ -129,6 +154,11 @@ a:hover, a:active {
   background-color: $flat_nephritis;
 }
 
+a.active-button {
+	color: $flat_clouds;
+  background-color: $flat_nephritis;
+}
+
 .colorRectangle {
   margin: 0px;
   padding: 0px;
@@ -141,7 +171,7 @@ a:hover, a:active {
 
 .button-icon {
   display:inline-block;
-  font-size: 0.8em;
+  font-size: 1.2em;
   font-weight: bold;
   
   // line-height: 50px;
