@@ -1,5 +1,10 @@
 // @flow
 import * as utils from './utils';
+import DownloadWindow from './menu/DownloadWindow';
+
+type MenuCallbacks = {
+	onDownloadRequested: () => void,
+};
 
 export default class Menu {
 	menuElement: HTMLElement;
@@ -23,9 +28,15 @@ export default class Menu {
 		imageSize: HTMLElement,
 		download: HTMLElement
 	};
-
-	constructor() {
-		// this.handleOnDownloadButtonClicked = onDownloadClicked;
+	
+	menuWindows = {
+		download: DownloadWindow
+	}
+	
+	callbacks: MenuCallbacks
+	
+	constructor(callbacks: MenuCallbacks) {
+		this.callbacks = callbacks;
 	}
 
 	onStart = () => {
@@ -61,6 +72,10 @@ export default class Menu {
 		setClickHandler(buttonElements.textSize, editorElements.textSize);
 		setClickHandler(buttonElements.imageSize, editorElements.imageSize);
 		setClickHandler(buttonElements.download, editorElements.download);
+		
+		this.menuWindows = {
+			download: new DownloadWindow(this.callbacks.onDownloadRequested)
+		};
 	}
 
 	onShow = () => {

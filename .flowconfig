@@ -7,5 +7,7 @@
 [lints]
 
 [options]
+module.file_ext=.css
+module.file_ext=.scss
 
 [strict]
