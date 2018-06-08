@@ -1,10 +1,13 @@
 {
   "presets": [
+		"flow",
     ["env", {"modules": false, "debug": false}],
-    "stage-0"
+		"stage-0"
   ],
   "plugins": [
-    ["transform-class-properties", { "spec": true }],
-    ["transform-runtime", { "polyfill": false, "regenerator": true }]
+		"transform-flow-strip-types",
+		["transform-class-properties", { "spec": true }],
+		["transform-runtime", { "polyfill": false, "regenerator": true }]
+		
   ]
 }

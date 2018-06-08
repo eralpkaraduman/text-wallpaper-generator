@@ -5,6 +5,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const FlowWebpackPlugin = require('flow-webpack-plugin')
 
 const extractSass = new ExtractTextPlugin({
 	filename: '[name].[contenthash].css'
@@ -72,6 +73,7 @@ module.exports = {
 		]
 	},
 	plugins: [
+		new FlowWebpackPlugin(),
 		new CleanWebpackPlugin(['dist'], { root: process.cwd() }),
 		new webpack.optimize.CommonsChunkPlugin({
 			name: 'vendor'
