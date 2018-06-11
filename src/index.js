@@ -12,29 +12,10 @@ import Menu from './Menu';
 import TextEditor from './TextEditor';
 import WallpaperGenerator from './WallpaperGenerator';
 
-const menu: Menu = new Menu({
-	onDownloadRequested: handleOnDownloadWallpaper
-});
-
-const textEditor = new TextEditor();
-
-const intro = new Intro({
-	onComplete: () => {
-		intro.onHide();
-		menu.onShow();
-		textEditor.onShow();
-		textEditor.focus();
-	}
-});
-
-intro.onStart();
-menu.onStart();
-textEditor.onStart();
-
 const handleOnDownloadWallpaper = async () => {
 	const targetElement = document.querySelector('#wallpaper');
-	
-	const {width, height, scale} = menu;
+
+	const { width, height, scale } = menu;
 
 	const blob = await WallpaperGenerator.generate({
 		targetElement,
@@ -47,3 +28,29 @@ const handleOnDownloadWallpaper = async () => {
 	const fileName = `textwallpaper.online_${width}x${height}${fileNameScale}.jpg`;
 	FileSaver.saveAs(blob, fileName);
 };
+
+const textEditor = new TextEditor();
+
+const menu: Menu = new Menu({
+	onDownloadRequested: () => {
+		handleOnDownloadWallpaper();
+	},
+	onTextSizeChanged: (newTextSize: Number) => {
+		textEditor.textSize = newTextSize;
+	}
+});
+menu.onStart();
+
+textEditor.onStart();
+textEditor.textSize = menu.textSize;
+
+const intro = new Intro({
+	onComplete: () => {
+		intro.onHide();
+		menu.onShow();
+		textEditor.onShow();
+		textEditor.focus();
+	}
+});
+intro.onStart();
+

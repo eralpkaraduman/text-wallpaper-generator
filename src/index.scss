@@ -95,6 +95,7 @@ $menu-button-padding: 10px;
 }
 
 .menu-window-content {
+	justify-content: center;
 	background-color: $flat_clouds;
 	width: 100%;
 	margin: 5px;
@@ -121,7 +122,7 @@ $menu-button-padding: 10px;
   justify-content: center;
 }
 
-a {
+a, button {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -140,12 +141,12 @@ a {
   border-radius: 0.25em;
 }
 
-a:link, a:visited {
+a:link, a:visited, button:link, button:visited {
   color: $flat_wet_asphalt;
   background-color: $flat_clouds;
 }
 
-a:hover, a:active {
+a:hover, a:active, button:hover, button:active {
   color: $flat_clouds;
   background-color: $flat_nephritis;
 }
@@ -229,4 +230,14 @@ li div { margin-left: -0.35em; }
   margin-bottom: 20px;
 }
 
+.label {
+	font-size: 1.2em;
+  font-weight: bold;
+  font-family: 'Fira Mono';
 
+  padding: 5px;
+  margin: 5px;
+  text-decoration: none !important;
+	border-radius: 0.25em;
+	color: $flat_wet_asphalt;
+}

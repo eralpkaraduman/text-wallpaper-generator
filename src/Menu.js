@@ -1,15 +1,19 @@
 // @flow
 import * as utils from './utils';
 import DownloadWindow from './menu/DownloadWindow';
+import TextSizeWindow from './menu/TextSizeWindow';
 
 type MenuCallbacks = {
 	onDownloadRequested: () => void,
+	onTextSizeChanged: (Number) => void
 };
 
 export default class Menu {
 	menuElement: HTMLElement;
 	menuContainerElement: HTMLElement;
 	menuWindowElement: HTMLElement;
+
+	textSize: Number;
 	width: Number;
 	height: Number;
 	scale: Number;
@@ -30,7 +34,8 @@ export default class Menu {
 	};
 	
 	menuWindows = {
-		download: DownloadWindow
+		download: DownloadWindow,
+		textSize: TextSizeWindow
 	}
 	
 	callbacks: MenuCallbacks
@@ -44,6 +49,7 @@ export default class Menu {
 		this.width = window.screen.width;
 		this.height = window.screen.height;
 		this.scale = window.devicePixelRatio;
+		this.textSize = 24;
 
 		this.menuContainerElement = utils.getElement('menu-container');
 		this.menuElement = utils.getElement('menu');
@@ -73,8 +79,12 @@ export default class Menu {
 		setClickHandler(buttonElements.imageSize, editorElements.imageSize);
 		setClickHandler(buttonElements.download, editorElements.download);
 		
+		const textSizeWindow = new TextSizeWindow(this._handleOnTextSizeChangeRequested);
+		textSizeWindow.textSize = this.textSize;
+		
 		this.menuWindows = {
-			download: new DownloadWindow(this.callbacks.onDownloadRequested)
+			download: new DownloadWindow(this.callbacks.onDownloadRequested),
+			textSize: textSizeWindow
 		};
 	}
 
@@ -84,6 +94,12 @@ export default class Menu {
 
 	onHide = () => {
 		this.menuContainerElement.style.display = 'none';
+	}
+	
+	_handleOnTextSizeChangeRequested = (newTextSize: Number) => {
+		this.textSize = newTextSize;
+		this.menuWindows.textSize.textSize = this.textSize;
+		this.callbacks.onTextSizeChanged(this.textSize);
 	}
 
 	onToggleMenuWindow = (buttonElement: Object, editorElement: Object) => {

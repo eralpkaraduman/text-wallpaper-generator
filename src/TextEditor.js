@@ -3,6 +3,12 @@ import { getElement, callOnNextFrame, debounce } from './utils';
 export default class TextEditor {
 
 	textInputElement = null;
+	
+	_textSize: Number;
+	set textSize(value: Number): void {
+		this._textSize = value;
+		this._updateTextSize();
+	}
 
 	constructor() {
 	}
@@ -53,5 +59,11 @@ export default class TextEditor {
 
 	focus = () => {
 		this.textInputElement.focus();
+	}
+	
+	_updateTextSize = () => {
+		const fontSizeText = `${this._textSize}px`;
+		this.textInputElement.style.fontSize = fontSizeText;
+		callOnNextFrame(this.handleOnTextChanged)();
 	}
 }
