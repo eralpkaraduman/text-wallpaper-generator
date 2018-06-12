@@ -2,6 +2,7 @@
 import * as utils from './utils';
 import DownloadWindow from './menu/DownloadWindow';
 import TextSizeWindow from './menu/TextSizeWindow';
+import ColorWindow from './menu/ColorWindow';
 
 type MenuCallbacks = {
 	onDownloadRequested: () => void,
@@ -35,7 +36,8 @@ export default class Menu {
 	
 	menuWindows = {
 		download: DownloadWindow,
-		textSize: TextSizeWindow
+		textSize: TextSizeWindow,
+		textColor: ColorWindow
 	}
 	
 	callbacks: MenuCallbacks
@@ -82,9 +84,13 @@ export default class Menu {
 		const textSizeWindow = new TextSizeWindow(this._handleOnTextSizeChangeRequested);
 		textSizeWindow.textSize = this.textSize;
 		
+		const textColorWindow = new ColorWindow('text-color-window-color-buttons-container');
+		textColorWindow.color = 'red';
+		
 		this.menuWindows = {
 			download: new DownloadWindow(this.callbacks.onDownloadRequested),
-			textSize: textSizeWindow
+			textSize: textSizeWindow,
+			textColor: textColorWindow
 		};
 	}
 
