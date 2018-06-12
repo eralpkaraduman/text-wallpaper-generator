@@ -11,9 +11,9 @@ export const callOnNextFrame = callback => () => window.setTimeout(callback, 0.2
 export function debounce(func, wait = defaultDebounceWait, immediate = false) {
 	// based on: https://davidwalsh.name/javascript-debounce-function
 	var timeout;
-	return function() {
+	return function () {
 		var context = this, args = arguments;
-		var later = function() {
+		var later = function () {
 			timeout = null;
 			if (!immediate) func.apply(context, args);
 		};
@@ -22,4 +22,15 @@ export function debounce(func, wait = defaultDebounceWait, immediate = false) {
 		timeout = setTimeout(later, wait);
 		if (callNow) func.apply(context, args);
 	};
+}
+
+export function getStyle(el: HTMLElement, styleProp: String) {
+	// based on: https://stackoverflow.com/a/4392968/2172057
+	const x = el;
+	let y = undefined;
+	if (x.currentStyle)
+		y = x.currentStyle[styleProp];
+	else if (window.getComputedStyle)
+		y = document.defaultView.getComputedStyle(x, null).getPropertyValue(styleProp);
+	return y;
 }

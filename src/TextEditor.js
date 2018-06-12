@@ -1,4 +1,4 @@
-import { getElement, callOnNextFrame, debounce } from './utils';
+import { getElement, callOnNextFrame, debounce, getStyle } from './utils';
 
 export default class TextEditor {
 
@@ -37,8 +37,11 @@ export default class TextEditor {
 	}
 
 	handleOnTextChanged = debounce(() => {
-		this.textInputElement.style.height = 'auto';
-		this.textInputElement.style.height = this.textInputElement.scrollHeight + 'px';
+		let linecount = this.textInputElement.value.split('\n').length;
+		linecount = Math.max(1, linecount);
+		const lineHeight = parseInt(getStyle(this.textInputElement, 'line-height'));
+		const heightStyle = `${linecount * lineHeight}px`;
+		this.textInputElement.style.height = heightStyle;
 	});
 
 	handleOnTextInputFocus = debounce(() => {
@@ -51,6 +54,7 @@ export default class TextEditor {
 
 	onShow = () => {
 		this.textInputElement.style.display = 'block';
+		callOnNextFrame(this.handleOnTextChanged)();
 	}
 	
 	onHide = () => {
@@ -62,8 +66,8 @@ export default class TextEditor {
 	}
 	
 	_updateTextSize = () => {
-		const fontSizeText = `${this._textSize}px`;
-		this.textInputElement.style.fontSize = fontSizeText;
+		const fontSizeStyle = `${this._textSize}pt`;
+		this.textInputElement.style.fontSize = fontSizeStyle;
 		callOnNextFrame(this.handleOnTextChanged)();
 	}
 }
