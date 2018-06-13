@@ -1,7 +1,6 @@
 // @flow
 import 'normalize.css/normalize.css';
 import 'font-awesome/scss/font-awesome.scss';
-import 'flatui-colors';
 import 'flexboxgrid';
 import 'typeface-fira-mono';
 import FileSaver from 'file-saver';
@@ -37,12 +36,16 @@ const menu: Menu = new Menu({
 	},
 	onTextSizeChanged: (newTextSize: Number) => {
 		textEditor.textSize = newTextSize;
+	},
+	onTextColorChanged: (newTextColor: String) => {
+		textEditor.textColor = newTextColor;
 	}
 });
 menu.onStart();
 
 textEditor.onStart();
 textEditor.textSize = menu.textSize;
+textEditor.textColor = menu.textColor;
 
 const intro = new Intro({
 	onComplete: () => {
@@ -53,4 +56,3 @@ const intro = new Intro({
 	}
 });
 intro.onStart();
-

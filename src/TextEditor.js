@@ -9,6 +9,12 @@ export default class TextEditor {
 		this._textSize = value;
 		this._updateTextSize();
 	}
+	
+	_textColor: String;
+	set textColor(value: String): void {
+		this._textColor = value;
+		this._updateTextColor();
+	}
 
 	constructor() {
 	}
@@ -69,5 +75,9 @@ export default class TextEditor {
 		const fontSizeStyle = `${this._textSize}pt`;
 		this.textInputElement.style.fontSize = fontSizeStyle;
 		callOnNextFrame(this.handleOnTextChanged)();
+	}
+	
+	_updateTextColor = () => {
+		this.textInputElement.style.color = this._textColor;
 	}
 }
