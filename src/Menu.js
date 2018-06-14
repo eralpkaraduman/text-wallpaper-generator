@@ -11,42 +11,57 @@ type MenuCallbacks = {
 	onTextColorChanged: (String) => void
 };
 
+type ButtonElements = {
+	textColor: HTMLElement,
+	backgroundColor: HTMLElement,
+	textSize: HTMLElement,
+	imageSize: HTMLElement,
+	download: HTMLElement
+}
+
+type EditorElements = {
+	textColor: HTMLElement,
+	backgroundColor: HTMLElement,
+	textSize: HTMLElement,
+	imageSize: HTMLElement,
+	download: HTMLElement
+}
+
 export default class Menu {
 	menuElement: HTMLElement;
 	menuContainerElement: HTMLElement;
 	menuWindowElement: HTMLElement;
 	menuTextColorButtonColorRectangleElement: HTMLElement;
+	menuBackgroundColorButtonColorRectangleElement: HTMLElement;
 
 	textSize: Number;
 	width: Number;
 	height: Number;
 	scale: Number;
-	color: Number;
-	textColor: String;
+	backgroundColor: string;
+	textColor: string;
 
-	buttonElements: {
-		color: HTMLElement,
-		textSize: HTMLElement,
-		imageSize: HTMLElement,
-		download: HTMLElement
-	}
-
-	editorElements = {
-		color: HTMLElement,
-		textSize: HTMLElement,
-		imageSize: HTMLElement,
-		download: HTMLElement
-	};
+	buttonElements: ButtonElements;
+	editorElements: EditorElements;
 	
+	scale: Number;
+	textColor: string;
+
+	buttonElements: ButtonElements;
+	editorElements: EditorElements;
+
 	menuWindows = {
 		download: DownloadWindow,
 		textSize: TextSizeWindow,
-		textColor: ColorWindow
+		textColor: ColorWindow,
+		backgroundColor: ColorWindow
 	}
-	
+
 	callbacks: MenuCallbacks
-	
+
 	constructor(callbacks: MenuCallbacks) {
+		this.buttonElements = {};
+		this.editorElements = {};
 		this.callbacks = callbacks;
 	}
 
@@ -57,39 +72,39 @@ export default class Menu {
 		this.scale = window.devicePixelRatio;
 		this.textSize = 24;
 		this.textColor = colors.flat_ui_colors.silver;
+		this.backgroundColor = colors.flat_ui_colors.midnight_blue;
 
 		this.menuContainerElement = utils.getElement('menu-container');
 		this.menuElement = utils.getElement('menu');
 		this.menuWindowElement = utils.getElement('menu-window');
 		this.menuTextColorButtonColorRectangleElement = utils.getElement('menu-button-text-color-rectangle-color');
-
-		this.buttonElements = {
-			color: utils.getElement('menu-button-text-color'),
-			textSize: utils.getElement('menu-button-text-size'),
-			imageSize: utils.getElement('menu-button-image-size'),
-			download: utils.getElement('menu-button-download')
-		};
-
-		this.editorElements = {
-			color: utils.getElement('menu-editor-color'),
-			textSize: utils.getElement('menu-editor-text-size'),
-			imageSize: utils.getElement('menu-editor-image-size'),
-			download: utils.getElement('menu-editor-download')
-		};
+		this.menuBackgroundColorButtonColorRectangleElement = utils.getElement('menu-button-background-color-rectangle-color');
 
 		const { buttonElements, editorElements } = this;
+		buttonElements.textColor = utils.getElement('menu-button-text-color');
+		buttonElements.backgroundColor = utils.getElement('menu-button-background-color');
+		buttonElements.textSize = utils.getElement('menu-button-text-size');
+		buttonElements.imageSize = utils.getElement('menu-button-image-size');
+		buttonElements.download = utils.getElement('menu-button-download');
+
+		editorElements.textColor = utils.getElement('menu-editor-text-color');
+		editorElements.backgroundColor = utils.getElement('menu-editor-background-color');
+		editorElements.textSize = utils.getElement('menu-editor-text-size');
+		editorElements.imageSize = utils.getElement('menu-editor-image-size');
+		editorElements.download = utils.getElement('menu-editor-download');
 
 		const setClickHandler = (buttonElement, editorElement) =>
 			buttonElement.addEventListener('click', () => this.onToggleMenuWindow(buttonElement, editorElement));
 
-		setClickHandler(buttonElements.color, editorElements.color);
+		setClickHandler(buttonElements.textColor, editorElements.textColor);
+		setClickHandler(buttonElements.backgroundColor, editorElements.backgroundColor);
 		setClickHandler(buttonElements.textSize, editorElements.textSize);
 		setClickHandler(buttonElements.imageSize, editorElements.imageSize);
 		setClickHandler(buttonElements.download, editorElements.download);
-		
+
 		const textSizeWindow = new TextSizeWindow(this._handleOnTextSizeChangeRequested);
 		textSizeWindow.textSize = this.textSize;
-		
+
 		const textColorWindow = new ColorWindow(
 			'text-color-window-color-buttons-container',
 			this._handleOnTextColorChangeRequested
@@ -97,10 +112,18 @@ export default class Menu {
 		textColorWindow.color = this.textColor;
 		this.menuTextColorButtonColorRectangleElement.style.backgroundColor = this.textColor;
 		
+		const backgroundColorWindow = new ColorWindow(
+			'background-color-window-color-buttons-container',
+			this._handleOnBackgroundColorChangeRequested
+		);
+		backgroundColorWindow.color = this.backgroundColor;
+		this.menuBackgroundColorButtonColorRectangleElement.style.backgroundColor = this.backgroundColor;
+
 		this.menuWindows = {
 			download: new DownloadWindow(this.callbacks.onDownloadRequested),
 			textSize: textSizeWindow,
-			textColor: textColorWindow
+			textColor: textColorWindow,
+			backgroundColor: backgroundColorWindow
 		};
 	}
 
@@ -111,13 +134,13 @@ export default class Menu {
 	onHide = () => {
 		this.menuContainerElement.style.display = 'none';
 	}
-	
+
 	_handleOnTextSizeChangeRequested = (newTextSize: Number) => {
 		this.textSize = newTextSize;
 		this.menuWindows.textSize.textSize = this.textSize;
 		this.callbacks.onTextSizeChanged(this.textSize);
 	}
-	
+
 	_handleOnTextColorChangeRequested = (newTextColor: String) => {
 		this.textColor = newTextColor;
 		this.menuWindows.textColor.color = newTextColor;
