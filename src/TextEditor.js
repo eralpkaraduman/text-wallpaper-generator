@@ -69,7 +69,8 @@ export default class TextEditor {
 
 	focus = () => {
 		this.textInputElement.focus();
-		this.textInputElement.select();
+		const text = this.textInputElement.value || '';
+		this.textInputElement.setSelectionRange(0, text.length);
 	}
 	
 	_updateTextSize = () => {
