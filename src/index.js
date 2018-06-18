@@ -6,7 +6,7 @@ import 'typeface-fira-mono';
 import FileSaver from 'file-saver';
 
 import './index.scss';
-import {getElement} from './utils';
+import {getElement, insertStyle} from './utils';
 import Intro from './Intro';
 import Menu from './Menu';
 import TextEditor from './TextEditor';
@@ -30,8 +30,15 @@ const handleOnDownloadWallpaper = async () => {
 
 const textEditor = new TextEditor();
 
+const updateSelectionStyles = () => {
+	const {textColor, backgroundColor} = menu;
+	insertStyle('wallpaper-text-input', 'placeholder', {'color': textColor});
+	insertStyle('wallpaper-text-input', 'selection', {'color': backgroundColor, 'background-color': textColor});
+};
+
 const menu: Menu = new Menu({
 	onDownloadRequested: () => {
+		updateSelectionStyles();
 		handleOnDownloadWallpaper();
 	},
 	onTextSizeChanged: (newTextSize: Number) => {
@@ -39,12 +46,15 @@ const menu: Menu = new Menu({
 	},
 	onTextColorChanged: (newTextColor: String) => {
 		textEditor.textColor = newTextColor;
+		updateSelectionStyles();
 	},
 	onBackgroundColorChanged: (newBackgroundColor: String) => {
 		targetElement.style.backgroundColor = newBackgroundColor;
+		updateSelectionStyles();
 	}
 });
 menu.onStart();
+updateSelectionStyles();
 
 textEditor.onStart();
 textEditor.textSize = menu.textSize;

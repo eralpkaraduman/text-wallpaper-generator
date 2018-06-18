@@ -34,3 +34,12 @@ export function getStyle(el: HTMLElement, styleProp: String) {
 		y = document.defaultView.getComputedStyle(x, null).getPropertyValue(styleProp);
 	return y;
 }
+
+export function insertStyle(elementId: String, pseudoClass: String, kvo: {String: String}) {
+	const stylesheet = document.styleSheets[0];
+	const stylesString = `{${kvoIndexed(kvo).map(({key, value}) => `${key}: ${value}`).join('; ')}}`;
+	const getlastIndex = () => stylesheet.cssRules.length;
+	['', '-moz-', '-webkit-'].forEach(vendorPrefix => {
+		try {stylesheet.insertRule(`#${elementId}::${vendorPrefix}${pseudoClass} ${stylesString}`, getlastIndex());} catch(e) {} // eslint-disable-line
+	});
+}

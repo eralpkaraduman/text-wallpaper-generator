@@ -69,6 +69,7 @@ export default class TextEditor {
 
 	focus = () => {
 		this.textInputElement.focus();
+		this.textInputElement.select();
 	}
 	
 	_updateTextSize = () => {
@@ -80,5 +81,14 @@ export default class TextEditor {
 	_updateTextColor = () => {
 		this.textInputElement.style.color = this._textColor;
 		this.textInputElement.style.caretColor = this._textColor;
+		
+		// const stylesheet = document.styleSheets[0];
+		// try {stylesheet.insertRule('::selection {color: red}', 0);} catch(e) {} // eslint-disable-line
+		// try {stylesheet.insertRule('::-moz-selection {color: red}', 0);} catch(e) {} // eslint-disable-line
+		
+		
+		
+		// stylesheet.insertRule('::-moz-selection {color: red}', 0);
+		
 	}
 }
