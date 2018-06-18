@@ -6,16 +6,16 @@ import 'typeface-fira-mono';
 import FileSaver from 'file-saver';
 
 import './index.scss';
+import {getElement} from './utils';
 import Intro from './Intro';
 import Menu from './Menu';
 import TextEditor from './TextEditor';
 import WallpaperGenerator from './WallpaperGenerator';
 
+const targetElement: HTMLElement = getElement('wallpaper');
+
 const handleOnDownloadWallpaper = async () => {
-	const targetElement = document.querySelector('#wallpaper');
-
 	const { width, height, scale } = menu;
-
 	const blob = await WallpaperGenerator.generate({
 		targetElement,
 		width,
@@ -39,6 +39,9 @@ const menu: Menu = new Menu({
 	},
 	onTextColorChanged: (newTextColor: String) => {
 		textEditor.textColor = newTextColor;
+	},
+	onBackgroundColorChanged: (newBackgroundColor: String) => {
+		targetElement.style.backgroundColor = newBackgroundColor;
 	}
 });
 menu.onStart();
@@ -46,6 +49,8 @@ menu.onStart();
 textEditor.onStart();
 textEditor.textSize = menu.textSize;
 textEditor.textColor = menu.textColor;
+
+targetElement.style.backgroundColor = menu.backgroundColor;
 
 const intro = new Intro({
 	onComplete: () => {
@@ -56,3 +61,4 @@ const intro = new Intro({
 	}
 });
 intro.onStart();
+

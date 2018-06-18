@@ -79,5 +79,6 @@ export default class TextEditor {
 	
 	_updateTextColor = () => {
 		this.textInputElement.style.color = this._textColor;
+		this.textInputElement.style.caretColor = this._textColor;
 	}
 }

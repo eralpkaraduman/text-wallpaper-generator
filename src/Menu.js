@@ -8,7 +8,8 @@ import ColorWindow from './menu/ColorWindow';
 type MenuCallbacks = {
 	onDownloadRequested: () => void,
 	onTextSizeChanged: (Number) => void,
-	onTextColorChanged: (String) => void
+	onTextColorChanged: (String) => void,
+	onBackgroundColorChanged: (String) => void
 };
 
 type ButtonElements = {
@@ -72,7 +73,7 @@ export default class Menu {
 		this.scale = window.devicePixelRatio;
 		this.textSize = 24;
 		this.textColor = colors.flat_ui_colors.silver;
-		this.backgroundColor = colors.flat_ui_colors.midnight_blue;
+		this.backgroundColor = colors.flat_ui_colors.wet_asphalt;
 
 		this.menuContainerElement = utils.getElement('menu-container');
 		this.menuElement = utils.getElement('menu');
@@ -143,9 +144,16 @@ export default class Menu {
 
 	_handleOnTextColorChangeRequested = (newTextColor: String) => {
 		this.textColor = newTextColor;
-		this.menuWindows.textColor.color = newTextColor;
+		this.menuWindows.textColor.color = this.textColor;
 		this.menuTextColorButtonColorRectangleElement.style.backgroundColor = this.textColor;
 		this.callbacks.onTextColorChanged(this.textColor);
+	}
+	
+	_handleOnBackgroundColorChangeRequested = (newBackgrundColor: String) => {
+		this.backgroundColor = newBackgrundColor;
+		this.menuWindows.backgroundColor.color = this.backgroundColor;
+		this.menuBackgroundColorButtonColorRectangleElement.style.backgroundColor = this.backgroundColor;
+		this.callbacks.onBackgroundColorChanged(this.backgroundColor);
 	}
 
 	onToggleMenuWindow = (buttonElement: Object, editorElement: Object) => {
