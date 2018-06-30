@@ -1,9 +1,9 @@
 // @flow
-import * as utils from './utils';
-import colors from './colors';
-import DownloadWindow from './menu/DownloadWindow';
-import TextSizeWindow from './menu/TextSizeWindow';
-import ColorWindow from './menu/ColorWindow';
+import * as utils from '../utils';
+import colors from '../colors';
+import DownloadWindow from './DownloadWindow';
+import TextSizeWindow from './TextSizeWindow';
+import ColorWindow from './ColorWindow';
 
 type MenuCallbacks = {
 	onDownloadRequested: () => void,
@@ -136,6 +136,17 @@ export default class Menu {
 		this.menuContainerElement.style.display = 'none';
 	}
 
+	closeAllWindows = () => {
+		console.log('caw');
+		utils.kvoIndexed(this.buttonElements).forEach(({ value }: { value: HTMLElement }) =>
+			value.classList.remove('active-button')
+		);
+
+		utils.kvoIndexed(this.editorElements).forEach(({ value }: { value: HTMLElement }) =>
+			value.style.display = 'none'
+		);
+	}
+
 	_handleOnTextSizeChangeRequested = (newTextSize: Number) => {
 		this.textSize = newTextSize;
 		this.menuWindows.textSize.textSize = this.textSize;
@@ -147,6 +158,11 @@ export default class Menu {
 		this.menuWindows.textColor.color = this.textColor;
 		this.menuTextColorButtonColorRectangleElement.style.backgroundColor = this.textColor;
 		this.callbacks.onTextColorChanged(this.textColor);
+		this.onToggleMenuWindow(
+			this.buttonElements.textColor,
+			this.editorElements.textColor,
+			false
+		);
 	}
 	
 	_handleOnBackgroundColorChangeRequested = (newBackgrundColor: String) => {
@@ -154,23 +170,24 @@ export default class Menu {
 		this.menuWindows.backgroundColor.color = this.backgroundColor;
 		this.menuBackgroundColorButtonColorRectangleElement.style.backgroundColor = this.backgroundColor;
 		this.callbacks.onBackgroundColorChanged(this.backgroundColor);
+		this.onToggleMenuWindow(
+			this.buttonElements.backgroundColor,
+			this.editorElements.backgroundColor,
+			false
+		);
 	}
 
-	onToggleMenuWindow = (buttonElement: Object, editorElement: Object) => {
-		const isMenuOpen = this.menuElement.classList.contains('menu-active');
-		const buttonWasActive = buttonElement.classList.contains('active-button');
-		let shouldMenuOpen = !isMenuOpen;
-		if (!buttonWasActive) {
-			shouldMenuOpen = true;
+	onToggleMenuWindow = (buttonElement: Object, editorElement: Object, shouldMenuOpen: Boolean = null) => {
+		if (shouldMenuOpen == null) {
+			const isMenuOpen = this.menuElement.classList.contains('menu-active');
+			const buttonWasActive = buttonElement.classList.contains('active-button');
+			shouldMenuOpen = !isMenuOpen;
+			if (!buttonWasActive) {
+				shouldMenuOpen = true;
+			}
 		}
 
-		utils.kvoIndexed(this.buttonElements).forEach(({ value }: { value: HTMLElement }) =>
-			value.classList.remove('active-button')
-		);
-
-		utils.kvoIndexed(this.editorElements).forEach(({ value }: { value: HTMLElement }) =>
-			value.style.display = 'none'
-		);
+		this.closeAllWindows();
 
 		if (shouldMenuOpen) {
 			this.menuElement.classList.remove('menu');

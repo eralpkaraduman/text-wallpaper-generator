@@ -1,9 +1,14 @@
-import { getElement, callOnNextFrame, debounce, getStyle } from './utils';
+import { getElement, callOnNextFrame, debounce, getStyle } from '../utils';
+
+type OnFocusedCallback = () => void;
+type TextEditorCallbacks = {onFocused: OnFocusedCallback};
 
 export default class TextEditor {
 
 	textInputElement = null;
 	
+	_onFocusedCallback: OnFocusedCallback;
+
 	_textSize: Number;
 	set textSize(value: Number): void {
 		this._textSize = value;
@@ -16,7 +21,8 @@ export default class TextEditor {
 		this._updateTextColor();
 	}
 
-	constructor() {
+	constructor(callbacks: TextEditorCallbacks) {
+		this._onFocusedCallback = callbacks.onFocused;
 	}
 
 	onStart = () => {
@@ -51,6 +57,7 @@ export default class TextEditor {
 	});
 
 	handleOnTextInputFocus = debounce(() => {
+		this._onFocusedCallback();
 		callOnNextFrame(this.handleOnTextChanged)();
 	});
 
@@ -69,8 +76,8 @@ export default class TextEditor {
 
 	focus = () => {
 		this.textInputElement.focus();
-		const text = this.textInputElement.value || '';
-		this.textInputElement.setSelectionRange(0, text.length);
+		// const text = this.textInputElement.value || '';
+		// this.textInputElement.setSelectionRange(0, text.length);
 	}
 	
 	_updateTextSize = () => {

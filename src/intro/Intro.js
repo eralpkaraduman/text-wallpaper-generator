@@ -1,4 +1,4 @@
-import { getElement } from './utils';
+import { getElement } from '../utils';
 
 export default class Intro {
 

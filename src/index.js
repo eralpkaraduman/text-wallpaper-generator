@@ -7,10 +7,10 @@ import FileSaver from 'file-saver';
 
 import './index.scss';
 import {getElement, insertStyle} from './utils';
-import Intro from './Intro';
-import Menu from './Menu';
-import TextEditor from './TextEditor';
-import WallpaperGenerator from './WallpaperGenerator';
+import Intro from './intro/Intro';
+import Menu from './menu/Menu';
+import TextEditor from './textEditor/TextEditor';
+import WallpaperGenerator from './wallpaperGenerator/WallpaperGenerator';
 
 const targetElement: HTMLElement = getElement('wallpaper');
 
@@ -28,7 +28,11 @@ const handleOnDownloadWallpaper = async () => {
 	FileSaver.saveAs(blob, fileName);
 };
 
-const textEditor = new TextEditor();
+let menu: Menu;
+
+const textEditor = new TextEditor({
+	onFocused: () => menu.closeAllWindows()
+});
 
 const updateSelectionStyles = () => {
 	const {textColor, backgroundColor} = menu;
@@ -36,7 +40,7 @@ const updateSelectionStyles = () => {
 	insertStyle('wallpaper-text-input', 'selection', {'color': backgroundColor, 'background-color': textColor});
 };
 
-const menu: Menu = new Menu({
+menu = new Menu({
 	onDownloadRequested: () => {
 		updateSelectionStyles();
 		handleOnDownloadWallpaper();
@@ -61,6 +65,7 @@ textEditor.textSize = menu.textSize;
 textEditor.textColor = menu.textColor;
 
 targetElement.style.backgroundColor = menu.backgroundColor;
+targetElement.addEventListener('click', () => menu.closeAllWindows());
 
 const intro = new Intro({
 	onComplete: () => {
