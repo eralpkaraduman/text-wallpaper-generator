@@ -80,7 +80,8 @@ $menu-button-padding: 10px;
 	width: 100%;
 	margin: 5px;
 	border-radius: 0.25em;
-	min-width: 200px;
+	width: 210px;
+  flex-wrap: wrap;
 }
 
 .menu-container {
@@ -89,7 +90,6 @@ $menu-button-padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  // width: 100%;
   position: absolute;
 }
 
@@ -221,9 +221,31 @@ li div { margin-left: -0.35em; }
   text-decoration: none !important;
 	border-radius: 0.25em;
 	color: $flat_wet_asphalt;
+	text-align: 'right';
 }
 
 .color-buttons-container {
 	max-width: 210px;
 	justify-content: start;
+}
+
+.menu-window-content-row, .menu-window-content-column {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.label-right {
+  @extend .label;
+	text-align: right;
+}
+
+.image-size-icon {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  color: $flat_wet_asphalt;
+  margin: 5px;
+  padding: 5px;
 }

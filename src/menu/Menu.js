@@ -9,7 +9,8 @@ type MenuCallbacks = {
 	onDownloadRequested: () => void,
 	onTextSizeChanged: (Number) => void,
 	onTextColorChanged: (String) => void,
-	onBackgroundColorChanged: (String) => void
+	onBackgroundColorChanged: (String) => void,
+	onImageSizeChanged: (width: Number, height: Number) => void
 };
 
 type ButtonElements = {
@@ -137,7 +138,6 @@ export default class Menu {
 	}
 
 	closeAllWindows = () => {
-		console.log('caw');
 		utils.kvoIndexed(this.buttonElements).forEach(({ value }: { value: HTMLElement }) =>
 			value.classList.remove('active-button')
 		);
