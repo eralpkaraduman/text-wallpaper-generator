@@ -3,6 +3,7 @@ import * as utils from '../utils';
 import colors from '../colors';
 import DownloadWindow from './DownloadWindow';
 import TextSizeWindow from './TextSizeWindow';
+import ImageSizeWindow from './ImageSizeWindow';
 import ColorWindow from './ColorWindow';
 
 type MenuCallbacks = {
@@ -55,6 +56,7 @@ export default class Menu {
 	menuWindows = {
 		download: DownloadWindow,
 		textSize: TextSizeWindow,
+		imageSize: ImageSizeWindow,
 		textColor: ColorWindow,
 		backgroundColor: ColorWindow
 	}
@@ -120,10 +122,18 @@ export default class Menu {
 		);
 		backgroundColorWindow.color = this.backgroundColor;
 		this.menuBackgroundColorButtonColorRectangleElement.style.backgroundColor = this.backgroundColor;
+		
+		const imageSizeWindow = new ImageSizeWindow(
+			this.width,
+			this.height,
+			this.scale,
+			this._handleOnImageSizeChanged
+		);
 
 		this.menuWindows = {
 			download: new DownloadWindow(this.callbacks.onDownloadRequested),
 			textSize: textSizeWindow,
+			ImageSizeWindow: imageSizeWindow,
 			textColor: textColorWindow,
 			backgroundColor: backgroundColorWindow
 		};
@@ -163,6 +173,10 @@ export default class Menu {
 			this.editorElements.textColor,
 			false
 		);
+	}
+	
+	_handleOnImageSizeChanged = (width: Number, height: Number, scale: Number) => {
+		console.log({ width, height, scale});
 	}
 	
 	_handleOnBackgroundColorChangeRequested = (newBackgrundColor: String) => {
