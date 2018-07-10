@@ -1,8 +1,16 @@
+// @flow
 import html2canvas from 'html2canvas';
 import 'blob.js';
 
+type Options = {
+	targetElement: HTMLElement,
+	width: number,
+	height: number,
+	scale: number
+}
+
 export default class ImageGenerator {
-	static async generate(options) {
+	static async generate(options: Options) {
 		const {
 			targetElement,
 			width,

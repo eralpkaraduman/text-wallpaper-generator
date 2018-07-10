@@ -1,7 +1,7 @@
 // @flow
 import * as utils from '../utils';
 
-type SizeChangeRequestHandler = (width: Number, height: Number, scale: Number) => void;
+type SizeChangeRequestHandler = (width: number, height: number, scale: number) => void;
 
 export default class ImageSizeWindow {
 	_requestSizeChangeHandler: SizeChangeRequestHandler;
@@ -9,25 +9,25 @@ export default class ImageSizeWindow {
 	_heightLabelElement: HTMLElement;
 	_scaleLabelElement: HTMLElement;
 	
-	_width: Number
-	set width(value: Number) {
+	_width: number
+	set width(value: number) {
 		this._width = value;
 		this.updateProperties();
 	}
 	
-	_height: Number;
-	set height(value: Number) {
+	_height: number;
+	set height(value: number) {
 		this._height = value;
 		this.updateProperties();
 	}
 	
-	_scale: Number;
-	set scale(value: Number) {
+	_scale: number;
+	set scale(value: number) {
 		this._scale = value;
 		this.updateProperties();
 	}
 
-	constructor(width: Number, height: Number, scale: Number, onRequestSizeChange: SizeChangeRequestHandler) {
+	constructor(width: number, height: number, scale: number, onRequestSizeChange: SizeChangeRequestHandler) {
 		this._width = width;
 		this._height = height;
 		this._scale = scale;

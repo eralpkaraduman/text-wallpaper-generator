@@ -1,14 +1,15 @@
+// @flow
 import { getElement } from '../utils';
+type OnCompleteCallback = () => void
 
 export default class Intro {
 
-	introElement = null;
-	startButtonElement = null;
-	onCompleteHandler = null;
+	introElement: HTMLElement;
+	startButtonElement: HTMLElement;
+	onCompleteHandler: OnCompleteCallback;
 
-	constructor({ onComplete }) {
-		this.onCompleteHandler = onComplete;
-
+	constructor(callbacks: { onComplete: OnCompleteCallback }) {
+		this.onCompleteHandler = callbacks.onComplete;
 	}
 
 	onStart = () => {

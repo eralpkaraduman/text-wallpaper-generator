@@ -1,19 +1,30 @@
 // @flow
 import * as utils from '../utils';
-import colors from '../colors';
 import DownloadWindow from './DownloadWindow';
 import TextSizeWindow from './TextSizeWindow';
 import ImageSizeWindow from './ImageSizeWindow';
 import ColorWindow from './ColorWindow';
 
+type OnDownloadRequested = () => void;
+type OnTextSizeChanged = (number) => void;
+type OnTextColorChanged = (string) => void;
+type OnBackgroundColorChanged = (string) => void;
+type OnImageSizeChanged = (width: number, height: number) => void;
 type MenuCallbacks = {
-	onDownloadRequested: () => void,
-	onTextSizeChanged: (Number) => void,
-	onTextColorChanged: (String) => void,
-	onBackgroundColorChanged: (String) => void,
-	onImageSizeChanged: (width: Number, height: Number) => void
+	onDownloadRequested: OnDownloadRequested,
+	onTextSizeChanged: OnTextSizeChanged,
+	onTextColorChanged: OnTextColorChanged,
+	onBackgroundColorChanged: OnBackgroundColorChanged,
+	onImageSizeChanged: OnImageSizeChanged
 };
-
+type Options = {
+	textSize: number,
+	width: number,
+	height: number,
+	scale: number,
+	backgroundColor: string,
+	textColor: string
+};
 type ButtonElements = {
 	textColor: HTMLElement,
 	backgroundColor: HTMLElement,
@@ -37,23 +48,20 @@ export default class Menu {
 	menuTextColorButtonColorRectangleElement: HTMLElement;
 	menuBackgroundColorButtonColorRectangleElement: HTMLElement;
 
-	textSize: Number;
-	width: Number;
-	height: Number;
-	scale: Number;
+	textSize: number;
+	width: number;
+	height: number;
+	scale: number;
 	backgroundColor: string;
 	textColor: string;
 
 	buttonElements: ButtonElements;
 	editorElements: EditorElements;
-	
-	scale: Number;
+
+	scale: number;
 	textColor: string;
 
-	buttonElements: ButtonElements;
-	editorElements: EditorElements;
-
-	menuWindows = {
+	menuWindows: {
 		download: DownloadWindow,
 		textSize: TextSizeWindow,
 		imageSize: ImageSizeWindow,
@@ -64,19 +72,16 @@ export default class Menu {
 	callbacks: MenuCallbacks
 
 	constructor(callbacks: MenuCallbacks) {
-		this.buttonElements = {};
-		this.editorElements = {};
 		this.callbacks = callbacks;
 	}
 
-	onStart = () => {
-		// initial state
-		this.width = window.screen.width;
-		this.height = window.screen.height;
-		this.scale = window.devicePixelRatio;
-		this.textSize = 24;
-		this.textColor = colors.flat_ui_colors.silver;
-		this.backgroundColor = colors.flat_ui_colors.wet_asphalt;
+	onStart(options: Options) {
+		this.width = options.width;
+		this.height = options.height;
+		this.scale = options.scale;
+		this.textSize = options.textSize;
+		this.textColor = options.textColor;
+		this.backgroundColor = options.backgroundColor;
 
 		this.menuContainerElement = utils.getElement('menu-container');
 		this.menuElement = utils.getElement('menu');
@@ -84,27 +89,30 @@ export default class Menu {
 		this.menuTextColorButtonColorRectangleElement = utils.getElement('menu-button-text-color-rectangle-color');
 		this.menuBackgroundColorButtonColorRectangleElement = utils.getElement('menu-button-background-color-rectangle-color');
 
-		const { buttonElements, editorElements } = this;
-		buttonElements.textColor = utils.getElement('menu-button-text-color');
-		buttonElements.backgroundColor = utils.getElement('menu-button-background-color');
-		buttonElements.textSize = utils.getElement('menu-button-text-size');
-		buttonElements.imageSize = utils.getElement('menu-button-image-size');
-		buttonElements.download = utils.getElement('menu-button-download');
+		this.buttonElements = {
+			textColor: utils.getElement('menu-button-text-color'),
+			backgroundColor: utils.getElement('menu-button-background-color'),
+			textSize: utils.getElement('menu-button-text-size'),
+			imageSize: utils.getElement('menu-button-image-size'),
+			download: utils.getElement('menu-button-download')
+		};
 
-		editorElements.textColor = utils.getElement('menu-editor-text-color');
-		editorElements.backgroundColor = utils.getElement('menu-editor-background-color');
-		editorElements.textSize = utils.getElement('menu-editor-text-size');
-		editorElements.imageSize = utils.getElement('menu-editor-image-size');
-		editorElements.download = utils.getElement('menu-editor-download');
+		this.editorElements = {
+			textColor: utils.getElement('menu-editor-text-color'),
+			backgroundColor: utils.getElement('menu-editor-background-color'),
+			textSize: utils.getElement('menu-editor-text-size'),
+			imageSize: utils.getElement('menu-editor-image-size'),
+			download: utils.getElement('menu-editor-download')
+		};
 
 		const setClickHandler = (buttonElement, editorElement) =>
 			buttonElement.addEventListener('click', () => this.onToggleMenuWindow(buttonElement, editorElement));
 
-		setClickHandler(buttonElements.textColor, editorElements.textColor);
-		setClickHandler(buttonElements.backgroundColor, editorElements.backgroundColor);
-		setClickHandler(buttonElements.textSize, editorElements.textSize);
-		setClickHandler(buttonElements.imageSize, editorElements.imageSize);
-		setClickHandler(buttonElements.download, editorElements.download);
+		setClickHandler(this.buttonElements.textColor, this.editorElements.textColor);
+		setClickHandler(this.buttonElements.backgroundColor, this.editorElements.backgroundColor);
+		setClickHandler(this.buttonElements.textSize, this.editorElements.textSize);
+		setClickHandler(this.buttonElements.imageSize, this.editorElements.imageSize);
+		setClickHandler(this.buttonElements.download, this.editorElements.download);
 
 		const textSizeWindow = new TextSizeWindow(this._handleOnTextSizeChangeRequested);
 		textSizeWindow.textSize = this.textSize;
@@ -115,14 +123,14 @@ export default class Menu {
 		);
 		textColorWindow.color = this.textColor;
 		this.menuTextColorButtonColorRectangleElement.style.backgroundColor = this.textColor;
-		
+
 		const backgroundColorWindow = new ColorWindow(
 			'background-color-window-color-buttons-container',
 			this._handleOnBackgroundColorChangeRequested
 		);
 		backgroundColorWindow.color = this.backgroundColor;
 		this.menuBackgroundColorButtonColorRectangleElement.style.backgroundColor = this.backgroundColor;
-		
+
 		const imageSizeWindow = new ImageSizeWindow(
 			this.width,
 			this.height,
@@ -133,7 +141,7 @@ export default class Menu {
 		this.menuWindows = {
 			download: new DownloadWindow(this.callbacks.onDownloadRequested),
 			textSize: textSizeWindow,
-			ImageSizeWindow: imageSizeWindow,
+			imageSize: imageSizeWindow,
 			textColor: textColorWindow,
 			backgroundColor: backgroundColorWindow
 		};
@@ -157,13 +165,13 @@ export default class Menu {
 		);
 	}
 
-	_handleOnTextSizeChangeRequested = (newTextSize: Number) => {
+	_handleOnTextSizeChangeRequested = (newTextSize: number) => {
 		this.textSize = newTextSize;
 		this.menuWindows.textSize.textSize = this.textSize;
 		this.callbacks.onTextSizeChanged(this.textSize);
 	}
 
-	_handleOnTextColorChangeRequested = (newTextColor: String) => {
+	_handleOnTextColorChangeRequested = (newTextColor: string) => {
 		this.textColor = newTextColor;
 		this.menuWindows.textColor.color = this.textColor;
 		this.menuTextColorButtonColorRectangleElement.style.backgroundColor = this.textColor;
@@ -174,12 +182,12 @@ export default class Menu {
 			false
 		);
 	}
-	
-	_handleOnImageSizeChanged = (width: Number, height: Number, scale: Number) => {
-		console.log({ width, height, scale});
+
+	_handleOnImageSizeChanged = (/*width: number, height: number, scale: number*/) => {
+		// console.log({ width, height, scale });
 	}
-	
-	_handleOnBackgroundColorChangeRequested = (newBackgrundColor: String) => {
+
+	_handleOnBackgroundColorChangeRequested = (newBackgrundColor: string) => {
 		this.backgroundColor = newBackgrundColor;
 		this.menuWindows.backgroundColor.color = this.backgroundColor;
 		this.menuBackgroundColorButtonColorRectangleElement.style.backgroundColor = this.backgroundColor;
@@ -191,9 +199,9 @@ export default class Menu {
 		);
 	}
 
-	onToggleMenuWindow = (buttonElement: Object, editorElement: Object, shouldMenuOpen: Boolean = null) => {
+	onToggleMenuWindow = (buttonElement: Object, editorElement: Object, shouldMenuOpen: ?boolean = null) => {
 		if (shouldMenuOpen == null) {
-			const isMenuOpen = this.menuElement.classList.contains('menu-active');
+			const isMenuOpen: boolean = this.menuElement.classList.contains('menu-active');
 			const buttonWasActive = buttonElement.classList.contains('active-button');
 			shouldMenuOpen = !isMenuOpen;
 			if (!buttonWasActive) {

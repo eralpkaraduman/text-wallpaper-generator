@@ -1,7 +1,7 @@
 // @flow
 import * as utils from '../utils';
 
-type TextSizeChangeCallback = (newTextSize: Number) => void
+type TextSizeChangeCallback = (newTextSize: number) => void
 
 export default class TextSizeWindow {
 	plusButton: HTMLElement;
@@ -10,8 +10,8 @@ export default class TextSizeWindow {
 
 	_textSizeChangeCallback: TextSizeChangeCallback;
 
-	_textSize: Number;
-	set textSize(value: Number): void {
+	_textSize: number;
+	set textSize(value: number): void {
 		this._textSize = value;
 		this._updateTextSizeLabel();
 	}

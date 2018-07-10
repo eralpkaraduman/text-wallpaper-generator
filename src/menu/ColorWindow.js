@@ -2,25 +2,25 @@
 import * as utils from '../utils';
 import {getColors} from '../colors';
 
-type ColorChangeRequestHandler = (String) => void;
+type ColorChangeRequestHandler = string => void;
 
 export default class ColorWindow {
-	_color: String;
-	set color(value: String) {
+	_color: string;
+	set color(value: string) {
 		this._color = value;
 		this.setColorButtonSelected(this._color);
 	}
 	
-	_colorButtonElements: Array<{color:String, element:HTMLElement}>;
+	_colorButtonElements: Array<{color:string, element:HTMLElement}>;
 	_containerElement: HTMLElement;
 	_handleOnRequestColorChange: ColorChangeRequestHandler;
 
-	constructor(containerElementId: String, onRequestColorChange: ColorChangeRequestHandler) {
+	constructor(containerElementId: string, onRequestColorChange: ColorChangeRequestHandler) {
 		this._handleOnRequestColorChange = onRequestColorChange;
 		
 		this._containerElement = utils.getElement(containerElementId);
 		
-		this._colorButtonElements = getColors('flat_ui_colors').map((color: String) => ({
+		this._colorButtonElements = getColors().map((color: string) => ({
 			color,
 			element: this.createColorButton(color)
 		}));
@@ -30,7 +30,7 @@ export default class ColorWindow {
 		});
 	}
 
-	createColorButton(color: String) {
+	createColorButton(color: string) {
 		const buttonElement = document.createElement('a');
 		buttonElement.setAttribute('href', 'javascript:undefined');
 
@@ -43,11 +43,11 @@ export default class ColorWindow {
 		return buttonElement;
 	}
 
-	handleOnColorButtonClicked = (color: String) => {
+	handleOnColorButtonClicked = (color: string) => {
 		this._handleOnRequestColorChange(color);
 	}
 	
-	setColorButtonSelected(selectorColor: String) {
+	setColorButtonSelected(selectorColor: string) {
 		this._colorButtonElements.forEach(({color, element}) => {
 			if (color === selectorColor) {
 				element.classList.add('active-button');

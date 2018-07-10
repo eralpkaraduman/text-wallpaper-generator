@@ -66,7 +66,6 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new FlowWebpackPlugin(),
 		new CleanWebpackPlugin(['dist'], { root: process.cwd() }),
 		new webpack.optimize.CommonsChunkPlugin({
 			name: 'vendor'
@@ -79,6 +78,11 @@ module.exports = {
 				collapseWhitespace: true
 			}
 		}),
-		extractSass
-	]
+		extractSass,
+		new FlowWebpackPlugin({
+			printFlowOutput: true,
+			flowPath: require.main.require('flow-bin'),
+			flowArgs: ['--color=always'],
+		})
+	],
 };

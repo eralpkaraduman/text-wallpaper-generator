@@ -1,13 +1,11 @@
 [ignore]
-.*/node_modules/*
-[include]
 
 [libs]
+/flow-typed
 
 [lints]
 
 [options]
-module.file_ext=.css
-module.file_ext=.scss
+module.name_mapper='.+\(.s?css\)' -> 'empty/object'
 
 [strict]
