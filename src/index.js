@@ -42,8 +42,6 @@ const updateSelectionStyles = () => {
 	insertStyle('wallpaper-text-input', 'selection', {'color': backgroundColor, 'background-color': textColor});
 };
 
-
-
 menu = new Menu({
 	onDownloadRequested: () => {
 		updateSelectionStyles();
