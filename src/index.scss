@@ -46,10 +46,6 @@ $menu-button-padding: 10px;
 	margin: 0px;
   outline: none;
 	resize: none;
-	
-
-  // font-feature-settings: "liga" 0;
-  // font-variant-ligatures: none;
 }
 
 .wallpaper-text-input:focus {
@@ -151,12 +147,6 @@ a.active-button {
   display:inline-block;
   font-size: 1.2em;
   font-weight: bold;
-  
-  // line-height: 50px;
-  // background-color:black;
-  // color:white;
-  // width: $color-rectangle-size;
-  // height: $color-rectangle-size;
   text-align: center;
   vertical-align: middle;
 }
@@ -215,7 +205,6 @@ li div { margin-left: -0.35em; }
 	font-size: 1.2em;
   font-weight: bold;
   font-family: 'Fira Mono';
-
   padding: 5px;
   margin: 5px;
   text-decoration: none !important;
@@ -235,8 +224,19 @@ li div { margin-left: -0.35em; }
   padding: 0px;
 }
 
-.label-right {
-  @extend .label;
+.input-right {
+	width: 100%;
+	display: flex;
+  font-size: 1.2em;
+  font-weight: bold;
+  font-family: 'Fira Mono';
+
+  padding: 0px;
+  margin: 0px;
+  text-decoration: none !important;
+	border-radius: 0.25em;
+	color: $flat_wet_asphalt;
+	text-align: 'right';
 	text-align: right;
 }
 

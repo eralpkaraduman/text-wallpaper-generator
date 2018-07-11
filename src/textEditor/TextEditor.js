@@ -6,7 +6,7 @@ type TextEditorCallbacks = {onFocused: OnFocusedCallback};
 
 export default class TextEditor {
 
-	textInputElement: HTMLInputElement | HTMLElement;
+	textInputElement: HTMLInputElement;
 	
 	_onFocusedCallback: OnFocusedCallback;
 
@@ -27,7 +27,7 @@ export default class TextEditor {
 	}
 
 	onStart = () => {
-		this.textInputElement = getElement('wallpaper-text-input');
+		this.textInputElement = (getElement('wallpaper-text-input'): any);
 		const {
 			textInputElement,
 			handleOnTextChanged,
@@ -50,7 +50,7 @@ export default class TextEditor {
 	}
 
 	handleOnTextChanged = debounce(() => {
-		let linecount = this.textInputElement.nodeValue.split('\n').length; // nodeValue -> value
+		let linecount = this.textInputElement.value.split('\n').length;
 		linecount = Math.max(1, linecount);
 		const lineHeight = parseInt(getStyle(this.textInputElement, 'line-height'));
 		const heightStyle = `${linecount * lineHeight}px`;
@@ -77,8 +77,6 @@ export default class TextEditor {
 
 	focus = () => {
 		this.textInputElement.focus();
-		// const text = this.textInputElement.value || '';
-		// this.textInputElement.setSelectionRange(0, text.length);
 	}
 	
 	_updateTextSize = () => {
@@ -91,14 +89,5 @@ export default class TextEditor {
 		this.textInputElement.style.color = this._textColor;
 		// $FlowFixMe
 		this.textInputElement.style.caretColor = this._textColor; 
-		
-		// const stylesheet = document.styleSheets[0];
-		// try {stylesheet.insertRule('::selection {color: red}', 0);} catch(e) {} // eslint-disable-line
-		// try {stylesheet.insertRule('::-moz-selection {color: red}', 0);} catch(e) {} // eslint-disable-line
-		
-		
-		
-		// stylesheet.insertRule('::-moz-selection {color: red}', 0);
-		
 	}
 }
