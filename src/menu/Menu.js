@@ -131,12 +131,10 @@ export default class Menu {
 		backgroundColorWindow.color = this.backgroundColor;
 		this.menuBackgroundColorButtonColorRectangleElement.style.backgroundColor = this.backgroundColor;
 
-		const imageSizeWindow = new ImageSizeWindow(
-			this.width,
-			this.height,
-			this.scale,
-			this._handleOnImageSizeChanged
-		);
+		const imageSizeWindow = new ImageSizeWindow(this._handleOnImageSizeChangeRequested);
+		imageSizeWindow.width = this.width;
+		imageSizeWindow.height = this.height;
+		imageSizeWindow.scale = this.scale;
 
 		this.menuWindows = {
 			download: new DownloadWindow(this.callbacks.onDownloadRequested),
@@ -183,8 +181,13 @@ export default class Menu {
 		);
 	}
 
-	_handleOnImageSizeChanged = (/*width: number, height: number, scale: number*/) => {
-		// console.log({ width, height, scale });
+	_handleOnImageSizeChangeRequested = (width: number, height: number, scale: number) => {
+		this.width = width;
+		this.height = height;
+		this.scale = scale;
+		this.menuWindows.imageSize.width = width;
+		this.menuWindows.imageSize.height = height;
+		this.menuWindows.imageSize.scale = scale;
 	}
 
 	_handleOnBackgroundColorChangeRequested = (newBackgrundColor: string) => {
