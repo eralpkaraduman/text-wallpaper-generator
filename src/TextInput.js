@@ -1,13 +1,20 @@
 // @flow
+type TextInputMaskingMode = string;
+
 import { callOnNextFrame } from './utils';
+import InputMask from 'inputmask';
 
 export default class TextInput {
+	
+	static MASKING_MODE_INTEGER: TextInputMaskingMode = 'MASKING_MODE_INTEGER';
+	static MASKING_MODE_FLOAT: TextInputMaskingMode = 'MASKING_MODE_FLOAT';
+	
 	_inputElement: HTMLInputElement;
 	get inputElement(): HTMLInputElement {
 		return this._inputElement;
 	}
 
-	constructor(element: HTMLElement, onChange: Function, onFocus: ?Function, onUnfocus: ?Function) {
+	constructor(element: HTMLElement, maskingMode: TextInputMaskingMode, onChange: Function, onFocus: ?Function, onUnfocus: ?Function) {
 		this._inputElement = (element: any);
 		
 		// onChange = debounce(() => onChange());
@@ -28,6 +35,13 @@ export default class TextInput {
 			this._inputElement.addEventListener('focusout', onUnfocus, false);
 			this._inputElement.addEventListener('touchleave', onUnfocus, false);
 			this._inputElement.addEventListener('touchcancel', onUnfocus, false);
+		}
+		
+		if (maskingMode === TextInput.MASKING_MODE_INTEGER) {
+			InputMask().mask(this._inputElement);
+		}
+		else if (maskingMode === TextInput.MASKING_MODE_FLOAT) {
+			InputMask().mask(this._inputElement);
 		}
 	}
 }

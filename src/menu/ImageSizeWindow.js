@@ -32,14 +32,17 @@ export default class ImageSizeWindow {
 		this._requestSizeChangeHandler = onRequestSizeChange;
 		this._widthInput = new TextInput(
 			getElement('menu-image-size-label-width'),
+			TextInput.MASKING_MODE_INTEGER,
 			() => this.onWidthInputChanged()
 		);
 		this._heightInput = new TextInput(
 			getElement('menu-image-size-label-height'),
+			TextInput.MASKING_MODE_INTEGER,
 			() => this.onHeightInputChanged()
 		);
 		this._scaleInput = new TextInput(
 			getElement('menu-image-size-label-scale'),
+			TextInput.MASKING_MODE_FLOAT,
 			() => this.onScaleInputChanged()
 		);
 	}
@@ -63,9 +66,9 @@ export default class ImageSizeWindow {
 	}
 	
 	_updateUi() {
-		this._widthInput.inputElement.value = this.renderNumberValue(this._width);
-		this._heightInput.inputElement.value = this.renderNumberValue(this._height);
-		this._scaleInput.inputElement.value = this.renderFloatValue(this._scale);
+		// this._widthInput.inputElement.value = this.renderNumberValue(this._width);
+		// this._heightInput.inputElement.value = this.renderNumberValue(this._height);
+		// this._scaleInput.inputElement.value = this.renderFloatValue(this._scale);
 	}
 	
 	renderNumberValue(value: number): string {
