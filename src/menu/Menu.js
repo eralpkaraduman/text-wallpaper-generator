@@ -182,12 +182,9 @@ export default class Menu {
 	}
 
 	_handleOnImageSizeChangeRequested = (width: number, height: number, scale: number) => {
-		this.width = width;
-		this.height = height;
-		this.scale = scale;
-		this.menuWindows.imageSize.width = width;
-		this.menuWindows.imageSize.height = height;
-		this.menuWindows.imageSize.scale = scale;
+		this.width = width || 0;
+		this.height = height || 0;
+		this.scale = scale || 0;
 	}
 
 	_handleOnBackgroundColorChangeRequested = (newBackgrundColor: string) => {

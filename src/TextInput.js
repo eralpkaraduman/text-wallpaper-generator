@@ -1,17 +1,73 @@
 // @flow
-type TextInputMaskingMode = string;
+/*opaque*/ type TextInputMaskingMode = string; // Opaque types don't work? https://github.com/gajus/eslint-plugin-flowtype/issues/300
 
 import { callOnNextFrame } from './utils';
-import InputMask from 'inputmask';
+import maskInput, { conformToMask } from 'vanilla-text-mask';
+import createNumberMask from 'text-mask-addons/dist/createNumberMask';
 
 export default class TextInput {
 	
-	static MASKING_MODE_INTEGER: TextInputMaskingMode = 'MASKING_MODE_INTEGER';
-	static MASKING_MODE_FLOAT: TextInputMaskingMode = 'MASKING_MODE_FLOAT';
+	static MASKING_MODE_PIXEL: TextInputMaskingMode = 'MASKING_MODE_PIXEL';
+	static MASKING_MODE_SCALE: TextInputMaskingMode = 'MASKING_MODE_SCALE';
 	
+	static pixelMaskConfig = {
+		mask: createNumberMask({
+			allowDecimal: false,
+			requireDecimal: false,
+			includeThousandsSeparator: false,
+			allowLeadingZeroes: true,
+			suffix: '',
+			prefix: ''
+		}),
+		guide: true,
+		keepCharPositions: false
+	};
+	
+	static scaleMaskConfig = {
+		mask: createNumberMask({
+			allowDecimal: true,
+			decimalSymbol: '.',
+			requireDecimal: true,
+			includeThousandsSeparator: false,
+			allowLeadingZeroes: true,
+			prefix: '',
+			suffix: '',
+		}),
+		guide: false,
+		placeholderChar: '_',
+		keepCharPositions: false,
+		pipe: (conformedValue: string) => {
+			if (conformedValue.slice(-1) === '0') {
+				conformedValue = conformedValue.slice(0, -1);
+			}
+			if (conformedValue.slice(-1) === '.') {
+				conformedValue += '0';
+			}
+			return conformedValue;
+		}
+	};
+	
+	_maskingMode: TextInputMaskingMode;
+	_maskedInput: any;
+	_maskConfig: Object;
 	_inputElement: HTMLInputElement;
-	get inputElement(): HTMLInputElement {
-		return this._inputElement;
+	
+	get value(): number {
+		return parseFloat(this._inputElement.value);
+	}
+	set value(number: number): void {
+		const raw = (number || 0).toString();
+		const maskArray = this._maskConfig.mask(raw);
+		let config = {...this._maskConfig};
+		delete config.mask;
+		delete config.pipe;
+		let { conformedValue } = conformToMask(raw, maskArray, config);
+		if (this._maskingMode === TextInput.MASKING_MODE_SCALE) {
+			this._inputElement.value = parseFloat(conformedValue).toFixed(1);
+		}
+		else {
+			this._inputElement.value = conformedValue;
+		}
 	}
 
 	constructor(element: HTMLElement, maskingMode: TextInputMaskingMode, onChange: Function, onFocus: ?Function, onUnfocus: ?Function) {
@@ -37,11 +93,17 @@ export default class TextInput {
 			this._inputElement.addEventListener('touchcancel', onUnfocus, false);
 		}
 		
-		if (maskingMode === TextInput.MASKING_MODE_INTEGER) {
-			InputMask().mask(this._inputElement);
+		this._maskingMode = maskingMode;
+		if (maskingMode === TextInput.MASKING_MODE_PIXEL) {
+			this._maskConfig = TextInput.pixelMaskConfig;
 		}
-		else if (maskingMode === TextInput.MASKING_MODE_FLOAT) {
-			InputMask().mask(this._inputElement);
+		else if (maskingMode === TextInput.MASKING_MODE_SCALE) {
+			this._maskConfig = TextInput.scaleMaskConfig;
 		}
+		
+		this._maskedInput = maskInput({
+			...this._maskConfig,
+			inputElement: this._inputElement,
+		});
 	}
 }

@@ -10,67 +10,43 @@ export default class ImageSizeWindow {
 	_heightInput: TextInput;
 	_scaleInput: TextInput;
 
-	_width: number
 	set width(value: number) {
-		this._width = value;
-		this._updateUi();
+		this._widthInput.value = value;
 	}
 
-	_height: number;
 	set height(value: number) {
-		this._height = value;
-		this._updateUi();
+		this._heightInput.value = value;
 	}
 
-	_scale: number;
 	set scale(value: number) {
-		this._scale = value;
-		this._updateUi();
+		this._scaleInput.value = value;
 	}
 
 	constructor(onRequestSizeChange: SizeChangeRequestHandler) {
 		this._requestSizeChangeHandler = onRequestSizeChange;
 		this._widthInput = new TextInput(
 			getElement('menu-image-size-label-width'),
-			TextInput.MASKING_MODE_INTEGER,
-			() => this.onWidthInputChanged()
+			TextInput.MASKING_MODE_PIXEL,
+			this.handleOnInputChanged
 		);
 		this._heightInput = new TextInput(
 			getElement('menu-image-size-label-height'),
-			TextInput.MASKING_MODE_INTEGER,
-			() => this.onHeightInputChanged()
+			TextInput.MASKING_MODE_PIXEL,
+			this.handleOnInputChanged
 		);
 		this._scaleInput = new TextInput(
 			getElement('menu-image-size-label-scale'),
-			TextInput.MASKING_MODE_FLOAT,
-			() => this.onScaleInputChanged()
+			TextInput.MASKING_MODE_SCALE,
+			this.handleOnInputChanged
 		);
 	}
 
-	onWidthInputChanged() {
-		const stringValue = this._widthInput.inputElement.value;
-		this._width = this.getNumberFromInputValue(this._width, stringValue);
-		this._requestSizeChangeHandler(this._width, this._height, this._scale);
-	}
+	handleOnInputChanged = () => this._requestSizeChangeHandler(
+		this._widthInput.value,
+		this._heightInput.value,
+		this._scaleInput.value
+	);
 
-	onHeightInputChanged() {
-		const stringValue = this._heightInput.inputElement.value;
-		this._height = this.getNumberFromInputValue(this._height, stringValue);
-		this._requestSizeChangeHandler(this._width, this._height, this._scale);
-	}
-
-	onScaleInputChanged() {
-		const stringValue = this._scaleInput.inputElement.value;
-		this._scale = this.getFloatFromInputValue(this._scale, stringValue);
-		this._requestSizeChangeHandler(this._width, this._height, this._scale);
-	}
-	
-	_updateUi() {
-		// this._widthInput.inputElement.value = this.renderNumberValue(this._width);
-		// this._heightInput.inputElement.value = this.renderNumberValue(this._height);
-		// this._scaleInput.inputElement.value = this.renderFloatValue(this._scale);
-	}
-	
 	renderNumberValue(value: number): string {
 		if (value === null || value === undefined || isNaN(value)) {
 			return '';
@@ -79,7 +55,7 @@ export default class ImageSizeWindow {
 			return value.toString();
 		}
 	}
-	
+
 	renderFloatValue(value: number): string {
 		if (value === null || value === undefined || isNaN(value)) {
 			return '';
@@ -88,7 +64,7 @@ export default class ImageSizeWindow {
 			return value.toFixed(1);
 		}
 	}
-	
+
 	getNumberFromInputValue(initialValue: number, inputValue: string): number {
 		if (inputValue === null || inputValue === undefined) {
 			return initialValue;
@@ -102,7 +78,7 @@ export default class ImageSizeWindow {
 		}
 		return value;
 	}
-	
+
 	getFloatFromInputValue(initialValue: number, inputValue: string): number {
 		if (inputValue === null || inputValue === undefined) {
 			return initialValue;
