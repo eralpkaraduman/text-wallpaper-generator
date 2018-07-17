@@ -1,10 +1,11 @@
 // @flow
 import { getElement } from '../utils';
 import TextInput from '../TextInput';
+import MenuWindow from './MenuWindow';
 
 type SizeChangeRequestHandler = (width: number, height: number, scale: number) => void;
 
-export default class ImageSizeWindow {
+export default class ImageSizeWindow extends MenuWindow {
 	_requestSizeChangeHandler: SizeChangeRequestHandler;
 	_widthInput: TextInput;
 	_heightInput: TextInput;
@@ -23,6 +24,7 @@ export default class ImageSizeWindow {
 	}
 
 	constructor(onRequestSizeChange: SizeChangeRequestHandler) {
+		super();
 		this._requestSizeChangeHandler = onRequestSizeChange;
 		this._widthInput = new TextInput(
 			getElement('menu-image-size-label-width'),

@@ -45,6 +45,7 @@ const updateSelectionStyles = () => {
 menu = new Menu({
 	onDownloadRequested: () => {
 		updateSelectionStyles();
+		
 		handleOnDownloadWallpaper();
 	},
 	onTextSizeChanged: (newTextSize: number) => {
@@ -88,4 +89,7 @@ const intro = new Intro({
 		textEditor.focus();
 	}
 });
-intro.onStart();
+
+document.addEventListener('DOMContentLoaded', () => {
+	intro.onStart();
+});

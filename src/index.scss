@@ -1,251 +1,251 @@
-@import './colors/flat-ui-colors.scss';
+@import "./colors/flat-ui-colors.scss";
 
 $color-rectangle-size: 20px;
 $menu-button-padding: 10px;
 
 .root, html, body {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  height: 100%;
-  font-family: 'Fira Mono';
+    margin: 0;
+    padding: 0;
+    border: 0;
+    height: 100%;
+    font-family: 'Fira Mono';
 }
 
 .root {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .wallpaper, .wallpaper-text, .intro {
-  margin: 0;
-  padding: 0;
-  border: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
 }
 
 .wallpaper {
-  height: 100%;
-  width: 100%;
-  padding: 20px;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
 }
 
 .wallpaper-text, .intro {
-  color: $flat_clouds;
+    color: $flat_clouds;
 }
 
 .wallpaper-text-input {
-  display: none;
-  color: $flat_clouds;
-	caret-color: $flat_clouds;
-  border: none;
-  background-color: transparent;
-  width: 100%;
-  text-align: center;
-  overflow: hidden;
-  padding: 0px;
-	margin: 0px;
-  outline: none;
-	resize: none;
+    display: none;
+    color: $flat_clouds;
+    caret-color: $flat_clouds;
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    padding: 0px;
+    margin: 0px;
+    outline: none;
+    resize: none;
 }
 
 .wallpaper-text-input:focus {
-  outline: none;
+    outline: none;
 }
 
 .menu {
-  background-color: $flat_midnight_blue; /* The Fallback */
-  background-color: rgba(black, 0.2);
-  border-radius: 0.25em;
+    background-color: $flat_midnight_blue; /* The Fallback */
+    background-color: rgba(black, 0.2);
+    border-radius: 0.25em;
 }
 
 .menu-active {
-	@extend .menu;
-	border-radius: 0.25em 0.25em 0 0;
+    @extend .menu;
+
+    border-radius: 0.25em 0.25em 0 0;
 }
 
 .menu-window {
-	background-color: $flat_midnight_blue; /* The Fallback */
-  background-color: rgba(black, 0.2);
-	border-radius: 0;
-	border-radius: 0.25em;
+    background-color: $flat_midnight_blue; /* The Fallback */
+    background-color: rgba(black, 0.2);
+    border-radius: 0;
+    border-radius: 0.25em;
 }
 
 .menu-window-content {
-	justify-content: center;
-	background-color: $flat_clouds;
-	width: 100%;
-	margin: 5px;
-	border-radius: 0.25em;
-	width: 210px;
-  flex-wrap: wrap;
+    justify-content: center;
+    background-color: $flat_clouds;
+    width: 100%;
+    margin: 5px;
+    border-radius: 0.25em;
+    width: 210px;
+    flex-wrap: wrap;
 }
 
 .menu-container {
-  margin: 0px;
-  margin-top: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: absolute;
+    margin: 0px;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
 }
 
 .button-container {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  flex-wrap: wrap;
-  flex-grow: 0;
-  flex-shrink: 0;
-  justify-content: center;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    flex-wrap: wrap;
+    flex-grow: 0;
+    flex-shrink: 0;
+    justify-content: center;
 }
 
 a, button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-
-  min-width: $color-rectangle-size;
-  min-height: $color-rectangle-size;
-  font-size: 1em;
-  font-weight: bold;
-  font-family: 'Fira Mono';
-  
-  padding: 5px;
-  margin: 5px;
-  text-decoration: none !important;
-  border-radius: 0.25em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: $color-rectangle-size;
+    min-height: $color-rectangle-size;
+    font-size: 1em;
+    font-weight: bold;
+    font-family: 'Fira Mono';
+    padding: 5px;
+    margin: 5px;
+    text-decoration: none !important;
+    border-radius: 0.25em;
 }
 
 a:link, a:visited, button:link, button:visited {
-  color: $flat_wet_asphalt;
-  background-color: $flat_clouds;
+    color: $flat_wet_asphalt;
+    background-color: $flat_clouds;
 }
 
 a:hover, a:active, button:hover, button:active {
-  color: $flat_clouds;
-  background-color: $flat_nephritis;
+    color: $flat_clouds;
+    background-color: $flat_nephritis;
 }
 
 a.active-button {
-	color: $flat_clouds;
-  background-color: $flat_nephritis;
+    color: $flat_clouds;
+    background-color: $flat_nephritis;
 }
 
 .colorRectangle {
-  margin: 0px;
-  padding: 0px;
-  width: $color-rectangle-size;
-	height: $color-rectangle-size;
-  border-radius: 0.15em;
-  border: 1px solid black;
-  border: 1px solid rgba(black, 0.2);
+    margin: 0px;
+    padding: 0px;
+    width: $color-rectangle-size;
+    height: $color-rectangle-size;
+    border-radius: 0.15em;
+    border: 1px solid black;
+    border: 1px solid rgba(black, 0.2);
 }
 
 .button-icon {
-  display:inline-block;
-  font-size: 1.2em;
-  font-weight: bold;
-  text-align: center;
-  vertical-align: middle;
+    display: inline-block;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
 }
 
 ul, li {
-  margin: 0px;
-  padding: 0px;
-  border: 0px;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
 }
 
 li {
-  margin-left: 1.1em;
+    margin-left: 1.1em;
 }
 
-li div { margin-left: -0.35em; }
+li div {
+    margin-left: -0.35em;
+}
 
 .intro-container {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  margin: 0px;
-  padding: 0px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
 }
 
 .intro {
-  text-align: left;
-  max-width: 300px;
-  height: 100%;
+    text-align: left;
+    max-width: 300px;
+    height: 100%;
 }
 
 .intro-content {
-  margin: 0px;
-  padding: 0px;
+    margin: 0px;
+    padding: 0px;
 }
 
 .intro-start-button {
-  margin: 0px;
-  margin-top: 10px;
-  padding: 10px;
+    margin: 0px;
+    margin-top: 10px;
+    padding: 10px;
+    display: none;
 }
 
 .intro-title {
-  font-size: 1.5em;
-  margin-bottom: 10px;
+    font-size: 1.5em;
+    margin-bottom: 10px;
 }
 
 .intro-subtitle {
-  font-size: 1.1em;
-  margin-bottom: 20px;
+    font-size: 1.1em;
+    margin-bottom: 20px;
 }
 
 .label {
-	font-size: 1.2em;
-  font-weight: bold;
-  font-family: 'Fira Mono';
-  padding: 5px;
-  margin: 5px;
-  text-decoration: none !important;
-	border-radius: 0.25em;
-	color: $flat_wet_asphalt;
-	text-align: 'right';
+    font-size: 1.2em;
+    font-weight: bold;
+    font-family: 'Fira Mono';
+    padding: 5px;
+    margin: 5px;
+    text-decoration: none !important;
+    border-radius: 0.25em;
+    color: $flat_wet_asphalt;
+    text-align: 'right';
 }
 
 .color-buttons-container {
-	max-width: 210px;
-	justify-content: start;
+    max-width: 210px;
+    justify-content: start;
 }
 
 .menu-window-content-row, .menu-window-content-column {
-  width: 100%;
-  margin: 0px;
-  padding: 0px;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
 }
 
 .input-right {
-	width: 100%;
-	display: flex;
-  font-size: 1.2em;
-  font-weight: bold;
-  font-family: 'Fira Mono';
-
-  padding: 0px;
-  margin: 0px;
-  text-decoration: none !important;
-	border-radius: 0.25em;
-	color: $flat_wet_asphalt;
-	text-align: 'right';
-	text-align: right;
+    width: 100%;
+    display: flex;
+    font-size: 1.2em;
+    font-weight: bold;
+    font-family: 'Fira Mono';
+    padding: 0px;
+    margin: 0px;
+    text-decoration: none !important;
+    border-radius: 0.25em;
+    color: $flat_wet_asphalt;
+    text-align: 'right';
+    text-align: right;
 }
 
 .image-size-icon {
-  font-size: 1.2em;
-  font-weight: bold;
-  text-align: center;
-  vertical-align: middle;
-  color: $flat_wet_asphalt;
-  margin: 5px;
-  padding: 5px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    color: $flat_wet_asphalt;
+    margin: 5px;
+    padding: 5px;
 }

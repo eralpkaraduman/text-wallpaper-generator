@@ -14,9 +14,9 @@ export default class Intro {
 
 	onStart = () => {
 		this.introElement = getElement('intro');
-
 		this.startButtonElement = getElement('intro-start-button');
 		this.startButtonElement.addEventListener('click', this.handleOnStartButtonClicked);
+		this.startButtonElement.style.display = 'block';
 	}
 
 	handleOnStartButtonClicked = () => {
