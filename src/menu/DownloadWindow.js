@@ -11,4 +11,8 @@ export default class DownloadWindow extends MenuWindow {
 		this.downloadButton = utils.getElement('download-window-download-button');
 		this.downloadButton.addEventListener('click', onDownloadRequested);
 	}
+	
+	onWindowWillOpen(): void {
+		super.onWindowWillOpen();
+	}
 }

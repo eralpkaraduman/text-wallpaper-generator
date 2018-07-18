@@ -21,6 +21,15 @@ export default class TextEditor {
 		this._textColor = value;
 		this._updateTextColor();
 	}
+	
+	set text(value: string): void {
+		this.textInputElement.value = value;
+		this.handleOnTextChanged();
+	}
+	
+	get text(): string {
+		return this.textInputElement.value;
+	}
 
 	constructor(callbacks: TextEditorCallbacks) {
 		this._onFocusedCallback = callbacks.onFocused;
@@ -50,7 +59,7 @@ export default class TextEditor {
 	}
 
 	handleOnTextChanged = debounce(() => {
-		let linecount = this.textInputElement.value.split('\n').length;
+		let linecount = this.text.split('\n').length;
 		linecount = Math.max(1, linecount);
 		const lineHeight = parseInt(getStyle(this.textInputElement, 'line-height'));
 		const heightStyle = `${linecount * lineHeight}px`;

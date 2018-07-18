@@ -16,20 +16,6 @@ import WallpaperGenerator from './wallpaperGenerator/WallpaperGenerator';
 
 const targetElement: HTMLElement = getElement('wallpaper');
 
-const handleOnDownloadWallpaper = async () => {
-	const { width, height, scale } = menu;
-	const blob = await WallpaperGenerator.generate({
-		targetElement,
-		width,
-		height,
-		scale
-	});
-
-	const fileNameScale = scale !== 1 ? `@${scale.toString()}` : '';
-	const fileName = `textwallpaper.online_${width}x${height}${fileNameScale}.jpg`;
-	FileSaver.saveAs(blob, fileName);
-};
-
 let menu: Menu;
 
 const textEditor = new TextEditor({
@@ -45,8 +31,13 @@ const updateSelectionStyles = () => {
 menu = new Menu({
 	onDownloadRequested: () => {
 		updateSelectionStyles();
+		if (!textEditor.text.length) {
+			textEditor.text = '\rIt would be nice,\rif you typed something here.\r';
+		}
 		
-		handleOnDownloadWallpaper();
+		setTimeout(() => {
+			handleOnDownloadWallpaper();
+		}, 200);
 	},
 	onTextSizeChanged: (newTextSize: number) => {
 		textEditor.textSize = newTextSize;
@@ -89,6 +80,20 @@ const intro = new Intro({
 		textEditor.focus();
 	}
 });
+
+const handleOnDownloadWallpaper = async () => {
+	const { width, height, scale } = menu;
+	const blob = await WallpaperGenerator.generate({
+		targetElement,
+		width,
+		height,
+		scale
+	});
+
+	const fileNameScale = scale !== 1 ? `@${scale.toString()}` : '';
+	const fileName = `textwallpaper.online_${width}x${height}${fileNameScale}.jpg`;
+	FileSaver.saveAs(blob, fileName);
+};
 
 document.addEventListener('DOMContentLoaded', () => {
 	intro.onStart();
