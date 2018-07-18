@@ -143,6 +143,9 @@ export default class Menu {
 		);
 	
 		utils.objForEach(this._menuWindows, (menuWindow: MenuWindow) => menuWindow.close());
+		
+		this._element.classList.remove('menu-active');
+		this._element.classList.add('menu');
 	}
 
 	_handleOnTextSizeChangeRequested = (newTextSize: number) => {

@@ -1,26 +1,21 @@
 {
   "name": "text-wallpaper-generator",
   "title": "Text Wallpaper Generator",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "author": "Eralp Karaduman <eralp@eralpkaraduman.com> (https://eralpkaraduman.com)",
   "description": "Text Wallpaper Generator",
   "license": "MIT",
   "keywords": [
     "webpack",
-    "boilerplate",
-    "es6",
-    "babel",
-    "eslint",
-    "jest",
-    "sass"
+    "es6"
   ],
   "bugs": {
-    "url": "https://github.com/jluccisano/webpack-es6-boilerplate/issues",
-    "email": "joseph.luccisano@gmail.com"
+    "url": "https://github.com/eralpkaraduman/text-wallpaper-generator/issues",
+    "email": "eralp@eralpkaraduman.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jluccisano/webpack-es6-boilerplate.git"
+    "url": "https://github.com/eralpkaraduman/text-wallpaper-generator.git"
   },
   "main": "src/index.js",
   "scripts": {

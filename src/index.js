@@ -81,6 +81,7 @@ const intro = new Intro({
 	}
 });
 
+// TODO: move this into DownloadWindow
 const handleOnDownloadWallpaper = async () => {
 	const { width, height, scale } = menu;
 	const blob = await WallpaperGenerator.generate({

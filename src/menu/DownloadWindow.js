@@ -6,7 +6,7 @@ export default class DownloadWindow extends MenuWindow {
 
 	downloadButton: HTMLElement;
 
-	constructor(elementId: string, onDownloadRequested: () => void) {
+	constructor(elementId: string, onDownloadRequested: () => void, onBlobRequested: () => Promise) {
 		super(elementId);
 		this.downloadButton = utils.getElement('download-window-download-button');
 		this.downloadButton.addEventListener('click', onDownloadRequested);
@@ -14,5 +14,7 @@ export default class DownloadWindow extends MenuWindow {
 	
 	onWindowWillOpen(): void {
 		super.onWindowWillOpen();
+		console.log('download window will open');
+		onBlobRequested().then(blob:  => )
 	}
 }
