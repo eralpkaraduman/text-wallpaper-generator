@@ -3,10 +3,12 @@ import { getElement } from '../utils';
 import TextInput from '../TextInput';
 import MenuWindow from './MenuWindow';
 
+type UpdateRequestedHandler = () => void;
 type SizeChangeRequestHandler = (width: number, height: number, scale: number) => void;
 
 export default class ImageSizeWindow extends MenuWindow {
 	_requestSizeChangeHandler: SizeChangeRequestHandler;
+	_updateRequestedHandler: UpdateRequestedHandler;
 	_widthInput: TextInput;
 	_heightInput: TextInput;
 	_scaleInput: TextInput;
@@ -23,9 +25,10 @@ export default class ImageSizeWindow extends MenuWindow {
 		this._scaleInput.value = value;
 	}
 
-	constructor(onRequestSizeChange: SizeChangeRequestHandler) {
-		super();
+	constructor(elementId: string, onRequestSizeChange: SizeChangeRequestHandler, onUpdateRequested: UpdateRequestedHandler) {
+		super(elementId);
 		this._requestSizeChangeHandler = onRequestSizeChange;
+		this._updateRequestedHandler = onUpdateRequested;
 		this._widthInput = new TextInput(
 			getElement('menu-image-size-label-width'),
 			TextInput.MASKING_MODE_PIXEL,
@@ -41,6 +44,16 @@ export default class ImageSizeWindow extends MenuWindow {
 			TextInput.MASKING_MODE_SCALE,
 			this.handleOnInputChanged
 		);
+	}
+	
+	onWindowWillOpen(): void {
+		super.onWindowWillOpen();
+		this._updateRequestedHandler();
+	}
+	
+	onWindowDidClose(): void {
+		super.onWindowDidClose();
+		this._updateRequestedHandler();
 	}
 
 	handleOnInputChanged = () => this._requestSizeChangeHandler(

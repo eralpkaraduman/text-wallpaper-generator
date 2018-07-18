@@ -11,6 +11,10 @@ export function kvoIndexed(anObject: Object): Array<{key: string, value: any, in
 	}));
 }
 
+export function objForEach(anObject: Object, func: (value: any) => void) {
+	Object.keys(anObject).forEach(key => func(anObject[key]));
+}
+
 export const callOnNextFrame = (callback: Function) => () => window.setTimeout(callback, 0.2);
 
 export function debounce(func: Function, wait: number = defaultDebounceWait, immediate: boolean = false) {

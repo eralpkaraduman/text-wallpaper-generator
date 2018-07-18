@@ -4,6 +4,7 @@ import DownloadWindow from './DownloadWindow';
 import TextSizeWindow from './TextSizeWindow';
 import ImageSizeWindow from './ImageSizeWindow';
 import ColorWindow from './ColorWindow';
+import MenuWindow from './MenuWindow';
 
 type OnDownloadRequested = () => void;
 type OnTextSizeChanged = (number) => void;
@@ -32,21 +33,22 @@ type ButtonElements = {
 	imageSize: HTMLElement,
 	download: HTMLElement
 }
-
-type EditorElements = {
-	textColor: HTMLElement,
-	backgroundColor: HTMLElement,
-	textSize: HTMLElement,
-	imageSize: HTMLElement,
-	download: HTMLElement
+type MenuWindows = {
+	download: DownloadWindow,
+	textSize: TextSizeWindow,
+	imageSize: ImageSizeWindow,
+	textColor: ColorWindow,
+	backgroundColor: ColorWindow
 }
 
 export default class Menu {
-	menuElement: HTMLElement;
-	menuContainerElement: HTMLElement;
-	menuWindowElement: HTMLElement;
-	menuTextColorButtonColorRectangleElement: HTMLElement;
-	menuBackgroundColorButtonColorRectangleElement: HTMLElement;
+	_element: HTMLElement;
+	_containerElement: HTMLElement;
+	_windowElement: HTMLElement;
+	_textColorButtonColorRectangleElement: HTMLElement;
+	_backgroundColorButtonColorRectangleElement: HTMLElement;
+	_menuWindows: MenuWindows;
+	_callbacks: MenuCallbacks
 
 	textSize: number;
 	width: number;
@@ -54,25 +56,12 @@ export default class Menu {
 	scale: number;
 	backgroundColor: string;
 	textColor: string;
-
 	buttonElements: ButtonElements;
-	editorElements: EditorElements;
-
 	scale: number;
 	textColor: string;
 
-	menuWindows: {
-		download: DownloadWindow,
-		textSize: TextSizeWindow,
-		imageSize: ImageSizeWindow,
-		textColor: ColorWindow,
-		backgroundColor: ColorWindow
-	}
-
-	callbacks: MenuCallbacks
-
 	constructor(callbacks: MenuCallbacks) {
-		this.callbacks = callbacks;
+		this._callbacks = callbacks;
 	}
 
 	onStart(options: Options) {
@@ -83,11 +72,44 @@ export default class Menu {
 		this.textColor = options.textColor;
 		this.backgroundColor = options.backgroundColor;
 
-		this.menuContainerElement = utils.getElement('menu-container');
-		this.menuElement = utils.getElement('menu');
-		this.menuWindowElement = utils.getElement('menu-window');
-		this.menuTextColorButtonColorRectangleElement = utils.getElement('menu-button-text-color-rectangle-color');
-		this.menuBackgroundColorButtonColorRectangleElement = utils.getElement('menu-button-background-color-rectangle-color');
+		this._containerElement = utils.getElement('menu-container');
+		this._element = utils.getElement('menu');
+		this._windowElement = utils.getElement('menu-window');
+		this._textColorButtonColorRectangleElement = utils.getElement('menu-button-text-color-rectangle-color');
+		this._backgroundColorButtonColorRectangleElement = utils.getElement('menu-button-background-color-rectangle-color');
+		
+		const textSizeWindow = new TextSizeWindow('menu-editor-text-size', this._handleOnTextSizeChangeRequested);
+		textSizeWindow.textSize = this.textSize;
+
+		const textColorWindow = new ColorWindow(
+			'menu-editor-text-color',
+			'text-color-window-color-buttons-container',
+			this._handleOnTextColorChangeRequested
+		);
+		textColorWindow.color = this.textColor;
+		this._textColorButtonColorRectangleElement.style.backgroundColor = this.textColor;
+
+		const backgroundColorWindow = new ColorWindow(
+			'menu-editor-background-color',
+			'background-color-window-color-buttons-container',
+			this._handleOnBackgroundColorChangeRequested
+		);
+		backgroundColorWindow.color = this.backgroundColor;
+		this._backgroundColorButtonColorRectangleElement.style.backgroundColor = this.backgroundColor;
+
+		const imageSizeWindow = new ImageSizeWindow('menu-editor-image-size', this._handleOnImageSizeChangeRequested, () => {
+			imageSizeWindow.width = this.width;
+			imageSizeWindow.height = this.height;
+			imageSizeWindow.scale = this.scale;
+		});
+
+		this._menuWindows = {
+			download: new DownloadWindow('menu-editor-download', this._callbacks.onDownloadRequested),
+			textSize: textSizeWindow,
+			imageSize: imageSizeWindow,
+			textColor: textColorWindow,
+			backgroundColor: backgroundColorWindow
+		};
 
 		this.buttonElements = {
 			textColor: utils.getElement('menu-button-text-color'),
@@ -97,86 +119,46 @@ export default class Menu {
 			download: utils.getElement('menu-button-download')
 		};
 
-		this.editorElements = {
-			textColor: utils.getElement('menu-editor-text-color'),
-			backgroundColor: utils.getElement('menu-editor-background-color'),
-			textSize: utils.getElement('menu-editor-text-size'),
-			imageSize: utils.getElement('menu-editor-image-size'),
-			download: utils.getElement('menu-editor-download')
-		};
+		const setClickHandler = (buttonElement, menuWindow: MenuWindow) =>
+			buttonElement.addEventListener('click', () => this.onToggleMenuWindow(buttonElement, menuWindow));
 
-		const setClickHandler = (buttonElement, editorElement) =>
-			buttonElement.addEventListener('click', () => this.onToggleMenuWindow(buttonElement, editorElement));
-
-		setClickHandler(this.buttonElements.textColor, this.editorElements.textColor);
-		setClickHandler(this.buttonElements.backgroundColor, this.editorElements.backgroundColor);
-		setClickHandler(this.buttonElements.textSize, this.editorElements.textSize);
-		setClickHandler(this.buttonElements.imageSize, this.editorElements.imageSize);
-		setClickHandler(this.buttonElements.download, this.editorElements.download);
-
-		const textSizeWindow = new TextSizeWindow(this._handleOnTextSizeChangeRequested);
-		textSizeWindow.textSize = this.textSize;
-
-		const textColorWindow = new ColorWindow(
-			'text-color-window-color-buttons-container',
-			this._handleOnTextColorChangeRequested
-		);
-		textColorWindow.color = this.textColor;
-		this.menuTextColorButtonColorRectangleElement.style.backgroundColor = this.textColor;
-
-		const backgroundColorWindow = new ColorWindow(
-			'background-color-window-color-buttons-container',
-			this._handleOnBackgroundColorChangeRequested
-		);
-		backgroundColorWindow.color = this.backgroundColor;
-		this.menuBackgroundColorButtonColorRectangleElement.style.backgroundColor = this.backgroundColor;
-
-		const imageSizeWindow = new ImageSizeWindow(this._handleOnImageSizeChangeRequested);
-		imageSizeWindow.width = this.width;
-		imageSizeWindow.height = this.height;
-		imageSizeWindow.scale = this.scale;
-
-		this.menuWindows = {
-			download: new DownloadWindow(this.callbacks.onDownloadRequested),
-			textSize: textSizeWindow,
-			imageSize: imageSizeWindow,
-			textColor: textColorWindow,
-			backgroundColor: backgroundColorWindow
-		};
+		setClickHandler(this.buttonElements.textColor, this._menuWindows.textColor);
+		setClickHandler(this.buttonElements.backgroundColor, this._menuWindows.backgroundColor);
+		setClickHandler(this.buttonElements.textSize, this._menuWindows.textSize);
+		setClickHandler(this.buttonElements.imageSize, this._menuWindows.imageSize);
+		setClickHandler(this.buttonElements.download, this._menuWindows.download);
 	}
 
 	onShow = () => {
-		this.menuContainerElement.style.display = 'flex';
+		this._containerElement.style.display = 'flex';
 	}
 
 	onHide = () => {
-		this.menuContainerElement.style.display = 'none';
+		this._containerElement.style.display = 'none';
 	}
 
 	closeAllWindows = () => {
 		utils.kvoIndexed(this.buttonElements).forEach(({ value }: { value: HTMLElement }) =>
 			value.classList.remove('active-button')
 		);
-
-		utils.kvoIndexed(this.editorElements).forEach(({ value }: { value: HTMLElement }) =>
-			value.style.display = 'none'
-		);
+	
+		utils.objForEach(this._menuWindows, (menuWindow: MenuWindow) => menuWindow.close());
 	}
 
 	_handleOnTextSizeChangeRequested = (newTextSize: number) => {
 		this.textSize = newTextSize;
-		this.menuWindows.textSize.textSize = this.textSize;
-		this.callbacks.onTextSizeChanged(this.textSize);
+		this._menuWindows.textSize.textSize = this.textSize;
+		this._callbacks.onTextSizeChanged(this.textSize);
 	}
 
 	_handleOnTextColorChangeRequested = (newTextColor: string) => {
 		this.textColor = newTextColor;
-		this.menuWindows.textColor.color = this.textColor;
-		this.menuTextColorButtonColorRectangleElement.style.backgroundColor = this.textColor;
-		this.callbacks.onTextColorChanged(this.textColor);
+		this._menuWindows.textColor.color = this.textColor;
+		this._textColorButtonColorRectangleElement.style.backgroundColor = this.textColor;
+		this._callbacks.onTextColorChanged(this.textColor);
 		this.onToggleMenuWindow(
 			this.buttonElements.textColor,
-			this.editorElements.textColor,
+			this._menuWindows.textColor,
 			false
 		);
 	}
@@ -189,19 +171,19 @@ export default class Menu {
 
 	_handleOnBackgroundColorChangeRequested = (newBackgrundColor: string) => {
 		this.backgroundColor = newBackgrundColor;
-		this.menuWindows.backgroundColor.color = this.backgroundColor;
-		this.menuBackgroundColorButtonColorRectangleElement.style.backgroundColor = this.backgroundColor;
-		this.callbacks.onBackgroundColorChanged(this.backgroundColor);
+		this._menuWindows.backgroundColor.color = this.backgroundColor;
+		this._backgroundColorButtonColorRectangleElement.style.backgroundColor = this.backgroundColor;
+		this._callbacks.onBackgroundColorChanged(this.backgroundColor);
 		this.onToggleMenuWindow(
 			this.buttonElements.backgroundColor,
-			this.editorElements.backgroundColor,
+			this._menuWindows.backgroundColor,
 			false
 		);
 	}
 
-	onToggleMenuWindow = (buttonElement: Object, editorElement: Object, shouldMenuOpen: ?boolean = null) => {
+	onToggleMenuWindow = (buttonElement: Object, menuWindow: MenuWindow, shouldMenuOpen: ?boolean = null) => {
 		if (shouldMenuOpen == null) {
-			const isMenuOpen: boolean = this.menuElement.classList.contains('menu-active');
+			const isMenuOpen: boolean = this._element.classList.contains('menu-active');
 			const buttonWasActive = buttonElement.classList.contains('active-button');
 			shouldMenuOpen = !isMenuOpen;
 			if (!buttonWasActive) {
@@ -212,17 +194,17 @@ export default class Menu {
 		this.closeAllWindows();
 
 		if (shouldMenuOpen) {
-			this.menuElement.classList.remove('menu');
-			this.menuElement.classList.add('menu-active');
-			this.menuWindowElement.style.display = 'flex';
+			this._element.classList.remove('menu');
+			this._element.classList.add('menu-active');
+			this._windowElement.style.display = 'flex';
 
 			buttonElement.classList.add('active-button');
-			editorElement.style.display = 'flex';
+			menuWindow.open();
 		}
 		else {
-			this.menuElement.classList.remove('menu-active');
-			this.menuElement.classList.add('menu');
-			this.menuWindowElement.style.display = 'none';
+			this._element.classList.remove('menu-active');
+			this._element.classList.add('menu');
+			this._windowElement.style.display = 'none';
 		}
 	}
 }

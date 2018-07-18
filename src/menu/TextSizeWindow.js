@@ -1,9 +1,10 @@
 // @flow
 import * as utils from '../utils';
+import MenuWindow from './MenuWindow';
 
 type TextSizeChangeCallback = (newTextSize: number) => void
 
-export default class TextSizeWindow {
+export default class TextSizeWindow extends MenuWindow {
 	plusButton: HTMLElement;
 	minusButton: HTMLElement;
 	textSizeLabel: HTMLElement;
@@ -16,7 +17,8 @@ export default class TextSizeWindow {
 		this._updateTextSizeLabel();
 	}
 
-	constructor(onTextSizeChangeRequested: TextSizeChangeCallback) {
+	constructor(elementId: string, onTextSizeChangeRequested: TextSizeChangeCallback) {
+		super(elementId);
 		this._textSizeChangeCallback = onTextSizeChangeRequested;
 		this.textSizeLabel = utils.getElement('text-size-window-size-label');
 		this.minusButton = utils.getElement('text-size-window-minus-button');

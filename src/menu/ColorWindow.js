@@ -1,10 +1,11 @@
 // @flow
 import * as utils from '../utils';
 import {getColors} from '../colors';
+import MenuWindow from './MenuWindow';
 
 type ColorChangeRequestHandler = string => void;
 
-export default class ColorWindow {
+export default class ColorWindow extends MenuWindow {
 	_color: string;
 	set color(value: string) {
 		this._color = value;
@@ -15,7 +16,8 @@ export default class ColorWindow {
 	_containerElement: HTMLElement;
 	_handleOnRequestColorChange: ColorChangeRequestHandler;
 
-	constructor(containerElementId: string, onRequestColorChange: ColorChangeRequestHandler) {
+	constructor(elementId: string, containerElementId: string, onRequestColorChange: ColorChangeRequestHandler) {
+		super(elementId);
 		this._handleOnRequestColorChange = onRequestColorChange;
 		
 		this._containerElement = utils.getElement(containerElementId);
