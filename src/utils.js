@@ -17,6 +17,8 @@ export function objForEach(anObject: Object, func: (value: any) => void) {
 
 export const callOnNextFrame = (callback: Function) => () => window.setTimeout(callback, 0.2);
 
+export const sleep = (duration: number) => new Promise(resolve => window.setTimeout(resolve, duration));
+
 export function debounce(func: Function, wait: number = defaultDebounceWait, immediate: boolean = false) {
 	// based on: https://davidwalsh.name/javascript-debounce-function
 	let timeout: any;

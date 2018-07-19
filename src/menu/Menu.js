@@ -1,24 +1,21 @@
 // @flow
 import * as utils from '../utils';
 import DownloadWindow from './DownloadWindow';
+import type {GenerateCanvasCallback} from './DownloadWindow';
 import TextSizeWindow from './TextSizeWindow';
 import ImageSizeWindow from './ImageSizeWindow';
 import ColorWindow from './ColorWindow';
 import MenuWindow from './MenuWindow';
 
-type OnDownloadRequested = () => void;
-type OnTextSizeChanged = (number) => void;
-type OnTextColorChanged = (string) => void;
-type OnBackgroundColorChanged = (string) => void;
-type OnImageSizeChanged = (width: number, height: number) => void;
-type MenuCallbacks = {
-	onDownloadRequested: OnDownloadRequested,
-	onTextSizeChanged: OnTextSizeChanged,
-	onTextColorChanged: OnTextColorChanged,
-	onBackgroundColorChanged: OnBackgroundColorChanged,
-	onImageSizeChanged: OnImageSizeChanged
+export type MenuCallbacks = {
+	onGenerateCanvas: (width: number, height: number, scale: number) => Promise<HTMLCanvasElement>,
+	onPrepareForImageGeneration: () => void,
+	onTextSizeChanged: (number) => void,
+	onTextColorChanged: (string) => void,
+	onBackgroundColorChanged: (string) => void,
+	onImageSizeChanged: (width: number, height: number) => void
 };
-type Options = {
+export type MenuOptions = {
 	textSize: number,
 	width: number,
 	height: number,
@@ -64,7 +61,7 @@ export default class Menu {
 		this._callbacks = callbacks;
 	}
 
-	onStart(options: Options) {
+	onStart(options: MenuOptions) {
 		this.width = options.width;
 		this.height = options.height;
 		this.scale = options.scale;
@@ -102,9 +99,9 @@ export default class Menu {
 			imageSizeWindow.height = this.height;
 			imageSizeWindow.scale = this.scale;
 		});
-
+		
 		this._menuWindows = {
-			download: new DownloadWindow('menu-editor-download', this._callbacks.onDownloadRequested),
+			download: new DownloadWindow('menu-editor-download', this._handleOnGenerateImage, this._handleonGenerateFileName),
 			textSize: textSizeWindow,
 			imageSize: imageSizeWindow,
 			textColor: textColorWindow,
@@ -146,6 +143,18 @@ export default class Menu {
 		
 		this._element.classList.remove('menu-active');
 		this._element.classList.add('menu');
+	}
+	
+	_handleOnGenerateImage: GenerateCanvasCallback = async () => {
+		this._callbacks.onPrepareForImageGeneration();
+		await utils.sleep(300);
+		return await this._callbacks.onGenerateCanvas(this.width, this.height, this.scale);
+	}
+
+	_handleonGenerateFileName = () => {
+		const { width, height, scale } = this;
+		const fileNameScale = scale !== 1 ? `@${scale.toString()}` : '';
+		return `textwallpaper.online_${width}x${height}${fileNameScale}.jpg`;
 	}
 
 	_handleOnTextSizeChangeRequested = (newTextSize: number) => {

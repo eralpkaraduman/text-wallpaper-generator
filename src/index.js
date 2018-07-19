@@ -1,18 +1,18 @@
 // @flow
-import FileSaver from 'file-saver';
 import 'flexboxgrid';
 import '@fortawesome/fontawesome-free/css/fontawesome.css';
 import '@fortawesome/fontawesome-free/css/solid.css';
 import 'typeface-fira-mono';
 import 'normalize.css/normalize.css';
 import colors from './colors';
+import html2canvas from 'html2canvas';
 
 import './index.scss';
-import {getElement, insertStyle} from './utils';
+import { getElement, insertStyle } from './utils';
 import Intro from './intro/Intro';
 import Menu from './menu/Menu';
+import type {MenuCallbacks} from './menu/Menu';
 import TextEditor from './textEditor/TextEditor';
-import WallpaperGenerator from './wallpaperGenerator/WallpaperGenerator';
 
 const targetElement: HTMLElement = getElement('wallpaper');
 
@@ -23,21 +23,27 @@ const textEditor = new TextEditor({
 });
 
 const updateSelectionStyles = () => {
-	const {textColor, backgroundColor} = menu;
-	insertStyle('wallpaper-text-input', 'placeholder', {'color': textColor});
-	insertStyle('wallpaper-text-input', 'selection', {'color': backgroundColor, 'background-color': textColor});
+	const { textColor, backgroundColor } = menu;
+	insertStyle('wallpaper-text-input', 'placeholder', { 'color': textColor });
+	insertStyle('wallpaper-text-input', 'selection', { 'color': backgroundColor, 'background-color': textColor });
 };
 
-menu = new Menu({
-	onDownloadRequested: () => {
-		updateSelectionStyles();
+async function generateCanvas(width: number, height: number, scale: number, targetElement: HTMLElement): Promise<HTMLCanvasElement> {
+	return await html2canvas(targetElement, {
+		windowWidth: width,
+		windowHeight: height,
+		width,
+		height,
+		scale
+	});
+}
+
+const menuCallbacks: MenuCallbacks = {
+	onGenerateCanvas: async (width, height, scale) => await generateCanvas(width, height, scale, targetElement),
+	onPrepareForImageGeneration: () => {
 		if (!textEditor.text.length) {
 			textEditor.text = '\rIt would be nice,\rif you typed something here.\r';
 		}
-		
-		setTimeout(() => {
-			handleOnDownloadWallpaper();
-		}, 200);
 	},
 	onTextSizeChanged: (newTextSize: number) => {
 		textEditor.textSize = newTextSize;
@@ -51,9 +57,11 @@ menu = new Menu({
 		updateSelectionStyles();
 	},
 	onImageSizeChanged: () => {
-		
+
 	}
-});
+};
+
+menu = new Menu(menuCallbacks);
 menu.onStart({
 	width: window.screen.width,
 	height: window.screen.height,
@@ -80,21 +88,6 @@ const intro = new Intro({
 		textEditor.focus();
 	}
 });
-
-// TODO: move this into DownloadWindow
-const handleOnDownloadWallpaper = async () => {
-	const { width, height, scale } = menu;
-	const blob = await WallpaperGenerator.generate({
-		targetElement,
-		width,
-		height,
-		scale
-	});
-
-	const fileNameScale = scale !== 1 ? `@${scale.toString()}` : '';
-	const fileName = `textwallpaper.online_${width}x${height}${fileNameScale}.jpg`;
-	FileSaver.saveAs(blob, fileName);
-};
 
 document.addEventListener('DOMContentLoaded', () => {
 	intro.onStart();
