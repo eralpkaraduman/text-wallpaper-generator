@@ -27,16 +27,28 @@ export default class DownloadWindow extends MenuWindow {
 	async updateImage() {
 		const canvas = await this._onGenerateImage();
 		const fileName = this._onGenerateFileName();
-		this._downloadButtonElement.download = this._onGenerateFileName();
 		const dataUrl = canvas.toDataURL('image/jpeg');
+		this._downloadButtonElement.download = this._onGenerateFileName();
 		this._downloadButtonElement.href = dataUrl;
 		this._imageElement.src = dataUrl;
 		this._imageElement.alt = fileName;
+	}
+
+	clearImage() {
+		this._downloadButtonElement.download = '';
+		this._downloadButtonElement.href = 'javascript:undefined';
+		this._imageElement.src = '';
+		this._imageElement.alt = '';
 	}
 	
 	onWindowWillOpen(): void {
 		super.onWindowWillOpen();
 		this.updateImage();
+	}
+
+	onWindowDidClose(): void {
+		super.onWindowDidClose();
+		this.clearImage();
 	}
 
 }
