@@ -6,7 +6,8 @@ type TextEditorCallbacks = {onFocused: OnFocusedCallback};
 
 export default class TextEditor {
 
-	textInputElement: HTMLInputElement;
+	textInputElement: HTMLTextAreaElement;
+	textInputContainerElement: HTMLElement;
 	
 	_onFocusedCallback: OnFocusedCallback;
 
@@ -36,7 +37,8 @@ export default class TextEditor {
 	}
 
 	onStart = () => {
-		this.textInputElement = (getElement('wallpaper-text-input'): any);
+		this.textInputElement = ((getElement('wallpaper-text-input'): any): HTMLTextAreaElement);
+		
 		const {
 			textInputElement,
 			handleOnTextChanged,
@@ -59,11 +61,11 @@ export default class TextEditor {
 	}
 
 	handleOnTextChanged = debounce(() => {
-		let linecount = this.text.split('\n').length;
-		linecount = Math.max(1, linecount);
-		const lineHeight = parseInt(getStyle(this.textInputElement, 'line-height'));
-		const heightStyle = `${linecount * lineHeight}px`;
-		this.textInputElement.style.height = heightStyle;
+		this.textInputElement.style.height = 'auto';
+		const lineCount = Math.max(this.text.split('\n').length, 1);
+		const lineHeight = parseFloat(getStyle(this.textInputElement, 'line-height') || 0);
+		const textInputElementHeight = Math.ceil(lineCount * lineHeight);
+		this.textInputElement.style.height = `${textInputElementHeight}px`;
 	});
 
 	handleOnTextInputFocus = debounce(() => {
@@ -76,7 +78,7 @@ export default class TextEditor {
 	});
 
 	onShow = () => {
-		this.textInputElement.style.display = 'block';
+		this.textInputElement.style.display = 'inline-block';
 		callOnNextFrame(this.handleOnTextChanged)();
 	}
 	

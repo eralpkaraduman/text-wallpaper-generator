@@ -41,7 +41,7 @@ const menuCallbacks: MenuCallbacks = {
 	onGenerateCanvas: async (width, height, scale) => await generateCanvas(width, height, scale, targetElement),
 	onPrepareForImageGeneration: () => {
 		if (!textEditor.text.length) {
-			textEditor.text = '\rIt would be nice,\rif you typed something here.\r';
+			textEditor.text = 'It would be nice,\rif you typed something here.';
 		}
 	},
 	onTextSizeChanged: (newTextSize: number) => {

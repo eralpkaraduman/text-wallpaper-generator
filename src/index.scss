@@ -20,20 +20,17 @@ $default_font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     align-items: center;
 }
 
-.wallpaper, .wallpaper-text, .intro {
+.wallpaper, .intro, #wallpaper-text-input-container {
     margin: 0;
     padding: 0;
     border: 0;
+    color: $flat_clouds;
 }
 
 .wallpaper {
     height: 100%;
     width: 100%;
-    padding: 20px;
-}
-
-.wallpaper-text, .intro {
-    color: $flat_clouds;
+    padding: 10px;
 }
 
 .wallpaper-text-input {
@@ -44,11 +41,17 @@ $default_font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     background-color: transparent;
     width: 100%;
     text-align: center;
-    overflow: hidden;
+    overflow-y: hidden;
+    overflow-x: hidden;
     padding: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     margin: 0px;
     outline: none;
     resize: none;
+    vertical-align: middle;
+    height: auto;
+    position: relative;
 }
 
 .wallpaper-text-input:focus {
