@@ -46,6 +46,7 @@ export default class Menu {
 	_backgroundColorButtonColorRectangleElement: HTMLElement;
 	_menuWindows: MenuWindows;
 	_callbacks: MenuCallbacks
+	_initialOptions: MenuOptions;
 
 	textSize: number;
 	width: number;
@@ -62,6 +63,7 @@ export default class Menu {
 	}
 
 	onStart(options: MenuOptions) {
+		this._initialOptions = options;
 		this.width = options.width;
 		this.height = options.height;
 		this.scale = options.scale;
@@ -176,9 +178,9 @@ export default class Menu {
 	}
 
 	_handleOnImageSizeChangeRequested = (width: number, height: number, scale: number) => {
-		this.width = width || 0;
-		this.height = height || 0;
-		this.scale = scale || 0;
+		this.width = width || this._initialOptions.width;
+		this.height = height || this._initialOptions.height;
+		this.scale = scale || this._initialOptions.scale;
 	}
 
 	_handleOnBackgroundColorChangeRequested = (newBackgrundColor: string) => {

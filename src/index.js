@@ -2,7 +2,6 @@
 import 'flexboxgrid';
 import '@fortawesome/fontawesome-free/css/fontawesome.css';
 import '@fortawesome/fontawesome-free/css/solid.css';
-import 'typeface-fira-mono';
 import 'normalize.css/normalize.css';
 import colors from './colors';
 import html2canvas from 'html2canvas';
