@@ -14,32 +14,32 @@ export default class DownloadWindow extends MenuWindow {
 	_activityIndicatorElement: HTMLElement;
 	_onGenerateImage: GenerateCanvasCallback;
 	_onGenerateFileName: GenerateFileNameCallback;
+	_mobileInfoTextElement: HTMLElement;
+	_desktopInfoTextElement: HTMLElement;
+	_progresInfoTextElement: HTMLElement;
 
 	constructor(elementId: string, onGenerateImage: GenerateCanvasCallback, onGenerateFileName: GenerateFileNameCallback) {
 		super(elementId);
 		this._onGenerateImage = onGenerateImage;
 		this._onGenerateFileName = onGenerateFileName;
-		// const buttonElement = utils.getElement('download-window-download-button');
-		// this._downloadButtonElement = ((buttonElement: any): HTMLAnchorElement);
 		const imageElement = utils.getElement('download-window-image');
 		this._imageElement = ((imageElement: any): HTMLImageElement);
 		this._imageElement.addEventListener('load', this.onImageLoaded);
 		this._activityIndicatorElement = utils.getElement('image-activity-indicator-container');
+		this._mobileInfoTextElement = utils.getElement('download-window-info-text-mobile');
+		this._desktopInfoTextElement = utils.getElement('download-window-info-text-desktop');
+		this._progresInfoTextElement = utils.getElement('download-window-info-text-progress');
 	}
 
 	async updateImage() {
 		const canvas = await this._onGenerateImage();
 		const fileName = this._onGenerateFileName();
 		const dataUrl = canvas.toDataURL('image/jpeg');
-		// this._downloadButtonElement.download = this._onGenerateFileName();
-		// this._downloadButtonElement.href = dataUrl;
 		this._imageElement.src = dataUrl;
 		this._imageElement.alt = fileName;
 	}
-	
+
 	clearImage() {
-		// this._downloadButtonElement.download = '';
-		// this._downloadButtonElement.href = 'javascript:undefined';
 		this._imageElement.src = '';
 		this._imageElement.alt = '';
 		this._imageElement.style.opacity = '0.0';
@@ -47,11 +47,21 @@ export default class DownloadWindow extends MenuWindow {
 	}
 
 	onImageLoaded = () => {
+		if (utils.isMobile()) {
+			this._mobileInfoTextElement.style.display = 'block';
+		}
+		else {
+			this._desktopInfoTextElement.style.display = 'block';
+		}
+		this._progresInfoTextElement.style.display = 'none';
 		this._imageElement.style.opacity = '1.0';
 		this._activityIndicatorElement.style.display = 'none';
 	}
-	
+
 	onWindowWillOpen(): void {
+		this._mobileInfoTextElement.style.display = 'none';
+		this._desktopInfoTextElement.style.display = 'none';
+		this._progresInfoTextElement.style.display = 'block';
 		super.onWindowWillOpen();
 		this.updateImage();
 	}

@@ -54,3 +54,7 @@ export function insertStyle(elementId: string, pseudoClass: string, kvo: Object)
 		try { stylesheet.insertRule(`#${elementId}::${vendorPrefix}${pseudoClass} ${stylesString}`, getlastIndex()); } catch (e) { } // eslint-disable-line
 	});
 }
+
+export function isMobile() {
+	return (typeof window.orientation !== 'undefined') || (navigator.userAgent.indexOf('IEMobile') !== -1);
+}
