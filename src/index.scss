@@ -259,11 +259,52 @@ li div {
     max-height: 300px;
     border: 1px solid gray; /* The Fallback */
     border: 1px solid rgba(black, 0.2);
-    background-color: gray;
+    background-color: gray; /* The Fallback */
     background-color: rgba(black, 0.2);
     border-radius: 0.25em;
 }
 
 #menu-editor-download {
     padding: 8px;
+}
+
+$animation_container_height: 100px;
+$moving_icon_height: 30px;
+$animation_boundary_amount: 10px;
+$animation_up_postion: 0px + $animation_boundary_amount;
+$animation_down_postion: $animation_container_height - $moving_icon_height - $animation_boundary_amount;
+
+#image-activity-indicator {
+    transform-origin: center center;
+
+    @keyframes MoveUpDown {
+        0% {
+            transform: translateY($animation_up_postion);
+        }
+
+        100% {
+            transform: translateY($animation_down_postion);
+        }
+    }
+
+    transform-style: preserve-3D;
+    animation: MoveUpDown 0.4s infinite alternate ease-in-out;
+    display: inline-block;
+    position: relative;
+    font-size: $moving_icon_height;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+}
+
+#image-activity-indicator-container {
+    width: 100%;
+    height: $animation_container_height;
+    justify-content: center;
+    border: 1px solid gray; /* The Fallback */
+    border: 1px solid rgba(black, 0.2);
+    background-color: gray; /* The Fallback */
+    background-color: rgba(black, 0.2);
+    border-radius: 0.25em;
 }
