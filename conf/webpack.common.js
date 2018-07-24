@@ -5,7 +5,10 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const FlowWebpackPlugin = require('flow-webpack-plugin')
+const FlowWebpackPlugin = require('flow-webpack-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const OfflinePlugin = require('offline-plugin');
 
 const extractSass = new ExtractTextPlugin({
 	filename: '[name].[contenthash].css'
@@ -83,6 +86,33 @@ module.exports = {
 			printFlowOutput: true,
 			flowPath: require.main.require('flow-bin'),
 			flowArgs: ['--color=always'],
-		})
+		}),
+		new FaviconsWebpackPlugin({
+			logo: path.resolve('src/assets/textwallpaper-large-icon.png'),
+			inject: true,
+			background_color: '#f1c40f',
+		}),
+		new WebpackPwaManifest({
+			name: pkg.name,
+			short_name: 'TXTWLPR',
+			orientation: "portrait",
+			display: "standalone",
+			start_url: ".",
+			ios: true,
+			inject: true,
+			description: pkg.description,
+			background_color: '#2c3e50',
+			icons: [
+				{
+					src: path.resolve('src/assets/textwallpaper-large-icon.png'),
+					sizes: [96, 128, 192, 256, 384, 512]
+				},
+				{
+					src: path.resolve('src/assets/textwallpaper-large-icon.png'),
+					size: '1024x1024'
+				}
+			]
+		}),
+		new OfflinePlugin()
 	],
 };

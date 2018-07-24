@@ -91,3 +91,5 @@ const intro = new Intro({
 document.addEventListener('DOMContentLoaded', () => {
 	intro.onStart();
 });
+
+require('offline-plugin/runtime').install();
