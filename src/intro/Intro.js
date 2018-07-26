@@ -26,4 +26,8 @@ export default class Intro {
 	onHide = () => {
 		this.introElement.style.display = 'none';
 	}
+
+	onShow = () => {
+		this.introElement.style.display = 'flex';
+	}
 }

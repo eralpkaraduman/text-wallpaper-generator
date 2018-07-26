@@ -13,7 +13,8 @@ export type MenuCallbacks = {
 	onTextSizeChanged: (number) => void,
 	onTextColorChanged: (string) => void,
 	onBackgroundColorChanged: (string) => void,
-	onImageSizeChanged: (width: number, height: number) => void
+	onImageSizeChanged: (width: number, height: number) => void,
+	onInfoButtonClicked: () => void
 };
 export type MenuOptions = {
 	textSize: number,
@@ -28,7 +29,8 @@ type ButtonElements = {
 	backgroundColor: HTMLElement,
 	textSize: HTMLElement,
 	imageSize: HTMLElement,
-	download: HTMLElement
+	download: HTMLElement,
+	info: HTMLElement
 }
 type MenuWindows = {
 	download: DownloadWindow,
@@ -115,17 +117,20 @@ export default class Menu {
 			backgroundColor: utils.getElement('menu-button-background-color'),
 			textSize: utils.getElement('menu-button-text-size'),
 			imageSize: utils.getElement('menu-button-image-size'),
-			download: utils.getElement('menu-button-download')
+			download: utils.getElement('menu-button-download'),
+			info: utils.getElement('menu-button-info')
 		};
 
-		const setClickHandler = (buttonElement, menuWindow: MenuWindow) =>
+		const setMenuToggleHandler = (buttonElement, menuWindow: MenuWindow) =>
 			buttonElement.addEventListener('click', () => this.onToggleMenuWindow(buttonElement, menuWindow));
 
-		setClickHandler(this.buttonElements.textColor, this._menuWindows.textColor);
-		setClickHandler(this.buttonElements.backgroundColor, this._menuWindows.backgroundColor);
-		setClickHandler(this.buttonElements.textSize, this._menuWindows.textSize);
-		setClickHandler(this.buttonElements.imageSize, this._menuWindows.imageSize);
-		setClickHandler(this.buttonElements.download, this._menuWindows.download);
+		setMenuToggleHandler(this.buttonElements.textColor, this._menuWindows.textColor);
+		setMenuToggleHandler(this.buttonElements.backgroundColor, this._menuWindows.backgroundColor);
+		setMenuToggleHandler(this.buttonElements.textSize, this._menuWindows.textSize);
+		setMenuToggleHandler(this.buttonElements.imageSize, this._menuWindows.imageSize);
+		setMenuToggleHandler(this.buttonElements.download, this._menuWindows.download);
+
+		this.buttonElements.info.addEventListener('click', this._callbacks.onInfoButtonClicked);
 	}
 
 	onShow = () => {

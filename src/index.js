@@ -13,9 +13,8 @@ import Menu from './menu/Menu';
 import type {MenuCallbacks} from './menu/Menu';
 import TextEditor from './textEditor/TextEditor';
 
-const targetElement: HTMLElement = getElement('wallpaper');
-
 let menu: Menu;
+const wallpaperElement: HTMLElement = getElement('wallpaper');
 
 const textEditor = new TextEditor({
 	onFocused: () => menu.closeAllWindows()
@@ -38,7 +37,7 @@ async function generateCanvas(width: number, height: number, scale: number, targ
 }
 
 const menuCallbacks: MenuCallbacks = {
-	onGenerateCanvas: async (width, height, scale) => await generateCanvas(width, height, scale, targetElement),
+	onGenerateCanvas: async (width, height, scale) => await generateCanvas(width, height, scale, getElement('wallpaper')),
 	onPrepareForImageGeneration: () => {
 		if (!textEditor.text.length) {
 			textEditor.text = 'It would be nice,\nif you typed something here.';
@@ -52,11 +51,15 @@ const menuCallbacks: MenuCallbacks = {
 		updateSelectionStyles();
 	},
 	onBackgroundColorChanged: (newBackgroundColor: string) => {
-		targetElement.style.backgroundColor = newBackgroundColor;
+		wallpaperElement.style.backgroundColor = newBackgroundColor;
 		updateSelectionStyles();
 	},
-	onImageSizeChanged: () => {
-
+	onImageSizeChanged: () => {},
+	onInfoButtonClicked: () => {
+		intro.onShow();
+		menu.closeAllWindows();
+		// menu.onHide();
+		textEditor.onHide();
 	}
 };
 
@@ -76,8 +79,8 @@ textEditor.onStart();
 textEditor.textSize = menu.textSize;
 textEditor.textColor = menu.textColor;
 
-targetElement.style.backgroundColor = menu.backgroundColor;
-targetElement.addEventListener('click', () => menu.closeAllWindows());
+wallpaperElement.style.backgroundColor = menu.backgroundColor;
+wallpaperElement.addEventListener('click', () => menu.closeAllWindows());
 
 const intro = new Intro({
 	onComplete: () => {
