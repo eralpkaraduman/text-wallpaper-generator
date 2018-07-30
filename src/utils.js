@@ -5,6 +5,10 @@ export function getElement(id: string): HTMLElement {
 	return window.document.getElementById(id);
 }
 
+export function getBody(): HTMLBodyElement {
+	return window.document.getElementsByTagName('body')[0];
+}
+
 export function kvoIndexed(anObject: Object): Array<{key: string, value: any, index: number}> {
 	return Object.keys(anObject).map((key, index) => ({
 		key, value: anObject[key], index

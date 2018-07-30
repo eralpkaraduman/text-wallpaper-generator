@@ -1,10 +1,11 @@
-@import "./colors/flat-ui-colors.scss";
-
-$color-rectangle-size: 20px;
-$menu-button-padding: 10px;
+@import "./colors.scss";
 
 // Based on: https://booking.design/implementing-system-fonts-on-booking-com-a-lesson-learned-bdc984df627f
 $default_font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+$default_light_color: $color_flat_clouds;
+$default_dark_color: $color_mac_7;
+$color-rectangle-size: 20px;
+$menu-button-padding: 10px;
 
 .root, html, body {
     margin: 0;
@@ -12,6 +13,10 @@ $default_font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     border: 0;
     height: 100%;
     font-family: $default_font;
+}
+
+body {
+    background-color: $default_dark_color;
 }
 
 .root {
@@ -24,7 +29,7 @@ $default_font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     margin: 0;
     padding: 0;
     border: 0;
-    color: $flat_clouds;
+    color: $default_light_color;
 }
 
 .wallpaper {
@@ -35,8 +40,8 @@ $default_font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
 
 .wallpaper-text-input {
     display: none;
-    color: $flat_clouds;
-    caret-color: $flat_clouds;
+    color: $default_light_color;
+    caret-color: $default_light_color;
     border: none;
     background-color: transparent;
     width: 100%;
@@ -59,7 +64,7 @@ $default_font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
 }
 
 .menu {
-    background-color: $flat_midnight_blue; /* The Fallback */
+    background-color: $color_flat_midnight_blue; /* The Fallback */
     background-color: rgba(black, 0.2);
     border-radius: 0.25em;
 }
@@ -71,7 +76,7 @@ $default_font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
 }
 
 .menu-window {
-    background-color: $flat_midnight_blue; /* The Fallback */
+    background-color: $color_flat_midnight_blue; /* The Fallback */
     background-color: rgba(black, 0.2);
     border-radius: 0;
     border-radius: 0.25em;
@@ -79,7 +84,7 @@ $default_font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
 
 .menu-window-content {
     justify-content: center;
-    background-color: $flat_clouds;
+    background-color: $default_light_color;
     margin: 5px;
     border-radius: 0.25em;
     max-width: 294px;
@@ -124,18 +129,18 @@ a, button {
 }
 
 a:link, a:visited, button:link, button:visited {
-    color: $flat_wet_asphalt;
-    background-color: $flat_clouds;
+    color: $default_dark_color;
+    background-color: $default_light_color;
 }
 
 a:hover, a:active, button:hover, button:active {
-    color: $flat_clouds;
-    background-color: $flat_nephritis;
+    color: $default_light_color;
+    background-color: $color_flat_nephritis;
 }
 
 a.active-button {
-    color: $flat_clouds;
-    background-color: $flat_nephritis;
+    color: $default_light_color;
+    background-color: $color_flat_nephritis;
 }
 
 .colorRectangle {
@@ -157,18 +162,18 @@ a.active-button {
 }
 
 ul, li {
-    margin: 0px;
-    padding: 0px;
-    border: 0px;
+    margin: 0;
+    padding: 0;
+    border: 0;
 }
 
 li {
-    margin-left: 1.1em;
+    line-height: 1.4em;
 }
 
-li div {
-    margin-left: -0.35em;
-}
+// li div {
+//     margin-left: -0.35em;
+// }
 
 .intro-container {
     position: absolute;
@@ -183,13 +188,17 @@ li div {
 
 .intro {
     text-align: left;
-    max-width: 420px;
     height: 100%;
+    padding: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .intro-content {
     margin: 0px;
     padding: 0px;
+    padding-bottom: 10px;
+    padding-top: 10px;
 }
 
 .intro-start-button {
@@ -217,7 +226,7 @@ li div {
     margin: 5px;
     text-decoration: none !important;
     border-radius: 0.25em;
-    color: $flat_wet_asphalt;
+    color: $default_dark_color;
     text-align: 'right';
 }
 
@@ -241,7 +250,7 @@ li div {
     margin: 0px;
     text-decoration: none !important;
     border-radius: 0.25em;
-    color: $flat_wet_asphalt;
+    color: $default_dark_color;
     text-align: 'right';
     text-align: right;
     border: 1px solid gray; /* The Fallback */
@@ -253,7 +262,7 @@ li div {
     font-weight: bold;
     text-align: center;
     vertical-align: middle;
-    color: $flat_wet_asphalt;
+    color: $default_dark_color;
     margin: 5px;
     padding: 5px;
 }
@@ -317,8 +326,19 @@ $animation_down_postion: $animation_container_height - $moving_icon_height - $an
 .download-window-info-text {
     margin: 5px;
     display: none;
-    color: $flat_wet_asphalt;
+    color: $default_dark_color;
     font-weight: bold;
     font-size: 1em;
     text-align: center;
 }
+
+.intro-bullet-list-container {
+    margin-top: 20px;
+}
+
+#intro-bullet-list {
+    text-align: start;
+    list-style: inside;
+    padding: 10px;
+}
+

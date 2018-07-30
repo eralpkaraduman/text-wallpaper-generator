@@ -6,8 +6,8 @@ import 'normalize.css/normalize.css';
 import colors from './colors';
 import html2canvas from 'html2canvas';
 
-import './index.scss';
-import { getElement, insertStyle } from './utils';
+import './main.scss';
+import { getElement, insertStyle, getBody } from './utils';
 import Intro from './intro/Intro';
 import Menu from './menu/Menu';
 import type {MenuCallbacks} from './menu/Menu';
@@ -52,13 +52,14 @@ const menuCallbacks: MenuCallbacks = {
 	},
 	onBackgroundColorChanged: (newBackgroundColor: string) => {
 		wallpaperElement.style.backgroundColor = newBackgroundColor;
+		getBody().style.backgroundColor = newBackgroundColor;
 		updateSelectionStyles();
 	},
 	onImageSizeChanged: () => {},
 	onInfoButtonClicked: () => {
 		intro.onShow();
 		menu.closeAllWindows();
-		// menu.onHide();
+		menu.onHide();
 		textEditor.onHide();
 	}
 };
@@ -69,8 +70,8 @@ menu.onStart({
 	height: window.screen.height,
 	scale: window.devicePixelRatio,
 	textSize: 24,
-	textColor: colors.silver,
-	backgroundColor: colors.wet_asphalt
+	textColor: colors.flat_clouds,
+	backgroundColor: colors.mac_7
 });
 
 updateSelectionStyles();
