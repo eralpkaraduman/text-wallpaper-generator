@@ -4,6 +4,7 @@
 $default_font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 $default_light_color: $color_flat_clouds;
 $default_dark_color: $color_mac_7;
+$active_button_color: $color_mac_0;
 $color-rectangle-size: 20px;
 $menu-button-padding: 10px;
 
@@ -23,6 +24,37 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    a, button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-width: $color-rectangle-size;
+        min-height: $color-rectangle-size;
+        font-size: 1em;
+        font-weight: bold;
+        font-family: $default_font;
+        padding: 5px;
+        margin: 5px;
+        text-decoration: none !important;
+        border-radius: 0.25em;
+    }
+
+    a:link, a:visited, button:link, button:visited {
+        color: $default_dark_color;
+        background-color: $default_light_color;
+    }
+
+    a:hover, a:active, button:hover, button:active {
+        color: $default_light_color;
+        background-color: $active_button_color;
+    }
+
+    a.active-button {
+        color: $default_light_color;
+        background-color: $active_button_color;
+    }
 }
 
 .wallpaper, .intro, #wallpaper-text-input-container {
@@ -112,37 +144,6 @@ body {
     justify-content: center;
 }
 
-a, button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-width: $color-rectangle-size;
-    min-height: $color-rectangle-size;
-    font-size: 1em;
-    font-weight: bold;
-    font-family: $default_font;
-    padding: 5px;
-    margin: 5px;
-    text-decoration: none !important;
-    border-radius: 0.25em;
-}
-
-a:link, a:visited, button:link, button:visited {
-    color: $default_dark_color;
-    background-color: $default_light_color;
-}
-
-a:hover, a:active, button:hover, button:active {
-    color: $default_light_color;
-    background-color: $color_flat_nephritis;
-}
-
-a.active-button {
-    color: $default_light_color;
-    background-color: $color_flat_nephritis;
-}
-
 .colorRectangle {
     margin: 0px;
     padding: 0px;
@@ -170,10 +171,6 @@ ul, li {
 li {
     line-height: 1.4em;
 }
-
-// li div {
-//     margin-left: -0.35em;
-// }
 
 .intro-container {
     position: absolute;
@@ -333,7 +330,8 @@ $animation_down_postion: $animation_container_height - $moving_icon_height - $an
 }
 
 .intro-bullet-list-container {
-    margin-top: 20px;
+    margin-top: 10px;
+    font-size: 0.8em;
 }
 
 #intro-bullet-list {
@@ -342,3 +340,63 @@ $animation_down_postion: $animation_container_height - $moving_icon_height - $an
     padding: 10px;
 }
 
+.credits-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0px;
+    padding: 0px;
+    margin: 0px;
+    flex-wrap: wrap;
+}
+
+$credits-text-color: rgba(white, 0.4);
+$credits-text-color-fallback: gray;
+$credits-text-active-color: rgba(white, 0.8);
+$credits-text-active-color-fallback: white;
+
+.credits-box {
+    background-color: gray; /* The Fallback */
+    background-color: rgba(black, 0.3);
+    color: $credits-text-color-fallback; /* The Fallback */
+    color: $credits-text-color;
+    font-size: 0.7em;
+    border-radius: 0.25em 0.25em 0em 0em;
+		padding: 0px;
+		padding-left: 3px;
+		padding-right: 3px;
+		padding-top: 1px;
+		margin: 0px;
+    flex-wrap: wrap;
+    flex-grow: 0;
+    max-width: none;
+    min-width: none;
+    flex-basis: auto;
+    widows: 0px;
+
+    a {
+        font-weight: bold;
+        text-decoration: none !important;
+    }
+
+    a:link, a:visited, button:link, button:visited {
+        color: $credits-text-color-fallback; /* The Fallback */
+        color: $credits-text-color;
+    }
+
+    a:hover, a:active, button:hover, button:active {
+        color: $credits-text-active-color-fallback; /* The Fallback */
+        color: $credits-text-active-color;
+    }
+}
+
+.credits-item {
+    padding: 3px;
+    flex-wrap: wrap;
+    flex-grow: 0;
+    max-width: none;
+    flex-basis: auto;
+    min-width: none;
+}
