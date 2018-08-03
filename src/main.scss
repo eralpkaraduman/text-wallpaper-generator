@@ -169,7 +169,7 @@ ul, li {
 }
 
 li {
-    line-height: 1.4em;
+    line-height: 1.5em;
 }
 
 .intro-container {
@@ -198,16 +198,15 @@ li {
     padding-top: 10px;
 }
 
-.intro-start-button {
+a.intro-start-button {
     margin: 0px;
-    margin-top: 10px;
-    padding: 10px;
+    padding: 7px;
     display: none;
 }
 
 .intro-title {
     font-size: 1.5em;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .intro-subtitle {
@@ -267,12 +266,17 @@ li {
 .download-window-image {
     margin: 0px;
     padding: 0px;
+    display: inline-block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
     max-height: 300px;
     border: 1px solid gray; /* The Fallback */
     border: 1px solid rgba(black, 0.2);
     background-color: gray; /* The Fallback */
     background-color: rgba(black, 0.2);
     border-radius: 0.25em;
+    object-fit: scale-down;
 }
 
 #menu-editor-download {
@@ -364,11 +368,11 @@ $credits-text-active-color-fallback: white;
     color: $credits-text-color;
     font-size: 0.7em;
     border-radius: 0.25em 0.25em 0em 0em;
-		padding: 0px;
-		padding-left: 3px;
-		padding-right: 3px;
-		padding-top: 1px;
-		margin: 0px;
+    padding: 0px;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 1px;
+    margin: 0px;
     flex-wrap: wrap;
     flex-grow: 0;
     max-width: none;
