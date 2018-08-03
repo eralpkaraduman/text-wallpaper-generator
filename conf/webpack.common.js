@@ -88,28 +88,45 @@ module.exports = {
 			flowArgs: ['--color=always'],
 		}),
 		new FaviconsWebpackPlugin({
-			logo: path.resolve('src/assets/textwallpaper-large-icon.png'),
+			logo: path.resolve('src/assets/textwallpaper-large-icon.jpg'),
 			inject: true,
-			background_color: '#f1c40f',
+			background: '#2D2D2D'
 		}),
 		new WebpackPwaManifest({
 			name: pkg.name,
-			short_name: 'TXTWLPR',
+			short_name: 'TEXT WPR',
 			orientation: "portrait",
 			display: "standalone",
 			start_url: ".",
-			ios: true,
+			ios: {
+				'apple-mobile-web-app-title': 'TEXT WPR',
+				'apple-mobile-web-app-status-bar-style': 'black'
+			},
 			inject: true,
 			description: pkg.description,
-			background_color: '#2c3e50',
+			background_color: '#2D2D2D',
+			theme_color: '#2D2D2D',
+			fingerprints: true,
+			publicPath: null,
+			crossorigin: null,
+			includeDirectory: true,
 			icons: [
 				{
-					src: path.resolve('src/assets/textwallpaper-large-icon.png'),
-					sizes: [96, 128, 192, 256, 384, 512]
+					src: path.resolve('src/assets/textwallpaper-large-icon.jpg'),
+					sizes: [96, 128, 192, 256, 384, 512],
+					ios: true,
+					destination: path.join('icons', 'ios')
 				},
 				{
-					src: path.resolve('src/assets/textwallpaper-large-icon.png'),
-					size: '1024x1024'
+					src: path.resolve('src/assets/textwallpaper-large-icon.jpg'),
+					size: 1024,
+					ios: 'startup',
+					destination: path.join('icons', 'ios')
+				},
+				{
+					src: path.resolve('src/assets/textwallpaper-large-icon.jpg'),
+					sizes: [36, 48, 72, 96, 144, 192, 512],
+					destination: path.join('icons', 'android')
 				}
 			]
 		}),
