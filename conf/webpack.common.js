@@ -76,6 +76,7 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			title: pkg.title,
 			template: 'index.html',
+			description: pkg.title + ' : ' + pkg.description,
 			minify: {
 				removeComments: true,
 				collapseWhitespace: true

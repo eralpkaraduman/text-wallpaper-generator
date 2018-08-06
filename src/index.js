@@ -5,6 +5,8 @@ import '@fortawesome/fontawesome-free/css/solid.css';
 import 'normalize.css/normalize.css';
 import colors from './colors';
 import html2canvas from 'html2canvas';
+import smoothscroll from 'smoothscroll-polyfill';
+smoothscroll.polyfill();
 
 import './main.scss';
 import { getElement, insertStyle, getBody } from './utils';

@@ -87,8 +87,16 @@ export default class TextEditor {
 	}
 
 	focus = () => {
-		this.textInputElement.scrollIntoView();
-		this.textInputElement.focus();
+		const { textInputElement } = this;
+		textInputElement.focus();
+		callOnNextFrame(() => {
+			textInputElement.scrollIntoView({
+				behavior: 'smooth',
+				// $FlowFixMe
+				block: 'center',
+				inline: 'center'
+			});
+		});
 	}
 	
 	_updateTextSize = () => {
