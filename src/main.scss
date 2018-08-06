@@ -24,7 +24,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-		justify-items: center;
+    justify-items: center;
 
     a, button {
         display: flex;
@@ -135,7 +135,7 @@ body {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-		z-index: 9;
+    z-index: 9;
 }
 
 .button-container {
@@ -185,15 +185,13 @@ li {
     height: 100%;
     margin: 0px;
     padding: 0px;
-    z-index: 5;
 }
 
 .intro {
     text-align: left;
     height: 100%;
+    margin: 24px;
     padding: 0px;
-    padding-left: 10px;
-    padding-right: 10px;
 }
 
 .intro-content {
@@ -204,9 +202,12 @@ li {
 }
 
 a.intro-start-button {
-    margin: 0px;
-    padding: 7px;
+		margin: 0px;
+		font-weight: bold;
+		font-size: 1.2em;
+    padding: 14px;
     display: none;
+    z-index: 20;
 }
 
 .intro-title {
@@ -359,7 +360,7 @@ $animation_down_postion: $animation_container_height - $moving_icon_height - $an
     padding: 0px;
     margin: 0px;
     flex-wrap: wrap;
-    z-index: 0;
+    z-index: 1;
 }
 
 $credits-text-color: rgba(white, 0.4);
