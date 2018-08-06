@@ -7,7 +7,6 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const FlowWebpackPlugin = require('flow-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
 
 const extractSass = new ExtractTextPlugin({
@@ -87,48 +86,43 @@ module.exports = {
 			flowPath: require.main.require('flow-bin'),
 			flowArgs: ['--color=always'],
 		}),
-		new FaviconsWebpackPlugin({
-			logo: path.resolve('src/assets/textwallpaper-large-icon.jpg'),
-			inject: true,
-			background: '#2D2D2D'
-		}),
 		new WebpackPwaManifest({
 			name: pkg.name,
 			short_name: 'TEXT WPR',
+			description: pkg.description,
 			orientation: "portrait",
+			theme_color: '#2D2D2D',
+			background_color: '#2D2D2D',
+			crossorigin: null,
 			display: "standalone",
 			start_url: ".",
+			inject: true,
+			fingerprints: true,
+			publicPath: null,
+			includeDirectory: true,
 			ios: {
 				'apple-mobile-web-app-title': 'TEXT WPR',
 				'apple-mobile-web-app-status-bar-style': 'black'
 			},
-			inject: true,
-			description: pkg.description,
-			background_color: '#2D2D2D',
-			theme_color: '#2D2D2D',
-			fingerprints: true,
-			publicPath: null,
-			crossorigin: null,
-			includeDirectory: true,
 			icons: [
 				{
 					src: path.resolve('src/assets/textwallpaper-large-icon.jpg'),
-					sizes: [96, 128, 192, 256, 384, 512],
-					ios: true,
-					destination: path.join('icons', 'ios')
+					sizes: [1024, 120, 128, 152, 167, 180, 192, 256, 384, 512, 96], 
+					destination: path.join('icons', 'ios'),
+					ios: true
 				},
 				{
 					src: path.resolve('src/assets/textwallpaper-large-icon.jpg'),
+					destination: path.join('icons', 'ios'),
 					size: 1024,
-					ios: 'startup',
-					destination: path.join('icons', 'ios')
+					ios: 'startup'
 				},
 				{
 					src: path.resolve('src/assets/textwallpaper-large-icon.jpg'),
-					sizes: [36, 48, 72, 96, 144, 192, 512],
+					sizes: [36, 48, 72, 96, 144, 192, 512, 1024],
 					destination: path.join('icons', 'android')
 				}
-			]
+			],
 		}),
 		new OfflinePlugin()
 	],
