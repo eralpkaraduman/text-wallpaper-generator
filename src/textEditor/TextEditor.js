@@ -87,6 +87,7 @@ export default class TextEditor {
 	}
 
 	focus = () => {
+		this.textInputElement.scrollIntoView();
 		this.textInputElement.focus();
 	}
 	

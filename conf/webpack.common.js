@@ -7,6 +7,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const FlowWebpackPlugin = require('flow-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
 
 const extractSass = new ExtractTextPlugin({
@@ -86,6 +87,26 @@ module.exports = {
 			flowPath: require.main.require('flow-bin'),
 			flowArgs: ['--color=always'],
 		}),
+		new FaviconsWebpackPlugin({
+			logo: path.resolve('src/assets/textwallpaper-large-icon.jpg'),
+			inject: true,
+			prefix: 'icons/[hash]-',
+			persistentCache: false,
+			background: '#2D2D2D',
+			icons: {
+				appleStartup: true,
+				favicons: true,
+
+				appleIcon: false,
+				android: false,
+				coast: false,
+				firefox: false,
+				opengraph: false,
+				twitter: false,
+				yandex: false,
+				windows: false
+			}
+		}),
 		new WebpackPwaManifest({
 			name: pkg.name,
 			short_name: 'TEXT WPR',
@@ -110,12 +131,6 @@ module.exports = {
 					sizes: [1024, 120, 128, 152, 167, 180, 192, 256, 384, 512, 96], 
 					destination: path.join('icons', 'ios'),
 					ios: true
-				},
-				{
-					src: path.resolve('src/assets/textwallpaper-large-icon.jpg'),
-					destination: path.join('icons', 'ios'),
-					size: 1024,
-					ios: 'startup'
 				},
 				{
 					src: path.resolve('src/assets/textwallpaper-large-icon.jpg'),

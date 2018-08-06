@@ -24,6 +24,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+		justify-items: center;
 
     a, button {
         display: flex;
@@ -126,12 +127,15 @@ body {
 }
 
 .menu-container {
+    position: absolute;
+    top: 5px;
+    width: 100%;
     margin: 0px;
-    margin-top: 5px;
-    display: flex;
+    padding: 0px;
+    display: inline-flex;
     flex-direction: column;
     align-items: center;
-    position: absolute;
+		z-index: 9;
 }
 
 .button-container {
@@ -181,6 +185,7 @@ li {
     height: 100%;
     margin: 0px;
     padding: 0px;
+    z-index: 5;
 }
 
 .intro {
@@ -354,6 +359,7 @@ $animation_down_postion: $animation_container_height - $moving_icon_height - $an
     padding: 0px;
     margin: 0px;
     flex-wrap: wrap;
+    z-index: 0;
 }
 
 $credits-text-color: rgba(white, 0.4);

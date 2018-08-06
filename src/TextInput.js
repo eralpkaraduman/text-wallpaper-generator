@@ -1,10 +1,10 @@
 // @flow
 /*opaque*/ type TextInputMaskingMode = string; // Opaque types don't work? https://github.com/gajus/eslint-plugin-flowtype/issues/300
-
 import { callOnNextFrame } from './utils';
-import maskInput, { conformToMask } from 'vanilla-text-mask';
+import maskInput from 'vanilla-text-mask';
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
 
+const scaleMaskDecimalLimit = 4;
 export default class TextInput {
 	
 	static MASKING_MODE_PIXEL: TextInputMaskingMode = 'MASKING_MODE_PIXEL';
@@ -32,6 +32,7 @@ export default class TextInput {
 			allowLeadingZeroes: true,
 			prefix: '',
 			suffix: '',
+			decimalLimit: scaleMaskDecimalLimit
 		}),
 		guide: false,
 		placeholderChar: '_',
@@ -55,25 +56,14 @@ export default class TextInput {
 	get value(): number {
 		return parseFloat(this._inputElement.value);
 	}
-	set value(number: number): void {
-		const raw = (number || 0).toString();
-		const maskArray = this._maskConfig.mask(raw);
-		let config = {...this._maskConfig};
-		delete config.mask;
-		delete config.pipe;
-		let { conformedValue } = conformToMask(raw, maskArray, config);
-		if (this._maskingMode === TextInput.MASKING_MODE_SCALE) {
-			this._inputElement.value = parseFloat(conformedValue).toFixed(1);
-		}
-		else {
-			this._inputElement.value = conformedValue;
-		}
+	set value(newValue: number): void {
+		const { update } = this._maskedInput.textMaskInputElement;
+		newValue = newValue || 0;
+		update(newValue);
 	}
 
 	constructor(element: HTMLElement, maskingMode: TextInputMaskingMode, onChange: Function, onFocus: ?Function, onUnfocus: ?Function) {
 		this._inputElement = (element: any);
-		
-		// onChange = debounce(() => onChange());
 		this._inputElement.addEventListener('change', onChange, false);
 		this._inputElement.addEventListener('cut', callOnNextFrame(onChange), false);
 		this._inputElement.addEventListener('paste', callOnNextFrame(onChange), false);
@@ -82,11 +72,9 @@ export default class TextInput {
 		this._inputElement.addEventListener('keyup', callOnNextFrame(onChange), false);
 		this._inputElement.addEventListener('keypress', callOnNextFrame(onChange), false);
 		if (onFocus) {
-			// onFocus = debounce(() => onFocus && onFocus());
 			this._inputElement.addEventListener('focus', onFocus, false);
 		}
 		if (onUnfocus) {
-			// onUnfocus = debounce(() => onUnfocus && onUnfocus());
 			this._inputElement.addEventListener('blur', onUnfocus, false);
 			this._inputElement.addEventListener('focusout', onUnfocus, false);
 			this._inputElement.addEventListener('touchleave', onUnfocus, false);

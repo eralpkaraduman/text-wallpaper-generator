@@ -68,7 +68,7 @@ menu = new Menu(menuCallbacks);
 menu.onStart({
 	width: window.screen.width,
 	height: window.screen.height,
-	scale: window.devicePixelRatio,
+	scale: window.devicePixelRatio || 1,
 	textSize: 24,
 	textColor: colors.flat_clouds,
 	backgroundColor: colors.mac_7
