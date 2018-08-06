@@ -8,6 +8,9 @@ $active_button_color: $color_mac_0;
 $color-rectangle-size: 20px;
 $menu-button-padding: 10px;
 
+$menu-window-max-width: 294px;
+$menu-window-min-width: 246px;
+
 .root, html, body {
     margin: 0;
     padding: 0;
@@ -120,9 +123,10 @@ body {
     background-color: $default_light_color;
     margin: 5px;
     border-radius: 0.25em;
-    max-width: 294px;
-    min-width: 246px;
+    max-width: $menu-window-max-width;
+    min-width: $menu-window-min-width;
     flex-wrap: wrap;
+    width: 100%;
     z-index: 10;
 }
 
@@ -173,7 +177,9 @@ ul, li {
 }
 
 li {
-    line-height: 1.5em;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    line-height: inherit;
 }
 
 .intro-container {
@@ -236,20 +242,25 @@ a.intro-start-button {
     justify-content: start;
 }
 
-.menu-window-content-row, .menu-window-content-column {
-    width: 100%;
+.menu-window-size-row {
     margin: 0px;
-    padding: 0px;
+    padding: 3px;
+    width: 100%;
+}
+
+#menu-editor-image-size {
+    width: $menu-window-min-width;
+    padding: 3px;
+    margin: 0px;
 }
 
 .input-right {
-    width: 100%;
-    display: flex;
+    width: 190px;
     font-size: 1.2em;
     font-weight: bold;
     font-family: $default_font;
-    padding: 0px;
-    margin: 0px;
+    padding: 2px 4px 2px 4px;
+    margin: 0px 0px 0px 0px;
     text-decoration: none !important;
     border-radius: 0.25em;
     color: $default_dark_color;
@@ -260,13 +271,12 @@ a.intro-start-button {
 }
 
 .image-size-icon {
-    font-size: 1.2em;
+    width: 28px;
+    font-size: 1.4em;
     font-weight: bold;
     text-align: center;
     vertical-align: middle;
     color: $default_dark_color;
-    margin: 5px;
-    padding: 5px;
 }
 
 .download-window-image {
