@@ -1,13 +1,13 @@
 # TextWallpaper.Online
 
 Create Simple Wallpapers with Text!
-#### [![textwallpaper.online]]([textwallpaperdotonline-url])
+#### [![textwallpaper.online]][textwallpaperdotonline-url]
 
 ## Prerequisites
 
-- [![node][node]]([node-url])
-- [![nvm]]([nvm-url])
-- [![yarn]]([yarn-url])
+- [![node][node]][node-url]
+- [![nvm]][nvm-url]
+- [![yarn]][yarn-url]
 
 ## Starting Dev Server
 
