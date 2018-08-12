@@ -1,7 +1,7 @@
 # TextWallpaper.Online
 
 Create Simple Wallpapers By Text!
-#### [textwallpaper.online]([textwallpaper.online-url])
+#### [textwallpaper.online]([textwallpaperdotonline-url])
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ Create Simple Wallpapers By Text!
 
 [yarn-url]: https://yarnpkg.com
 
-[textwallpaper.online-url]: https://textwallpaper.online
+[textwallpaperdotonline-url]: https://textwallpaper.online
 
 [node]: https://img.shields.io/node/v/webpack-es6-boilerplate.svg
 [node-url]: https://nodejs.org
