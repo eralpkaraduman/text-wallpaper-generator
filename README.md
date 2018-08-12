@@ -11,7 +11,7 @@ Create Simple Wallpapers with Text!
 
 ## Starting Dev Server
 
-1. Run `nvm use .`
+1. Run `nvm use`
 2. Run `yarn`
 3. Start the dev server using `yarn start`
 3. Open [http://localhost:4000](http://localhost:4000)
