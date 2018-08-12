@@ -1,14 +1,13 @@
 # TextWallpaper.Online
 
-Create Simple Wallpapers By Text!
-#### [textwallpaper.online]([textwallpaperdotonline-url])
+Create Simple Wallpapers with Text!
+#### [![textwallpaper.online]]([textwallpaperdotonline-url])
 
 ## Prerequisites
 
-- [nvm]([nvm-url])
-- [node]([node-url])
-- [npm]([npm-url])
-- [yarn]([yarn-url])
+- [![node][node]]([node-url])
+- [![nvm]]([nvm-url])
+- [![yarn]]([yarn-url])
 
 ## Starting Dev Server
 
@@ -16,9 +15,6 @@ Create Simple Wallpapers By Text!
 2. Run `yarn`
 3. Start the dev server using `yarn start`
 3. Open [http://localhost:4000](http://localhost:4000)
-
-[npm]: https://img.shields.io/badge/npm-5.3.0-blue.svg
-[npm-url]: https://npmjs.com/
 
 [nvm-url]: https://github.com/creationix/nvm
 
@@ -28,6 +24,3 @@ Create Simple Wallpapers By Text!
 
 [node]: https://img.shields.io/node/v/webpack-es6-boilerplate.svg
 [node-url]: https://nodejs.org
-
-[tests]: http://img.shields.io/travis/jluccisano/webpack-es6-boilerplate.svg
-[tests-url]: https://travis-ci.org/jluccisano/webpack-es6-boilerplate
