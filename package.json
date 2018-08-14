@@ -3,7 +3,7 @@
   "title": "TextWallpaper.Online",
   "version": "1.0.0",
   "author": "Eralp Karaduman <eralp@eralpkaraduman.com> (https://eralpkaraduman.com)",
-  "description": "Create Simple Wallpapers By Text!",
+  "description": "Create plain text solid color wallpapers!",
   "license": "MIT",
   "keywords": [
     "webpack",
