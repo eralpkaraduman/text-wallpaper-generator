@@ -3,6 +3,8 @@
 Create Simple Wallpapers with Text!
 #### [TextWallpaper.Online][textwallpaperdotonline-url]
 
+![Intro Animation](https://github.com/eralpkaraduman/text-wallpaper-generator/raw/master/src/intro/intro.gif)
+
 ## Prerequisites
 
 - [node][node-url]
