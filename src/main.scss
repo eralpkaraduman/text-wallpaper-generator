@@ -114,7 +114,6 @@ body {
 .menu-window {
     background-color: $color_flat_midnight_blue; /* The Fallback */
     background-color: rgba(black, 0.2);
-    border-radius: 0;
     border-radius: 0.25em;
 }
 
@@ -179,7 +178,7 @@ ul, li {
 li {
     padding-top: 3px;
     padding-bottom: 3px;
-    line-height: inherit;
+    line-height: 0.6rem;
 }
 
 .intro-container {
@@ -196,7 +195,7 @@ li {
 .intro {
     text-align: left;
     height: 100%;
-    margin: 24px;
+    margin: 10px;
     padding: 0px;
 }
 
@@ -208,22 +207,24 @@ li {
 }
 
 a.intro-start-button {
-		margin: 0px;
-		font-weight: bold;
-		font-size: 1.2em;
+    margin: 0px;
+    font-weight: bold;
+    font-size: 1.2em;
     padding: 14px;
     display: none;
     z-index: 20;
 }
 
 .intro-title {
-    font-size: 1.5em;
+    font-size: 1.8rem;
+    font-weight: bold;
     margin-bottom: 5px;
 }
 
 .intro-subtitle {
-    font-size: 1.1em;
-    margin-bottom: 20px;
+		font-weight: bold;
+		font-size: 1.0rem;
+		margin-bottom: 5px;
 }
 
 .label {
@@ -350,14 +351,15 @@ $animation_down_postion: $animation_container_height - $moving_icon_height - $an
 }
 
 .intro-bullet-list-container {
-    margin-top: 10px;
     font-size: 0.8em;
+    margin: 5px;
 }
 
 #intro-bullet-list {
     text-align: start;
     list-style: inside;
-    padding: 10px;
+    padding: 0px;
+    margin: 0px;
 }
 
 .credits-container {
@@ -420,4 +422,11 @@ $credits-text-active-color-fallback: white;
     max-width: none;
     flex-basis: auto;
     min-width: none;
+}
+
+#intro-gif-animation {
+    border-radius: 0.25em;
+    border: 2px solid white;
+    border: 2px solid rgba(white, 0.4);
+    height: 150px;
 }

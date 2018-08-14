@@ -14,11 +14,11 @@
 <body style="background-color: #2D2D2D;">
 	<noscript>You need to enable JavaScript to run this app.</noscript>
 	<div id="root" class="root">
-		<%= require('html-loader!./menu/menu.html') %>
-		<%= require('html-loader!./intro/intro.html') %>
-		<%= require('html-loader!./textEditor/textEditor.html') %>
+		<%= require('html-loader?interpolate!./menu/menu.html') %>
+		<%= require('html-loader?interpolate!./intro/intro.html') %>
+		<%= require('html-loader?interpolate!./textEditor/textEditor.html') %>
 	</div>
-	<%= require('html-loader!./credits.html') %>
+	<%= require('html-loader?interpolate!./credits.html') %>
 </body>
 
 </html>
