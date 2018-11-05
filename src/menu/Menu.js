@@ -154,7 +154,7 @@ export default class Menu {
 	
 	_handleOnGenerateImage: GenerateCanvasCallback = async () => {
 		this._callbacks.onPrepareForImageGeneration();
-		await utils.sleep(1000);
+		await utils.sleep(500);
 		return await this._callbacks.onGenerateCanvas(this.width, this.height, this.scale);
 	}
 
