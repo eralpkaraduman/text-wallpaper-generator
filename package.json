@@ -65,6 +65,7 @@
     "webpack-pwa-manifest": "^3.6.2"
   },
   "dependencies": {
+    "autosize": "^4.0.2",
     "blob.js": "^1.0.1",
     "flexboxgrid": "^6.3.1",
     "html2canvas": "^1.0.0-alpha.12",

@@ -1,5 +1,6 @@
 // @flow
-import { getElement, callOnNextFrame, debounce, getStyle } from '../utils';
+import { getElement, callOnNextFrame, debounce, /*getStyle*/ } from '../utils';
+import autosize from 'autosize';
 
 type OnFocusedCallback = () => void;
 type TextEditorCallbacks = {onFocused: OnFocusedCallback};
@@ -14,7 +15,6 @@ export default class TextEditor {
 	_textSize: number;
 	set textSize(value: number): void {
 		this._textSize = value;
-		this._updateTextSize();
 	}
 	
 	_textColor: string;
@@ -25,7 +25,6 @@ export default class TextEditor {
 	
 	set text(value: string): void {
 		this.textInputElement.value = value;
-		this.handleOnTextChanged();
 	}
 	
 	get text(): string {
@@ -38,48 +37,16 @@ export default class TextEditor {
 
 	onStart = () => {
 		this.textInputElement = ((getElement('wallpaper-text-input'): any): HTMLTextAreaElement);
-		
-		const {
-			textInputElement,
-			handleOnTextChanged,
-			handleOnTextInputFocus,
-			handleOnTextInputUnfocus
-		} = this;
-		
-		textInputElement.addEventListener('change', handleOnTextChanged, false);
-		textInputElement.addEventListener('cut', callOnNextFrame(handleOnTextChanged), false);
-		textInputElement.addEventListener('paste', callOnNextFrame(handleOnTextChanged), false);
-		textInputElement.addEventListener('drop', callOnNextFrame(handleOnTextChanged), false);
-		textInputElement.addEventListener('keydown', callOnNextFrame(handleOnTextChanged), false);
-		textInputElement.addEventListener('keyup', callOnNextFrame(handleOnTextChanged), false);
-		textInputElement.addEventListener('keypress', callOnNextFrame(handleOnTextChanged), false);
-		textInputElement.addEventListener('focus', handleOnTextInputFocus, false);
-		textInputElement.addEventListener('blur', handleOnTextInputUnfocus, false);
-		textInputElement.addEventListener('focusout', handleOnTextInputUnfocus, false);
-		textInputElement.addEventListener('touchleave', handleOnTextInputUnfocus, false);
-		textInputElement.addEventListener('touchcancel', handleOnTextInputUnfocus, false);
+		this.textInputElement.addEventListener('focus', this.handleOnTextInputFocus, false);
+		autosize(this.textInputElement);
 	}
-
-	handleOnTextChanged = debounce(() => {
-		this.textInputElement.style.height = 'auto';
-		const lineCount = Math.max(this.text.split('\n').length, 1);
-		const lineHeight = parseFloat(getStyle(this.textInputElement, 'line-height') || 0);
-		const textInputElementHeight = Math.ceil(lineCount * lineHeight);
-		this.textInputElement.style.height = `${textInputElementHeight}px`;
-	});
-
+	
 	handleOnTextInputFocus = debounce(() => {
 		this._onFocusedCallback();
-		callOnNextFrame(this.handleOnTextChanged)();
-	});
-
-	handleOnTextInputUnfocus = debounce(() => {
-		callOnNextFrame(this.handleOnTextChanged)();
 	});
 
 	onShow = () => {
 		this.textInputElement.style.display = 'inline-block';
-		callOnNextFrame(this.handleOnTextChanged)();
 	}
 	
 	onHide = () => {
@@ -97,12 +64,6 @@ export default class TextEditor {
 				inline: 'center'
 			});
 		});
-	}
-	
-	_updateTextSize = () => {
-		const fontSizeStyle = `${this._textSize.toString()}pt`;
-		this.textInputElement.style.fontSize = fontSizeStyle;
-		callOnNextFrame(this.handleOnTextChanged)();
 	}
 	
 	_updateTextColor = () => {
