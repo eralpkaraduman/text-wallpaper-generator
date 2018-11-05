@@ -15,6 +15,7 @@ export default class TextEditor {
 	_textSize: number;
 	set textSize(value: number): void {
 		this._textSize = value;
+		this._updateTextSize();
 	}
 	
 	_textColor: string;
@@ -71,4 +72,10 @@ export default class TextEditor {
 		// $FlowFixMe
 		this.textInputElement.style.caretColor = this._textColor; 
 	}
+
+	_updateTextSize = () => {
+		const fontSizeStyle = `${this._textSize.toString()}pt`;
+		this.textInputElement.style.fontSize = fontSizeStyle;
+	}
 }
+
