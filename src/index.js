@@ -75,6 +75,7 @@ const menuCallbacks: MenuCallbacks = {
   onImageSizeChanged: () => {},
   onInfoButtonClicked: () => {
     intro.onShow();
+    menu.resetStyles();
     menu.closeAllWindows();
     menu.onHide();
     textEditor.onHide();
