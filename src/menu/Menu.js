@@ -172,6 +172,14 @@ export default class Menu {
     );
   }
 
+  resetStyles = () => {
+    this._handleOnTextSizeChangeRequested(this._initialOptions.textSize);
+    this._handleOnTextColorChangeRequested(this._initialOptions.textColor);
+    this._handleOnBackgroundColorChangeRequested(
+      this._initialOptions.backgroundColor,
+    );
+  };
+
   onShow = () => {
     this._containerElement.style.display = 'flex';
   };
