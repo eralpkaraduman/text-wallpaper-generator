@@ -21,10 +21,7 @@
         "codeFrame": false
     },
     "rules": {
-        "indent": [
-            "warn",
-            "tab"
-        ],
+        
         "linebreak-style": [
             "error",
             "unix"
@@ -40,6 +37,6 @@
         "no-console": [
             "warn"
         ],
-        "strict": 0
+        "strict": 1
     }
 }
