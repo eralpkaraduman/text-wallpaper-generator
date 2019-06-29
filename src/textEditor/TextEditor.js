@@ -44,6 +44,11 @@ export default class TextEditor {
       this.handleOnTextInputFocus,
       false,
     );
+    this.textInputElement.addEventListener(
+      'click',
+      () => this.textInputElement.focus(),
+      false,
+    );
     autosize(this.textInputElement);
   };
 
