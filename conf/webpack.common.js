@@ -5,7 +5,6 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const FlowWebpackPlugin = require('flow-webpack-plugin');
 
 const extractSass = new ExtractTextPlugin({
   filename: '[name].[contenthash].css',
@@ -89,10 +88,5 @@ module.exports = {
       },
     }),
     extractSass,
-    new FlowWebpackPlugin({
-      printFlowOutput: true,
-      flowPath: require.main.require('flow-bin'),
-      flowArgs: ['--color=always'],
-    }),
   ],
 };
