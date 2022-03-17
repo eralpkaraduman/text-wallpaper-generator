@@ -18,14 +18,14 @@ export function kvoIndexed(
 }
 
 export function objForEach(anObject: Object, func: (value: any) => void) {
-  Object.keys(anObject).forEach(key => func(anObject[key]));
+  Object.keys(anObject).forEach((key) => func(anObject[key]));
 }
 
 export const callOnNextFrame = (callback: Function) => () =>
   window.setTimeout(callback, 0.2);
 
 export const sleep = (duration: number) =>
-  new Promise(resolve => window.setTimeout(resolve, duration));
+  new Promise((resolve) => window.setTimeout(resolve, duration));
 
 export function getStyle(el: HTMLElement, styleProp: string) {
   // based on: https://stackoverflow.com/a/4392968/2172057
@@ -47,7 +47,7 @@ export function insertStyle(
     .map(({ key, value }) => `${key}: ${value}`)
     .join('; ')}}`;
   const getlastIndex = () => stylesheet.cssRules.length;
-  ['', '-moz-', '-webkit-'].forEach(vendorPrefix => {
+  ['', '-moz-', '-webkit-'].forEach((vendorPrefix) => {
     try {
       stylesheet.insertRule(
         `#${elementId}::${vendorPrefix}${pseudoClass} ${stylesString}`,
