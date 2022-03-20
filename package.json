@@ -26,8 +26,7 @@
     "test": "jest --config=conf/jest.config.js",
     "test:watch": "jest --watch",
     "upload": "cd dist && s3-upload ../conf/aws-upload.conf.js",
-    "deploy": "yarn build && yarn upload",
-    "flow": "flow"
+    "deploy": "npm run build && npm run upload"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.1.0",
@@ -73,5 +72,8 @@
     "smoothscroll-polyfill": "^0.4.3",
     "text-mask-addons": "^3.7.2",
     "vanilla-text-mask": "^5.1.1"
+  },
+  "engines": {
+    "yarn": "use npm!"
   }
 }
