@@ -21,9 +21,9 @@ module.exports = {
 
   output: {
     path: path.join(process.cwd(), 'dist'),
-    filename: '[name].js',
+    filename: '[name].[hash].js',
     publicPath: '/',
-    sourceMapFilename: '[name].js.map',
+    sourceMapFilename: '[name].[hash].js.map',
   },
 
   resolve: {
