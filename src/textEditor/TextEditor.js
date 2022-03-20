@@ -24,11 +24,11 @@ export default class TextEditor {
   }
 
   set text(value: string): void {
-    this.textInputElement.value = value;
+    this.textInputElement.textContent = value;
   }
 
   get text(): string {
-    return this.textInputElement.value;
+    return this.textInputElement.textContent;
   }
 
   constructor(callbacks: TextEditorCallbacks) {
