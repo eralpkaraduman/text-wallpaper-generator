@@ -37,6 +37,11 @@ const updateSelectionStyles = () => {
   });
 };
 
+function fnIgnoreElements(el) {
+  // Fixes issues with grammarly extension https://github.com/niklasvh/html2canvas/issues/2804  
+  if (typeof el.shadowRoot == 'object' && el.shadowRoot !== null) return true
+}
+
 async function generateCanvas(
   width: number,
   height: number,
@@ -44,6 +49,7 @@ async function generateCanvas(
   targetElement: HTMLElement,
 ): Promise<HTMLCanvasElement> {
   return await html2canvas(targetElement, {
+    ignoreElements: fnIgnoreElements,
     windowWidth: width,
     windowHeight: height,
     width,
