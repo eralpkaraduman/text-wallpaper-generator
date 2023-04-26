@@ -22,3 +22,8 @@ Create Simple Wallpapers with Text!
 [yarn-url]: https://yarnpkg.com
 [textwallpaperdotonline-url]: https://textwallpaper.online
 [node-url]: https://nodejs.org
+
+## Deploying
+
+- Place aws-credentials.json into conf folder
+- `npm run deploy"

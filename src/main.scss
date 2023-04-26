@@ -202,6 +202,7 @@ li {
 .intro-content {
     margin: 0px;
     padding: 0px;
+    padding-bottom: 40px;
 }
 
 a.intro-start-button {
@@ -379,7 +380,9 @@ $animation_down_postion: $animation_container_height - $moving_icon_height - $an
     width: 100%;
     flex-direction: column;
     position: absolute;
-    bottom: 0px;
+    bottom: 0;
+    left: 0;
+    right: 0;
     padding: 0px;
     margin: 0px;
     flex-wrap: wrap;
