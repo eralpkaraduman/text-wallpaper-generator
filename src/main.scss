@@ -213,6 +213,19 @@ a.intro-start-button {
     z-index: 20;
 }
 
+.generic-button {
+    margin: 0px;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 14px;
+    z-index: 20;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    margin-left: 0 !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+
 .intro-title {
     font-size: 1.8rem;
     font-weight: bold;
