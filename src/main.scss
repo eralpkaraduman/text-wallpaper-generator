@@ -1,7 +1,8 @@
-@import "./colors.scss";
+@import './colors.scss';
 
 // Based on: https://booking.design/implementing-system-fonts-on-booking-com-a-lesson-learned-bdc984df627f
-$default_font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+$default_font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+  Arial, sans-serif;
 $default_light_color: $color_flat_clouds;
 $default_dark_color: $color_mac_7;
 $active_button_color: $color_mac_0;
@@ -11,382 +12,395 @@ $menu-button-padding: 10px;
 $menu-window-max-width: 294px;
 $menu-window-min-width: 246px;
 
-.root, html, body {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    height: 100%;
-    font-family: $default_font;
+.root,
+html,
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  height: 100%;
+  font-family: $default_font;
 }
 
 body {
-    background-color: $default_dark_color;
+  background-color: $default_dark_color;
 }
 
 .root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+
+  a,
+  button {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-items: center;
-
-    a, button {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-width: $color-rectangle-size;
-        min-height: $color-rectangle-size;
-        font-size: 1em;
-        font-weight: bold;
-        font-family: $default_font;
-        padding: 5px;
-        margin: 5px;
-        text-decoration: none !important;
-        border-radius: 0.25em;
-    }
-
-    a:link, a:visited, button:link, button:visited {
-        color: $default_dark_color;
-        background-color: $default_light_color;
-    }
-
-    a:hover, a:active, button:hover, button:active {
-        color: $default_light_color;
-        background-color: $active_button_color;
-    }
-
-    a.active-button {
-        color: $default_light_color;
-        background-color: $active_button_color;
-    }
-}
-
-.wallpaper, .intro, #wallpaper-text-input-container {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    color: $default_light_color;
-}
-
-.wallpaper {
-    height: 100%;
-    width: 100%;
-    padding: 20;
-}
-
-.wallpaper-text-input {
-    display: none;
-    color: $default_light_color;
-    caret-color: $default_light_color;
-    border: none;
-    background-color: transparent;
-    width: 100%;
-    text-align: center;
-    overflow-y: hidden;
-    overflow-x: hidden;
-    padding: 0px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin: 0px;
-    outline: none;
-    resize: none;
-    vertical-align: middle;
-    height: auto;
-    position: relative;
-}
-
-.wallpaper-text-input:focus {
-    outline: none;
-}
-
-.menu {
-    background-color: $color_flat_midnight_blue; /* The Fallback */
-    background-color: rgba(black, 0.2);
-    border-radius: 0.25em;
-}
-
-.menu-active {
-    @extend .menu;
-
-    border-radius: 0.25em 0.25em 0 0;
-}
-
-.menu-window {
-    background-color: $color_flat_midnight_blue; /* The Fallback */
-    background-color: rgba(black, 0.2);
-    border-radius: 0.25em;
-}
-
-.menu-window-content {
     justify-content: center;
-    background-color: $default_light_color;
-    margin: 5px;
-    border-radius: 0.25em;
-    max-width: $menu-window-max-width;
-    min-width: $menu-window-min-width;
-    flex-wrap: wrap;
-    width: 100%;
-    z-index: 10;
-}
-
-.menu-container {
-    position: absolute;
-    top: 5px;
-    width: 100%;
-    margin: 0px;
-    padding: 0px;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 9;
-}
-
-.button-container {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    flex-wrap: wrap;
-    flex-grow: 0;
-    flex-shrink: 0;
-    justify-content: center;
-}
-
-.colorRectangle {
-    margin: 0px;
-    padding: 0px;
-    width: $color-rectangle-size;
-    height: $color-rectangle-size;
-    border-radius: 0.15em;
-    border: 1px solid black;
-    border: 1px solid rgba(black, 0.2);
-}
-
-.button-icon {
-    display: inline-block;
-    font-size: 1.2em;
-    font-weight: bold;
-    text-align: center;
-    vertical-align: middle;
-}
-
-ul, li {
-    margin: 0;
-    padding: 0;
-    border: 0;
-}
-
-li {
-    padding-top: 3px;
-    padding-bottom: 3px;
-    line-height: 0.6rem;
-}
-
-.intro-container {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
-}
-
-.intro {
-    text-align: left;
-    height: 100%;
-    margin: 10px;
-    padding: 0px;
-}
-
-.intro-content {
-    margin: 0px;
-    padding: 0px;
-    padding-bottom: 40px;
-}
-
-a.intro-start-button {
-    margin: 0px;
-    font-weight: bold;
-    font-size: 1.2em;
-    padding: 14px;
-    display: none;
-    z-index: 20;
-}
-
-.generic-button {
-    margin: 0px;
-    font-weight: bold;
-    font-size: 1.2em;
-    padding: 14px;
-    z-index: 20;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    margin-left: 0 !important;
-    padding-left: 10px !important;
-    padding-right: 10px !important;
-}
-
-.intro-title {
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.intro-subtitle {
-		font-weight: bold;
-		font-size: 1.0rem;
-		margin-bottom: 5px;
-}
-
-.label {
-    font-size: 1.2em;
+    min-width: $color-rectangle-size;
+    min-height: $color-rectangle-size;
+    font-size: 1em;
     font-weight: bold;
     font-family: $default_font;
     padding: 5px;
     margin: 5px;
     text-decoration: none !important;
     border-radius: 0.25em;
+  }
+
+  a:link,
+  a:visited,
+  button:link,
+  button:visited {
     color: $default_dark_color;
-    text-align: 'right';
+    background-color: $default_light_color;
+  }
+
+  a:hover,
+  a:active,
+  button:hover,
+  button:active {
+    color: $default_light_color;
+    background-color: $active_button_color;
+  }
+
+  a.active-button {
+    color: $default_light_color;
+    background-color: $active_button_color;
+  }
+}
+
+.wallpaper,
+.intro,
+#wallpaper-text-input-container {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: $default_light_color;
+}
+
+.wallpaper {
+  height: 100%;
+  width: 100%;
+  padding: 20;
+}
+
+.wallpaper-text-input {
+  display: none;
+  color: $default_light_color;
+  caret-color: $default_light_color;
+  border: none;
+  background-color: transparent;
+  width: 100%;
+  text-align: center;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  padding: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 0px;
+  outline: none;
+  resize: none;
+  vertical-align: middle;
+  height: auto;
+  position: relative;
+}
+
+.wallpaper-text-input:focus {
+  outline: none;
+}
+
+.menu {
+  background-color: $color_flat_midnight_blue; /* The Fallback */
+  background-color: rgba(black, 0.2);
+  border-radius: 0.25em;
+}
+
+.menu-active {
+  @extend .menu;
+
+  border-radius: 0.25em 0.25em 0 0;
+}
+
+.menu-window {
+  background-color: $color_flat_midnight_blue; /* The Fallback */
+  background-color: rgba(black, 0.2);
+  border-radius: 0.25em;
+}
+
+.menu-window-content {
+  justify-content: center;
+  background-color: $default_light_color;
+  margin: 5px;
+  border-radius: 0.25em;
+  max-width: $menu-window-max-width;
+  min-width: $menu-window-min-width;
+  flex-wrap: wrap;
+  width: 100%;
+  z-index: 10;
+}
+
+.menu-container {
+  position: absolute;
+  top: 5px;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 9;
+}
+
+.button-container {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  flex-wrap: wrap;
+  flex-grow: 0;
+  flex-shrink: 0;
+  justify-content: center;
+}
+
+.colorRectangle {
+  margin: 0px;
+  padding: 0px;
+  width: $color-rectangle-size;
+  height: $color-rectangle-size;
+  border-radius: 0.15em;
+  border: 1px solid black;
+  border: 1px solid rgba(black, 0.2);
+}
+
+.button-icon {
+  display: inline-block;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+li {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  line-height: 0.6rem;
+}
+
+.intro-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.intro {
+  text-align: left;
+  height: 100%;
+  margin: 10px;
+  padding: 0px;
+}
+
+.intro-content {
+  margin: 0px;
+  padding: 0px;
+  padding-bottom: 40px;
+}
+
+a.intro-start-button {
+  margin: 0px;
+  font-weight: bold;
+  font-size: 1.2em;
+  padding: 14px;
+  display: none;
+  z-index: 20;
+}
+
+.generic-button {
+  margin: 0px;
+  font-weight: bold;
+  font-size: 1.2em;
+  padding: 14px;
+  z-index: 20;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  margin-left: 0 !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+
+.intro-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.intro-subtitle {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.label {
+  font-size: 1.2em;
+  font-weight: bold;
+  font-family: $default_font;
+  padding: 5px;
+  margin: 5px;
+  text-decoration: none !important;
+  border-radius: 0.25em;
+  color: $default_dark_color;
+  text-align: 'right';
 }
 
 .color-buttons-container {
-    justify-content: start;
+  justify-content: start;
 }
 
 .menu-window-size-row {
-    margin: 0px;
-    padding: 3px;
-    width: 100%;
+  margin: 0px;
+  padding: 3px;
+  width: 100%;
 }
 
 #menu-editor-image-size {
-    width: $menu-window-min-width;
-    padding: 3px;
-    margin: 0px;
+  width: $menu-window-min-width;
+  padding: 3px;
+  margin: 0px;
 }
 
 .input-right {
-    width: 190px;
-    font-size: 1.2em;
-    font-weight: bold;
-    font-family: $default_font;
-    padding: 2px 4px 2px 4px;
-    margin: 0px 0px 0px 0px;
-    text-decoration: none !important;
-    border-radius: 0.25em;
-    color: $default_dark_color;
-    text-align: 'right';
-    text-align: right;
-    border: 1px solid gray; /* The Fallback */
-    border: 1px solid rgba(black, 0.2);
+  width: 190px;
+  font-size: 1.2em;
+  font-weight: bold;
+  font-family: $default_font;
+  padding: 2px 4px 2px 4px;
+  margin: 0px 0px 0px 0px;
+  text-decoration: none !important;
+  border-radius: 0.25em;
+  color: $default_dark_color;
+  text-align: 'right';
+  text-align: right;
+  border: 1px solid gray; /* The Fallback */
+  border: 1px solid rgba(black, 0.2);
 }
 
 .image-size-icon {
-    width: 28px;
-    font-size: 1.4em;
-    font-weight: bold;
-    text-align: center;
-    vertical-align: middle;
-    color: $default_dark_color;
+  width: 28px;
+  font-size: 1.4em;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  color: $default_dark_color;
 }
 
 .download-window-image {
-    margin: 0px;
-    padding: 0px;
-    display: inline-block;
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    max-height: 300px;
-    border: 1px solid gray; /* The Fallback */
-    border: 1px solid rgba(black, 0.2);
-    background-color: gray; /* The Fallback */
-    background-color: rgba(black, 0.2);
-    border-radius: 0.25em;
-    object-fit: scale-down;
+  margin: 0px;
+  padding: 0px;
+  display: inline-block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 300px;
+  border: 1px solid gray; /* The Fallback */
+  border: 1px solid rgba(black, 0.2);
+  background-color: gray; /* The Fallback */
+  background-color: rgba(black, 0.2);
+  border-radius: 0.25em;
+  object-fit: scale-down;
 }
 
 #menu-editor-download {
-    padding: 8px;
+  padding: 8px;
 }
 
 $animation_container_height: 100px;
 $moving_icon_height: 30px;
 $animation_boundary_amount: 10px;
 $animation_up_postion: 0px + $animation_boundary_amount;
-$animation_down_postion: $animation_container_height - $moving_icon_height - $animation_boundary_amount;
+$animation_down_postion: $animation_container_height - $moving_icon_height -
+  $animation_boundary_amount;
 
 #image-activity-indicator {
-    transform-origin: center center;
+  transform-origin: center center;
 
-    @keyframes MoveUpDown {
-        0% {
-            transform: translateY($animation_up_postion);
-        }
-
-        100% {
-            transform: translateY($animation_down_postion);
-        }
+  @keyframes MoveUpDown {
+    0% {
+      transform: translateY($animation_up_postion);
     }
 
-    transform-style: preserve-3D;
-    animation: MoveUpDown 0.4s infinite alternate ease-in-out;
-    display: inline-block;
-    position: relative;
-    font-size: $moving_icon_height;
-    font-weight: bold;
-    text-align: center;
-    vertical-align: middle;
-    width: 100%;
+    100% {
+      transform: translateY($animation_down_postion);
+    }
+  }
+
+  transform-style: preserve-3D;
+  animation: MoveUpDown 0.4s infinite alternate ease-in-out;
+  display: inline-block;
+  position: relative;
+  font-size: $moving_icon_height;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
 }
 
 #image-activity-indicator-container {
-    width: 100%;
-    height: $animation_container_height;
-    justify-content: center;
-    border: 1px solid gray; /* The Fallback */
-    border: 1px solid rgba(black, 0.2);
-    background-color: gray; /* The Fallback */
-    background-color: rgba(black, 0.2);
-    border-radius: 0.25em;
+  width: 100%;
+  height: $animation_container_height;
+  justify-content: center;
+  border: 1px solid gray; /* The Fallback */
+  border: 1px solid rgba(black, 0.2);
+  background-color: gray; /* The Fallback */
+  background-color: rgba(black, 0.2);
+  border-radius: 0.25em;
 }
 
 .download-window-info-text {
-    margin: 5px;
-    display: none;
-    color: $default_dark_color;
-    font-weight: bold;
-    font-size: 1em;
-    text-align: center;
+  margin: 5px;
+  display: none;
+  color: $default_dark_color;
+  font-weight: bold;
+  font-size: 1em;
+  text-align: center;
 }
 
 .intro-bullet-list-container {
-    font-size: 0.8em;
-    margin: 5px;
+  font-size: 0.8em;
+  margin: 5px;
 }
 
 #intro-bullet-list {
-    text-align: start;
-    list-style: inside;
-    padding: 0px;
-    margin: 0px;
+  text-align: start;
+  list-style: inside;
+  padding: 0px;
+  margin: 0px;
 }
 
 .credits-container {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    flex-direction: column;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 0px;
-    margin: 0px;
-    flex-wrap: wrap;
-    z-index: 1;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0px;
+  margin: 0px;
+  flex-wrap: wrap;
+  z-index: 1;
 }
 
 $credits-text-color: rgba(white, 0.4);
@@ -395,54 +409,60 @@ $credits-text-active-color: rgba(white, 0.8);
 $credits-text-active-color-fallback: white;
 
 .credits-box {
-    background-color: gray; /* The Fallback */
-    background-color: rgba(black, 0.3);
+  background-color: gray; /* The Fallback */
+  background-color: rgba(black, 0.3);
+  color: $credits-text-color-fallback; /* The Fallback */
+  color: $credits-text-color;
+  font-size: 0.7em;
+  border-radius: 0.25em 0.25em 0em 0em;
+  padding: 0px;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 1px;
+  margin: 0px;
+  flex-wrap: wrap;
+  flex-grow: 0;
+  max-width: none;
+  min-width: none;
+  flex-basis: auto;
+  widows: 0px;
+
+  a {
+    font-weight: bold;
+    text-decoration: none !important;
+  }
+
+  a:link,
+  a:visited,
+  button:link,
+  button:visited {
     color: $credits-text-color-fallback; /* The Fallback */
     color: $credits-text-color;
-    font-size: 0.7em;
-    border-radius: 0.25em 0.25em 0em 0em;
-    padding: 0px;
-    padding-left: 3px;
-    padding-right: 3px;
-    padding-top: 1px;
-    margin: 0px;
-    flex-wrap: wrap;
-    flex-grow: 0;
-    max-width: none;
-    min-width: none;
-    flex-basis: auto;
-    widows: 0px;
+  }
 
-    a {
-        font-weight: bold;
-        text-decoration: none !important;
-    }
-
-    a:link, a:visited, button:link, button:visited {
-        color: $credits-text-color-fallback; /* The Fallback */
-        color: $credits-text-color;
-    }
-
-    a:hover, a:active, button:hover, button:active {
-        color: $credits-text-active-color-fallback; /* The Fallback */
-        color: $credits-text-active-color;
-    }
+  a:hover,
+  a:active,
+  button:hover,
+  button:active {
+    color: $credits-text-active-color-fallback; /* The Fallback */
+    color: $credits-text-active-color;
+  }
 }
 
 .credits-item {
-    padding: 3px;
-    flex-wrap: wrap;
-    flex-grow: 0;
-    max-width: none;
-    flex-basis: auto;
-    min-width: none;
+  padding: 3px;
+  flex-wrap: wrap;
+  flex-grow: 0;
+  max-width: none;
+  flex-basis: auto;
+  min-width: none;
 }
 
 #intro-gif-animation {
-    border-radius: 0.25em;
-    border: 2px solid white;
-    border: 2px solid rgba(white, 0.4);
-    height: 150px;
+  border-radius: 0.25em;
+  border: 2px solid white;
+  border: 2px solid rgba(white, 0.4);
+  height: 150px;
 }
 
 .number-input {
@@ -469,6 +489,6 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type='number'] {
   -moz-appearance: textfield;
 }

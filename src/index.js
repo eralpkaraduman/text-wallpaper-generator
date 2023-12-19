@@ -39,7 +39,7 @@ const updateSelectionStyles = () => {
 
 function fnIgnoreElements(el) {
   // Fixes issues with grammarly extension https://github.com/niklasvh/html2canvas/issues/2804  
-  if (typeof el.shadowRoot == 'object' && el.shadowRoot !== null) return true
+  if (typeof el.shadowRoot == 'object' && el.shadowRoot !== null) return true;
 }
 
 async function generateCanvas(
