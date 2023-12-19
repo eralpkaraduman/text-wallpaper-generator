@@ -1,32 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-123890722-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'UA-123890722-1');
+    </script>
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="Description"
+      content="<%= htmlWebpackPlugin.options.description %>"
+    />
+  </head>
 
-<head>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123890722-1"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() { dataLayer.push(arguments); }
-		gtag('js', new Date());
-		gtag('config', 'UA-123890722-1');
-	</script>
-	<title>
-		<%= htmlWebpackPlugin.options.title %>
-	</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-	<meta name="theme-color" content="#000000">
-	<meta name="Description" content="<%= htmlWebpackPlugin.options.description %>">
-</head>
-
-<body style="background-color: #2D2D2D;">
-	<noscript>You need to enable JavaScript to run this app.</noscript>
-	<div id="root" class="root">
-		<%= require('html-loader?interpolate!./menu/menu.html') %>
-		<%= require('html-loader?interpolate!./intro/intro.html') %>
-		<%= require('html-loader?interpolate!./textEditor/textEditor.html') %>
-	</div>
-	<%= require('html-loader?interpolate!./credits.html') %>
-</body>
-
+  <body style="background-color: #2d2d2d">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root" class="root">
+      <%= require('html-loader?interpolate!./menu/menu.html') %> <%=
+      require('html-loader?interpolate!./intro/intro.html') %> <%=
+      require('html-loader?interpolate!./textEditor/textEditor.html') %>
+    </div>
+    <%= require('html-loader?interpolate!./credits.html') %>
+  </body>
 </html>
