@@ -26,7 +26,8 @@
     "test": "jest --config=conf/jest.config.js",
     "test:watch": "jest --watch",
     "upload": "cd dist && s3-upload ../conf/aws-upload.conf.js",
-    "deploy": "npm run build && npm run upload"
+    "deploy": "npm run build && npm run upload",
+    "tauri": "tauri"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.1.0",
@@ -64,6 +65,7 @@
     "webpack-pwa-manifest": "^3.6.2"
   },
   "dependencies": {
+    "@tauri-apps/api": "^1.6.0",
     "autosize": "^4.0.2",
     "blob.js": "^1.0.1",
     "flexboxgrid": "^6.3.1",

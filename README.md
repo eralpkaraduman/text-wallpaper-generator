@@ -18,6 +18,12 @@ Create Simple Wallpapers with Text!
 3. Start the dev server using `npm start`
 3. Open [http://localhost:4000](http://localhost:4000)
 
+## Using Tauri
+
+1. Make sure you have Rust installed. (curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh)
+2. Run `cargo tauri dev`
+3. Run `cargo tauri build` to get app bundle under target/
+
 [nvm-url]: https://github.com/creationix/nvm
 [yarn-url]: https://yarnpkg.com
 [textwallpaperdotonline-url]: https://textwallpaper.online
