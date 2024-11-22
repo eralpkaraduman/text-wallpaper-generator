@@ -4,7 +4,6 @@ const webpack = require('webpack');
 const Merge = require('webpack-merge');
 const CommonConfig = require('./webpack.common.js');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = Merge(CommonConfig, {
   plugins: [
@@ -27,26 +26,6 @@ module.exports = Merge(CommonConfig, {
         screw_ie8: true,
       },
       comments: false,
-    }),
-    new FaviconsWebpackPlugin({
-      logo: path.resolve('src/assets/textwallpaper-large-icon.jpg'),
-      inject: true,
-      prefix: 'icons/[hash]-',
-      persistentCache: false,
-      background: '#2D2D2D',
-      icons: {
-        appleStartup: true,
-        favicons: true,
-
-        appleIcon: false,
-        android: false,
-        coast: false,
-        firefox: false,
-        opengraph: false,
-        twitter: false,
-        yandex: false,
-        windows: false,
-      },
     }),
     new WebpackPwaManifest({
       name: pkg.name,
