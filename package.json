@@ -24,9 +24,7 @@
     "lint": "eslint ./src/**.js",
     "coverage": "jest --coverage --config=conf/jest.config.js",
     "test": "jest --config=conf/jest.config.js",
-    "test:watch": "jest --watch",
-    "upload": "cd dist && s3-upload ../conf/aws-upload.conf.js",
-    "deploy": "npm run build && npm run upload"
+    "test:watch": "jest --watch"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.1.0",
@@ -54,8 +52,8 @@
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "2.30.1",
     "jest": "20.0.4",
-    "node-sass": "^4.9.2",
     "s3-upload": "^0.1.0",
+    "sass": "^1.81.0",
     "sass-loader": "^7.0.3",
     "url-loader": "^1.0.1",
     "webpack": "3.5.5",
