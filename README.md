@@ -19,6 +19,11 @@ Create Simple Wallpapers with Text!
 3. Start the dev server using `npm start`
 4. Open [http://localhost:4000](http://localhost:4000)
 
+# Build
+
+`npm run build`
+see `/dist`
+
 # Coolify deployment
 
 build pack: nixpack
