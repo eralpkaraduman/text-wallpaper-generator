@@ -49,16 +49,16 @@ body {
     border-radius: 0.25em;
   }
 
-  a:link,
-  a:visited,
+  a.button:link,
+  a.button:visited,
   button:link,
   button:visited {
     color: $default_dark_color;
     background-color: $default_light_color;
   }
 
-  a:hover,
-  a:active,
+  a.button:hover,
+  a.button:active,
   button:hover,
   button:active {
     color: $default_light_color;
@@ -389,18 +389,14 @@ $animation_down_postion: $animation_container_height - $moving_icon_height -
 }
 
 .credits-container {
+  position: relative;
+  bottom: 0;
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 100vw;
   flex-direction: column;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 0px;
-  margin: 0px;
   flex-wrap: wrap;
-  z-index: 1;
+  z-index: 10;
 }
 
 $credits-text-color: rgba(white, 0.4);
