@@ -30,9 +30,11 @@
   <body style="background-color: #2d2d2d">
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root" class="root">
-      <%= require('html-loader?interpolate!./menu/menu.html') %> <%=
-      require('html-loader?interpolate!./intro/intro.html') %> <%=
-      require('html-loader?interpolate!./textEditor/textEditor.html') %>
+      <div class="main-content-wrapper">
+        <%= require('html-loader?interpolate!./menu/menu.html') %> <%=
+        require('html-loader?interpolate!./intro/intro.html') %> <%=
+        require('html-loader?interpolate!./textEditor/textEditor.html') %>
+      </div>
     </div>
     <%= require('html-loader?interpolate!./credits.html') %>
   </body>
