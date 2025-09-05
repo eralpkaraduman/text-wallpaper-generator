@@ -291,6 +291,31 @@ a.intro-start-button {
   text-align: 'right';
 }
 
+.intro-link {
+  display: flex;
+  color: white !important;
+  text-decoration: underline !important;
+  cursor: pointer;
+  margin: 0 !important;
+}
+
+.intro-link:link,
+.intro-link:visited,
+.intro-link:hover,
+.intro-link:active {
+  color: white !important;
+  text-decoration: underline !important;
+  cursor: pointer;
+}
+
+.intro p {
+  white-space: nowrap !important;
+}
+
+.intro .col-xs-12 {
+  overflow: visible !important;
+}
+
 .color-buttons-container {
   justify-content: start;
 }
