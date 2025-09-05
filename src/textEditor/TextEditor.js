@@ -8,6 +8,7 @@ type TextEditorCallbacks = { onFocused: OnFocusedCallback };
 export default class TextEditor {
   textInputElement: HTMLTextAreaElement;
   textInputContainerElement: HTMLElement;
+  wallpaperElement: HTMLElement;
 
   _onFocusedCallback: OnFocusedCallback;
 
@@ -39,6 +40,7 @@ export default class TextEditor {
     this.textInputElement = ((getElement(
       'wallpaper-text-input',
     ): any): HTMLTextAreaElement);
+    this.wallpaperElement = getElement('wallpaper');
     this.textInputElement.addEventListener(
       'focus',
       this.handleOnTextInputFocus,
@@ -57,10 +59,12 @@ export default class TextEditor {
   };
 
   onShow = () => {
+    this.wallpaperElement.classList.remove('hidden');
     this.textInputElement.style.display = 'inline-block';
   };
 
   onHide = () => {
+    this.wallpaperElement.classList.add('hidden');
     this.textInputElement.style.display = 'none';
   };
 
