@@ -33,9 +33,21 @@ const textEditor = new TextEditor({
 });
 
 const updateThemeColor = (backgroundColor: string) => {
-  const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+  // Update the main theme-color meta tag
+  const themeColorMeta = document.querySelector('meta[name="theme-color"]:not([media])');
   if (themeColorMeta) {
     themeColorMeta.setAttribute('content', backgroundColor);
+  }
+  
+  // Update both dark and light mode theme-color meta tags to match the selected color
+  const darkThemeColorMeta = document.querySelector('meta[name="theme-color"][media*="dark"]');
+  const lightThemeColorMeta = document.querySelector('meta[name="theme-color"][media*="light"]');
+  
+  if (darkThemeColorMeta) {
+    darkThemeColorMeta.setAttribute('content', backgroundColor);
+  }
+  if (lightThemeColorMeta) {
+    lightThemeColorMeta.setAttribute('content', backgroundColor);
   }
 };
 

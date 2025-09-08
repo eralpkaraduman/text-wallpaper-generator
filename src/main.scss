@@ -310,11 +310,14 @@ a.intro-start-button {
 }
 
 .intro-link {
-  display: flex;
+  display: inline-block;
   color: white !important;
   text-decoration: underline !important;
   cursor: pointer;
-  margin: 0 !important;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  vertical-align: baseline;
 }
 
 .intro-link:link,
@@ -327,7 +330,7 @@ a.intro-start-button {
 }
 
 .intro p {
-  white-space: nowrap !important;
+  white-space: normal !important;
 }
 
 .intro .col-xs-12 {
