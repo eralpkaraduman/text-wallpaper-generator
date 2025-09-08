@@ -8,6 +8,16 @@ import html2canvas from 'html2canvas';
 import smoothscroll from 'smoothscroll-polyfill';
 smoothscroll.polyfill();
 
+// iOS Safari viewport height fix
+function setViewportHeight() {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+setViewportHeight();
+window.addEventListener('resize', setViewportHeight);
+window.addEventListener('orientationchange', setViewportHeight);
+
 import './main.scss';
 import { getElement, insertStyle, getBody } from './utils';
 import Intro from './intro/Intro';
