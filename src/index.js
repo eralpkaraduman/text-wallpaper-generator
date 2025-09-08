@@ -32,6 +32,13 @@ const textEditor = new TextEditor({
   onFocused: () => menu.closeAllWindows(),
 });
 
+const updateThemeColor = (backgroundColor: string) => {
+  const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+  if (themeColorMeta) {
+    themeColorMeta.setAttribute('content', backgroundColor);
+  }
+};
+
 const updateSelectionStyles = () => {
   const { textColor, backgroundColor } = menu;
   const textColorWitghTransparency = `${textColor}55`;
@@ -86,6 +93,7 @@ const menuCallbacks: MenuCallbacks = {
   onBackgroundColorChanged: (newBackgroundColor: string) => {
     wallpaperElement.style.backgroundColor = newBackgroundColor;
     getBody().style.backgroundColor = newBackgroundColor;
+    updateThemeColor(newBackgroundColor);
     updateSelectionStyles();
   },
   onImageSizeChanged: () => {},
@@ -115,6 +123,7 @@ textEditor.textSize = menu.textSize;
 textEditor.textColor = menu.textColor;
 
 wallpaperElement.style.backgroundColor = menu.backgroundColor;
+updateThemeColor(menu.backgroundColor);
 wallpaperElement.addEventListener('click', () => menu.closeAllWindows());
 
 const intro = new Intro({
