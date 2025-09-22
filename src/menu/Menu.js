@@ -216,7 +216,8 @@ export default class Menu {
   _handleonGenerateFileName = () => {
     const { width, height, scale } = this;
     const fileNameScale = scale !== 1 ? `@${scale.toString()}` : '';
-    return `textwallpaper.online_${width}x${height}${fileNameScale}.jpg`;
+    const date = (new Date()).toISOString();
+    return `textwallpaper.com${width}x${height}${fileNameScale}_${date}.jpg`;
   };
 
   _handleOnTextSizeChangeRequested = (newTextSize: number) => {

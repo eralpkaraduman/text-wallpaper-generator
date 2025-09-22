@@ -92,7 +92,7 @@ const menuCallbacks: MenuCallbacks = {
     await generateCanvas(width, height, scale, getElement('wallpaper')),
   onPrepareForImageGeneration: () => {
     if (!textEditor.text.length) {
-      textEditor.text = 'It would be nice,\nif you typed something';
+      textEditor.text = 'It would be nice, if you typed something';
     }
   },
   onTextSizeChanged: (newTextSize: number) => {

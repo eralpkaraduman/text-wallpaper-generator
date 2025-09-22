@@ -394,6 +394,16 @@ a.intro-start-button {
   object-fit: scale-down;
 }
 
+#download-window-anchor {
+  text-decoration: none;
+  color: inherit;
+}
+
+#download-window-anchor:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
 #menu-editor-download {
   padding: 8px;
 }
