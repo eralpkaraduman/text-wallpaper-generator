@@ -1,8 +1,8 @@
-# TextWallpaper.Online
+# TextWallpaper.com
 
 Create Simple Wallpapers with Text!
 
-#### [TextWallpaper.Online][textwallpaperdotonline-url]
+#### [TextWallpaper.com][https://textwallpaper.com]
 
 ![Intro Animation](https://github.com/eralpkaraduman/text-wallpaper-generator/raw/master/src/intro/intro.gif)
 
@@ -33,5 +33,4 @@ is it static site: yes
 
 [nvm-url]: https://github.com/creationix/nvm
 [yarn-url]: https://yarnpkg.com
-[textwallpaperdotonline-url]: https://textwallpaper.online
 [node-url]: https://nodejs.org

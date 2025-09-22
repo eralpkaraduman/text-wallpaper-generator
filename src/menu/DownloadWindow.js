@@ -10,6 +10,7 @@ import MenuWindow from './MenuWindow';
 export default class DownloadWindow extends MenuWindow {
   _downloadButtonElement: HTMLAnchorElement;
   _imageElement: HTMLImageElement;
+  _anchorElement: HTMLElement;
   _activityIndicatorElement: HTMLElement;
   _onGenerateImage: GenerateCanvasCallback;
   _onGenerateFileName: GenerateFileNameCallback;
@@ -28,6 +29,7 @@ export default class DownloadWindow extends MenuWindow {
     const imageElement = utils.getElement('download-window-image');
     this._imageElement = ((imageElement: any): HTMLImageElement);
     this._imageElement.addEventListener('load', this.onImageLoaded);
+    this._anchorElement = utils.getElement('download-window-anchor');
     this._activityIndicatorElement = utils.getElement(
       'image-activity-indicator-container',
     );
@@ -48,6 +50,8 @@ export default class DownloadWindow extends MenuWindow {
     const dataUrl = canvas.toDataURL('image/jpeg');
     this._imageElement.src = dataUrl;
     this._imageElement.alt = fileName;
+    this._anchorElement.href = dataUrl;
+    this._anchorElement.setAttribute('download', fileName);
   }
 
   clearImage() {
