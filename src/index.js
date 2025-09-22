@@ -4,7 +4,7 @@ import '@fortawesome/fontawesome-free/css/fontawesome.css';
 import '@fortawesome/fontawesome-free/css/solid.css';
 import 'normalize.css/normalize.css';
 import colors from './colors';
-import html2canvas from 'html2canvas';
+// Removed html2canvas - now using off-screen canvas approach
 import smoothscroll from 'smoothscroll-polyfill';
 smoothscroll.polyfill();
 
@@ -66,30 +66,62 @@ const updateSelectionStyles = () => {
   });
 };
 
-function fnIgnoreElements(el) {
-  // Fixes issues with grammarly extension https://github.com/niklasvh/html2canvas/issues/2804  
-  if (typeof el.shadowRoot == 'object' && el.shadowRoot !== null) return true;
-}
+// Removed fnIgnoreElements - no longer needed without html2canvas
 
 async function generateCanvas(
   width: number,
   height: number,
   scale: number,
-  targetElement: HTMLElement,
 ): Promise<HTMLCanvasElement> {
-  return await html2canvas(targetElement, {
-    ignoreElements: fnIgnoreElements,
-    windowWidth: width,
-    windowHeight: height,
-    width,
-    height,
-    scale,
+  // Create off-screen canvas
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  
+  // Set dimensions with scale
+  canvas.width = width * scale;
+  canvas.height = height * scale;
+  
+  // Get text content and styling
+  const textElement = getElement('wallpaper-text-input');
+  const text = textElement.textContent || 'It would be nice,\nif you typed something';
+  const backgroundColor = menu.backgroundColor;
+  const textColor = menu.textColor;
+  
+  // Copy font style from the original element
+  const computedStyle = window.getComputedStyle(textElement);
+  const fontFamily = computedStyle.fontFamily;
+  const fontWeight = computedStyle.fontWeight;
+  const fontStyle = computedStyle.fontStyle;
+  const fontSize = menu.textSize * scale;
+  
+  // Draw background
+  ctx.fillStyle = backgroundColor;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  
+  // Set text properties using copied font style
+  ctx.fillStyle = textColor;
+  ctx.font = `${fontStyle} ${fontWeight} ${fontSize}px ${fontFamily}`;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  
+  // Handle multi-line text
+  const lines = text.split('\n');
+  const lineHeight = fontSize * 1.2; // Standard line height multiplier
+  const totalTextHeight = lines.length * lineHeight;
+  const startY = (canvas.height - totalTextHeight) / 2 + lineHeight / 2;
+  
+  // Draw each line
+  lines.forEach((line, index) => {
+    const y = startY + (index * lineHeight);
+    ctx.fillText(line, canvas.width / 2, y);
   });
+  
+  return canvas;
 }
 
 const menuCallbacks: MenuCallbacks = {
   onGenerateCanvas: async (width, height, scale) =>
-    await generateCanvas(width, height, scale, getElement('wallpaper')),
+    await generateCanvas(width, height, scale),
   onPrepareForImageGeneration: () => {
     if (!textEditor.text.length) {
       textEditor.text = 'It would be nice, if you typed something';

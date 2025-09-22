@@ -48,6 +48,11 @@ export default class DownloadWindow extends MenuWindow {
     const canvas = await this._onGenerateImage();
     const fileName = this._onGenerateFileName();
     const dataUrl = canvas.toDataURL('image/jpeg');
+    
+    // Set aspect ratio based on canvas dimensions
+    const aspectRatio = canvas.width / canvas.height;
+    this._imageElement.style.aspectRatio = aspectRatio.toString();
+    
     this._imageElement.src = dataUrl;
     this._imageElement.alt = fileName;
     this._anchorElement.href = dataUrl;
@@ -58,6 +63,7 @@ export default class DownloadWindow extends MenuWindow {
     this._imageElement.src = '';
     this._imageElement.alt = '';
     this._imageElement.style.opacity = '0.0';
+    this._anchorElement.classList.remove('ready');
     this._activityIndicatorElement.style.display = 'block';
   }
 
@@ -69,6 +75,7 @@ export default class DownloadWindow extends MenuWindow {
     }
     this._progresInfoTextElement.style.display = 'none';
     this._imageElement.style.opacity = '1.0';
+    this._anchorElement.classList.add('ready');
     this._activityIndicatorElement.style.display = 'none';
   };
 
