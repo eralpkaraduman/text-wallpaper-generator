@@ -379,25 +379,33 @@ a.intro-start-button {
 }
 
 .download-window-image {
-  margin: 0px;
-  padding: 0px;
-  display: inline-block;
-  width: auto;
+  margin: 0;
+  padding: 0;
+  display: block;
+  width: 100%;
   height: auto;
-  max-width: 100%;
-  max-height: 300px;
-  border: 1px solid gray; /* The Fallback */
-  border: 1px solid rgba(black, 0.2);
-  background-color: gray; /* The Fallback */
-  background-color: rgba(black, 0.2);
-  border-radius: 0.25em;
-  object-fit: scale-down;
+  object-fit: contain;
+  border-radius: 0;
 }
 
 #download-window-anchor {
+  display: inline-block;
   text-decoration: none;
   color: inherit;
+  padding: 0;
+  margin: 0;
+  line-height: 0;
+  border: 1px solid gray;
+  border-radius: 0.25em;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
+
+#download-window-anchor.ready {
+  opacity: 1;
+}
+
 
 #download-window-anchor:hover {
   text-decoration: none;
