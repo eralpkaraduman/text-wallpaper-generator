@@ -5,6 +5,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const extractSass = new ExtractTextPlugin({
   filename: '[name].[contenthash].css',
@@ -80,14 +81,16 @@ module.exports = {
       name: 'vendor',
     }),
     new HtmlWebpackPlugin({
-      title: pkg.title,
       template: 'index.html',
-      description: pkg.title + ' : ' + pkg.description,
       minify: {
         removeComments: true,
         collapseWhitespace: true,
       },
     }),
-    extractSass,
+    new CopyWebpackPlugin([
+      { from: 'robots.txt', to: 'robots.txt' },
+      { from: 'sitemap.xml', to: 'sitemap.xml' }
+    ]),
+    extractSass
   ],
 };

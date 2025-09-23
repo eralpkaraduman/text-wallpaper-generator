@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://textwallpaper.com/sitemap.xml
+
+# Common crawl optimization
+Crawl-delay: 1
+
+# Block irrelevant paths
+Disallow: /node_modules/
+Disallow: /*.js$
+Disallow: /*.css$
+Disallow: /dist/
+Disallow: /src/
