@@ -39,6 +39,7 @@
     "babel-preset-flow": "^6.23.0",
     "babel-preset-stage-0": "^6.24.1",
     "clean-webpack-plugin": "0.1.16",
+    "copy-webpack-plugin": "^4.6.0",
     "css-loader": "^0.28.11",
     "empty": "^0.10.1",
     "eslint": "4.5.0",
