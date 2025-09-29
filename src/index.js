@@ -83,7 +83,7 @@ async function generateCanvas(
   
   // Get text content and styling
   const textElement = getElement('wallpaper-text-input');
-  const text = textElement.textContent || 'It would be nice,\nif you typed something';
+  const text = textElement.innerText || 'It would be nice,\nif you typed something';
   const backgroundColor = menu.backgroundColor;
   const textColor = menu.textColor;
   
