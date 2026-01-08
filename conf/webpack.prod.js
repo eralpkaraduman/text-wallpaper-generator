@@ -38,7 +38,7 @@ module.exports = Merge(CommonConfig, {
       display: 'standalone',
       start_url: '.',
       inject: true,
-      fingerprints: true,
+      fingerprints: false,
       publicPath: null,
       includeDirectory: true,
       ios: {
@@ -56,6 +56,11 @@ module.exports = Merge(CommonConfig, {
           src: path.resolve('src/assets/textwallpaper-large-icon.jpg'),
           sizes: [36, 48, 72, 96, 144, 192, 512, 1024],
           destination: path.join('icons', 'android'),
+        },
+        {
+          src: path.resolve('src/assets/textwallpaper-large-icon.jpg'),
+          sizes: [512],
+          destination: path.join('icons', 'og'),
         },
       ],
     }),

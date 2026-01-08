@@ -20,6 +20,7 @@ window.addEventListener('orientationchange', setViewportHeight);
 
 import './main.scss';
 import { getElement, insertStyle, getBody } from './utils';
+import { track } from './analytics';
 import Intro from './intro/Intro';
 import Menu from './menu/Menu';
 import type { MenuCallbacks } from './menu/Menu';
@@ -142,6 +143,7 @@ const menuCallbacks: MenuCallbacks = {
   },
   onImageSizeChanged: () => {},
   onInfoButtonClicked: () => {
+    track('info_button');
     intro.onShow();
     menu.resetStyles();
     menu.closeAllWindows();

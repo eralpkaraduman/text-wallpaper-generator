@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:umami.is)",
+      "Bash(bd help:*)",
+      "Bash(bd doctor:*)",
+      "Bash(/plugin install:*)",
+      "Bash(bd migrate sync:*)",
+      "Bash(bd sync:*)",
+      "Bash(bd create:*)",
+      "Bash(bd list:*)",
+      "Bash(bd dep add:*)",
+      "Bash(bd ready:*)",
+      "Bash(bd update:*)",
+      "Bash(bd close:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run lint:*)",
+      "Bash(claude mcp list:*)",
+      "WebSearch",
+      "Bash(claude mcp add:*)",
+      "Bash(node --version)",
+      "Bash(npx chrome-devtools-mcp@latest --help)",
+      "Bash(source ~/.nvm/nvm.sh)",
+      "Bash(nvm install:*)",
+      "Bash(nvm use:*)",
+      "mcp__chrome-devtools__list_pages",
+      "mcp__chrome-devtools__navigate_page",
+      "mcp__chrome-devtools__take_snapshot",
+      "mcp__chrome-devtools__evaluate_script",
+      "mcp__chrome-devtools__click",
+      "mcp__chrome-devtools__take_screenshot",
+      "mcp__chrome-devtools__fill",
+      "Bash(bd show:*)"
+    ]
+  }
+}
