@@ -1,5 +1,6 @@
 // @flow
 import { getElement } from '../utils';
+import { track } from '../analytics';
 type OnCompleteCallback = () => void
 
 export default class Intro {
@@ -20,6 +21,7 @@ export default class Intro {
 	}
 
 	handleOnStartButtonClicked = () => {
+		track('start_app');
 		this.onCompleteHandler();
 	}
 

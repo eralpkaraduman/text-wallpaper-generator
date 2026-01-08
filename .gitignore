@@ -9,3 +9,6 @@ package-lock.json
 .vscode
 aws-credentials.json
 flow-typed
+
+# bv (beads viewer) local config and caches
+.bv/

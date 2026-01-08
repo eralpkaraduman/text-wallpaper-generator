@@ -1,5 +1,6 @@
 // @flow
 import * as utils from '../utils';
+import { track } from '../analytics';
 import DownloadWindow from './DownloadWindow';
 import type { GenerateCanvasCallback } from './DownloadWindow';
 import TextSizeWindow from './TextSizeWindow';
@@ -224,6 +225,7 @@ export default class Menu {
     this.textSize = newTextSize;
     this._menuWindows.textSize.textSize = this.textSize;
     this._callbacks.onTextSizeChanged(this.textSize);
+    track('text_size_change', { size: newTextSize });
   };
 
   _handleOnTextColorChangeRequested = (newTextColor: string) => {
@@ -231,6 +233,7 @@ export default class Menu {
     this._menuWindows.textColor.color = this.textColor;
     this._textColorButtonColorRectangleElement.style.backgroundColor = this.textColor;
     this._callbacks.onTextColorChanged(this.textColor);
+    track('text_color_change', { color: newTextColor });
     this.onToggleMenuWindow(
       this.buttonElements.textColor,
       this._menuWindows.textColor,
@@ -253,6 +256,7 @@ export default class Menu {
     this._menuWindows.backgroundColor.color = this.backgroundColor;
     this._backgroundColorButtonColorRectangleElement.style.backgroundColor = this.backgroundColor;
     this._callbacks.onBackgroundColorChanged(this.backgroundColor);
+    track('background_color_change', { color: newBackgrundColor });
     this.onToggleMenuWindow(
       this.buttonElements.backgroundColor,
       this._menuWindows.backgroundColor,
@@ -285,6 +289,10 @@ export default class Menu {
 
       buttonElement.classList.add('active-button');
       menuWindow.open();
+
+      // Track menu panel open
+      const panelName = buttonElement.id.replace('menu-button-', '');
+      track('menu_open', { panel: panelName });
     } else {
       this._element.classList.remove('menu-active');
       this._element.classList.add('menu');

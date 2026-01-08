@@ -5,6 +5,7 @@ export type GenerateFileNameCallback = () => string;
 import 'blob.js';
 import * as utils from '../utils';
 import MenuWindow from './MenuWindow';
+import { track } from '../analytics';
 // import FileSaver from 'file-saver';
 
 export default class DownloadWindow extends MenuWindow {
@@ -48,15 +49,25 @@ export default class DownloadWindow extends MenuWindow {
     const canvas = await this._onGenerateImage();
     const fileName = this._onGenerateFileName();
     const dataUrl = canvas.toDataURL('image/jpeg');
-    
+
     // Set aspect ratio based on canvas dimensions
     const aspectRatio = canvas.width / canvas.height;
     this._imageElement.style.aspectRatio = aspectRatio.toString();
-    
+
     this._imageElement.src = dataUrl;
     this._imageElement.alt = fileName;
     this._anchorElement.href = dataUrl;
     this._anchorElement.setAttribute('download', fileName);
+
+    // Track wallpaper generation
+    const textElement = utils.getElement('wallpaper-text-input');
+    const text = textElement.innerText || '';
+    track('generate_wallpaper', {
+      width: canvas.width,
+      height: canvas.height,
+      text: text,
+      textLength: text.length,
+    });
   }
 
   clearImage() {
