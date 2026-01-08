@@ -31,6 +31,7 @@ export default class DownloadWindow extends MenuWindow {
     this._imageElement = ((imageElement: any): HTMLImageElement);
     this._imageElement.addEventListener('load', this.onImageLoaded);
     this._anchorElement = utils.getElement('download-window-anchor');
+    this._anchorElement.addEventListener('click', this.onDownloadClick);
     this._activityIndicatorElement = utils.getElement(
       'image-activity-indicator-container',
     );
@@ -77,6 +78,10 @@ export default class DownloadWindow extends MenuWindow {
     this._anchorElement.classList.remove('ready');
     this._activityIndicatorElement.style.display = 'block';
   }
+
+  onDownloadClick = () => {
+    track('download_wallpaper');
+  };
 
   onImageLoaded = () => {
     if (utils.isMobile()) {
