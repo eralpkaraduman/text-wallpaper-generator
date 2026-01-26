@@ -272,6 +272,27 @@ a.intro-start-button {
   z-index: 20;
 }
 
+.intro-use-cases-link {
+  margin-top: 10px;
+  text-align: center;
+
+  a {
+    color: rgba(white, 0.7) !important;
+    text-decoration: underline !important;
+    font-size: 0.9em;
+    font-weight: normal;
+    display: inline;
+    padding: 0;
+    margin: 0;
+    min-width: auto;
+    min-height: auto;
+
+    &:hover {
+      color: white !important;
+    }
+  }
+}
+
 .generic-button {
   margin: 0px;
   font-weight: bold;
