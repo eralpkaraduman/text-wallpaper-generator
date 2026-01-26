@@ -89,7 +89,8 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       { from: 'robots.txt', to: 'robots.txt' },
-      { from: 'sitemap.xml', to: 'sitemap.xml' }
+      { from: 'sitemap.xml', to: 'sitemap.xml' },
+      { from: 'use-cases', to: 'use-cases' }
     ]),
     extractSass
   ],
