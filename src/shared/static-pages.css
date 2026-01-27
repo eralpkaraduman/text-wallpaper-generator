@@ -1,0 +1,390 @@
+/**
+ * Shared CSS for static pages (landing pages, use-case pages)
+ * This file eliminates ~100 lines of duplicated inline CSS per page
+ */
+
+/* ==========================================================================
+   Base Reset & Body
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: #f8f9fa;
+}
+
+/* CJK font override for Chinese pages */
+html[lang="zh-Hans"] body {
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  line-height: 1.8;
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+.header {
+  background: #2D2D2D;
+  padding: 1rem;
+  text-align: center;
+}
+
+.header a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.header a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Language Navigation
+   ========================================================================== */
+.lang-nav {
+  background: #444;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+.lang-nav a {
+  color: #ccc;
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+
+.lang-nav a:hover {
+  color: #fff;
+}
+
+.lang-nav a.active {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Container
+   ========================================================================== */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Wider container for grid pages */
+.container--wide {
+  max-width: 900px;
+}
+
+/* Centered container for landing pages */
+.container--centered {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.footer {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+  border-top: 1px solid #ddd;
+  margin-top: 2rem;
+}
+
+.footer a {
+  color: #007bff;
+}
+
+/* ==========================================================================
+   CTA Button
+   ========================================================================== */
+.cta {
+  display: inline-block;
+  background: #007bff;
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  transition: background 0.2s;
+}
+
+.cta:hover {
+  background: #0056b3;
+}
+
+/* Larger CTA for landing pages */
+.cta--large {
+  padding: 1rem 3rem;
+  font-size: 1.25rem;
+}
+
+/* ==========================================================================
+   Breadcrumb (Article pages)
+   ========================================================================== */
+.breadcrumb {
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+.breadcrumb a {
+  color: #007bff;
+}
+
+/* ==========================================================================
+   Article Content
+   ========================================================================== */
+.article-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.article-content p {
+  margin-bottom: 1rem;
+}
+
+.article-content h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #2D2D2D;
+}
+
+.article-content h2 {
+  font-size: 1.5rem;
+  margin: 2rem 0 1rem;
+  color: #2D2D2D;
+}
+
+.article-content h3 {
+  font-size: 1.1rem;
+  margin: 1.5rem 0 0.5rem;
+  color: #555;
+}
+
+.article-content ul,
+.article-content ol {
+  margin: 1rem 0 1rem 1.5rem;
+}
+
+.article-content li {
+  margin-bottom: 0.5rem;
+}
+
+/* Standalone h1 (outside article-content) */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #2D2D2D;
+}
+
+/* Larger h1 for landing pages */
+h1.landing-title {
+  font-size: 2.5rem;
+}
+
+/* ==========================================================================
+   Example Boxes (Article pages - 6 variants consolidated)
+   ========================================================================== */
+.example-box {
+  padding: 1rem 1.5rem;
+  border-radius: 4px;
+  font-family: monospace;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+/* Dark theme (default) - motivation, goals-okr, sales-training, multilingual */
+.example-box--dark,
+.mantra-example,
+.okr-example,
+.script-example,
+.lang-example {
+  background: #2D2D2D;
+  color: #fff;
+}
+
+/* Terminal theme - server-labels, device-labeling, security-terminals */
+.example-box--terminal,
+.label-example {
+  background: #1a1a2e;
+  color: #00ff41;
+  border: 1px solid #00ff41;
+}
+
+/* Deadline variants */
+.example-box--danger,
+.deadline-example {
+  background: #dc3545;
+  color: #fff;
+  padding: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.example-box--warning,
+.deadline-example.warning {
+  background: #ffc107;
+  color: #333;
+}
+
+.example-box--calm,
+.deadline-example.calm {
+  background: #2D2D2D;
+  color: #fff;
+}
+
+/* Left-aligned variants (for code/script examples) */
+.example-box--left,
+.okr-example,
+.script-example {
+  text-align: left;
+  white-space: pre-line;
+  font-size: 0.95rem;
+}
+
+/* Translation subtext (multilingual page) */
+.example-box .translation,
+.lang-example .translation {
+  font-size: 0.85rem;
+  color: #aaa;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* ==========================================================================
+   Tip Boxes (4 color variants)
+   ========================================================================== */
+.tip-box {
+  padding: 1rem;
+  margin: 1rem 0;
+  border-left: 4px solid;
+}
+
+/* Warning (yellow) - default */
+.tip-box,
+.tip-box--warning {
+  background: #fff3cd;
+  border-left-color: #ffc107;
+}
+
+/* Info (blue) */
+.tip-box--info {
+  background: #e7f3ff;
+  border-left-color: #007bff;
+}
+
+/* Success (green) */
+.tip-box--success {
+  background: #d4edda;
+  border-left-color: #28a745;
+}
+
+/* Danger (red) */
+.tip-box--danger {
+  background: #f8d7da;
+  border-left-color: #dc3545;
+}
+
+/* ==========================================================================
+   Landing Page Components
+   ========================================================================== */
+.subtitle {
+  font-size: 1.25rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.features {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.features h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #2D2D2D;
+}
+
+.features ul {
+  list-style: none;
+  padding: 0;
+}
+
+.features li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.features li:last-child {
+  border-bottom: none;
+}
+
+/* Landing page example box (larger) */
+.landing-example {
+  background: #2D2D2D;
+  color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  font-size: 1.25rem;
+}
+
+/* ==========================================================================
+   Use Case Grid (Index pages)
+   ========================================================================== */
+.intro {
+  font-size: 1.125rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.use-case-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.use-case-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: block;
+}
+
+.use-case-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.use-case-card h2 {
+  font-size: 1.25rem;
+  color: #2D2D2D;
+  margin-bottom: 0.5rem;
+}
+
+.use-case-card p {
+  color: #666;
+  font-size: 0.95rem;
+  margin: 0;
+}
