@@ -79,6 +79,19 @@
         font-weight: 600;
       }
       .header a:hover { text-decoration: underline; }
+      .lang-nav {
+        background: #444;
+        padding: 0.5rem;
+        text-align: center;
+        font-size: 0.875rem;
+      }
+      .lang-nav a {
+        color: #ccc;
+        text-decoration: none;
+        margin: 0 0.5rem;
+      }
+      .lang-nav a:hover { color: #fff; }
+      .lang-nav a.active { color: #fff; font-weight: 600; }
       .container {
         max-width: 800px;
         margin: 0 auto;
@@ -153,6 +166,14 @@
     <header class="header">
       <a href="/zh/">TextWallpaper.com</a>
     </header>
+    <nav class="lang-nav">
+      <a href="/use-cases/security-terminals/">English</a>
+      <a href="/zh/use-cases/security-terminals/" class="active">中文</a>
+      <a href="/ja/use-cases/security-terminals/">日本語</a>
+      <a href="/de/use-cases/security-terminals/">Deutsch</a>
+      <a href="/tr/use-cases/security-terminals/">Türkçe</a>
+      <a href="/id/use-cases/security-terminals/">Indonesia</a>
+    </nav>
 
     <main class="container">
       <nav class="breadcrumb">
