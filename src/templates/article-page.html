@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="<%= lang %>">
+  <head>
+    <title><%= title %> | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="<%= description %>" />
+    <meta name="keywords" content="<%= keywords %>" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://textwallpaper.com<%= canonicalPath %>" />
+
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="en" href="https://textwallpaper.com<%= hreflang.en %>" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://textwallpaper.com<%= hreflang.zh %>" />
+    <link rel="alternate" hreflang="ja" href="https://textwallpaper.com<%= hreflang.ja %>" />
+    <link rel="alternate" hreflang="de" href="https://textwallpaper.com<%= hreflang.de %>" />
+    <link rel="alternate" hreflang="tr" href="https://textwallpaper.com<%= hreflang.tr %>" />
+    <link rel="alternate" hreflang="id" href="https://textwallpaper.com<%= hreflang.id %>" />
+    <link rel="alternate" hreflang="x-default" href="https://textwallpaper.com<%= hreflang.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://textwallpaper.com<%= canonicalPath %>" />
+    <meta property="og:title" content="<%= og.title %>" />
+    <meta property="og:description" content="<%= og.description %>" />
+    <meta property="og:image" content="https://textwallpaper.com/icons/og/icon_512x512.jpeg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://textwallpaper.com<%= canonicalPath %>" />
+    <meta property="twitter:title" content="<%= twitter.title %>" />
+    <meta property="twitter:description" content="<%= twitter.description %>" />
+    <meta property="twitter:image" content="https://textwallpaper.com/icons/og/icon_512x512.jpeg" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "<%= schema.headline %>",
+      "description": "<%= schema.description %>",
+      "url": "https://textwallpaper.com<%= canonicalPath %>",
+      <% if (lang !== 'en') { %>"inLanguage": "<%= lang %>",<% } %>
+      "author": {
+        "@type": "Person",
+        "name": "Eralp Karaduman"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "TextWallpaper.com",
+        "url": "https://textwallpaper.com"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://textwallpaper.com<%= canonicalPath %>"
+      }
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="/shared/static-pages.css">
+  </head>
+  <body>
+    <header class="header">
+      <a href="<%= homeLink %>">TextWallpaper.com</a>
+    </header>
+    <nav class="lang-nav">
+      <a href="<%= hreflang.en %>"<%= lang === 'en' ? ' class="active"' : '' %>>English</a>
+      <a href="<%= hreflang.zh %>"<%= lang === 'zh-Hans' ? ' class="active"' : '' %>>中文</a>
+      <a href="<%= hreflang.ja %>"<%= lang === 'ja' ? ' class="active"' : '' %>>日本語</a>
+      <a href="<%= hreflang.de %>"<%= lang === 'de' ? ' class="active"' : '' %>>Deutsch</a>
+      <a href="<%= hreflang.tr %>"<%= lang === 'tr' ? ' class="active"' : '' %>>Türkçe</a>
+      <a href="<%= hreflang.id %>"<%= lang === 'id' ? ' class="active"' : '' %>>Indonesia</a>
+    </nav>
+
+    <main class="container">
+      <nav class="breadcrumb">
+        <a href="<%= homeLink %>"><%= breadcrumb.home %></a> &rsaquo; <a href="<%= breadcrumb.parentHref %>"><%= breadcrumb.parent %></a> &rsaquo; <%= breadcrumb.current %>
+      </nav>
+
+      <article class="article-content">
+        <%- content %>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="<%= homeLink %>">TextWallpaper.com</a> - <%= footerText %></p>
+    </footer>
+
+    <!-- Analytics -->
+    <script src="/shared/analytics.js"></script>
+  </body>
+</html>
