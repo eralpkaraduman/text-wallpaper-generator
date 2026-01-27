@@ -198,7 +198,14 @@ h1.landing-title {
 /* ==========================================================================
    Example Boxes (Article pages - 6 variants consolidated)
    ========================================================================== */
-.example-box {
+/* Base styles for all example boxes */
+.example-box,
+.mantra-example,
+.okr-example,
+.script-example,
+.lang-example,
+.label-example,
+.deadline-example {
   padding: 1rem 1.5rem;
   border-radius: 4px;
   font-family: monospace;
