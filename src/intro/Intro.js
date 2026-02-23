@@ -21,6 +21,9 @@ export default class Intro {
 
 		const video = document.getElementById('intro-gif-animation');
 		if (video instanceof HTMLVideoElement) {
+			video.muted = true;
+			video.setAttribute('muted', '');
+			video.playsInline = true;
 			video.play().catch(() => {});
 		}
 	}
