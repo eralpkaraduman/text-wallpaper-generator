@@ -54,6 +54,13 @@ module.exports = {
         loader: 'file-loader',
       },
       {
+        test: /\.(mp4|webm|ogg)$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[hash].[ext]',
+        },
+      },
+      {
         test: /\.(css|scss)$/,
         use: extractSass.extract({
           use: [
