@@ -490,6 +490,10 @@ $animation_down_postion: $animation_container_height - $moving_icon_height -
 .intro-bullet-list-container {
   font-size: 0.8em;
   margin: 5px;
+
+  @media (max-width: 480px) {
+    display: none;
+  }
 }
 
 #intro-bullet-list {
