@@ -24,7 +24,22 @@ export default class Intro {
 			video.muted = true;
 			video.setAttribute('muted', '');
 			video.playsInline = true;
-			video.play().catch(() => {});
+
+			const source = video.querySelector('source');
+			if (source && source.src) {
+				fetch(source.src)
+					.then(res => res.blob())
+					.then(blob => {
+						video.src = URL.createObjectURL(blob);
+						video.load();
+						video.play().catch(() => {});
+					})
+					.catch(() => {
+						video.play().catch(() => {});
+					});
+			} else {
+				video.play().catch(() => {});
+			}
 		}
 	}
 
