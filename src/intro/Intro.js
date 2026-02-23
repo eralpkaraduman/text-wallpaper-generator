@@ -18,29 +18,6 @@ export default class Intro {
 		this.startButtonElement = getElement('intro-start-button');
 		this.startButtonElement.addEventListener('click', this.handleOnStartButtonClicked);
 		this.startButtonElement.style.display = 'block';
-
-		const video = document.getElementById('intro-gif-animation');
-		if (video instanceof HTMLVideoElement) {
-			video.muted = true;
-			video.setAttribute('muted', '');
-			video.playsInline = true;
-
-			const source = video.querySelector('source');
-			if (source && source.src) {
-				fetch(source.src)
-					.then(res => res.blob())
-					.then(blob => {
-						video.src = URL.createObjectURL(blob);
-						video.load();
-						video.play().catch(() => {});
-					})
-					.catch(() => {
-						video.play().catch(() => {});
-					});
-			} else {
-				video.play().catch(() => {});
-			}
-		}
 	}
 
 	handleOnStartButtonClicked = () => {

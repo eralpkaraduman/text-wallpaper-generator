@@ -54,7 +54,7 @@ module.exports = {
         loader: 'file-loader',
       },
       {
-        test: /\.(mp4|webm|ogg)$/,
+        test: /\.(mp4|webm|ogg|gif|png|jpg|jpeg)$/,
         loader: 'file-loader',
         options: {
           name: '[name].[hash].[ext]',
