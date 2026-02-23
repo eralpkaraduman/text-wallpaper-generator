@@ -7,12 +7,18 @@
           Transform any text into beautiful wallpapers for your phone or desktop. Free text to wallpaper generator with custom colors and fonts.
         </div>
         <div class="col-xs-12">
-          <img
+          <video
             id="intro-gif-animation"
-            src="${require('!url-loader!./intro.gif?limit=10000&mimetype=image/gif')}"
-            alt="Text wallpaper generator demo showing how to create custom text wallpapers"
-            rel="intro"
-          />
+            autoplay
+            loop
+            muted
+            playsinline
+            webkit-playsinline
+            preload="auto"
+            disablePictureInPicture
+          >
+            <source src="${require('./intro.mp4')}" type="video/mp4">
+          </video>
         </div>
         <div class="intro-bullet-list-container col-xs-12">
           <div class="row center-xs middle-xs">
