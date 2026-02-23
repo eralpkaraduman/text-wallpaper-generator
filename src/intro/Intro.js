@@ -18,6 +18,11 @@ export default class Intro {
 		this.startButtonElement = getElement('intro-start-button');
 		this.startButtonElement.addEventListener('click', this.handleOnStartButtonClicked);
 		this.startButtonElement.style.display = 'block';
+
+		const video = document.getElementById('intro-gif-animation');
+		if (video instanceof HTMLVideoElement) {
+			video.play().catch(() => {});
+		}
 	}
 
 	handleOnStartButtonClicked = () => {
