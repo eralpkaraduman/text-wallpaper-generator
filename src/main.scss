@@ -580,7 +580,9 @@ $credits-text-active-color-fallback: white;
   border-radius: 0.25em;
   border: 2px solid white;
   border: 2px solid rgba(white, 0.4);
+  width: 241px;
   height: 150px;
+  background: rgba(white, 0.1);
 }
 
 .number-input {
