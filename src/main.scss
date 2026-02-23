@@ -490,17 +490,18 @@ $animation_down_postion: $animation_container_height - $moving_icon_height -
 .intro-bullet-list-container {
   font-size: 0.8em;
   margin: 5px;
-
-  @media (max-width: 480px) {
-    display: none;
-  }
 }
 
 #intro-bullet-list {
-  text-align: start;
-  list-style: inside;
-  padding: 0px;
-  margin: 0px;
+  text-align: left;
+  list-style: disc outside;
+  padding: 0 0 0 1.2em;
+  margin: 0 auto;
+  display: inline-block;
+
+  li {
+    margin-bottom: 0.3em;
+  }
 }
 
 .credits-container {
