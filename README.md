@@ -2,7 +2,7 @@
 
 Create Simple Wallpapers with Text!
 
-#### [TextWallpaper.com][https://textwallpaper.com]
+#### [TextWallpaper.com](https://textwallpaper.com)
 
 ![Intro Animation](https://github.com/eralpkaraduman/text-wallpaper-generator/raw/master/src/intro/intro.gif)
 
