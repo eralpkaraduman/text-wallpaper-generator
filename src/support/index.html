@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Support This Project | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="Help keep TextWallpaper.com free, private, and ad-free. Donations cover hosting costs and fund new features — no accounts, no paywall, no tracking." />
+    <meta name="keywords" content="support textwallpaper, donate, free wallpaper generator, open source, no ads" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://textwallpaper.com/support/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://textwallpaper.com/support/" />
+    <meta property="og:title" content="Support This Project - TextWallpaper.com" />
+    <meta property="og:description" content="Help keep TextWallpaper.com free, private, and ad-free. Donations cover hosting costs and fund new features." />
+    <meta property="og:image" content="https://textwallpaper.com/icons/og/icon_512x512.jpeg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://textwallpaper.com/support/" />
+    <meta property="twitter:title" content="Support This Project - TextWallpaper.com" />
+    <meta property="twitter:description" content="Help keep TextWallpaper.com free, private, and ad-free." />
+    <meta property="twitter:image" content="https://textwallpaper.com/icons/og/icon_512x512.jpeg" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Support This Project",
+      "description": "Help keep TextWallpaper.com free, private, and ad-free. Donations cover hosting costs and fund new features.",
+      "url": "https://textwallpaper.com/support/",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "TextWallpaper.com",
+        "url": "https://textwallpaper.com"
+      }
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="/shared/static-pages.css">
+  </head>
+  <body>
+    <header class="header">
+      <a href="/">TextWallpaper.com</a>
+    </header>
+
+    <main class="container">
+      <div id="thanks-banner" class="features" style="display: none; border-left: 4px solid #28a745;">
+        <h2>Thank you! &#10084;</h2>
+        <p>Your donation means a lot. If you left a feature request, I read every single one. The app stays exactly as free and private as it's always been — now with a little more runway.</p>
+      </div>
+
+      <h1>Support This Project</h1>
+
+      <p class="intro">Text Wallpaper is built to be private and simple, and staying free is part of how it stays that way.</p>
+
+      <div class="features">
+        <p>There's no account to create, nothing tracked about who you are, and nothing sold or shared &mdash; I keep only anonymized usage data, the kind that tells me which features get used, never who's using them. There are no ads, and there's no paid &ldquo;pro&rdquo; tier either &mdash; every feature works the same for everyone, with nothing held back behind a paywall. Adding accounts, subscriptions, or tracking would make the app worse to use just to make it profitable, and that trade isn't one I want to make.</p>
+        <p style="margin-top: 1rem;">This is a one-person project. I build and maintain it myself, around a day job and a family, in whatever time I can find. It doesn't run on a company budget &mdash; hosting and infrastructure still cost real money every month, and it's just me behind all of it.</p>
+        <p style="margin-top: 1rem;">If you'd like to help keep it running and growing, a donation goes straight toward covering those costs and funding whatever gets built next. There's no obligation at all &mdash; the app stays exactly as free and private either way.</p>
+      </div>
+
+      <!-- TODO(go-live): replace REPLACE_ME with the real Stripe Payment Link URL from the new
+           Finland Stripe account (see DONATIONS-IMPLEMENTATION-PLAN.md). One-line change. -->
+      <a href="https://donate.stripe.com/REPLACE_ME" target="_blank" rel="noopener" class="cta" data-umami-event="donate-click">Donate via Stripe &#10084;</a>
+
+      <div class="features">
+        <h2>Got an idea for a feature?</h2>
+        <p>Leave a note with your donation &mdash; the checkout has an optional &ldquo;feature request&rdquo; field. I read every one, and donor requests get real priority when I'm deciding what to build next.</p>
+      </div>
+
+      <div class="features">
+        <h2>Hall of Fame</h2>
+        <p>Donations of &euro;5 or more can be listed here. Typing your name or alias into the optional &ldquo;Hall of Fame&rdquo; field at checkout is what puts you on the list &mdash; leave it blank and you stay private. No tiers, no bought prominence: every name is listed the same way.</p>
+        <!-- Hall of Fame is a manually curated list: check Stripe Dashboard for qualifying
+             donations (>= EUR 5, name field filled in = consent) and add names by hand below.
+             Per-transaction, not cumulative. Do not automate. -->
+        <ul id="hall-of-fame-list" style="margin-top: 1rem; padding-left: 1.25rem;">
+          <li><em>Your name could be the first here.</em></li>
+        </ul>
+      </div>
+
+      <a href="/" class="cta">Create Your Wallpaper &rarr;</a>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="/">TextWallpaper.com</a> - Free Text Wallpaper Generator</p>
+    </footer>
+
+    <script>
+      // Show the thank-you banner when arriving from Stripe's post-checkout redirect (?thanks=1)
+      if (new URLSearchParams(window.location.search).has('thanks')) {
+        document.getElementById('thanks-banner').style.display = 'block';
+      }
+    </script>
+
+    <!-- Analytics -->
+    <script src="/shared/analytics.js"></script>
+  </body>
+</html>
