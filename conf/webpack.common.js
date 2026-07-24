@@ -100,6 +100,8 @@ module.exports = {
       { from: 'shared', to: 'shared' },
       { from: 'use-cases', to: 'use-cases' },
       { from: 'support', to: 'support' },
+      { from: 'privacy', to: 'privacy' },
+      { from: 'terms', to: 'terms' },
       { from: 'zh', to: 'zh' },
       { from: 'ja', to: 'ja' },
       { from: 'de', to: 'de' },
