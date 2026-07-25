@@ -531,13 +531,6 @@ $animation_down_postion: $animation_container_height - $moving_icon_height -
   background-color: $active_button_color;
 }
 
-/* On small screens the toolbar heart button covers this entry point */
-@media (max-width: 767px) {
-  .floating-support-button {
-    display: none;
-  }
-}
-
 .credits-container {
   position: fixed;
   bottom: 0;
