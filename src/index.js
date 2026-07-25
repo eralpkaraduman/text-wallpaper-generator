@@ -120,6 +120,31 @@ async function generateCanvas(
   return canvas;
 }
 
+// Download hint: a bouncing arrow under the download button, visible once
+// the user has typed something, gone for good after they click download.
+let downloadHintDismissed = false;
+const updateDownloadHint = () => {
+  const hintElement = getElement('download-hint');
+  const menuRowElement = getElement('menu');
+  const editorVisible = !wallpaperElement.classList.contains('hidden');
+  const menuPanelOpen = menuRowElement.classList.contains('menu-active');
+  const show =
+    !downloadHintDismissed &&
+    editorVisible &&
+    !menuPanelOpen &&
+    textEditor.text.trim().length > 0;
+  if (show) {
+    const buttonRect = getElement(
+      'menu-button-download',
+    ).getBoundingClientRect();
+    hintElement.style.left = `${Math.round(
+      buttonRect.left + buttonRect.width / 2 - 7,
+    )}px`;
+    hintElement.style.top = `${Math.round(buttonRect.bottom + 4)}px`;
+  }
+  hintElement.style.display = show ? 'block' : 'none';
+};
+
 const menuCallbacks: MenuCallbacks = {
   onGenerateCanvas: async (width, height, scale) =>
     await generateCanvas(width, height, scale),
@@ -149,6 +174,7 @@ const menuCallbacks: MenuCallbacks = {
     menu.closeAllWindows();
     menu.onHide();
     textEditor.onHide();
+    updateDownloadHint();
   },
 };
 
@@ -167,6 +193,17 @@ updateSelectionStyles();
 textEditor.onStart();
 textEditor.textSize = menu.textSize;
 textEditor.textColor = menu.textColor;
+
+textEditor.textInputElement.addEventListener('input', updateDownloadHint);
+getElement('menu-button-download').addEventListener('click', () => {
+  downloadHintDismissed = true;
+  updateDownloadHint();
+});
+// Panels opening/closing under the toolbar change what the hint may overlap
+getElement('menu').addEventListener('click', () =>
+  setTimeout(updateDownloadHint, 0),
+);
+window.addEventListener('resize', updateDownloadHint);
 
 wallpaperElement.style.backgroundColor = menu.backgroundColor;
 updateThemeColor(menu.backgroundColor);

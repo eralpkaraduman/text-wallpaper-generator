@@ -118,10 +118,14 @@ body {
 }
 
 .wallpaper {
+  /* Fill exactly the space the scroll wrapper leaves after its own
+     padding; a fixed min-height here forces pointless overflow.
+     Grows (and scrolls) only when the typed text is taller. */
   flex: 1;
   width: 100%;
   padding: 20px;
-  min-height: calc(100vh - 120px); /* Account for menu and credits */
+  box-sizing: border-box;
+  min-height: 0;
 }
 
 .wallpaper.hidden {
@@ -151,6 +155,14 @@ body {
 
 .wallpaper-text-input:focus {
   outline: none;
+}
+
+/* Placeholder for the contenteditable input so the screen never looks
+   empty; inherits the chosen text color via `color` on the element */
+.wallpaper-text-input:empty::before {
+  content: attr(data-placeholder);
+  opacity: 0.35;
+  pointer-events: none;
 }
 
 .menu {
@@ -513,6 +525,28 @@ $animation_down_postion: $animation_container_height - $moving_icon_height -
 
   li {
     margin-bottom: 0.3em;
+  }
+}
+
+/* Bouncing arrow under the download button, shown after the user has
+   typed something and hidden for good once download is clicked */
+.download-hint {
+  position: fixed;
+  z-index: 8;
+  color: $default_light_color;
+  font-size: 18px;
+  pointer-events: none;
+  text-shadow: 0 1px 4px rgba(black, 0.5);
+  animation: download-hint-bounce 1.2s ease-in-out infinite;
+}
+
+@keyframes download-hint-bounce {
+  0%,
+  100% {
+    transform: translateY(6px);
+  }
+  50% {
+    transform: translateY(0);
   }
 }
 

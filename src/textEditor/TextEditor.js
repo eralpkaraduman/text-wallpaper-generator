@@ -51,6 +51,16 @@ export default class TextEditor {
       () => this.textInputElement.focus(),
       false,
     );
+    // Clear whitespace-only content on blur so the :empty placeholder shows
+    this.textInputElement.addEventListener(
+      'blur',
+      () => {
+        if (!this.text.trim()) {
+          this.textInputElement.textContent = '';
+        }
+      },
+      false,
+    );
     autosize(this.textInputElement);
   };
 
