@@ -103,6 +103,14 @@
       // Show the thank-you banner when arriving from Stripe's post-checkout redirect (?thanks=1)
       if (new URLSearchParams(window.location.search).has('thanks')) {
         document.getElementById('thanks-banner').style.display = 'block';
+        // Umami loads async via /shared/analytics.js; poll briefly so the event isn't lost
+        var donationEventTimer = setInterval(function () {
+          if (window.umami) {
+            window.umami.track('donation-complete');
+            clearInterval(donationEventTimer);
+          }
+        }, 500);
+        setTimeout(function () { clearInterval(donationEventTimer); }, 10000);
       }
     </script>
 
