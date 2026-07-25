@@ -133,15 +133,6 @@ const updateDownloadHint = () => {
     editorVisible &&
     !menuPanelOpen &&
     textEditor.text.trim().length > 0;
-  if (show) {
-    const buttonRect = getElement(
-      'menu-button-download',
-    ).getBoundingClientRect();
-    hintElement.style.left = `${Math.round(
-      buttonRect.left + buttonRect.width / 2 - 7,
-    )}px`;
-    hintElement.style.top = `${Math.round(buttonRect.bottom + 4)}px`;
-  }
   hintElement.style.display = show ? 'block' : 'none';
 };
 
@@ -203,7 +194,6 @@ getElement('menu-button-download').addEventListener('click', () => {
 getElement('menu').addEventListener('click', () =>
   setTimeout(updateDownloadHint, 0),
 );
-window.addEventListener('resize', updateDownloadHint);
 
 wallpaperElement.style.backgroundColor = menu.backgroundColor;
 updateThemeColor(menu.backgroundColor);

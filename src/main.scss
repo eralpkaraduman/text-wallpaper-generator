@@ -528,15 +528,29 @@ $animation_down_postion: $animation_container_height - $moving_icon_height -
   }
 }
 
-/* Bouncing arrow under the download button, shown after the user has
-   typed something and hidden for good once download is clicked */
+/* Bouncing arrow anchored under the download button (absolute child,
+   so it follows the button everywhere; no JS positioning). Shown after
+   the user has typed something, hidden for good once download is
+   clicked. Outer span centers, inner icon animates, so the transforms
+   never fight each other. */
+#menu-button-download {
+  position: relative;
+}
+
 .download-hint {
-  position: fixed;
-  z-index: 8;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 4px;
   color: $default_light_color;
   font-size: 18px;
   pointer-events: none;
   text-shadow: 0 1px 4px rgba(black, 0.5);
+}
+
+.download-hint i {
+  display: inline-block;
   animation: download-hint-bounce 1.2s ease-in-out infinite;
 }
 
