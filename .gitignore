@@ -12,3 +12,8 @@ flow-typed
 
 # bv (beads viewer) local config and caches
 .bv/
+
+# Root-level markdown files are local working notes (plans, agent docs);
+# README is the only tracked one.
+/*.md
+!/README.md
