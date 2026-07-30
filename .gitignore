@@ -13,6 +13,9 @@ flow-typed
 # bv (beads viewer) local config and caches
 .bv/
 
+# Claude Code project config (local, not shared)
+.claude/
+
 # Root-level markdown files are local working notes (plans, agent docs);
 # README is the only tracked one.
 /*.md
