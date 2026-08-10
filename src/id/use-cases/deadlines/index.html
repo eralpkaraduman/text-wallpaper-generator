@@ -9,15 +9,13 @@
     <meta name="keywords" content="wallpaper deadline, wallpaper hitung mundur, latar belakang countdown ujian, pengingat deadline proyek, wallpaper tenggat waktu, display countdown peluncuran" />
     <meta name="author" content="Eralp Karaduman" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://textwallpaper.com/id/use-cases/deadlines/" />
-    <!-- hreflang -->
-    <link rel="alternate" hreflang="en" href="https://textwallpaper.com/use-cases/deadlines/" />
-    <link rel="alternate" hreflang="zh-Hans" href="https://textwallpaper.com/zh/use-cases/deadlines/" />
-    <link rel="alternate" hreflang="ja" href="https://textwallpaper.com/ja/use-cases/deadlines/" />
-    <link rel="alternate" hreflang="de" href="https://textwallpaper.com/de/use-cases/deadlines/" />
-    <link rel="alternate" hreflang="tr" href="https://textwallpaper.com/tr/use-cases/deadlines/" />
-    <link rel="alternate" hreflang="id" href="https://textwallpaper.com/id/use-cases/deadlines/" />
-    <link rel="alternate" hreflang="x-default" href="https://textwallpaper.com/use-cases/deadlines/" />
+    <link rel="canonical" href="https://textwallpaper.com<%= p.availableLangUrls[p.activeLang] %>" />
+    <!-- hreflang (driven by availableLangUrls — only languages whose source exists) -->
+    <% var hreflangCodes = { zh: 'zh-Hans', zhHant: 'zh-Hant' }; %>
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) { %>
+    <link rel="alternate" hreflang="<%= hreflangCodes[lang] || lang %>" href="https://textwallpaper.com<%= p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="https://textwallpaper.com<%= p.availableLangUrls.en %>" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="article" />

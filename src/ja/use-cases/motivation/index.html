@@ -9,16 +9,13 @@
     <meta name="keywords" content="規律壁紙, モチベーション電話背景, 自己改善壁紙, 30日チャレンジ壁紙, 習慣リマインダー壁紙, マントラ壁紙, 目標トラッキング" />
     <meta name="author" content="Eralp Karaduman" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://textwallpaper.com/ja/use-cases/motivation/" />
-
-    <!-- hreflang -->
-    <link rel="alternate" hreflang="en" href="https://textwallpaper.com/use-cases/motivation/" />
-    <link rel="alternate" hreflang="zh-Hans" href="https://textwallpaper.com/zh/use-cases/motivation/" />
-    <link rel="alternate" hreflang="ja" href="https://textwallpaper.com/ja/use-cases/motivation/" />
-    <link rel="alternate" hreflang="de" href="https://textwallpaper.com/de/use-cases/motivation/" />
-    <link rel="alternate" hreflang="tr" href="https://textwallpaper.com/tr/use-cases/motivation/" />
-    <link rel="alternate" hreflang="id" href="https://textwallpaper.com/id/use-cases/motivation/" />
-    <link rel="alternate" hreflang="x-default" href="https://textwallpaper.com/use-cases/motivation/" />
+    <link rel="canonical" href="https://textwallpaper.com<%= p.availableLangUrls[p.activeLang] %>" />
+    <!-- hreflang (driven by availableLangUrls — only languages whose source exists) -->
+    <% var hreflangCodes = { zh: 'zh-Hans', zhHant: 'zh-Hant' }; %>
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) { %>
+    <link rel="alternate" hreflang="<%= hreflangCodes[lang] || lang %>" href="https://textwallpaper.com<%= p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="https://textwallpaper.com<%= p.availableLangUrls.en %>" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="article" />

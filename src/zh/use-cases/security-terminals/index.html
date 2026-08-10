@@ -9,16 +9,13 @@
     <meta name="keywords" content="安防终端壁纸, 监控显示器标签, 门卫岗亭壁纸, 闭路电视显示标签, 安保台壁纸, 门禁控制标签" />
     <meta name="author" content="Eralp Karaduman" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://textwallpaper.com/zh/use-cases/security-terminals/" />
-
-    <!-- hreflang -->
-    <link rel="alternate" hreflang="en" href="https://textwallpaper.com/use-cases/security-terminals/" />
-    <link rel="alternate" hreflang="zh-Hans" href="https://textwallpaper.com/zh/use-cases/security-terminals/" />
-    <link rel="alternate" hreflang="ja" href="https://textwallpaper.com/ja/use-cases/security-terminals/" />
-    <link rel="alternate" hreflang="de" href="https://textwallpaper.com/de/use-cases/security-terminals/" />
-    <link rel="alternate" hreflang="tr" href="https://textwallpaper.com/tr/use-cases/security-terminals/" />
-    <link rel="alternate" hreflang="id" href="https://textwallpaper.com/id/use-cases/security-terminals/" />
-    <link rel="alternate" hreflang="x-default" href="https://textwallpaper.com/use-cases/security-terminals/" />
+    <link rel="canonical" href="https://textwallpaper.com<%= p.availableLangUrls[p.activeLang] %>" />
+    <!-- hreflang (driven by availableLangUrls — only languages whose source exists) -->
+    <% var hreflangCodes = { zh: 'zh-Hans', zhHant: 'zh-Hant' }; %>
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) { %>
+    <link rel="alternate" hreflang="<%= hreflangCodes[lang] || lang %>" href="https://textwallpaper.com<%= p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="https://textwallpaper.com<%= p.availableLangUrls.en %>" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="article" />

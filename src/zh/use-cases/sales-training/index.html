@@ -9,16 +9,13 @@
     <meta name="keywords" content="销售壁纸, CRM提醒壁纸, 销售脚本壁纸, 销售培训背景, 销售流程清单, 销售展厅显示" />
     <meta name="author" content="Eralp Karaduman" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://textwallpaper.com/zh/use-cases/sales-training/" />
-
-    <!-- hreflang -->
-    <link rel="alternate" hreflang="en" href="https://textwallpaper.com/use-cases/sales-training/" />
-    <link rel="alternate" hreflang="zh-Hans" href="https://textwallpaper.com/zh/use-cases/sales-training/" />
-    <link rel="alternate" hreflang="ja" href="https://textwallpaper.com/ja/use-cases/sales-training/" />
-    <link rel="alternate" hreflang="de" href="https://textwallpaper.com/de/use-cases/sales-training/" />
-    <link rel="alternate" hreflang="tr" href="https://textwallpaper.com/tr/use-cases/sales-training/" />
-    <link rel="alternate" hreflang="id" href="https://textwallpaper.com/id/use-cases/sales-training/" />
-    <link rel="alternate" hreflang="x-default" href="https://textwallpaper.com/use-cases/sales-training/" />
+    <link rel="canonical" href="https://textwallpaper.com<%= p.availableLangUrls[p.activeLang] %>" />
+    <!-- hreflang (driven by availableLangUrls — only languages whose source exists) -->
+    <% var hreflangCodes = { zh: 'zh-Hans', zhHant: 'zh-Hant' }; %>
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) { %>
+    <link rel="alternate" hreflang="<%= hreflangCodes[lang] || lang %>" href="https://textwallpaper.com<%= p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="https://textwallpaper.com<%= p.availableLangUrls.en %>" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="article" />

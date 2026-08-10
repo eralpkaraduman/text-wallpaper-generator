@@ -9,16 +9,13 @@
     <meta name="keywords" content="サーバーラベル壁紙, ホスト名壁紙, データセンターモニターラベル, サーバー識別, IT壁紙, サーバールームラベル, システム管理ツール" />
     <meta name="author" content="Eralp Karaduman" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://textwallpaper.com/ja/use-cases/server-labels/" />
-
-    <!-- hreflang -->
-    <link rel="alternate" hreflang="en" href="https://textwallpaper.com/use-cases/server-labels/" />
-    <link rel="alternate" hreflang="zh-Hans" href="https://textwallpaper.com/zh/use-cases/server-labels/" />
-    <link rel="alternate" hreflang="ja" href="https://textwallpaper.com/ja/use-cases/server-labels/" />
-    <link rel="alternate" hreflang="de" href="https://textwallpaper.com/de/use-cases/server-labels/" />
-    <link rel="alternate" hreflang="tr" href="https://textwallpaper.com/tr/use-cases/server-labels/" />
-    <link rel="alternate" hreflang="id" href="https://textwallpaper.com/id/use-cases/server-labels/" />
-    <link rel="alternate" hreflang="x-default" href="https://textwallpaper.com/use-cases/server-labels/" />
+    <link rel="canonical" href="https://textwallpaper.com<%= p.availableLangUrls[p.activeLang] %>" />
+    <!-- hreflang (driven by availableLangUrls — only languages whose source exists) -->
+    <% var hreflangCodes = { zh: 'zh-Hans', zhHant: 'zh-Hant' }; %>
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) { %>
+    <link rel="alternate" hreflang="<%= hreflangCodes[lang] || lang %>" href="https://textwallpaper.com<%= p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="https://textwallpaper.com<%= p.availableLangUrls.en %>" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="article" />
