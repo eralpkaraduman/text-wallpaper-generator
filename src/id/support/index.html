@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <title>Dukung Proyek Ini | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="Bantu TextWallpaper.com tetap gratis, privat, dan bebas iklan. Donasi menutup biaya server dan mendanai fitur baru. Tanpa akun, tanpa iklan, tanpa paywall." />
+    <meta name="keywords" content="dukung textwallpaper, donasi, generator wallpaper gratis, open source, tanpa iklan" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <% var p = htmlWebpackPlugin.options.templateParameters; %>
+    <link rel="canonical" href="https://textwallpaper.com<%= p.availableLangUrls[p.activeLang] %>" />
+
+    <!-- hreflang (driven by availableLangUrls — only languages whose source exists) -->
+    <% var hreflangCodes = { zh: 'zh-Hans', zhHant: 'zh-Hant' }; %>
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) { %>
+    <link rel="alternate" hreflang="<%= hreflangCodes[lang] || lang %>" href="https://textwallpaper.com<%= p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="https://textwallpaper.com<%= p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://textwallpaper.com/id/support/" />
+    <meta property="og:title" content="Dukung Proyek Ini - TextWallpaper.com" />
+    <meta property="og:description" content="Bantu TextWallpaper.com tetap gratis, privat, dan bebas iklan. Donasi menutup biaya server dan mendanai fitur baru." />
+    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:locale" content="id_ID" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://textwallpaper.com/id/support/" />
+    <meta property="twitter:title" content="Dukung Proyek Ini - TextWallpaper.com" />
+    <meta property="twitter:description" content="Bantu TextWallpaper.com tetap gratis, privat, dan bebas iklan." />
+    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Dukung Proyek Ini",
+      "description": "Bantu TextWallpaper.com tetap gratis, privat, dan bebas iklan. Donasi menutup biaya server dan mendanai fitur baru.",
+      "url": "https://textwallpaper.com/id/support/",
+      "inLanguage": "id",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "TextWallpaper.com",
+        "url": "https://textwallpaper.com"
+      }
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="/shared/static-pages.css">
+  </head>
+  <body>
+    <header class="header">
+      <a href="/id/">TextWallpaper.com</a>
+    </header>
+
+    <main class="container">
+      <div id="thanks-banner" class="features" style="display: none; border-left: 4px solid #28a745;">
+        <h2>Terima kasih! &#10084;</h2>
+        <p>Itu sungguh membantu. Kalau kamu meninggalkan permintaan fitur, pasti saya baca. Aplikasi ini tetap gratis dan privat, seperti biasa.</p>
+        <div style="text-align: center; margin-top: 1.5rem;">
+          <a href="/id/" class="cta" style="margin-top: 0;">Buat Wallpaper-mu &rarr;</a>
+        </div>
+      </div>
+
+      <h1>Dukung Proyek Ini</h1>
+
+      <p class="intro">Text Wallpaper adalah aplikasi gratis dan privat yang dibuat oleh satu orang. Donasi dipakai untuk membayar tagihan server dan menjaga aplikasi ini tetap gratis untuk semua orang. Donasi sepenuhnya opsional &mdash; aplikasinya bekerja sama saja, donasi atau tidak.</p>
+
+      <div style="text-align: center; margin: 1.5rem 0 2rem;">
+        <a href="https://donate.stripe.com/8x200k3RJdl7b5L5xrgYU00" target="_blank" rel="noopener" class="cta cta--large" style="margin-top: 0;" data-umami-event="donate-click">Donasi lewat Stripe &#10084;</a>
+      </div>
+
+      <div class="features">
+        <h2>Kenapa donasi?</h2>
+        <p>Tidak ada akun, dan tidak ada data yang dijual atau dibagikan. Saya hanya menyimpan hitungan pemakaian anonim: fitur mana yang dipakai, tapi bukan siapa yang memakainya. Tidak ada iklan dan tidak ada versi berbayar. Semua fitur gratis untuk semua orang. Iklan atau langganan hanya akan membuat aplikasi ini lebih buruk, jadi saya tidak memakainya.</p>
+        <p style="margin-top: 1rem;">Ini proyek satu orang. Saya punya pekerjaan biasa dan keluarga, dan saya mengerjakan aplikasi ini di waktu luang. Server butuh biaya sungguhan setiap bulan, dan saya bayar sendiri. Donasi membuat aplikasi ini tetap online dan gratis.</p>
+        <p style="margin-top: 1rem;">Aplikasi ini juga <a target="_blank" rel="noopener" href="https://github.com/eralpkaraduman/text-wallpaper-generator">open source di GitHub</a>, jadi siapa pun bisa membaca kodenya.</p>
+      </div>
+
+      <div class="features">
+        <h2>Punya ide fitur?</h2>
+        <p>Di halaman pembayaran ada kolom opsional &ldquo;permintaan fitur&rdquo;. Tulis idemu di sana. Semuanya saya baca, dan ide dari para donatur mendapat perhatian ekstra saat saya memilih fitur berikutnya.</p>
+      </div>
+
+      <div class="features">
+        <h2>Hall of Fame</h2>
+        <p>Kalau kamu berdonasi &euro;5 atau lebih, namamu bisa dicantumkan di sini. Tulis nama atau alias di kolom &ldquo;Hall of Fame&rdquo; saat pembayaran. Biarkan kosong kalau mau tetap anonim. Posisi di daftar tidak bisa dibeli &mdash; semua nama tampil sama.</p>
+        <p style="margin-top: 1rem;">Namamu juga bisa ditautkan ke situsmu. Tambahkan alamatnya setelah nama di kolom yang sama, misalnya &ldquo;Maria (example.com)&rdquo;. Tautan bersifat nofollow, dan tautan yang terlihat seperti iklan bisa saya tolak.</p>
+        <!-- Donor names live in the shared partial (src/shared/partials/hall-of-fame.html) — edit them there, once, for all languages. -->
+        <%= require('html-loader!../../shared/partials/hall-of-fame.html') %>
+        <p style="margin-top: 0.5rem; padding-left: 1.25rem;"><em>Namamu juga bisa ada di sini.</em></p>
+      </div>
+
+      <div style="text-align: center; margin: 2rem 0 1rem;">
+        <a href="https://donate.stripe.com/8x200k3RJdl7b5L5xrgYU00" target="_blank" rel="noopener" class="cta cta--large" style="margin-top: 0;" data-umami-event="donate-click">Donasi lewat Stripe &#10084;</a>
+      </div>
+
+      <div style="text-align: center; margin: 1rem 0 2rem;">
+        <a href="/id/" class="cta" style="margin-top: 0;">Buat Wallpaper-mu &rarr;</a>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="/id/">TextWallpaper.com</a> - Generator Wallpaper Teks Gratis</p>
+      <p><a href="/privacy/">Kebijakan Privasi</a> &middot; <a href="/terms/">Ketentuan Layanan</a></p>
+    </footer>
+
+    <script>
+      // Show the thank-you banner when arriving from Stripe's post-checkout redirect (?thanks=1)
+      if (new URLSearchParams(window.location.search).has('thanks')) {
+        document.getElementById('thanks-banner').style.display = 'block';
+        // Umami loads async via /shared/analytics.js; poll briefly so the event isn't lost
+        var donationEventTimer = setInterval(function () {
+          if (window.umami) {
+            window.umami.track('donation-complete');
+            clearInterval(donationEventTimer);
+          }
+        }, 500);
+        setTimeout(function () { clearInterval(donationEventTimer); }, 10000);
+      }
+    </script>
+
+    <!-- Analytics -->
+    <script src="/shared/analytics.js"></script>
+  </body>
+</html>

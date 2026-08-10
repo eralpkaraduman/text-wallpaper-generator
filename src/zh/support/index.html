@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <title>支持这个项目 | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="帮助 TextWallpaper.com 保持免费、私密、无广告。捐款用于支付服务器费用并支持新功能开发。无账号、无广告、无付费墙。" />
+    <meta name="keywords" content="支持 textwallpaper, 捐款, 免费壁纸生成器, 开源, 无广告" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <% var p = htmlWebpackPlugin.options.templateParameters; %>
+    <link rel="canonical" href="https://textwallpaper.com<%= p.availableLangUrls[p.activeLang] %>" />
+
+    <!-- hreflang (driven by availableLangUrls — only languages whose source exists) -->
+    <% var hreflangCodes = { zh: 'zh-Hans', zhHant: 'zh-Hant' }; %>
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) { %>
+    <link rel="alternate" hreflang="<%= hreflangCodes[lang] || lang %>" href="https://textwallpaper.com<%= p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="https://textwallpaper.com<%= p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://textwallpaper.com/zh/support/" />
+    <meta property="og:title" content="支持这个项目 - TextWallpaper.com" />
+    <meta property="og:description" content="帮助 TextWallpaper.com 保持免费、私密、无广告。捐款用于支付服务器费用并支持新功能开发。" />
+    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:locale" content="zh_CN" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://textwallpaper.com/zh/support/" />
+    <meta property="twitter:title" content="支持这个项目 - TextWallpaper.com" />
+    <meta property="twitter:description" content="帮助 TextWallpaper.com 保持免费、私密、无广告。" />
+    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "支持这个项目",
+      "description": "帮助 TextWallpaper.com 保持免费、私密、无广告。捐款用于支付服务器费用并支持新功能开发。",
+      "url": "https://textwallpaper.com/zh/support/",
+      "inLanguage": "zh-Hans",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "TextWallpaper.com",
+        "url": "https://textwallpaper.com"
+      }
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="/shared/static-pages.css">
+  </head>
+  <body>
+    <header class="header">
+      <a href="/zh/">TextWallpaper.com</a>
+    </header>
+
+    <main class="container">
+      <div id="thanks-banner" class="features" style="display: none; border-left: 4px solid #28a745;">
+        <h2>谢谢你！&#10084;</h2>
+        <p>你的支持真的很有帮助。如果你留下了功能建议，我一定会看。应用会一如既往地保持免费和私密。</p>
+        <div style="text-align: center; margin-top: 1.5rem;">
+          <a href="/zh/" class="cta" style="margin-top: 0;">创建你的壁纸 &rarr;</a>
+        </div>
+      </div>
+
+      <h1>支持这个项目</h1>
+
+      <p class="intro">Text Wallpaper 是一款由一个人开发的免费、注重隐私的应用。捐款用来支付服务器账单，让应用对所有人保持免费。捐款完全自愿：捐与不捐，应用都一样用。</p>
+
+      <div style="text-align: center; margin: 1.5rem 0 2rem;">
+        <a href="https://donate.stripe.com/8x200k3RJdl7b5L5xrgYU00" target="_blank" rel="noopener" class="cta cta--large" style="margin-top: 0;" data-umami-event="donate-click">通过 Stripe 捐款 &#10084;</a>
+      </div>
+
+      <div class="features">
+        <h2>为什么需要捐款？</h2>
+        <p>这里没有账号系统，也不出售或分享任何数据。我只保留匿名的使用统计：知道哪些功能被用了，但不知道是谁在用。没有广告，也没有付费版本，所有功能对所有人免费。广告或订阅只会让应用变得更糟，所以我不做。</p>
+        <p style="margin-top: 1rem;">这是一个单人项目。我有一份普通的工作，也有家庭，这个应用是我在业余时间做的。服务器每个月都要花真金白银，一直是我自己在付。捐款能让应用继续在线、继续免费。</p>
+        <p style="margin-top: 1rem;">这个应用也在 <a target="_blank" rel="noopener" href="https://github.com/eralpkaraduman/text-wallpaper-generator">GitHub 上开源</a>，任何人都可以查看代码。</p>
+      </div>
+
+      <div class="features">
+        <h2>有什么功能想法？</h2>
+        <p>结账页面有一个可选的&ldquo;功能建议&rdquo;栏，把你的想法写在那里。每一条我都会看，在决定下一步做什么时，捐款人的想法会得到额外关注。</p>
+      </div>
+
+      <div class="features">
+        <h2>名人堂</h2>
+        <p>捐款满 5 欧元，你的名字就可以列在这里。在结账时的&ldquo;Hall of Fame&rdquo;栏填写你的名字或昵称；留空则保持匿名。名单上的位置无法用钱买到，每个名字都一视同仁。</p>
+        <p style="margin-top: 1rem;">你的名字还可以链接到你的网站。在同一栏的名字后面加上网址即可，例如&ldquo;Maria (example.com)&rdquo;。链接为 nofollow，看起来像广告的链接我可能会拒绝。</p>
+        <!-- Donor names live in the shared partial (src/shared/partials/hall-of-fame.html) — edit them there, once, for all languages. -->
+        <%= require('html-loader!../../shared/partials/hall-of-fame.html') %>
+        <p style="margin-top: 0.5rem; padding-left: 1.25rem;"><em>这里也可以有你的名字。</em></p>
+      </div>
+
+      <div style="text-align: center; margin: 2rem 0 1rem;">
+        <a href="https://donate.stripe.com/8x200k3RJdl7b5L5xrgYU00" target="_blank" rel="noopener" class="cta cta--large" style="margin-top: 0;" data-umami-event="donate-click">通过 Stripe 捐款 &#10084;</a>
+      </div>
+
+      <div style="text-align: center; margin: 1rem 0 2rem;">
+        <a href="/zh/" class="cta" style="margin-top: 0;">创建你的壁纸 &rarr;</a>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="/zh/">TextWallpaper.com</a> - 免费文字壁纸生成器</p>
+      <p><a href="/privacy/">隐私政策</a> &middot; <a href="/terms/">服务条款</a></p>
+    </footer>
+
+    <script>
+      // Show the thank-you banner when arriving from Stripe's post-checkout redirect (?thanks=1)
+      if (new URLSearchParams(window.location.search).has('thanks')) {
+        document.getElementById('thanks-banner').style.display = 'block';
+        // Umami loads async via /shared/analytics.js; poll briefly so the event isn't lost
+        var donationEventTimer = setInterval(function () {
+          if (window.umami) {
+            window.umami.track('donation-complete');
+            clearInterval(donationEventTimer);
+          }
+        }, 500);
+        setTimeout(function () { clearInterval(donationEventTimer); }, 10000);
+      }
+    </script>
+
+    <!-- Analytics -->
+    <script src="/shared/analytics.js"></script>
+  </body>
+</html>
