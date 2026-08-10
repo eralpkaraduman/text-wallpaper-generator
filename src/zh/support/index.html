@@ -116,7 +116,7 @@
 
     <footer class="footer">
       <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
-      <p><a href="/privacy/">隐私政策</a> &middot; <a href="/terms/">服务条款</a></p>
+      <p><a href="<%= p.localHref('/privacy/') %>">隐私政策</a> &middot; <a href="<%= p.localHref('/terms/') %>">服务条款</a></p>
     </footer>
 
     <script>

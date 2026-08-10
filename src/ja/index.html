@@ -66,7 +66,7 @@
   </head>
   <body>
     <header class="header">
-      <a href="/">TextWallpaper.com</a>
+      <a href="<%= p.localHref('/') %>">TextWallpaper.com</a>
     </header>
 
     <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
@@ -115,7 +115,7 @@
     </main>
 
     <footer class="footer">
-      <p>&copy; <a href="/">TextWallpaper.com</a> - 無料テキスト壁紙ジェネレーター</p>
+      <p>&copy; <a href="<%= p.localHref('/') %>">TextWallpaper.com</a> - 無料テキスト壁紙ジェネレーター</p>
     </footer>
 
     <a class="floating-support-button" href="/ja/support/" id="floating-support-button" aria-label="このプロジェクトを応援する" data-umami-event="support-page-visit">

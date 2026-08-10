@@ -118,6 +118,11 @@ function getLangUrls(basePath) {
  * langUrls (all languages, existence not checked) is kept for backward
  * compatibility; new pages should prefer availableLangUrls.
  *
+ * BODY LINKS on localized pages: internal links to other site pages should be
+ * written as <%= p.localHref('/use-cases/server-labels/') %> etc. so they
+ * resolve to the same-language version when it exists and fall back to the
+ * English page otherwise (see makeLocalHref below).
+ *
  * HOW TEMPLATES ACCESS PARAMS: html-webpack-plugin 2.x does NOT support
  * bare template variables (its fallback lodash loader only unwraps
  * compilation/webpack/webpackConfig/htmlWebpackPlugin). Access params as:
@@ -146,6 +151,38 @@ function getAvailableLangUrls(basePath) {
     available.zhHant = available.zh;
   }
   return available;
+}
+
+/**
+ * Build the per-page `localHref` template helper (exposed as p.localHref).
+ *
+ * Usage in templates:  <a href="<%= p.localHref('/use-cases/server-labels/') %>">
+ * Given a site-relative ENGLISH path ('/', '/support/', '/use-cases/x/', ...),
+ * it returns the same-language URL ('/<activeLang>' + path) when the
+ * translation source (src/<activeLang><path>index.html) exists on disk at
+ * build time, otherwise the English path unchanged. On English pages it always
+ * returns the path unchanged. It runs at build time via EJS, so the emitted
+ * HTML is fully static and every rewritten link is existence-checked against
+ * src/ — a link never points at a translation that doesn't exist.
+ * Paths must be clean folder paths ending in '/'; query strings and fragments
+ * are rejected (build-time throw) — write those hrefs directly instead.
+ */
+function makeLocalHref(lang) {
+  return function localHref(englishPath) {
+    if (!/^\/([A-Za-z0-9_-]+\/)*$/.test(englishPath)) {
+      throw new Error(
+        `localHref: expected a site-relative folder path ending in '/', got "${englishPath}"`
+      );
+    }
+    if (lang === 'en') return englishPath;
+    const sourcePath = path.join(
+      SRC_DIR,
+      lang,
+      ...englishPath.split('/').filter(Boolean),
+      'index.html'
+    );
+    return fs.existsSync(sourcePath) ? '/' + lang + englishPath : englishPath;
+  };
 }
 
 /**
@@ -202,6 +239,7 @@ function generateStaticPagePlugins() {
         githubRepoUrl: GITHUB_REPO_URL,
         ogImageUrl: OG_IMAGE_URL,
         langLabels: LANG_LABELS,
+        localHref: makeLocalHref(lang),
       },
     });
   });
