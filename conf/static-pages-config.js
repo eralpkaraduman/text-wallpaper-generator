@@ -14,6 +14,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const SRC_DIR = path.join(__dirname, '..', 'src');
 
+// Single source of truth for the Stripe payment link used by all support pages
+// (referenced in templates as p.stripeDonateUrl).
+const STRIPE_DONATE_URL = 'https://donate.stripe.com/8x200k3RJdl7b5L5xrgYU00';
+
 // Root-level English landing/static page folders (each contains an index.html).
 // Discovery is glob-based, so folders listed here that don't exist yet are
 // simply skipped until their index.html appears in src/.
@@ -174,6 +178,7 @@ function generateStaticPagePlugins() {
         footerText: langConfig.footerText,
         langUrls: langUrls,
         availableLangUrls: availableLangUrls,
+        stripeDonateUrl: STRIPE_DONATE_URL,
       },
     });
   });
