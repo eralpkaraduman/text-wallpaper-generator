@@ -58,14 +58,14 @@
       <a href="/zh/">TextWallpaper.com</a>
     </header>
 
+    <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
+    <% if (navLangs.length > 1) { %>
     <nav class="lang-nav">
-      <a href="/support/">English</a>
-      <a href="/zh/support/" class="active">中文</a>
-      <a href="/ja/support/">日本語</a>
-      <a href="/de/support/">Deutsch</a>
-      <a href="/tr/support/">Türkçe</a>
-      <a href="/id/support/">Indonesia</a>
+      <% navLangs.forEach(function (lang) { %>
+      <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
+      <% }); %>
     </nav>
+    <% } %>
 
     <main class="container">
       <div id="thanks-banner" class="features" style="display: none; border-left: 4px solid #28a745;">

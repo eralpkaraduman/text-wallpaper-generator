@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-Hans">
   <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters; %>
     <title>截止日期倒计时壁纸 - 不再错过任何期限 | TextWallpaper.com</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
@@ -65,14 +66,14 @@
     <header class="header">
       <a href="/zh/">TextWallpaper.com</a>
     </header>
+    <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
+    <% if (navLangs.length > 1) { %>
     <nav class="lang-nav">
-      <a href="/use-cases/deadlines/">English</a>
-      <a href="/zh/use-cases/deadlines/" class="active">中文</a>
-      <a href="/ja/use-cases/deadlines/">日本語</a>
-      <a href="/de/use-cases/deadlines/">Deutsch</a>
-      <a href="/tr/use-cases/deadlines/">Türkçe</a>
-      <a href="/id/use-cases/deadlines/">Indonesia</a>
+      <% navLangs.forEach(function (lang) { %>
+      <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
+      <% }); %>
     </nav>
+    <% } %>
 
     <main class="container">
       <nav class="breadcrumb">

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="id">
   <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters; %>
     <title>Wallpaper Checklist Proses Penjualan & Pengingat CRM | TextWallpaper.com</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
@@ -63,14 +64,14 @@
     <header class="header">
       <a href="/id/">TextWallpaper.com</a>
     </header>
+    <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
+    <% if (navLangs.length > 1) { %>
     <nav class="lang-nav">
-      <a href="/use-cases/sales-training/">English</a>
-      <a href="/zh/use-cases/sales-training/">中文</a>
-      <a href="/ja/use-cases/sales-training/">日本語</a>
-      <a href="/de/use-cases/sales-training/">Deutsch</a>
-      <a href="/tr/use-cases/sales-training/">Türkçe</a>
-      <a href="/id/use-cases/sales-training/" class="active">Indonesia</a>
+      <% navLangs.forEach(function (lang) { %>
+      <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
+      <% }); %>
     </nav>
+    <% } %>
 
     <main class="container">
       <nav class="breadcrumb">

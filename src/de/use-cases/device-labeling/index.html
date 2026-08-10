@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
   <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters; %>
     <title>Gerätebeschriftungs-Hintergrundbilder für Gesundheitswesen und Rettungsdienste | TextWallpaper.com</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
@@ -63,14 +64,14 @@
     <header class="header">
       <a href="/de/">TextWallpaper.com</a>
     </header>
+    <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
+    <% if (navLangs.length > 1) { %>
     <nav class="lang-nav">
-      <a href="/use-cases/device-labeling/">English</a>
-      <a href="/zh/use-cases/device-labeling/">中文</a>
-      <a href="/ja/use-cases/device-labeling/">日本語</a>
-      <a href="/de/use-cases/device-labeling/" class="active">Deutsch</a>
-      <a href="/tr/use-cases/device-labeling/">Türkçe</a>
-      <a href="/id/use-cases/device-labeling/">Indonesia</a>
+      <% navLangs.forEach(function (lang) { %>
+      <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
+      <% }); %>
     </nav>
+    <% } %>
 
     <main class="container">
       <nav class="breadcrumb">

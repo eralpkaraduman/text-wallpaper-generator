@@ -80,11 +80,14 @@
     <header class="header">
       <a href="/">TextWallpaper.com</a>
     </header>
+    <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
+    <% if (navLangs.length > 1) { %>
     <nav class="lang-nav">
-      <a href="/name-wallpaper/" class="active">English</a>
-      <a href="/ja/name-wallpaper/">日本語</a>
-      <a href="/tr/name-wallpaper/">Türkçe</a>
+      <% navLangs.forEach(function (lang) { %>
+      <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
+      <% }); %>
     </nav>
+    <% } %>
 
     <main class="container">
       <nav class="breadcrumb">

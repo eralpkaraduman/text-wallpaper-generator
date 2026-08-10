@@ -81,6 +81,15 @@
       <a href="/">TextWallpaper.com</a>
     </header>
 
+    <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
+    <% if (navLangs.length > 1) { %>
+    <nav class="lang-nav">
+      <% navLangs.forEach(function (lang) { %>
+      <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
+      <% }); %>
+    </nav>
+    <% } %>
+
     <main class="container">
       <nav class="breadcrumb">
         <a href="/">Home</a> &rsaquo; Desktop Wallpaper Maker

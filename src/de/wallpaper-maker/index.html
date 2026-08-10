@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
   <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters; %>
     <% var p = htmlWebpackPlugin.options.templateParameters;
        var origin = 'https://textwallpaper.com';
        var hreflangCodes = { zh: 'zh-Hans', zhHant: 'zh-Hant' };
@@ -100,10 +101,14 @@
     <header class="header">
       <a href="/de/">TextWallpaper.com</a>
     </header>
+    <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
+    <% if (navLangs.length > 1) { %>
     <nav class="lang-nav">
-      <a href="/wallpaper-maker/">English</a>
-      <a href="/de/wallpaper-maker/" class="active">Deutsch</a>
+      <% navLangs.forEach(function (lang) { %>
+      <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
+      <% }); %>
     </nav>
+    <% } %>
 
     <main class="container">
       <nav class="breadcrumb">

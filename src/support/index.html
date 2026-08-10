@@ -56,11 +56,14 @@
       <a href="/">TextWallpaper.com</a>
     </header>
 
+    <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
+    <% if (navLangs.length > 1) { %>
     <nav class="lang-nav">
-      <% Object.keys(p.availableLangUrls).forEach(function (lang) { if (!p.langLabels[lang]) return; %>
+      <% navLangs.forEach(function (lang) { %>
       <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
       <% }); %>
     </nav>
+    <% } %>
 
     <main class="container">
       <div id="thanks-banner" class="features" style="display: none; border-left: 4px solid #28a745;">
