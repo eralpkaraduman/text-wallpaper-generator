@@ -52,15 +52,6 @@ export default {
   'support.aria': 'Dieses Projekt unterstützen',
   'support.href': '/de/support/',
 
-  // Credits footer
-  'credits.support': 'Dieses Projekt unterstützen',
-  'credits.useCases': 'Anwendungsfälle & Beispiele',
-  'credits.useCasesHref': '/de/use-cases/',
-  'credits.openSource':
-    'Open Source auf <a target="_blank" rel="noopener" href="https://github.com/eralpkaraduman/text-wallpaper-generator">GitHub</a>.',
-  'credits.madeWith':
-    'Mit <i class="fas fa-heart"></i> in <a target="_blank" rel="noopener" href="https://de.wikipedia.org/wiki/Helsinki">Helsinki</a> erstellt von <a target="_blank" rel="noopener" href="https://eralpkaraduman.com">Eralp Karaduman</a>.',
-
   // Strings consumed by JS code (see en.js for the two variants)
   'js.editorFallbackText': 'Es wäre schön, wenn Sie etwas schreiben würden',
   'js.canvasFallbackText': 'Es wäre schön,\nwenn Sie etwas schreiben würden',

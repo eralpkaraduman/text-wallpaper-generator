@@ -9,15 +9,49 @@ import DICTIONARIES from './i18n/strings';
 import smoothscroll from 'smoothscroll-polyfill';
 smoothscroll.polyfill();
 
-// iOS Safari viewport height fix
+// iOS Safari viewport height fix. The visual viewport also shrinks when the
+// on-screen keyboard opens (innerHeight does not), so sizing --vh from it
+// squishes the whole layout into the actually visible space.
 function setViewportHeight() {
-  let vh = window.innerHeight * 0.01;
+  const visibleHeight = window.visualViewport
+    ? window.visualViewport.height
+    : window.innerHeight;
+  let vh = visibleHeight * 0.01;
   document.documentElement.style.setProperty('--vh', `${vh}px`);
 }
 
 setViewportHeight();
 window.addEventListener('resize', setViewportHeight);
 window.addEventListener('orientationchange', setViewportHeight);
+if (window.visualViewport) {
+  // iOS pans the document when the keyboard opens even though the layout
+  // fits the visible space — snap it back so header and toolbar stay put.
+  const restoreViewport = () => {
+    setViewportHeight();
+    if (window.scrollY !== 0) window.scrollTo(0, 0);
+  };
+  window.visualViewport.addEventListener('resize', restoreViewport);
+  window.visualViewport.addEventListener('scroll', restoreViewport);
+}
+
+// Root cause of the upward rubber-band: a touch drag with nothing to scroll
+// pans the whole page on iOS. Allow touchmove only when some ancestor of the
+// touch can genuinely scroll; otherwise stop the pan before it starts.
+document.addEventListener(
+  'touchmove',
+  (event: TouchEvent) => {
+    let element: any = event.target;
+    while (element && element !== document.body) {
+      if (element.scrollHeight > element.clientHeight) {
+        const overflowY = window.getComputedStyle(element).overflowY;
+        if (overflowY === 'auto' || overflowY === 'scroll') return;
+      }
+      element = element.parentElement;
+    }
+    event.preventDefault();
+  },
+  { passive: false },
+);
 
 import './main.scss';
 import { getElement, insertStyle, getBody } from './utils';
@@ -250,6 +284,7 @@ Object.keys(DICTIONARIES).forEach((code) => {
 langSwitcherElement.appendChild(langToggleButton);
 langSwitcherElement.appendChild(langOptionsElement);
 
+
 menu = new Menu(menuCallbacks);
 menu.onStart({
   width: presetWidth || window.screen.width,
@@ -281,7 +316,15 @@ wallpaperElement.style.backgroundColor = menu.backgroundColor;
 // the default background; a ?bg= preset diverges from it, so sync it here too.
 getBody().style.backgroundColor = menu.backgroundColor;
 updateThemeColor(menu.backgroundColor);
-wallpaperElement.addEventListener('click', () => menu.closeAllWindows());
+wallpaperElement.addEventListener('click', (event: MouseEvent) => {
+  menu.closeAllWindows();
+  // iOS Safari never dismisses a contenteditable keyboard on outside taps —
+  // blur explicitly when the tap lands outside the text itself.
+  const target: any = event.target;
+  if (target !== textEditor.textInputElement && !textEditor.textInputElement.contains(target)) {
+    textEditor.textInputElement.blur();
+  }
+});
 
 const intro = new Intro({
   onComplete: () => {

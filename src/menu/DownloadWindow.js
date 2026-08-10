@@ -46,10 +46,23 @@ export default class DownloadWindow extends MenuWindow {
     );
   }
 
+  _shareFile: ?File;
+
   async updateImage() {
     const canvas = await this._onGenerateImage();
     const fileName = this._onGenerateFileName();
     const dataUrl = canvas.toDataURL('image/jpeg');
+
+    // Native share path (iOS "Save Image" → Photos): prepare the image as a
+    // File; used from the click handler when the browser supports it.
+    this._shareFile = null;
+    if (typeof File === 'function' && canvas.toBlob) {
+      canvas.toBlob((blob) => {
+        if (blob) {
+          this._shareFile = new File([blob], fileName, { type: 'image/jpeg' });
+        }
+      }, 'image/jpeg');
+    }
 
     // Set aspect ratio based on canvas dimensions
     const aspectRatio = canvas.width / canvas.height;
@@ -79,8 +92,27 @@ export default class DownloadWindow extends MenuWindow {
     this._activityIndicatorElement.style.display = 'block';
   }
 
-  onDownloadClick = () => {
+  onDownloadClick = (event: Event) => {
     track('download_wallpaper');
+    // On phones, prefer the native share sheet — it offers "Save Image"
+    // straight into the photo library on iOS/Android. Desktop keeps the
+    // instant file download (a share dialog would be a detour there), and
+    // so does any browser without file sharing or a secure context.
+    const nav: any = navigator;
+    const file = this._shareFile;
+    if (
+      utils.isMobile() &&
+      file &&
+      nav.canShare &&
+      nav.canShare({ files: [file] }) &&
+      nav.share
+    ) {
+      event.preventDefault();
+      nav.share({ files: [file] }).catch(() => {
+        // User dismissed the sheet or share failed — nothing to do; the
+        // download anchor remains available on the next tap.
+      });
+    }
   };
 
   onImageLoaded = () => {

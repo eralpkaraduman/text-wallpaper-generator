@@ -47,15 +47,6 @@ export default {
   'support.aria': 'このプロジェクトを応援する',
   'support.href': '/ja/support/',
 
-  // Credits footer
-  'credits.support': 'このプロジェクトを応援する',
-  'credits.useCases': '活用事例とサンプル',
-  'credits.useCasesHref': '/ja/use-cases/',
-  'credits.openSource':
-    'ソースコードは <a target="_blank" rel="noopener" href="https://github.com/eralpkaraduman/text-wallpaper-generator">GitHub</a> で公開しています。',
-  'credits.madeWith':
-    '<a target="_blank" rel="noopener" href="https://ja.wikipedia.org/wiki/%E3%83%98%E3%83%AB%E3%82%B7%E3%83%B3%E3%82%AD">ヘルシンキ</a>にて <a target="_blank" rel="noopener" href="https://eralpkaraduman.com">Eralp Karaduman</a> が <i class="fas fa-heart"></i> を込めて作りました。',
-
   // Strings consumed by JS code (see en.js for the two variants)
   'js.editorFallbackText': '何か入力していただけると嬉しいです',
   'js.canvasFallbackText': '何か入力していただけると嬉しいです',

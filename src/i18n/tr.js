@@ -51,15 +51,6 @@ export default {
   'support.aria': 'Bu projeye destek ol',
   'support.href': '/tr/support/',
 
-  // Credits footer
-  'credits.support': 'Bu projeye destek ol',
-  'credits.useCases': 'Kullanım Alanları ve Örnekler',
-  'credits.useCasesHref': '/tr/use-cases/',
-  'credits.openSource':
-    'Kaynak kodu <a target="_blank" rel="noopener" href="https://github.com/eralpkaraduman/text-wallpaper-generator">GitHub</a>\'da açık.',
-  'credits.madeWith':
-    '<a target="_blank" rel="noopener" href="https://tr.wikipedia.org/wiki/Helsinki">Helsinki</a>\'de <a target="_blank" rel="noopener" href="https://eralpkaraduman.com">Eralp Karaduman</a> tarafından <i class="fas fa-heart"></i> ile yapıldı.',
-
   // Strings consumed by JS code (see en.js for the two variants)
   'js.editorFallbackText': 'Bir şeyler yazsanız, ne güzel olurdu',
   'js.canvasFallbackText': 'Bir şeyler yazsanız,\nne güzel olurdu',

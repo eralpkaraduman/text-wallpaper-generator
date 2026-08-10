@@ -49,15 +49,6 @@ export default {
   'support.aria': 'Dukung proyek ini',
   'support.href': '/id/support/',
 
-  // Credits footer
-  'credits.support': 'Dukung proyek ini',
-  'credits.useCases': 'Contoh Penggunaan',
-  'credits.useCasesHref': '/id/use-cases/',
-  'credits.openSource':
-    'Kode sumbernya terbuka di <a target="_blank" rel="noopener" href="https://github.com/eralpkaraduman/text-wallpaper-generator">GitHub</a>.',
-  'credits.madeWith':
-    'Dibuat dengan <i class="fas fa-heart"></i> di <a target="_blank" rel="noopener" href="https://id.wikipedia.org/wiki/Helsinki">Helsinki</a> oleh <a target="_blank" rel="noopener" href="https://eralpkaraduman.com">Eralp Karaduman</a>.',
-
   // Strings consumed by JS code (see en.js for the two variants)
   'js.editorFallbackText': 'Alangkah baiknya, jika Anda mengetik sesuatu',
   'js.canvasFallbackText': 'Alangkah baiknya,\njika Anda mengetik sesuatu',

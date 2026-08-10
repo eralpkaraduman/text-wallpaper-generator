@@ -24,8 +24,12 @@ body {
   border: 0;
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
+  /* Keyboard-open floor: below this the layout scrolls instead of squishing */
+  min-height: 220px;
   font-family: $default_font;
   overflow: hidden;
+  /* Stop iOS rubber-banding from revealing content beyond the page edges */
+  overscroll-behavior: none;
 }
 
 body {
@@ -45,8 +49,13 @@ body {
 .main-content-wrapper {
   flex: 1;
   width: 100%;
+  /* Padding counts inside the height: with content-box the wrapper was
+     always taller than its box, showing a phantom scrollbar in the editor */
+  box-sizing: border-box;
   overflow-y: auto;
   overflow-x: hidden;
+  /* Inner overscroll must not chain to the document */
+  overscroll-behavior: contain;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,16 +65,9 @@ body {
   justify-content: flex-start;
   height: 100%;
   position: relative;
-  padding-top: 60px; /* Space for menu */
-  padding-bottom: 40px; /* Space for credits */
-}
-
-/* On small screens the credits bar wraps to several lines, so the
-   scroll area needs more clearance or the last link hides behind it */
-@media (max-width: 767px) {
-  .main-content-wrapper {
-    padding-bottom: calc(110px + env(safe-area-inset-bottom));
-  }
+  /* The toolbar is a sticky flow child now — no clearance needed */
+  padding-top: 0;
+  padding-bottom: 10px;
 }
 
 .root {
@@ -168,13 +170,14 @@ body {
 .menu {
   background-color: colors.$color_flat_midnight_blue; /* The Fallback */
   background-color: rgba(black, 0.2);
-  border-radius: 0.25em;
+  /* Square top corners: the toolbar hangs off the app header as one piece */
+  border-radius: 0 0 0.25em 0.25em;
 }
 
 .menu-active {
   @extend .menu;
 
-  border-radius: 0.25em 0.25em 0 0;
+  border-radius: 0;
 }
 
 .menu-window {
@@ -196,11 +199,10 @@ body {
 }
 
 .menu-container {
-  position: fixed;
-  top: 5px;
-  top: max(5px, env(safe-area-inset-top));
-  left: 0;
-  right: 0;
+  /* Sticky flow child: always exactly below the header, stays visible
+     while the wallpaper area scrolls — no hardcoded offsets. */
+  position: sticky;
+  top: 0;
   width: 100%;
   margin: 0px;
   padding: 0px;
@@ -263,11 +265,11 @@ li {
   flex-direction: column;
   width: 100%;
   /* Sized by content; the wrapper is the single scroll container.
-     margin auto centers vertically when there is spare space without
-     clipping when there is not. */
+     Anchored to the top — vertical centering left a large dead gap
+     above the title and made overflow scrolling behave oddly. */
   flex: 0 0 auto;
-  margin: auto 0;
-  padding: 20px 0;
+  margin: 0;
+  padding: 3vh 0 20px;
 }
 
 .intro {
@@ -288,7 +290,7 @@ li {
 }
 
 a.intro-start-button {
-  margin: 0px;
+  margin: 10px auto 4px;
   font-weight: bold;
   font-size: 1.2em;
   padding: 14px;
@@ -333,6 +335,7 @@ a.intro-start-button {
 .intro-title {
   font-size: 1.8rem;
   font-weight: bold;
+  margin-top: 0;
   margin-bottom: 5px;
 }
 
@@ -514,6 +517,8 @@ $animation_down_postion: $animation_container_height - $moving_icon_height -
 .intro-bullet-list-container {
   font-size: 0.8em;
   margin: 5px;
+  padding: 0 28px;
+  box-sizing: border-box;
 }
 
 #intro-bullet-list {
@@ -525,6 +530,9 @@ $animation_down_postion: $animation_container_height - $moving_icon_height -
 
   li {
     margin-bottom: 0.3em;
+    /* Override the global li line-height (0.6rem), which crushes
+       wrapped second lines on narrow screens */
+    line-height: 1.35;
   }
 }
 
@@ -564,76 +572,107 @@ $animation_down_postion: $animation_container_height - $moving_icon_height -
   }
 }
 
-.floating-support-button {
-  position: fixed;
-  right: 0;
-  top: 35%;
-  transform: translateY(-50%);
-  z-index: 999;
+// Permanent app header: brand left, Support + language right. A normal
+// flex child of .root, so it shrinks/scrolls with the --vh-driven layout
+// and stays visible with the keyboard open — nothing floats any more.
+.app-header {
+  flex: 0 0 auto;
+  width: 100%;
+  box-sizing: border-box;
   display: flex;
-  flex-direction: row;
   align-items: center;
-  gap: 5px;
-  padding: 8px 11px;
-  background-color: $default_light_color;
-  color: $default_dark_color;
+  justify-content: space-between;
+  gap: 8px;
+  padding: max(6px, env(safe-area-inset-top)) max(10px, env(safe-area-inset-right)) 6px max(10px, env(safe-area-inset-left));
+  background-color: rgba(black, 0.2);
   font-family: $default_font;
-  font-size: 0.75em;
+  z-index: 30;
+}
+
+a.app-header-brand {
+  color: $default_light_color;
+  font-size: 0.85em;
   font-weight: bold;
   text-decoration: none;
-  border-radius: 0.25em 0 0 0.25em;
-  box-shadow: 0 2px 8px rgba(black, 0.35);
+  white-space: nowrap;
+  /* Very narrow screens: truncate rather than overflow the actions */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  flex: 0 1 auto;
 }
 
-.floating-support-button:hover,
-.floating-support-button:active {
-  color: $default_light_color;
-  background-color: $active_button_color;
+.app-header-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
 }
 
-// Mirrors the support button on the left edge; visible over both intro and editor.
-.floating-lang-switcher {
-  position: fixed;
-  left: 0;
-  top: 35%;
-  transform: translateY(-50%);
-  z-index: 999;
-  font-family: $default_font;
-  font-size: 0.75em;
-  font-weight: bold;
-}
-
-.floating-lang-switcher a,
-.floating-lang-switcher button {
+.app-header a.app-header-pill,
+.app-header-lang button,
+.app-header-lang a {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 5px;
-  padding: 8px 11px;
+  box-sizing: border-box;
+  height: 32px;
+  line-height: 1;
+  padding: 0 10px;
   border: none;
   cursor: pointer;
   background-color: $default_light_color;
   color: $default_dark_color;
-  font: inherit;
+  font-family: $default_font;
+  font-size: 0.75em;
+  font-weight: bold;
   text-decoration: none;
-  border-radius: 0 0.25em 0.25em 0;
-  box-shadow: 0 2px 8px rgba(black, 0.35);
+  border-radius: 0.25em;
+  white-space: nowrap;
 }
 
-.floating-lang-switcher a:hover,
-.floating-lang-switcher button:hover {
+.app-header a.app-header-pill:hover,
+.app-header a.app-header-pill:active,
+.app-header-lang button:hover,
+.app-header-lang a:hover {
   color: $default_light_color;
   background-color: $active_button_color;
 }
 
-.floating-lang-switcher .lang-options {
-  display: none;
-  flex-direction: column;
-  gap: 2px;
-  margin-top: 2px;
+.app-header-lang {
+  position: relative;
 }
 
-.floating-lang-switcher.open .lang-options {
+// Typical dropdown: one solid panel, compact full-width rows
+.app-header-lang .lang-options {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  flex-direction: column;
+  align-items: stretch;
+  min-width: 100%;
+  padding: 4px 0;
+  background-color: $default_light_color;
+  border-radius: 0.25em;
+  box-shadow: 0 4px 14px rgba(black, 0.45);
+  overflow: hidden;
+  z-index: 31;
+}
+
+.app-header-lang .lang-options a {
+  height: 28px;
+  margin: 0;
+  padding: 0 14px;
+  justify-content: flex-start;
+  border-radius: 0;
+  box-shadow: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.app-header-lang.open .lang-options {
   display: flex;
 }
 
@@ -641,103 +680,35 @@ $animation_down_postion: $animation_container_height - $moving_icon_height -
 // editor's centered text — dock them to the bottom corners instead, clear
 // of the credits line and the iOS safe area; the language list opens upward.
 @media (max-width: 700px) {
-  .floating-support-button {
-    top: auto;
-    transform: none;
-    bottom: calc(52px + env(safe-area-inset-bottom, 0px));
+  // Busy-intro fixes: top-align instead of centering (centered overflow
+  // scrolls strangely), shrink title and demo gif, collapse the bullets
+  // behind the summary, and pad the bottom clear of the docked pills.
+  .intro-container {
+    margin: 0;
+    padding: 12px 0 20px;
   }
 
-  .floating-lang-switcher {
-    top: auto;
-    transform: none;
-    bottom: calc(52px + env(safe-area-inset-bottom, 0px));
-    display: flex;
-    flex-direction: column-reverse;
+  .intro-content {
+    padding-bottom: 0;
   }
 
-  .floating-lang-switcher .lang-options {
-    margin-top: 0;
-    margin-bottom: 2px;
+  .intro-title {
+    font-size: 1.4rem;
   }
-}
 
-.credits-container {
-  position: fixed;
-  bottom: 0;
-  bottom: max(0px, env(safe-area-inset-bottom));
-  left: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  flex-direction: column;
-  flex-wrap: wrap;
-  z-index: 1000;
-  overflow: hidden;
-  pointer-events: none;
-  
-  > * {
-    pointer-events: auto;
+  .intro-subtitle {
+    font-size: 0.9rem;
+  }
+
+  #intro-gif-animation {
+    width: 180px;
+    height: 112px;
+  }
+
+  a.intro-start-button {
+    margin-top: 8px;
   }
 }
-
-$credits-text-color: rgba(white, 0.4);
-$credits-text-color-fallback: gray;
-$credits-text-active-color: rgba(white, 0.8);
-$credits-text-active-color-fallback: white;
-
-.credits-box {
-  background-color: gray; /* The Fallback */
-  background-color: rgb(26, 26, 26);
-  color: $credits-text-color-fallback; /* The Fallback */
-  color: $credits-text-color;
-  font-size: 0.7em;
-  border-radius: 0;
-  padding: 4px;
-  padding-left: 12px;
-  padding-right: 12px;
-  padding-top: 6px;
-  margin: 0px;
-  flex-wrap: wrap;
-  flex-grow: 0;
-  max-width: none;
-  min-width: 100%;
-  flex-basis: auto;
-  widows: 0px;
-  text-align: center;
-
-  a {
-    font-weight: bold;
-    text-decoration: none !important;
-  }
-
-  a:link,
-  a:visited,
-  button:link,
-  button:visited {
-    color: $credits-text-color-fallback; /* The Fallback */
-    color: $credits-text-color;
-  }
-
-  a:hover,
-  a:active,
-  button:hover,
-  button:active {
-    color: $credits-text-active-color-fallback; /* The Fallback */
-    color: $credits-text-active-color;
-  }
-}
-
-.credits-item {
-  padding: 3px;
-  flex-wrap: wrap;
-  flex-grow: 0;
-  max-width: none;
-  flex-basis: auto;
-  min-width: none;
-}
-
 #intro-gif-animation {
   border-radius: 0.25em;
   border: 2px solid white;

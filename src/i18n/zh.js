@@ -46,15 +46,6 @@ export default {
   'support.aria': '支持这个项目',
   'support.href': '/zh/support/',
 
-  // Credits footer
-  'credits.support': '支持这个项目',
-  'credits.useCases': '使用场景与示例',
-  'credits.useCasesHref': '/zh/use-cases/',
-  'credits.openSource':
-    '源代码托管在 <a target="_blank" rel="noopener" href="https://github.com/eralpkaraduman/text-wallpaper-generator">GitHub</a>。',
-  'credits.madeWith':
-    '由 <a target="_blank" rel="noopener" href="https://eralpkaraduman.com">Eralp Karaduman</a> 在<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%B5%AB%E5%B0%94%E8%BE%9B%E5%9F%BA">赫尔辛基</a>用 <i class="fas fa-heart"></i> 制作。',
-
   // Strings consumed by JS code (see en.js for the two variants)
   'js.editorFallbackText': '如果你能输入点什么就好了',
   'js.canvasFallbackText': '如果你能输入点什么就好了',

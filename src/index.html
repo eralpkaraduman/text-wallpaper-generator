@@ -128,18 +128,22 @@
   <body style="background-color: #2d2d2d">
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root" class="root">
+      <header class="app-header">
+        <a class="app-header-brand" href="/">TextWallpaper.com</a>
+        <div class="app-header-actions">
+          <a class="app-header-pill" href="/support/" id="floating-support-button" aria-label="Support this project" data-i18n-attr="aria-label:support.aria,href:support.href" data-umami-event="support-page-visit">
+            <i class="fas fa-heart"></i>
+            <span data-i18n="support.label">Support</span>
+          </a>
+          <nav class="app-header-lang" id="floating-lang-switcher" aria-label="Language"></nav>
+        </div>
+      </header>
       <div class="main-content-wrapper">
         <%= require('html-loader?interpolate!./menu/menu.html') %> <%=
         require('html-loader?interpolate!./intro/intro.html') %> <%=
         require('html-loader?interpolate!./textEditor/textEditor.html') %>
       </div>
     </div>
-    <nav class="floating-lang-switcher" id="floating-lang-switcher" aria-label="Language"></nav>
-    <a class="floating-support-button" href="/support/" id="floating-support-button" aria-label="Support this project" data-i18n-attr="aria-label:support.aria,href:support.href" data-umami-event="support-page-visit">
-      <i class="fas fa-heart"></i>
-      <span data-i18n="support.label">Support</span>
-    </a>
-    <%= require('html-loader?interpolate!./credits.html') %>
     <!-- Analytics (ahrefs + Umami + GA) — single shared loader, same as all static pages -->
     <script src="/shared/analytics.js"></script>
   </body>
