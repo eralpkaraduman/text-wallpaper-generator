@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>このプロジェクトを応援する | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="TextWallpaper.com を無料・プライベート・広告なしのまま続けるための応援ページ。寄付はサーバー費用と新機能の開発に使われます。アカウント不要、広告なし。" />
+    <meta name="keywords" content="textwallpaper 応援, 寄付, 無料壁紙ジェネレーター, オープンソース, 広告なし" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <% var p = htmlWebpackPlugin.options.templateParameters; %>
+    <link rel="canonical" href="https://textwallpaper.com<%= p.availableLangUrls[p.activeLang] %>" />
+
+    <!-- hreflang (driven by availableLangUrls — only languages whose source exists) -->
+    <% var hreflangCodes = { zh: 'zh-Hans', zhHant: 'zh-Hant' }; %>
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) { %>
+    <link rel="alternate" hreflang="<%= hreflangCodes[lang] || lang %>" href="https://textwallpaper.com<%= p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="https://textwallpaper.com<%= p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://textwallpaper.com/ja/support/" />
+    <meta property="og:title" content="このプロジェクトを応援する - TextWallpaper.com" />
+    <meta property="og:description" content="TextWallpaper.com を無料・プライベート・広告なしのまま続けるために。寄付はサーバー費用と新機能の開発に使われます。" />
+    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:locale" content="ja_JP" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://textwallpaper.com/ja/support/" />
+    <meta property="twitter:title" content="このプロジェクトを応援する - TextWallpaper.com" />
+    <meta property="twitter:description" content="TextWallpaper.com を無料・プライベート・広告なしのまま続けるために。" />
+    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "このプロジェクトを応援する",
+      "description": "TextWallpaper.com を無料・プライベート・広告なしのまま続けるために。寄付はサーバー費用と新機能の開発に使われます。",
+      "url": "https://textwallpaper.com/ja/support/",
+      "inLanguage": "ja",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "TextWallpaper.com",
+        "url": "https://textwallpaper.com"
+      }
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="/shared/static-pages.css">
+  </head>
+  <body>
+    <header class="header">
+      <a href="/ja/">TextWallpaper.com</a>
+    </header>
+
+    <main class="container">
+      <div id="thanks-banner" class="features" style="display: none; border-left: 4px solid #28a745;">
+        <h2>ありがとうございます！&#10084;</h2>
+        <p>本当に助かります。機能リクエストを書いてくださった場合は、必ず読みます。アプリはこれからも無料でプライベートなまま、何も変わりません。</p>
+        <div style="text-align: center; margin-top: 1.5rem;">
+          <a href="/ja/" class="cta" style="margin-top: 0;">壁紙を作成する &rarr;</a>
+        </div>
+      </div>
+
+      <h1>このプロジェクトを応援する</h1>
+
+      <p class="intro">Text Wallpaper は、ひとりで作っている無料でプライバシー重視のアプリです。寄付はサーバー代にあて、アプリを誰でも無料で使える状態に保つために使われます。寄付は任意です。寄付してもしなくても、アプリは同じように使えます。</p>
+
+      <div style="text-align: center; margin: 1.5rem 0 2rem;">
+        <a href="https://donate.stripe.com/8x200k3RJdl7b5L5xrgYU00" target="_blank" rel="noopener" class="cta cta--large" style="margin-top: 0;" data-umami-event="donate-click">Stripe で寄付する &#10084;</a>
+      </div>
+
+      <div class="features">
+        <h2>なぜ寄付なのか？</h2>
+        <p>アカウント登録はなく、データを売ったり共有したりすることもありません。残しているのは匿名の利用回数だけ。どの機能が使われたかは分かりますが、誰が使ったかは分かりません。広告も有料版もなく、すべての機能を誰でも無料で使えます。広告やサブスクはアプリを悪くするだけなので、入れないことにしています。</p>
+        <p style="margin-top: 1rem;">これはひとりで運営しているプロジェクトです。普通の仕事と家族があり、空き時間に開発しています。サーバー代は毎月実費でかかっていて、自分で払っています。寄付のおかげで、アプリを無料のまま続けられます。</p>
+        <p style="margin-top: 1rem;">このアプリは <a target="_blank" rel="noopener" href="https://github.com/eralpkaraduman/text-wallpaper-generator">GitHub でオープンソース</a>として公開しているので、誰でもコードを読めます。</p>
+      </div>
+
+      <div class="features">
+        <h2>機能のアイデアはありますか？</h2>
+        <p>決済画面に任意の「機能リクエスト」欄があります。そこにアイデアを書いてください。すべて読んでいます。次に何を作るか決めるとき、寄付してくれた方のアイデアは特に重視します。</p>
+      </div>
+
+      <div class="features">
+        <h2>殿堂（Hall of Fame）</h2>
+        <p>5ユーロ以上寄付すると、ここに名前を載せることができます。決済時の「Hall of Fame」欄に名前かニックネームを入力してください。空欄のままなら匿名のままです。お金でリストの上位を買うことはできません。どの名前も同じ扱いです。</p>
+        <p style="margin-top: 1rem;">名前にあなたのサイトへのリンクを付けることもできます。同じ欄で名前の後ろにアドレスを書いてください。例：「Maria (example.com)」。リンクは nofollow で、広告のようなリンクはお断りする場合があります。</p>
+        <!-- Donor names live in the shared partial (src/shared/partials/hall-of-fame.html) — edit them there, once, for all languages. -->
+        <%= require('html-loader!../../shared/partials/hall-of-fame.html') %>
+        <p style="margin-top: 0.5rem; padding-left: 1.25rem;"><em>あなたの名前もここに載るかもしれません。</em></p>
+      </div>
+
+      <div style="text-align: center; margin: 2rem 0 1rem;">
+        <a href="https://donate.stripe.com/8x200k3RJdl7b5L5xrgYU00" target="_blank" rel="noopener" class="cta cta--large" style="margin-top: 0;" data-umami-event="donate-click">Stripe で寄付する &#10084;</a>
+      </div>
+
+      <div style="text-align: center; margin: 1rem 0 2rem;">
+        <a href="/ja/" class="cta" style="margin-top: 0;">壁紙を作成する &rarr;</a>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="/ja/">TextWallpaper.com</a> - 無料テキスト壁紙ジェネレーター</p>
+      <p><a href="/privacy/">プライバシーポリシー</a> &middot; <a href="/terms/">利用規約</a></p>
+    </footer>
+
+    <script>
+      // Show the thank-you banner when arriving from Stripe's post-checkout redirect (?thanks=1)
+      if (new URLSearchParams(window.location.search).has('thanks')) {
+        document.getElementById('thanks-banner').style.display = 'block';
+        // Umami loads async via /shared/analytics.js; poll briefly so the event isn't lost
+        var donationEventTimer = setInterval(function () {
+          if (window.umami) {
+            window.umami.track('donation-complete');
+            clearInterval(donationEventTimer);
+          }
+        }, 500);
+        setTimeout(function () { clearInterval(donationEventTimer); }, 10000);
+      }
+    </script>
+
+    <!-- Analytics -->
+    <script src="/shared/analytics.js"></script>
+  </body>
+</html>

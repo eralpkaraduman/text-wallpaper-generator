@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <title>Bu Projeye Destek Ol | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="TextWallpaper.com'un ücretsiz, gizliliğe saygılı ve reklamsız kalmasına yardım et. Bağışlar sunucu maliyetlerini karşılar ve yeni özellikleri destekler." />
+    <meta name="keywords" content="textwallpaper destek, bağış, ücretsiz duvar kağıdı oluşturucu, açık kaynak, reklamsız" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <% var p = htmlWebpackPlugin.options.templateParameters; %>
+    <link rel="canonical" href="https://textwallpaper.com<%= p.availableLangUrls[p.activeLang] %>" />
+
+    <!-- hreflang (driven by availableLangUrls — only languages whose source exists) -->
+    <% var hreflangCodes = { zh: 'zh-Hans', zhHant: 'zh-Hant' }; %>
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) { %>
+    <link rel="alternate" hreflang="<%= hreflangCodes[lang] || lang %>" href="https://textwallpaper.com<%= p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="https://textwallpaper.com<%= p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://textwallpaper.com/tr/support/" />
+    <meta property="og:title" content="Bu Projeye Destek Ol - TextWallpaper.com" />
+    <meta property="og:description" content="TextWallpaper.com'un ücretsiz, gizliliğe saygılı ve reklamsız kalmasına yardım et. Bağışlar sunucu maliyetlerini karşılar ve yeni özellikleri destekler." />
+    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:locale" content="tr_TR" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://textwallpaper.com/tr/support/" />
+    <meta property="twitter:title" content="Bu Projeye Destek Ol - TextWallpaper.com" />
+    <meta property="twitter:description" content="TextWallpaper.com'un ücretsiz, gizliliğe saygılı ve reklamsız kalmasına yardım et." />
+    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Bu Projeye Destek Ol",
+      "description": "TextWallpaper.com'un ücretsiz, gizliliğe saygılı ve reklamsız kalmasına yardım et. Bağışlar sunucu maliyetlerini karşılar ve yeni özellikleri destekler.",
+      "url": "https://textwallpaper.com/tr/support/",
+      "inLanguage": "tr",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "TextWallpaper.com",
+        "url": "https://textwallpaper.com"
+      }
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="/shared/static-pages.css">
+  </head>
+  <body>
+    <header class="header">
+      <a href="/tr/">TextWallpaper.com</a>
+    </header>
+
+    <main class="container">
+      <div id="thanks-banner" class="features" style="display: none; border-left: 4px solid #28a745;">
+        <h2>Teşekkürler! &#10084;</h2>
+        <p>Bu gerçekten çok şey ifade ediyor. Bir özellik isteği bıraktıysan mutlaka okuyacağım. Uygulama her zamanki gibi ücretsiz ve gizliliğine saygılı kalmaya devam edecek.</p>
+        <div style="text-align: center; margin-top: 1.5rem;">
+          <a href="/tr/" class="cta" style="margin-top: 0;">Duvar Kağıdını Oluştur &rarr;</a>
+        </div>
+      </div>
+
+      <h1>Bu Projeye Destek Ol</h1>
+
+      <p class="intro">Text Wallpaper, tek kişinin geliştirdiği ücretsiz ve gizliliğe önem veren bir uygulama. Bağışlar sunucu faturalarını ödüyor ve uygulamanın herkes için ücretsiz kalmasını sağlıyor. Bağış tamamen isteğe bağlı; bağış yapsan da yapmasan da uygulama aynı şekilde çalışır.</p>
+
+      <div style="text-align: center; margin: 1.5rem 0 2rem;">
+        <a href="https://donate.stripe.com/8x200k3RJdl7b5L5xrgYU00" target="_blank" rel="noopener" class="cta cta--large" style="margin-top: 0;" data-umami-event="donate-click">Stripe ile Bağış Yap &#10084;</a>
+      </div>
+
+      <div class="features">
+        <h2>Neden bağış?</h2>
+        <p>Burada hesap yok; hiçbir şey satılmıyor ya da paylaşılmıyor. Yalnızca anonim kullanım sayıları tutuyorum: hangi özelliklerin kullanıldığını görüyorum ama kimin kullandığını görmüyorum. Reklam da yok, ücretli sürüm de. Her özellik herkes için ücretsiz. Reklam ya da abonelik uygulamayı kötüleştirir, o yüzden bunlardan uzak duruyorum.</p>
+        <p style="margin-top: 1rem;">Bu tek kişilik bir proje. Normal bir işim ve bir ailem var; bu uygulamayı boş zamanlarımda geliştiriyorum. Sunucular her ay gerçek paraya mal oluyor ve bunu cebimden ödüyorum. Bağışlar uygulamayı çevrimiçi ve ücretsiz tutuyor.</p>
+        <p style="margin-top: 1rem;">Uygulama ayrıca <a target="_blank" rel="noopener" href="https://github.com/eralpkaraduman/text-wallpaper-generator">GitHub'da açık kaynak</a>; isteyen herkes kodu inceleyebilir.</p>
+      </div>
+
+      <div class="features">
+        <h2>Aklında bir özellik fikri mi var?</h2>
+        <p>Ödeme sayfasında isteğe bağlı bir &ldquo;özellik isteği&rdquo; alanı var. Fikrini oraya yaz. Hepsini tek tek okuyorum ve sırada ne geliştireceğime karar verirken bağışçıların fikirlerine ayrıca önem veriyorum.</p>
+      </div>
+
+      <div class="features">
+        <h2>Şeref Listesi (Hall of Fame)</h2>
+        <p>5 &euro; veya daha fazla bağış yaparsan adın burada listelenebilir. Ödeme sırasında &ldquo;Hall of Fame&rdquo; alanına adını ya da takma adını yaz. Boş bırakırsan anonim kalırsın. Listede daha iyi bir yer satın alınamaz; her isim aynı görünür.</p>
+        <p style="margin-top: 1rem;">Adın web sitene de bağlantı verebilir. Aynı alanda adının arkasına adresi ekle, örneğin &ldquo;Maria (example.com)&rdquo;. Bağlantılar nofollow'dur ve reklam gibi görünen bağlantıları kabul etmeyebilirim.</p>
+        <!-- Donor names live in the shared partial (src/shared/partials/hall-of-fame.html) — edit them there, once, for all languages. -->
+        <%= require('html-loader!../../shared/partials/hall-of-fame.html') %>
+        <p style="margin-top: 0.5rem; padding-left: 1.25rem;"><em>Senin adın da burada olabilir.</em></p>
+      </div>
+
+      <div style="text-align: center; margin: 2rem 0 1rem;">
+        <a href="https://donate.stripe.com/8x200k3RJdl7b5L5xrgYU00" target="_blank" rel="noopener" class="cta cta--large" style="margin-top: 0;" data-umami-event="donate-click">Stripe ile Bağış Yap &#10084;</a>
+      </div>
+
+      <div style="text-align: center; margin: 1rem 0 2rem;">
+        <a href="/tr/" class="cta" style="margin-top: 0;">Duvar Kağıdını Oluştur &rarr;</a>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="/tr/">TextWallpaper.com</a> - Ücretsiz Metin Duvar Kağıdı Oluşturucu</p>
+      <p><a href="/privacy/">Gizlilik Politikası</a> &middot; <a href="/terms/">Kullanım Koşulları</a></p>
+    </footer>
+
+    <script>
+      // Show the thank-you banner when arriving from Stripe's post-checkout redirect (?thanks=1)
+      if (new URLSearchParams(window.location.search).has('thanks')) {
+        document.getElementById('thanks-banner').style.display = 'block';
+        // Umami loads async via /shared/analytics.js; poll briefly so the event isn't lost
+        var donationEventTimer = setInterval(function () {
+          if (window.umami) {
+            window.umami.track('donation-complete');
+            clearInterval(donationEventTimer);
+          }
+        }, 500);
+        setTimeout(function () { clearInterval(donationEventTimer); }, 10000);
+      }
+    </script>
+
+    <!-- Analytics -->
+    <script src="/shared/analytics.js"></script>
+  </body>
+</html>

@@ -54,6 +54,14 @@
 
     <meta name="theme-color" content="#2D2D2D" />
     <link rel="stylesheet" href="/shared/static-pages.css">
+    <style>
+      /* Floating support button — same look as the app's main.scss rules.
+         This static page doesn't load main.scss or Font Awesome, so the
+         styles are inlined and the heart glyph is drawn via ::before. */
+      .floating-support-button { position: fixed; right: 0; top: 35%; transform: translateY(-50%); z-index: 999; display: flex; flex-direction: row; align-items: center; gap: 5px; padding: 8px 11px; background-color: #ecf0f1; color: #2d2d2d; font-size: 0.75em; font-weight: bold; text-decoration: none; border-radius: 0.25em 0 0 0.25em; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35); }
+      .floating-support-button:hover, .floating-support-button:active { color: #ecf0f1; background-color: #5a7fb4; }
+      .floating-support-button .fa-heart::before { content: "\2665"; font-style: normal; }
+    </style>
   </head>
   <body>
     <header class="header">
@@ -108,6 +116,11 @@
     <footer class="footer">
       <p>&copy; <a href="/">TextWallpaper.com</a> - 免费文字壁纸生成器</p>
     </footer>
+
+    <a class="floating-support-button" href="/zh/support/" id="floating-support-button" aria-label="支持这个项目" data-umami-event="support-page-visit">
+      <i class="fas fa-heart"></i>
+      <span>支持</span>
+    </a>
 
     <!-- Analytics -->
     <script src="/shared/analytics.js"></script>

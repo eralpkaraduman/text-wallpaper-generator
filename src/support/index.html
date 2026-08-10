@@ -8,7 +8,15 @@
     <meta name="keywords" content="support textwallpaper, donate, free wallpaper generator, open source, no ads" />
     <meta name="author" content="Eralp Karaduman" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://textwallpaper.com/support/" />
+    <% var p = htmlWebpackPlugin.options.templateParameters; %>
+    <link rel="canonical" href="https://textwallpaper.com<%= p.availableLangUrls[p.activeLang] %>" />
+
+    <!-- hreflang (driven by availableLangUrls — only languages whose source exists) -->
+    <% var hreflangCodes = { zh: 'zh-Hans', zhHant: 'zh-Hant' }; %>
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) { %>
+    <link rel="alternate" hreflang="<%= hreflangCodes[lang] || lang %>" href="https://textwallpaper.com<%= p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="https://textwallpaper.com<%= p.availableLangUrls.en %>" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -81,14 +89,9 @@
         <h2>Hall of Fame</h2>
         <p>If you donate &euro;5 or more, your name can be listed here. Type your name or alias in the &ldquo;Hall of Fame&rdquo; field at checkout. Leave it empty and you stay private. You cannot pay for a better place on the list. Every name looks the same.</p>
         <p style="margin-top: 1rem;">Your name can also link to your website. Add the address after your name in the same field, like &ldquo;Maria (example.com)&rdquo;. Links are nofollow, and I may refuse links that look like ads.</p>
-        <!-- Hall of Fame is a manually curated list: check Stripe Dashboard for qualifying
-             donations (>= EUR 5, name field filled in = consent) and add names by hand below.
-             Per-transaction, not cumulative. Do not automate. -->
-        <ul id="hall-of-fame-list" style="margin-top: 1rem; padding-left: 1.25rem;">
-          <li style="font-size: 1.15em;"><a target="_blank" rel="nofollow noopener" href="https://mehmetsukan.com"><strong>Mehmet S</strong></a></li>
-          <li style="font-size: 1.15em; margin-top: 0.5rem;"><a target="_blank" rel="nofollow noopener" href="https://omercan.io"><strong>omercan.io</strong></a></li>
-          <li style="margin-top: 0.5rem;"><em>Your name could be here too.</em></li>
-        </ul>
+        <!-- Donor names live in the shared partial (src/shared/partials/hall-of-fame.html) — edit them there, once, for all languages. -->
+        <%= require('html-loader!../shared/partials/hall-of-fame.html') %>
+        <p style="margin-top: 0.5rem; padding-left: 1.25rem;"><em>Your name could be here too.</em></p>
       </div>
 
       <div style="text-align: center; margin: 2rem 0 1rem;">

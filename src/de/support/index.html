@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <title>Dieses Projekt unterstützen | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="Hilf mit, TextWallpaper.com kostenlos, privat und werbefrei zu halten. Spenden decken die Serverkosten und finanzieren neue Funktionen. Keine Konten, keine Werbung." />
+    <meta name="keywords" content="textwallpaper unterstützen, spenden, kostenloser hintergrundbild generator, open source, werbefrei" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <% var p = htmlWebpackPlugin.options.templateParameters; %>
+    <link rel="canonical" href="https://textwallpaper.com<%= p.availableLangUrls[p.activeLang] %>" />
+
+    <!-- hreflang (driven by availableLangUrls — only languages whose source exists) -->
+    <% var hreflangCodes = { zh: 'zh-Hans', zhHant: 'zh-Hant' }; %>
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) { %>
+    <link rel="alternate" hreflang="<%= hreflangCodes[lang] || lang %>" href="https://textwallpaper.com<%= p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="https://textwallpaper.com<%= p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://textwallpaper.com/de/support/" />
+    <meta property="og:title" content="Dieses Projekt unterstützen - TextWallpaper.com" />
+    <meta property="og:description" content="Hilf mit, TextWallpaper.com kostenlos, privat und werbefrei zu halten. Spenden decken die Serverkosten und finanzieren neue Funktionen." />
+    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:locale" content="de_DE" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://textwallpaper.com/de/support/" />
+    <meta property="twitter:title" content="Dieses Projekt unterstützen - TextWallpaper.com" />
+    <meta property="twitter:description" content="Hilf mit, TextWallpaper.com kostenlos, privat und werbefrei zu halten." />
+    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Dieses Projekt unterstützen",
+      "description": "Hilf mit, TextWallpaper.com kostenlos, privat und werbefrei zu halten. Spenden decken die Serverkosten und finanzieren neue Funktionen.",
+      "url": "https://textwallpaper.com/de/support/",
+      "inLanguage": "de",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "TextWallpaper.com",
+        "url": "https://textwallpaper.com"
+      }
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="/shared/static-pages.css">
+  </head>
+  <body>
+    <header class="header">
+      <a href="/de/">TextWallpaper.com</a>
+    </header>
+
+    <main class="container">
+      <div id="thanks-banner" class="features" style="display: none; border-left: 4px solid #28a745;">
+        <h2>Danke! &#10084;</h2>
+        <p>Das hilft wirklich. Wenn du einen Funktionswunsch hinterlassen hast, lese ich ihn. Die App bleibt kostenlos und privat, wie immer.</p>
+        <div style="text-align: center; margin-top: 1.5rem;">
+          <a href="/de/" class="cta" style="margin-top: 0;">Erstelle dein Hintergrundbild &rarr;</a>
+        </div>
+      </div>
+
+      <h1>Dieses Projekt unterstützen</h1>
+
+      <p class="intro">Text Wallpaper ist eine kostenlose, private App, gemacht von einer einzelnen Person. Spenden bezahlen die Serverrechnungen und halten die App für alle kostenlos. Spenden ist freiwillig &mdash; die App funktioniert genau gleich, ob du spendest oder nicht.</p>
+
+      <div style="text-align: center; margin: 1.5rem 0 2rem;">
+        <a href="https://donate.stripe.com/8x200k3RJdl7b5L5xrgYU00" target="_blank" rel="noopener" class="cta cta--large" style="margin-top: 0;" data-umami-event="donate-click">Über Stripe spenden &#10084;</a>
+      </div>
+
+      <div class="features">
+        <h2>Warum Spenden?</h2>
+        <p>Es gibt keine Konten, und nichts wird verkauft oder weitergegeben. Ich behalte nur anonyme Nutzungszahlen: welche Funktionen genutzt werden, aber nicht von wem. Es gibt keine Werbung und keine Bezahlversion. Jede Funktion ist für alle kostenlos. Werbung oder Abos würden die App schlechter machen, deshalb lasse ich sie weg.</p>
+        <p style="margin-top: 1rem;">Das hier ist ein Ein-Personen-Projekt. Ich habe einen normalen Job und eine Familie und baue das Ganze in meiner Freizeit. Die Server kosten jeden Monat echtes Geld, das ich selbst bezahle. Spenden halten die App online und kostenlos.</p>
+        <p style="margin-top: 1rem;">Die App ist außerdem <a target="_blank" rel="noopener" href="https://github.com/eralpkaraduman/text-wallpaper-generator">Open Source auf GitHub</a> &mdash; jeder kann den Code lesen.</p>
+      </div>
+
+      <div class="features">
+        <h2>Hast du eine Idee für eine Funktion?</h2>
+        <p>Beim Bezahlen gibt es ein optionales Feld &bdquo;Feature Request&ldquo;. Schreib deine Idee dort hinein. Ich lese jede einzelne, und Ideen von Spendern bekommen extra Aufmerksamkeit, wenn ich entscheide, was ich als Nächstes baue.</p>
+      </div>
+
+      <div class="features">
+        <h2>Hall of Fame</h2>
+        <p>Wenn du 5 &euro; oder mehr spendest, kann dein Name hier stehen. Trag deinen Namen oder Alias beim Bezahlen ins Feld &bdquo;Hall of Fame&ldquo; ein. Lässt du es leer, bleibst du anonym. Einen besseren Platz auf der Liste kann man nicht kaufen &mdash; jeder Name sieht gleich aus.</p>
+        <p style="margin-top: 1rem;">Dein Name kann auch auf deine Website verlinken. Schreib die Adresse einfach hinter deinen Namen ins selbe Feld, etwa &bdquo;Maria (example.com)&ldquo;. Links sind nofollow, und Links, die nach Werbung aussehen, lehne ich unter Umständen ab.</p>
+        <!-- Donor names live in the shared partial (src/shared/partials/hall-of-fame.html) — edit them there, once, for all languages. -->
+        <%= require('html-loader!../../shared/partials/hall-of-fame.html') %>
+        <p style="margin-top: 0.5rem; padding-left: 1.25rem;"><em>Dein Name könnte auch hier stehen.</em></p>
+      </div>
+
+      <div style="text-align: center; margin: 2rem 0 1rem;">
+        <a href="https://donate.stripe.com/8x200k3RJdl7b5L5xrgYU00" target="_blank" rel="noopener" class="cta cta--large" style="margin-top: 0;" data-umami-event="donate-click">Über Stripe spenden &#10084;</a>
+      </div>
+
+      <div style="text-align: center; margin: 1rem 0 2rem;">
+        <a href="/de/" class="cta" style="margin-top: 0;">Erstelle dein Hintergrundbild &rarr;</a>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="/de/">TextWallpaper.com</a> - Kostenloser Text-Hintergrundbild-Generator</p>
+      <p><a href="/privacy/">Datenschutzerklärung</a> &middot; <a href="/terms/">Nutzungsbedingungen</a></p>
+    </footer>
+
+    <script>
+      // Show the thank-you banner when arriving from Stripe's post-checkout redirect (?thanks=1)
+      if (new URLSearchParams(window.location.search).has('thanks')) {
+        document.getElementById('thanks-banner').style.display = 'block';
+        // Umami loads async via /shared/analytics.js; poll briefly so the event isn't lost
+        var donationEventTimer = setInterval(function () {
+          if (window.umami) {
+            window.umami.track('donation-complete');
+            clearInterval(donationEventTimer);
+          }
+        }, 500);
+        setTimeout(function () { clearInterval(donationEventTimer); }, 10000);
+      }
+    </script>
+
+    <!-- Analytics -->
+    <script src="/shared/analytics.js"></script>
+  </body>
+</html>
