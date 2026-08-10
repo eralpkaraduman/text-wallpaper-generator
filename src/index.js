@@ -169,14 +169,28 @@ const menuCallbacks: MenuCallbacks = {
   },
 };
 
+// Landing pages deep-link presets, e.g. /?w=3840&h=2160&bg=000000&fg=FFFFFF.
+// Explicit w/h are exact output pixels, so scale must stay 1 for them.
+const urlParams = new URLSearchParams(window.location.search);
+const presetSize = (name: string): number | null => {
+  const value = parseInt(urlParams.get(name), 10);
+  return value >= 16 && value <= 16384 ? value : null;
+};
+const presetColor = (name: string): string | null => {
+  const value = urlParams.get(name);
+  return value && /^[0-9a-fA-F]{6}$/.test(value) ? `#${value}` : null;
+};
+const presetWidth = presetSize('w');
+const presetHeight = presetSize('h');
+
 menu = new Menu(menuCallbacks);
 menu.onStart({
-  width: window.screen.width,
-  height: window.screen.height,
-  scale: window.devicePixelRatio || 1,
+  width: presetWidth || window.screen.width,
+  height: presetHeight || window.screen.height,
+  scale: presetWidth && presetHeight ? 1 : window.devicePixelRatio || 1,
   textSize: 24,
-  textColor: colors.flat_clouds,
-  backgroundColor: colors.mac_7,
+  textColor: presetColor('fg') || colors.flat_clouds,
+  backgroundColor: presetColor('bg') || colors.mac_7,
 });
 
 updateSelectionStyles();
