@@ -20,3 +20,4 @@ flow-typed
 # README is the only tracked one.
 /*.md
 !/README.md
+.trekker/
