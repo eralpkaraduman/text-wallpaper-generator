@@ -10,8 +10,9 @@
 // into the HTML markup itself.
 import de from './de';
 import en from './en';
+import id from './id';
 import ja from './ja';
 import tr from './tr';
 import zh from './zh';
 
-export default { de, en, ja, tr, zh };
+export default { de, en, id, ja, tr, zh };
