@@ -4,6 +4,7 @@ import '@fortawesome/fontawesome-free/css/fontawesome.css';
 import '@fortawesome/fontawesome-free/css/solid.css';
 import 'normalize.css/normalize.css';
 import colors from './colors';
+import DICTIONARIES from './i18n/strings';
 // Removed html2canvas - now using off-screen canvas approach
 import smoothscroll from 'smoothscroll-polyfill';
 smoothscroll.polyfill();
@@ -84,7 +85,7 @@ async function generateCanvas(
   
   // Get text content and styling
   const textElement = getElement('wallpaper-text-input');
-  const text = textElement.innerText || 'It would be nice,\nif you typed something';
+  const text = textElement.innerText || t('js.canvasFallbackText');
   const backgroundColor = menu.backgroundColor;
   const textColor = menu.textColor;
   
@@ -141,7 +142,7 @@ const menuCallbacks: MenuCallbacks = {
     await generateCanvas(width, height, scale),
   onPrepareForImageGeneration: () => {
     if (!textEditor.text.length) {
-      textEditor.text = 'It would be nice, if you typed something';
+      textEditor.text = t('js.editorFallbackText');
     }
   },
   onTextSizeChanged: (newTextSize: number) => {
@@ -182,6 +183,34 @@ const presetColor = (name: string): string | null => {
 };
 const presetWidth = presetSize('w');
 const presetHeight = presetSize('h');
+
+// ?lang= — runtime UI language. Whitelist is exactly the dictionary keys,
+// validated like the presets above: absent/unknown/malformed/empty values all
+// resolve to English, and a bad lang can't affect presets or vice versa.
+// 'en' IS a dictionary key (it holds the strings JS itself consumes), but the
+// English path performs zero DOM writes — English UI text is already baked
+// into the HTML markup — so the swap loops below run only for non-English.
+const langCode = (urlParams.get('lang') || '').toLowerCase();
+const lang: string = DICTIONARIES[langCode] ? langCode : 'en';
+const dict = DICTIONARIES[lang];
+if (lang !== 'en') {
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach((el) => {
+    const value = dict[el.getAttribute('data-i18n')];
+    // Missing key → skip, leaving the English markup in place.
+    if (value != null) el.innerHTML = value; // own bundled constants, never user input
+  });
+  document.querySelectorAll('[data-i18n-attr]').forEach((el) => {
+    // e.g. data-i18n-attr="aria-label:support.aria,href:support.href"
+    el.getAttribute('data-i18n-attr').split(',').forEach((pair) => {
+      const [attr, key] = pair.split(':');
+      if (dict[key] != null) el.setAttribute(attr, dict[key]);
+    });
+  });
+}
+// Strings consumed by JS code, with per-key fallback to English (en.js).
+const t = (key: string): string =>
+  dict[key] != null ? dict[key] : DICTIONARIES.en[key];
 
 menu = new Menu(menuCallbacks);
 menu.onStart({

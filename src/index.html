@@ -134,9 +134,9 @@
         require('html-loader?interpolate!./textEditor/textEditor.html') %>
       </div>
     </div>
-    <a class="floating-support-button" href="/support/" id="floating-support-button" aria-label="Support this project" data-umami-event="support-page-visit">
+    <a class="floating-support-button" href="/support/" id="floating-support-button" aria-label="Support this project" data-i18n-attr="aria-label:support.aria,href:support.href" data-umami-event="support-page-visit">
       <i class="fas fa-heart"></i>
-      <span>Support</span>
+      <span data-i18n="support.label">Support</span>
     </a>
     <%= require('html-loader?interpolate!./credits.html') %>
     <!-- Analytics (ahrefs + Umami + GA) — single shared loader, same as all static pages -->

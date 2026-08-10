@@ -1,0 +1,14 @@
+// @flow
+// Language dictionaries for the app UI, selected via the ?lang= query
+// parameter. The whitelist of accepted codes is exactly the set of keys of
+// this object — adding a language is: create src/i18n/<code>.js, import it,
+// add it below. Values are build-shipped constants written by us — never
+// user input — which is why the apply-loop in index.js may use innerHTML.
+//
+// 'en' is special: it only contains the strings JS code consumes (and per-key
+// fallbacks); the English DOM is never written to — English UI text is baked
+// into the HTML markup itself.
+import en from './en';
+import ja from './ja';
+
+export default { en, ja };
