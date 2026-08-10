@@ -8,6 +8,7 @@
 // Href overrides exist only for pages with a /tr/ version (support,
 // use-cases, name-wallpaper); other links keep their English targets.
 export default {
+  'meta.nativeName': 'Türkçe',
   // Intro screen
   'intro.title':
     'Yazı Duvar Kağıdı Oluşturucu - Ücretsiz Özel Yazılı Duvar Kağıdı Oluşturun',

@@ -8,6 +8,7 @@
 // Href overrides exist only for pages with an /id/ version (support,
 // use-cases); other links keep their English targets.
 export default {
+  'meta.nativeName': 'Indonesia',
   // Intro screen
   'intro.title': 'Generator Wallpaper Teks - Buat Wallpaper Teks Kustom Gratis',
   'intro.subtitle':

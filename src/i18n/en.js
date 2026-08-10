@@ -7,6 +7,7 @@
 // the strings the JS itself needs, and serves as the per-key fallback for
 // keys missing from other languages' dictionaries.
 export default {
+  'meta.nativeName': 'English',
   // Set as the editor text when the user downloads without typing anything
   // (onPrepareForImageGeneration). Single line, comma + space.
   'js.editorFallbackText': 'It would be nice, if you typed something',

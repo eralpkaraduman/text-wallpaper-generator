@@ -7,6 +7,7 @@
 // Href overrides exist only for pages with a /zh/ version (support,
 // use-cases); other links keep their English targets.
 export default {
+  'meta.nativeName': '中文',
   // Intro screen
   'intro.title': '文字壁纸生成器 - 免费创建自定义文字壁纸',
   'intro.subtitle':

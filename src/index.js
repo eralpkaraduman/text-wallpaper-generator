@@ -212,6 +212,44 @@ if (lang !== 'en') {
 const t = (key: string): string =>
   dict[key] != null ? dict[key] : DICTIONARIES.en[key];
 
+// Floating language switcher, visible over both intro and editor: a collapsed
+// pill showing the current language that expands to the alternatives. Each
+// link rewrites only the `lang` query key, so presets survive switching.
+const langHref = (code: string): string => {
+  const query = new URLSearchParams(window.location.search);
+  if (code === 'en') {
+    query.delete('lang');
+  } else {
+    query.set('lang', code);
+  }
+  const queryString = query.toString();
+  return queryString ? `/?${queryString}` : '/';
+};
+const langSwitcherElement = getElement('floating-lang-switcher');
+const langToggleButton = document.createElement('button');
+langToggleButton.type = 'button';
+langToggleButton.innerHTML = '<i class="fas fa-globe button-icon"></i>';
+langToggleButton.appendChild(
+  document.createTextNode(dict['meta.nativeName']),
+);
+langToggleButton.addEventListener('click', () => {
+  langSwitcherElement.classList.toggle('open');
+  track('language_switcher_toggle');
+});
+const langOptionsElement = document.createElement('div');
+langOptionsElement.className = 'lang-options';
+Object.keys(DICTIONARIES).forEach((code) => {
+  if (code === lang) return;
+  const optionLink = document.createElement('a');
+  optionLink.href = langHref(code);
+  optionLink.textContent = DICTIONARIES[code]['meta.nativeName'];
+  optionLink.setAttribute('data-umami-event', 'language-switch');
+  optionLink.setAttribute('data-umami-event-lang', code);
+  langOptionsElement.appendChild(optionLink);
+});
+langSwitcherElement.appendChild(langToggleButton);
+langSwitcherElement.appendChild(langOptionsElement);
+
 menu = new Menu(menuCallbacks);
 menu.onStart({
   width: presetWidth || window.screen.width,

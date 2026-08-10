@@ -4,6 +4,7 @@
 // Values may contain markup (icon <i> tags, anchors) — they are our own
 // build-shipped constants, never user input.
 export default {
+  'meta.nativeName': '日本語',
   // Intro screen
   'intro.title': 'テキスト壁紙ジェネレーター - カスタム文字壁紙を無料で作成',
   'intro.subtitle':

@@ -8,6 +8,7 @@
 // use-cases, how-to-add-text-to-wallpaper); other links keep their English
 // targets.
 export default {
+  'meta.nativeName': 'Deutsch',
   // Intro screen
   'intro.title':
     'Text-Hintergrund-Generator - Kostenlos eigene Text-Wallpaper erstellen',

@@ -591,6 +591,52 @@ $animation_down_postion: $animation_container_height - $moving_icon_height -
   background-color: $active_button_color;
 }
 
+// Mirrors the support button on the left edge; visible over both intro and editor.
+.floating-lang-switcher {
+  position: fixed;
+  left: 0;
+  top: 35%;
+  transform: translateY(-50%);
+  z-index: 999;
+  font-family: $default_font;
+  font-size: 0.75em;
+  font-weight: bold;
+}
+
+.floating-lang-switcher a,
+.floating-lang-switcher button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 11px;
+  border: none;
+  cursor: pointer;
+  background-color: $default_light_color;
+  color: $default_dark_color;
+  font: inherit;
+  text-decoration: none;
+  border-radius: 0 0.25em 0.25em 0;
+  box-shadow: 0 2px 8px rgba(black, 0.35);
+}
+
+.floating-lang-switcher a:hover,
+.floating-lang-switcher button:hover {
+  color: $default_light_color;
+  background-color: $active_button_color;
+}
+
+.floating-lang-switcher .lang-options {
+  display: none;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 2px;
+}
+
+.floating-lang-switcher.open .lang-options {
+  display: flex;
+}
+
 .credits-container {
   position: fixed;
   bottom: 0;
