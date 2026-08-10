@@ -24,14 +24,14 @@
     <meta property="og:url" content="https://textwallpaper.com/id/use-cases/motivation/" />
     <meta property="og:title" content="Wallpaper Disiplin Diri & Latar Belakang Tantangan 30 Hari" />
     <meta property="og:description" content="Buat wallpaper motivasi untuk tantangan pengembangan diri. Pengingat harian dan mantra disiplin." />
-    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://textwallpaper.com/id/use-cases/motivation/" />
     <meta property="twitter:title" content="Wallpaper Disiplin Diri & Latar Belakang Tantangan 30 Hari" />
     <meta property="twitter:description" content="Buat wallpaper motivasi untuk tantangan pengembangan diri." />
-    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -172,7 +172,7 @@
     </main>
 
     <footer class="footer">
-      <p>&copy; <a href="/id/">TextWallpaper.com</a> - Generator Wallpaper Teks Gratis</p>
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
     </footer>
 
     <!-- Analytics -->

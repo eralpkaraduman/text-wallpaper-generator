@@ -25,14 +25,14 @@
     <meta property="og:url" content="https://textwallpaper.com/zh/use-cases/server-labels/" />
     <meta property="og:title" content="IT团队如何使用文字壁纸标记服务器显示器" />
     <meta property="og:description" content="了解系统管理员如何使用文字壁纸在数据中心标识服务器。" />
-    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://textwallpaper.com/zh/use-cases/server-labels/" />
     <meta property="twitter:title" content="IT团队如何使用文字壁纸标记服务器显示器" />
     <meta property="twitter:description" content="了解系统管理员如何使用文字壁纸在数据中心标识服务器。" />
-    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -150,7 +150,7 @@ IP: 10.0.1.50
     </main>
 
     <footer class="footer">
-      <p>&copy; <a href="/zh/">TextWallpaper.com</a> - 免费文字壁纸生成器</p>
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
     </footer>
 
     <!-- Analytics -->

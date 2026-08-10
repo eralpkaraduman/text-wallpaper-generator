@@ -26,14 +26,14 @@
     <meta property="og:url" content="<%= canonicalUrl %>" />
     <meta property="og:title" content="Free Online Wallpaper Maker — No Sign-Up, No Watermark" />
     <meta property="og:description" content="Create text wallpapers in any resolution up to 4K, right in your browser. Free, no account, no watermark." />
-    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="<%= canonicalUrl %>" />
     <meta property="twitter:title" content="Free Online Wallpaper Maker — No Sign-Up, No Watermark" />
     <meta property="twitter:description" content="Create text wallpapers in any resolution up to 4K, right in your browser. Free, no account, no watermark." />
-    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -201,7 +201,7 @@
     </main>
 
     <footer class="footer">
-      <p>&copy; <a href="/">TextWallpaper.com</a> - Free Text Wallpaper Generator</p>
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
     </footer>
 
     <!-- Analytics -->

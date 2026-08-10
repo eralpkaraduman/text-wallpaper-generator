@@ -23,14 +23,14 @@
     <meta property="og:url" content="<%= SITE + p.availableLangUrls[p.activeLang] %>" />
     <meta property="og:title" content="Text Screensaver — Turn Text into a Screensaver or Lock Screen" />
     <meta property="og:description" content="Generate a wallpaper from your text, then use it as a screensaver on macOS or Windows, or as your lock screen. Free, no sign-up." />
-    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="<%= SITE + p.availableLangUrls[p.activeLang] %>" />
     <meta property="twitter:title" content="Text Screensaver — Turn Text into a Screensaver or Lock Screen" />
     <meta property="twitter:description" content="Turn any text into a static screensaver or lock screen. Free, no sign-up." />
-    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -159,7 +159,7 @@
     </main>
 
     <footer class="footer">
-      <p>&copy; <a href="/">TextWallpaper.com</a> - Free Text Wallpaper Generator</p>
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
     </footer>
 
     <!-- Analytics -->

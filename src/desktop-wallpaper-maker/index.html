@@ -22,14 +22,14 @@
     <meta property="og:url" content="https://textwallpaper.com/desktop-wallpaper-maker/" />
     <meta property="og:title" content="Desktop Wallpaper Maker - Custom Text Wallpapers for PC &amp; Mac" />
     <meta property="og:description" content="Create custom HD and 4K text wallpapers for your PC, Mac, or laptop online. Free, no sign-up, any resolution." />
-    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://textwallpaper.com/desktop-wallpaper-maker/" />
     <meta property="twitter:title" content="Desktop Wallpaper Maker - Custom Text Wallpapers for PC &amp; Mac" />
     <meta property="twitter:description" content="Create custom HD and 4K text wallpapers for your PC, Mac, or laptop online." />
-    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -160,7 +160,7 @@
     </main>
 
     <footer class="footer">
-      <p>&copy; <a href="/">TextWallpaper.com</a> - Free Text Wallpaper Generator</p>
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
     </footer>
 
     <!-- Analytics -->

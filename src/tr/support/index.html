@@ -23,7 +23,7 @@
     <meta property="og:url" content="https://textwallpaper.com/tr/support/" />
     <meta property="og:title" content="Bu Projeye Destek Ol - TextWallpaper.com" />
     <meta property="og:description" content="TextWallpaper.com'un ücretsiz, gizliliğe saygılı ve reklamsız kalmasına yardım et. Bağışlar sunucu maliyetlerini karşılar ve yeni özellikleri destekler." />
-    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
     <meta property="og:locale" content="tr_TR" />
 
     <!-- Twitter -->
@@ -31,7 +31,7 @@
     <meta property="twitter:url" content="https://textwallpaper.com/tr/support/" />
     <meta property="twitter:title" content="Bu Projeye Destek Ol - TextWallpaper.com" />
     <meta property="twitter:description" content="TextWallpaper.com'un ücretsiz, gizliliğe saygılı ve reklamsız kalmasına yardım et." />
-    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -88,7 +88,7 @@
         <h2>Neden bağış?</h2>
         <p>Burada hesap yok; hiçbir şey satılmıyor ya da paylaşılmıyor. Yalnızca anonim kullanım sayıları tutuyorum: hangi özelliklerin kullanıldığını görüyorum ama kimin kullandığını görmüyorum. Reklam da yok, ücretli sürüm de. Her özellik herkes için ücretsiz. Reklam ya da abonelik uygulamayı kötüleştirir, o yüzden bunlardan uzak duruyorum.</p>
         <p style="margin-top: 1rem;">Bu tek kişilik bir proje. Normal bir işim ve bir ailem var; bu uygulamayı boş zamanlarımda geliştiriyorum. Sunucular her ay gerçek paraya mal oluyor ve bunu cebimden ödüyorum. Bağışlar uygulamayı çevrimiçi ve ücretsiz tutuyor.</p>
-        <p style="margin-top: 1rem;">Uygulama ayrıca <a target="_blank" rel="noopener" href="https://github.com/eralpkaraduman/text-wallpaper-generator">GitHub'da açık kaynak</a>; isteyen herkes kodu inceleyebilir.</p>
+        <p style="margin-top: 1rem;">Uygulama ayrıca <a target="_blank" rel="noopener" href="<%= p.githubRepoUrl %>">GitHub'da açık kaynak</a>; isteyen herkes kodu inceleyebilir.</p>
       </div>
 
       <div class="features">
@@ -115,7 +115,7 @@
     </main>
 
     <footer class="footer">
-      <p>&copy; <a href="/tr/">TextWallpaper.com</a> - Ücretsiz Metin Duvar Kağıdı Oluşturucu</p>
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
       <p><a href="/privacy/">Gizlilik Politikası</a> &middot; <a href="/terms/">Kullanım Koşulları</a></p>
     </footer>
 

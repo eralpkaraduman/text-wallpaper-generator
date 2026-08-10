@@ -24,14 +24,14 @@
     <meta property="og:url" content="https://textwallpaper.com/use-cases/multilingual/" />
     <meta property="og:title" content="Multilingual Text Wallpapers - Chinese, Japanese, Arabic & More" />
     <meta property="og:description" content="Create text wallpapers in any language. Full Unicode support for non-English text." />
-    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://textwallpaper.com/use-cases/multilingual/" />
     <meta property="twitter:title" content="Multilingual Text Wallpapers - Chinese, Japanese, Arabic & More" />
     <meta property="twitter:description" content="Create text wallpapers in any language. Full Unicode support." />
-    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -168,7 +168,7 @@
     </main>
 
     <footer class="footer">
-      <p>&copy; <a href="/">TextWallpaper.com</a> - Free Text Wallpaper Generator</p>
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
     </footer>
 
     <!-- Analytics -->

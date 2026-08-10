@@ -25,14 +25,14 @@
     <meta property="og:url" content="https://textwallpaper.com/zh/use-cases/security-terminals/" />
     <meta property="og:title" content="安防终端与监控显示器标签" />
     <meta property="og:description" content="为安防终端和监控显示器创建壁纸标签。" />
-    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://textwallpaper.com/zh/use-cases/security-terminals/" />
     <meta property="twitter:title" content="安防终端与监控显示器标签" />
     <meta property="twitter:description" content="为安防终端和监控显示器创建壁纸标签。" />
-    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -153,7 +153,7 @@
     </main>
 
     <footer class="footer">
-      <p>&copy; <a href="/zh/">TextWallpaper.com</a> - 免费文字壁纸生成器</p>
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
     </footer>
 
     <!-- Analytics -->

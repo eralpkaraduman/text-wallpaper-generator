@@ -23,7 +23,7 @@
     <meta property="og:url" content="https://textwallpaper.com/zh/support/" />
     <meta property="og:title" content="支持这个项目 - TextWallpaper.com" />
     <meta property="og:description" content="帮助 TextWallpaper.com 保持免费、私密、无广告。捐款用于支付服务器费用并支持新功能开发。" />
-    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
     <meta property="og:locale" content="zh_CN" />
 
     <!-- Twitter -->
@@ -31,7 +31,7 @@
     <meta property="twitter:url" content="https://textwallpaper.com/zh/support/" />
     <meta property="twitter:title" content="支持这个项目 - TextWallpaper.com" />
     <meta property="twitter:description" content="帮助 TextWallpaper.com 保持免费、私密、无广告。" />
-    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -88,7 +88,7 @@
         <h2>为什么需要捐款？</h2>
         <p>这里没有账号系统，也不出售或分享任何数据。我只保留匿名的使用统计：知道哪些功能被用了，但不知道是谁在用。没有广告，也没有付费版本，所有功能对所有人免费。广告或订阅只会让应用变得更糟，所以我不做。</p>
         <p style="margin-top: 1rem;">这是一个单人项目。我有一份普通的工作，也有家庭，这个应用是我在业余时间做的。服务器每个月都要花真金白银，一直是我自己在付。捐款能让应用继续在线、继续免费。</p>
-        <p style="margin-top: 1rem;">这个应用也在 <a target="_blank" rel="noopener" href="https://github.com/eralpkaraduman/text-wallpaper-generator">GitHub 上开源</a>，任何人都可以查看代码。</p>
+        <p style="margin-top: 1rem;">这个应用也在 <a target="_blank" rel="noopener" href="<%= p.githubRepoUrl %>">GitHub 上开源</a>，任何人都可以查看代码。</p>
       </div>
 
       <div class="features">
@@ -115,7 +115,7 @@
     </main>
 
     <footer class="footer">
-      <p>&copy; <a href="/zh/">TextWallpaper.com</a> - 免费文字壁纸生成器</p>
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
       <p><a href="/privacy/">隐私政策</a> &middot; <a href="/terms/">服务条款</a></p>
     </footer>
 

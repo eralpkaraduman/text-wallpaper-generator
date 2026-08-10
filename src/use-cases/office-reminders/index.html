@@ -24,14 +24,14 @@
     <meta property="og:url" content="https://textwallpaper.com/use-cases/office-reminders/" />
     <meta property="og:title" content="Office Policy Wallpapers & IT Reminder Backgrounds" />
     <meta property="og:description" content="Create wallpapers that remind employees of IT policies and office procedures." />
-    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://textwallpaper.com/use-cases/office-reminders/" />
     <meta property="twitter:title" content="Office Policy Wallpapers & IT Reminder Backgrounds" />
     <meta property="twitter:description" content="Create wallpapers that remind employees of IT policies and office procedures." />
-    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -162,7 +162,7 @@ Report suspicious emails to IT</div>
     </main>
 
     <footer class="footer">
-      <p>&copy; <a href="/">TextWallpaper.com</a> - Free Text Wallpaper Generator</p>
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
     </footer>
 
     <!-- Analytics -->

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters; %>
     <% var p = htmlWebpackPlugin.options.templateParameters;
        var siteBase = 'https://textwallpaper.com';
        var canonicalUrl = siteBase + p.availableLangUrls[p.activeLang];
@@ -25,7 +26,7 @@
     <meta property="og:url" content="<%= canonicalUrl %>" />
     <meta property="og:title" content="文字の壁紙を作成する方法（iPhone・Android・PC）" />
     <meta property="og:description" content="好きな文字の待ち受け・壁紙を無料で作成。数秒でダウンロードして設定できます。" />
-    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
     <meta property="og:locale" content="ja_JP" />
 
     <!-- Twitter -->
@@ -33,7 +34,7 @@
     <meta property="twitter:url" content="<%= canonicalUrl %>" />
     <meta property="twitter:title" content="文字の壁紙を作成する方法（iPhone・Android・PC）" />
     <meta property="twitter:description" content="好きな文字の待ち受け・壁紙を無料で作成。数秒でダウンロードして設定できます。" />
-    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Structured Data: HowTo -->
     <script type="application/ld+json">
@@ -242,7 +243,7 @@
     </main>
 
     <footer class="footer">
-      <p>&copy; <a href="/ja/">TextWallpaper.com</a> - 無料テキスト壁紙ジェネレーター</p>
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
     </footer>
 
     <!-- Analytics -->

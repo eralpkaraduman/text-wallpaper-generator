@@ -24,14 +24,14 @@
     <meta property="og:url" content="https://textwallpaper.com/id/use-cases/multilingual/" />
     <meta property="og:title" content="Wallpaper Teks Multibahasa - Mandarin, Jepang, Arab & Lainnya" />
     <meta property="og:description" content="Buat wallpaper teks dalam bahasa apa pun. Dukungan Unicode penuh untuk teks non-Inggris." />
-    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://textwallpaper.com/id/use-cases/multilingual/" />
     <meta property="twitter:title" content="Wallpaper Teks Multibahasa - Mandarin, Jepang, Arab & Lainnya" />
     <meta property="twitter:description" content="Buat wallpaper teks dalam bahasa apa pun. Dukungan Unicode penuh." />
-    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -172,7 +172,7 @@
     </main>
 
     <footer class="footer">
-      <p>&copy; <a href="/id/">TextWallpaper.com</a> - Generator Wallpaper Teks Gratis</p>
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
     </footer>
 
     <!-- Analytics -->

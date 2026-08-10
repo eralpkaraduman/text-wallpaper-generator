@@ -23,7 +23,7 @@
     <meta property="og:url" content="https://textwallpaper.com/id/support/" />
     <meta property="og:title" content="Dukung Proyek Ini - TextWallpaper.com" />
     <meta property="og:description" content="Bantu TextWallpaper.com tetap gratis, privat, dan bebas iklan. Donasi menutup biaya server dan mendanai fitur baru." />
-    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
     <meta property="og:locale" content="id_ID" />
 
     <!-- Twitter -->
@@ -31,7 +31,7 @@
     <meta property="twitter:url" content="https://textwallpaper.com/id/support/" />
     <meta property="twitter:title" content="Dukung Proyek Ini - TextWallpaper.com" />
     <meta property="twitter:description" content="Bantu TextWallpaper.com tetap gratis, privat, dan bebas iklan." />
-    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -88,7 +88,7 @@
         <h2>Kenapa donasi?</h2>
         <p>Tidak ada akun, dan tidak ada data yang dijual atau dibagikan. Saya hanya menyimpan hitungan pemakaian anonim: fitur mana yang dipakai, tapi bukan siapa yang memakainya. Tidak ada iklan dan tidak ada versi berbayar. Semua fitur gratis untuk semua orang. Iklan atau langganan hanya akan membuat aplikasi ini lebih buruk, jadi saya tidak memakainya.</p>
         <p style="margin-top: 1rem;">Ini proyek satu orang. Saya punya pekerjaan biasa dan keluarga, dan saya mengerjakan aplikasi ini di waktu luang. Server butuh biaya sungguhan setiap bulan, dan saya bayar sendiri. Donasi membuat aplikasi ini tetap online dan gratis.</p>
-        <p style="margin-top: 1rem;">Aplikasi ini juga <a target="_blank" rel="noopener" href="https://github.com/eralpkaraduman/text-wallpaper-generator">open source di GitHub</a>, jadi siapa pun bisa membaca kodenya.</p>
+        <p style="margin-top: 1rem;">Aplikasi ini juga <a target="_blank" rel="noopener" href="<%= p.githubRepoUrl %>">open source di GitHub</a>, jadi siapa pun bisa membaca kodenya.</p>
       </div>
 
       <div class="features">
@@ -115,7 +115,7 @@
     </main>
 
     <footer class="footer">
-      <p>&copy; <a href="/id/">TextWallpaper.com</a> - Generator Wallpaper Teks Gratis</p>
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
       <p><a href="/privacy/">Kebijakan Privasi</a> &middot; <a href="/terms/">Ketentuan Layanan</a></p>
     </footer>
 

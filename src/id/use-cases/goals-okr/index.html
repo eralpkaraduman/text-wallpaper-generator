@@ -24,14 +24,14 @@
     <meta property="og:url" content="https://textwallpaper.com/id/use-cases/goals-okr/" />
     <meta property="og:title" content="Wallpaper Pelacakan Tujuan & OKR - Jaga Objektif Tetap Terlihat" />
     <meta property="og:description" content="Buat wallpaper dengan OKR dan tujuan kuartalan Anda. Jaga objektif terlihat setiap hari." />
-    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://textwallpaper.com/id/use-cases/goals-okr/" />
     <meta property="twitter:title" content="Wallpaper Pelacakan Tujuan & OKR" />
     <meta property="twitter:description" content="Buat wallpaper dengan OKR dan tujuan kuartalan Anda." />
-    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -170,7 +170,7 @@ Saat ini: 7.234</div>
     </main>
 
     <footer class="footer">
-      <p>&copy; <a href="/id/">TextWallpaper.com</a> - Generator Wallpaper Teks Gratis</p>
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
     </footer>
 
     <!-- Analytics -->

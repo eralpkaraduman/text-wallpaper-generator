@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters; %>
     <% var p = htmlWebpackPlugin.options.templateParameters;
        var siteBase = 'https://textwallpaper.com';
        var canonicalUrl = siteBase + p.availableLangUrls[p.activeLang];
@@ -25,14 +26,14 @@
     <meta property="og:url" content="<%= canonicalUrl %>" />
     <meta property="og:title" content="How to Add Text to Your Wallpaper (iPhone, Android & Desktop)" />
     <meta property="og:description" content="Generate a text wallpaper in seconds or write on an existing photo. Free step-by-step guide." />
-    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="<%= canonicalUrl %>" />
     <meta property="twitter:title" content="How to Add Text to Your Wallpaper (iPhone, Android & Desktop)" />
     <meta property="twitter:description" content="Generate a text wallpaper in seconds or write on an existing photo. Free step-by-step guide." />
-    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Structured Data: HowTo -->
     <script type="application/ld+json">
@@ -251,7 +252,7 @@
     </main>
 
     <footer class="footer">
-      <p>&copy; <a href="/">TextWallpaper.com</a> - Free Text Wallpaper Generator</p>
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
     </footer>
 
     <!-- Analytics -->

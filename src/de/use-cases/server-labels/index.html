@@ -24,14 +24,14 @@
     <meta property="og:url" content="https://textwallpaper.com/de/use-cases/server-labels/" />
     <meta property="og:title" content="Wie IT-Teams Text-Hintergrundbilder zur Server-Beschriftung nutzen" />
     <meta property="og:description" content="Erfahren Sie, wie Systemadministratoren Text-Hintergrundbilder zur Identifizierung von Servern in Rechenzentren einsetzen." />
-    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://textwallpaper.com/de/use-cases/server-labels/" />
     <meta property="twitter:title" content="Wie IT-Teams Text-Hintergrundbilder zur Server-Beschriftung nutzen" />
     <meta property="twitter:description" content="Erfahren Sie, wie Systemadministratoren Text-Hintergrundbilder zur Identifizierung von Servern in Rechenzentren einsetzen." />
-    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -148,7 +148,7 @@ Cluster: Node 1 von 2
     </main>
 
         <footer class="footer">
-      <p>&copy; <a href="/de/">TextWallpaper.com</a> - Kostenloser Text-Hintergrundbild-Generator</p>
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
     </footer>
 
     <!-- Analytics -->

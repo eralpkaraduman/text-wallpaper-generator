@@ -25,14 +25,14 @@
     <meta property="og:url" content="https://textwallpaper.com/ja/use-cases/sales-training/" />
     <meta property="og:title" content="営業プロセスチェックリスト壁紙・CRMリマインダー" />
     <meta property="og:description" content="営業スクリプト、プロセスチェックリスト、CRMリマインダーを含む壁紙を作成。" />
-    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://textwallpaper.com/ja/use-cases/sales-training/" />
     <meta property="twitter:title" content="営業プロセスチェックリスト壁紙・CRMリマインダー" />
     <meta property="twitter:description" content="営業スクリプトとCRMリマインダーを含む壁紙を作成。" />
-    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -153,7 +153,7 @@
     </main>
 
     <footer class="footer">
-      <p>&copy; <a href="/ja/">TextWallpaper.com</a> - 無料テキスト壁紙ジェネレーター</p>
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
     </footer>
 
     <!-- Analytics -->

@@ -24,14 +24,14 @@
     <meta property="og:url" content="https://textwallpaper.com/id/use-cases/server-labels/" />
     <meta property="og:title" content="Cara Tim IT Menggunakan Wallpaper Teks untuk Label Monitor Server" />
     <meta property="og:description" content="Pelajari bagaimana administrator sistem menggunakan wallpaper teks untuk mengidentifikasi server di pusat data." />
-    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://textwallpaper.com/id/use-cases/server-labels/" />
     <meta property="twitter:title" content="Cara Tim IT Menggunakan Wallpaper Teks untuk Label Monitor Server" />
     <meta property="twitter:description" content="Pelajari bagaimana administrator sistem menggunakan wallpaper teks untuk mengidentifikasi server di pusat data." />
-    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -148,7 +148,7 @@ Kluster: Node 1 dari 2
     </main>
 
     <footer class="footer">
-      <p>&copy; <a href="/id/">TextWallpaper.com</a> - Generator Wallpaper Teks Gratis</p>
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
     </footer>
 
     <!-- Analytics -->

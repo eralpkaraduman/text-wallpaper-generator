@@ -22,14 +22,14 @@
     <meta property="og:url" content="https://textwallpaper.com/name-wallpaper/" />
     <meta property="og:title" content="Name Wallpaper Maker — Create a Wallpaper with Your Name" />
     <meta property="og:description" content="Free name wallpaper generator. Type your name, pick colors and size, download in HD for phone or desktop." />
-    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://textwallpaper.com/name-wallpaper/" />
     <meta property="twitter:title" content="Name Wallpaper Maker — Create a Wallpaper with Your Name" />
     <meta property="twitter:description" content="Free name wallpaper generator. Type your name, pick colors and size, download in HD." />
-    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -158,7 +158,7 @@
     </main>
 
     <footer class="footer">
-      <p>&copy; <a href="/">TextWallpaper.com</a> - Free Text Wallpaper Generator</p>
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
     </footer>
 
     <!-- Analytics -->

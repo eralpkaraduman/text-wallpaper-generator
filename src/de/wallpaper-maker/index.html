@@ -26,7 +26,7 @@
     <meta property="og:url" content="<%= canonicalUrl %>" />
     <meta property="og:title" content="Hintergrundbild Erstellen Kostenlos — Ohne Anmeldung, Ohne Wasserzeichen" />
     <meta property="og:description" content="Text mit Hintergrund online erstellen — kostenlos, ohne Konto, in jeder Auflösung bis 4K. Alles läuft direkt im Browser." />
-    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
     <meta property="og:locale" content="de_DE" />
 
     <!-- Twitter -->
@@ -34,7 +34,7 @@
     <meta property="twitter:url" content="<%= canonicalUrl %>" />
     <meta property="twitter:title" content="Hintergrundbild Erstellen Kostenlos — Ohne Anmeldung" />
     <meta property="twitter:description" content="Text mit Hintergrund online erstellen — kostenlos, ohne Konto, bis 4K. Alles direkt im Browser." />
-    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -203,7 +203,7 @@
     </main>
 
     <footer class="footer">
-      <p>&copy; <a href="/de/">TextWallpaper.com</a> - Kostenloser Text-Hintergrundbild-Generator</p>
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
     </footer>
 
     <!-- Analytics -->

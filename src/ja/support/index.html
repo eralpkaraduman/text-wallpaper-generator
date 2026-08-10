@@ -23,7 +23,7 @@
     <meta property="og:url" content="https://textwallpaper.com/ja/support/" />
     <meta property="og:title" content="このプロジェクトを応援する - TextWallpaper.com" />
     <meta property="og:description" content="TextWallpaper.com を無料・プライベート・広告なしのまま続けるために。寄付はサーバー費用と新機能の開発に使われます。" />
-    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
     <meta property="og:locale" content="ja_JP" />
 
     <!-- Twitter -->
@@ -31,7 +31,7 @@
     <meta property="twitter:url" content="https://textwallpaper.com/ja/support/" />
     <meta property="twitter:title" content="このプロジェクトを応援する - TextWallpaper.com" />
     <meta property="twitter:description" content="TextWallpaper.com を無料・プライベート・広告なしのまま続けるために。" />
-    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -88,7 +88,7 @@
         <h2>なぜ寄付なのか？</h2>
         <p>アカウント登録はなく、データを売ったり共有したりすることもありません。残しているのは匿名の利用回数だけ。どの機能が使われたかは分かりますが、誰が使ったかは分かりません。広告も有料版もなく、すべての機能を誰でも無料で使えます。広告やサブスクはアプリを悪くするだけなので、入れないことにしています。</p>
         <p style="margin-top: 1rem;">これはひとりで運営しているプロジェクトです。普通の仕事と家族があり、空き時間に開発しています。サーバー代は毎月実費でかかっていて、自分で払っています。寄付のおかげで、アプリを無料のまま続けられます。</p>
-        <p style="margin-top: 1rem;">このアプリは <a target="_blank" rel="noopener" href="https://github.com/eralpkaraduman/text-wallpaper-generator">GitHub でオープンソース</a>として公開しているので、誰でもコードを読めます。</p>
+        <p style="margin-top: 1rem;">このアプリは <a target="_blank" rel="noopener" href="<%= p.githubRepoUrl %>">GitHub でオープンソース</a>として公開しているので、誰でもコードを読めます。</p>
       </div>
 
       <div class="features">
@@ -115,7 +115,7 @@
     </main>
 
     <footer class="footer">
-      <p>&copy; <a href="/ja/">TextWallpaper.com</a> - 無料テキスト壁紙ジェネレーター</p>
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
       <p><a href="/privacy/">プライバシーポリシー</a> &middot; <a href="/terms/">利用規約</a></p>
     </footer>
 

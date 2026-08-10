@@ -24,14 +24,14 @@
     <meta property="og:url" content="https://textwallpaper.com/id/use-cases/device-labeling/" />
     <meta property="og:title" content="Wallpaper Pelabelan Perangkat untuk Tim Kesehatan & Darurat" />
     <meta property="og:description" content="Buat label wallpaper untuk perangkat medis bersama dan ponsel tim darurat. Gratis, tanpa penyimpanan data." />
-    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://textwallpaper.com/id/use-cases/device-labeling/" />
     <meta property="twitter:title" content="Wallpaper Pelabelan Perangkat untuk Tim Kesehatan & Darurat" />
     <meta property="twitter:description" content="Buat label wallpaper untuk perangkat medis bersama dan ponsel tim darurat." />
-    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -167,7 +167,7 @@ Ext. 4459
     </main>
 
     <footer class="footer">
-      <p>&copy; <a href="/id/">TextWallpaper.com</a> - Generator Wallpaper Teks Gratis</p>
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
     </footer>
 
     <!-- Analytics -->

@@ -22,14 +22,14 @@
     <meta property="og:url" content="https://textwallpaper.com/ja/iphone-wallpaper-maker/" />
     <meta property="og:title" content="スマホの文字壁紙メーカー - iPhone用テキスト壁紙を無料作成" />
     <meta property="og:description" content="文字だけの壁紙をブラウザで無料作成。好きな言葉をiPhoneの待ち受けに。アプリ不要。" />
-    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://textwallpaper.com/ja/iphone-wallpaper-maker/" />
     <meta property="twitter:title" content="スマホの文字壁紙メーカー - iPhone用テキスト壁紙を無料作成" />
     <meta property="twitter:description" content="文字だけの壁紙をブラウザで無料作成。アプリ不要、登録不要。" />
-    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -162,7 +162,7 @@
     </main>
 
     <footer class="footer">
-      <p>&copy; <a href="/ja/">TextWallpaper.com</a> - 無料テキスト壁紙ジェネレーター</p>
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
     </footer>
 
     <!-- Analytics -->

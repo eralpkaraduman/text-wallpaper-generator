@@ -26,7 +26,7 @@
     <meta property="og:url" content="https://textwallpaper.com/de/" />
     <meta property="og:title" content="Text-Hintergrund-Generator - Kostenlos Eigene Wallpaper Erstellen" />
     <meta property="og:description" content="Kostenloser Online Text-Hintergrund-Generator. Unterstützt alle Sprachen und Unicode." />
-    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
     <meta property="og:locale" content="de_DE" />
 
     <!-- Twitter -->
@@ -34,7 +34,7 @@
     <meta property="twitter:url" content="https://textwallpaper.com/de/" />
     <meta property="twitter:title" content="Text-Hintergrund-Generator" />
     <meta property="twitter:description" content="Kostenloser Online Text-Hintergrund-Generator. Unterstützt alle Sprachen." />
-    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -115,7 +115,7 @@
     </main>
 
         <footer class="footer">
-      <p>&copy; <a href="/de/">TextWallpaper.com</a> - Kostenloser Text-Hintergrundbild-Generator</p>
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
     </footer>
 
     <a class="floating-support-button" href="/de/support/" id="floating-support-button" aria-label="Dieses Projekt unterstützen" data-umami-event="support-page-visit">

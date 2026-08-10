@@ -24,14 +24,14 @@
     <meta property="og:url" content="https://textwallpaper.com/id/use-cases/deadlines/" />
     <meta property="og:title" content="Wallpaper Hitung Mundur Tenggat Waktu - Jangan Lewatkan Deadline" />
     <meta property="og:description" content="Buat wallpaper hitung mundur tenggat waktu untuk ujian, peluncuran proyek, dan tanggal penting." />
-    <meta property:="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property:="og:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://textwallpaper.com/id/use-cases/deadlines/" />
     <meta property="twitter:title" content="Wallpaper Hitung Mundur Tenggat Waktu" />
     <meta property="twitter:description" content="Buat wallpaper hitung mundur tenggat waktu untuk ujian dan peluncuran proyek." />
-    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -159,7 +159,7 @@
     </main>
 
     <footer class="footer">
-      <p>&copy; <a href="/id/">TextWallpaper.com</a> - Generator Wallpaper Teks Gratis</p>
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
     </footer>
 
     <!-- Analytics -->

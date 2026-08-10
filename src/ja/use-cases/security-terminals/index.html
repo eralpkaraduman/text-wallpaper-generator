@@ -25,14 +25,14 @@
     <meta property="og:url" content="https://textwallpaper.com/ja/use-cases/security-terminals/" />
     <meta property="og:title" content="セキュリティ端末・監視モニターラベル" />
     <meta property="og:description" content="セキュリティ端末や監視モニター用の壁紙ラベルを作成。" />
-    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://textwallpaper.com/ja/use-cases/security-terminals/" />
     <meta property="twitter:title" content="セキュリティ端末・監視モニターラベル" />
     <meta property="twitter:description" content="セキュリティ端末や監視モニター用の壁紙ラベルを作成。" />
-    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -152,7 +152,7 @@
     </main>
 
     <footer class="footer">
-      <p>&copy; <a href="/ja/">TextWallpaper.com</a> - 無料テキスト壁紙ジェネレーター</p>
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
     </footer>
 
     <!-- Analytics -->

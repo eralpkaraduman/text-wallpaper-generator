@@ -25,14 +25,14 @@
     <meta property="og:url" content="https://textwallpaper.com/zh/use-cases/office-reminders/" />
     <meta property="og:title" content="办公室规章壁纸与IT提醒背景" />
     <meta property="og:description" content="创建提醒员工IT政策和办公室流程的壁纸。" />
-    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://textwallpaper.com/zh/use-cases/office-reminders/" />
     <meta property="twitter:title" content="办公室规章壁纸与IT提醒背景" />
     <meta property="twitter:description" content="创建提醒员工IT政策和办公室流程的壁纸。" />
-    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -164,7 +164,7 @@
     </main>
 
     <footer class="footer">
-      <p>&copy; <a href="/zh/">TextWallpaper.com</a> - 免费文字壁纸生成器</p>
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
     </footer>
 
     <!-- Analytics -->

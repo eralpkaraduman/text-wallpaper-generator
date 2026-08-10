@@ -25,14 +25,14 @@
     <meta property="og:url" content="https://textwallpaper.com/tr/use-cases/deadlines/" />
     <meta property="og:title" content="Son Tarih Geri Sayım Duvar Kağıtları - Hiçbir Teslim Tarihini Kaçırmayın" />
     <meta property="og:description" content="Sınavlar, proje lansmanları ve önemli tarihler için son tarih geri sayım duvar kağıtları oluşturun." />
-    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://textwallpaper.com/tr/use-cases/deadlines/" />
     <meta property="twitter:title" content="Son Tarih Geri Sayım Duvar Kağıtları" />
     <meta property="twitter:description" content="Sınavlar ve proje lansmanları için son tarih geri sayım duvar kağıtları oluşturun." />
-    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -160,7 +160,7 @@
     </main>
 
         <footer class="footer">
-      <p>&copy; <a href="/tr/">TextWallpaper.com</a> - Ücretsiz Metin Duvar Kağıdı Oluşturucu</p>
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
     </footer>
 
     <!-- Analytics -->

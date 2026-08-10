@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
   <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters; %>
     <% var p = htmlWebpackPlugin.options.templateParameters;
        var siteBase = 'https://textwallpaper.com';
        var canonicalUrl = siteBase + p.availableLangUrls[p.activeLang];
@@ -25,7 +26,7 @@
     <meta property="og:url" content="<%= canonicalUrl %>" />
     <meta property="og:title" content="Hintergrundbild mit Text erstellen – online & kostenlos" />
     <meta property="og:description" content="Text mit Hintergrund für Handy und PC in Sekunden erstellen. Kostenlos, ohne Anmeldung, ohne Wasserzeichen." />
-    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
     <meta property="og:locale" content="de_DE" />
 
     <!-- Twitter -->
@@ -33,7 +34,7 @@
     <meta property="twitter:url" content="<%= canonicalUrl %>" />
     <meta property="twitter:title" content="Hintergrundbild mit Text erstellen – online & kostenlos" />
     <meta property="twitter:description" content="Text mit Hintergrund für Handy und PC in Sekunden erstellen. Kostenlos und ohne Anmeldung." />
-    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Structured Data: HowTo -->
     <script type="application/ld+json">
@@ -242,7 +243,7 @@
     </main>
 
     <footer class="footer">
-      <p>&copy; <a href="/de/">TextWallpaper.com</a> - Kostenloser Text-Hintergrundbild-Generator</p>
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
     </footer>
 
     <!-- Analytics -->
