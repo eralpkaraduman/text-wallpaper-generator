@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters; %>
+    <% var SITE = 'https://textwallpaper.com'; %>
+    <% var HREFLANG_CODES = { zh: 'zh-Hans', zhHant: 'zh-Hant' }; %>
+    <title>Text Screensaver — Turn Text into a Screensaver or Lock Screen | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="Make a text screensaver for free: generate a wallpaper from your text, then set it as a screensaver on macOS or Windows — or as your lock screen. No sign-up." />
+    <meta name="keywords" content="text screensaver, screensaver text, screen saver text, screensaver with text, text screen saver, message screensaver, lock screen text" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="<%= SITE + p.availableLangUrls[p.activeLang] %>" />
+    <!-- hreflang -->
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) { %>
+    <link rel="alternate" hreflang="<%= HREFLANG_CODES[lang] || lang %>" href="<%= SITE + p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="<%= SITE + p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="<%= SITE + p.availableLangUrls[p.activeLang] %>" />
+    <meta property="og:title" content="Text Screensaver — Turn Text into a Screensaver or Lock Screen" />
+    <meta property="og:description" content="Generate a wallpaper from your text, then use it as a screensaver on macOS or Windows, or as your lock screen. Free, no sign-up." />
+    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="<%= SITE + p.availableLangUrls[p.activeLang] %>" />
+    <meta property="twitter:title" content="Text Screensaver — Turn Text into a Screensaver or Lock Screen" />
+    <meta property="twitter:description" content="Turn any text into a static screensaver or lock screen. Free, no sign-up." />
+    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can I make a screensaver with moving text?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not with this tool — TextWallpaper.com generates a static image of your text, not an animation. You can use that image as a still screensaver via your operating system's photo/slideshow screensaver, or set it as your lock screen. If you specifically need scrolling or animated text, you'd need a dedicated screensaver app instead."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the text screensaver free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Generating the text image is completely free, with no sign-up and no watermark, and the screensaver features it plugs into are built into macOS and Windows. Everything renders in your browser — your text is never uploaded."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What resolution should my screensaver image be?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Match your display: 1920×1080 for Full HD monitors, 2560×1440 for QHD, or 3840×2160 for 4K. The generator lets you set any resolution before downloading, so the image fills the screen without stretching."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="/shared/static-pages.css">
+  </head>
+  <body>
+    <header class="header">
+      <a href="/">TextWallpaper.com</a>
+    </header>
+
+    <main class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> &rsaquo; Text Screensaver
+      </nav>
+
+      <article class="article-content">
+        <h1>Text Screensaver — Turn Text into a Screensaver or Lock Screen</h1>
+
+        <p>Want your screen to show a message when you step away? You don't need a special screensaver app. Generate a wallpaper from your text&mdash;any words, any colors, any resolution&mdash;and point your computer's built-in screensaver at it. The result is a clean screen saver with text that says exactly what you want.</p>
+
+        <p>It takes two steps: create the image, then tell macOS or Windows to use it.</p>
+
+        <h2>Step 1: Generate Your Text Image</h2>
+
+        <ol>
+          <li><strong>Open the <a href="/" data-umami-event="text-screensaver-cta-click">free generator</a></strong> - It runs in your browser; nothing to install.</li>
+          <li><strong>Type your message</strong> - A status line, a quote, a warning&mdash;whatever your screen should say.</li>
+          <li><strong>Pick colors</strong> - White text on black is the classic screensaver look, but any combination works.</li>
+          <li><strong>Set the resolution to match your display</strong> - e.g. 1920&times;1080, 2560&times;1440, or 3840&times;2160 for 4K.</li>
+          <li><strong>Download the image</strong> - Save it into its own folder (e.g. <code>Screensaver</code>) &mdash; both macOS and Windows point their photo screensavers at a folder.</li>
+        </ol>
+
+        <h2>Step 2: Set It as a Screensaver</h2>
+
+        <h3>macOS</h3>
+
+        <ol>
+          <li>Put the downloaded image in a folder of its own (e.g. <code>Pictures/Screensaver</code>).</li>
+          <li>Open <strong>System Settings &rarr; Screen Saver</strong>.</li>
+          <li>Choose a photo-based screensaver style (such as the slideshow options).</li>
+          <li>Under the photo source, choose <strong>Folder</strong> and select the folder with your image.</li>
+          <li>With a single image in the folder, the screensaver simply shows your text.</li>
+        </ol>
+
+        <h3>Windows</h3>
+
+        <ol>
+          <li>Save the image into its own folder.</li>
+          <li>Open <strong>Settings &rarr; Personalization &rarr; Lock screen &rarr; Screen saver</strong> (or search "change screen saver").</li>
+          <li>Pick the <strong>Photos</strong> screensaver, then click <strong>Settings&hellip;</strong>.</li>
+          <li>Browse to the folder containing your text image and save.</li>
+          <li>Set the wait time and click <strong>OK</strong> &mdash; your text now appears whenever the screensaver kicks in.</li>
+        </ol>
+
+        <div class="tip-box tip-box--info">
+          <p><strong>The simpler option most people actually want:</strong> set the image as your <em>lock screen</em> instead. It shows every time the screen locks, with zero setup quirks. On macOS: System Settings &rarr; Wallpaper (the lock screen mirrors your desktop wallpaper). On Windows: Settings &rarr; Personalization &rarr; Lock screen &rarr; Personalize your lock screen &rarr; Picture. On phones, just set it as your lock screen wallpaper.</p>
+        </div>
+
+        <h2>Ideas for Your Screensaver Text</h2>
+
+        <ul>
+          <li><strong>Status message on a shared machine:</strong> "Back in 10 minutes" or "This PC belongs to the front desk".</li>
+          <li><strong>"Do not turn off" notes:</strong> "Rendering in progress &mdash; do not shut down" on a work machine.</li>
+          <li><strong>Contact info:</strong> "If found, call &hellip;" on a laptop lock screen.</li>
+          <li><strong>A motivational line:</strong> one quote in white on black, greeting you whenever the screen idles.</li>
+          <li><strong>Meeting-room screens:</strong> the room name or booking instructions.</li>
+        </ul>
+
+        <h2>FAQ</h2>
+
+        <h3>Can the text move or scroll?</h3>
+        <p>No&mdash;honest answer. This tool produces a static image, not an animation. Your operating system displays it as a still screensaver (or lock screen). If you need scrolling marquee-style text, you'd need a dedicated screensaver app; for a message that's simply <em>readable</em>, a static screen works better anyway.</p>
+
+        <h3>Is it free?</h3>
+        <p>Yes. The generator is free with no sign-up and no watermark, and it renders entirely in your browser&mdash;your text never leaves your device. The screensaver side uses features already built into macOS and Windows.</p>
+
+        <h3>What about phones?</h3>
+        <p>Phones don't have screensavers in the desktop sense&mdash;the equivalent is the lock screen. Generate the image at your phone's resolution and set it as your lock screen wallpaper.</p>
+
+        <p>Ready to put your words on the big (idle) screen?</p>
+
+        <a href="/" class="cta" data-umami-event="text-screensaver-cta-click">Create Your Text Screensaver Image &rarr;</a>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="/">TextWallpaper.com</a> - Free Text Wallpaper Generator</p>
+    </footer>
+
+    <!-- Analytics -->
+    <script src="/shared/analytics.js"></script>
+  </body>
+</html>
