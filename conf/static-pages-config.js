@@ -18,6 +18,26 @@ const SRC_DIR = path.join(__dirname, '..', 'src');
 // (referenced in templates as p.stripeDonateUrl).
 const STRIPE_DONATE_URL = 'https://donate.stripe.com/8x200k3RJdl7b5L5xrgYU00';
 
+// Single source of truth for the project's GitHub repository
+// (referenced in templates as p.githubRepoUrl).
+const GITHUB_REPO_URL = 'https://github.com/eralpkaraduman/text-wallpaper-generator';
+
+// Absolute URL of the social preview image used by og:image / twitter:image
+// on every static page (referenced in templates as p.ogImageUrl).
+const OG_IMAGE_URL = 'https://textwallpaper.com/shared/og-image.png';
+
+// Display labels for the language navigation, keyed like availableLangUrls.
+// zhHant deliberately has NO entry: it is an hreflang-only alias of /zh/ and
+// must not appear in the visible lang-nav (templates skip keys missing here).
+const LANG_LABELS = {
+  en: 'English',
+  zh: '中文',
+  ja: '日本語',
+  de: 'Deutsch',
+  tr: 'Türkçe',
+  id: 'Indonesia',
+};
+
 // Root-level English landing/static page folders (each contains an index.html).
 // Discovery is glob-based, so folders listed here that don't exist yet are
 // simply skipped until their index.html appears in src/.
@@ -179,6 +199,9 @@ function generateStaticPagePlugins() {
         langUrls: langUrls,
         availableLangUrls: availableLangUrls,
         stripeDonateUrl: STRIPE_DONATE_URL,
+        githubRepoUrl: GITHUB_REPO_URL,
+        ogImageUrl: OG_IMAGE_URL,
+        langLabels: LANG_LABELS,
       },
     });
   });

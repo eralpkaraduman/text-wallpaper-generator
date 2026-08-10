@@ -23,14 +23,14 @@
     <meta property="og:url" content="https://textwallpaper.com/support/" />
     <meta property="og:title" content="Support This Project - TextWallpaper.com" />
     <meta property="og:description" content="Help keep TextWallpaper.com free, private, and ad-free. Donations cover hosting costs and fund new features." />
-    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://textwallpaper.com/support/" />
     <meta property="twitter:title" content="Support This Project - TextWallpaper.com" />
     <meta property="twitter:description" content="Help keep TextWallpaper.com free, private, and ad-free." />
-    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -57,12 +57,9 @@
     </header>
 
     <nav class="lang-nav">
-      <a href="/support/" class="active">English</a>
-      <a href="/zh/support/">中文</a>
-      <a href="/ja/support/">日本語</a>
-      <a href="/de/support/">Deutsch</a>
-      <a href="/tr/support/">Türkçe</a>
-      <a href="/id/support/">Indonesia</a>
+      <% Object.keys(p.availableLangUrls).forEach(function (lang) { if (!p.langLabels[lang]) return; %>
+      <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
+      <% }); %>
     </nav>
 
     <main class="container">
@@ -86,7 +83,7 @@
         <h2>Why donations?</h2>
         <p>There is no account, and nothing is sold or shared. I keep only anonymous usage counts: which features get used, but not who used them. There are no ads and no paid version. Every feature is free for everyone. Ads or subscriptions would make the app worse, so I keep them out.</p>
         <p style="margin-top: 1rem;">This is a one-person project. I have a normal job and a family, and I build this in my free time. The servers cost real money every month, and I pay for them myself. Donations keep the app online and free.</p>
-        <p style="margin-top: 1rem;">The app is also <a target="_blank" rel="noopener" href="https://github.com/eralpkaraduman/text-wallpaper-generator">open source on GitHub</a>, so anyone can read the code.</p>
+        <p style="margin-top: 1rem;">The app is also <a target="_blank" rel="noopener" href="<%= p.githubRepoUrl %>">open source on GitHub</a>, so anyone can read the code.</p>
       </div>
 
       <div class="features">
@@ -113,7 +110,7 @@
     </main>
 
     <footer class="footer">
-      <p>&copy; <a href="/">TextWallpaper.com</a> - Free Text Wallpaper Generator</p>
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
       <p><a href="/privacy/">Privacy Policy</a> &middot; <a href="/terms/">Terms of Service</a></p>
     </footer>
 
