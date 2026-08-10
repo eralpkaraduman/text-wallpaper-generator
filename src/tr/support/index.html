@@ -116,7 +116,7 @@
 
     <footer class="footer">
       <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
-      <p><a href="/privacy/">Gizlilik Politikası</a> &middot; <a href="/terms/">Kullanım Koşulları</a></p>
+      <p><a href="<%= p.localHref('/privacy/') %>">Gizlilik Politikası</a> &middot; <a href="<%= p.localHref('/terms/') %>">Kullanım Koşulları</a></p>
     </footer>
 
     <script>

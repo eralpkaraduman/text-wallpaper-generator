@@ -66,7 +66,7 @@
   </head>
   <body>
     <header class="header">
-      <a href="/">TextWallpaper.com</a>
+      <a href="<%= p.localHref('/') %>">TextWallpaper.com</a>
     </header>
 
     <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
@@ -115,7 +115,7 @@
     </main>
 
     <footer class="footer">
-      <p>&copy; <a href="/">TextWallpaper.com</a> - Generator Wallpaper Teks Gratis</p>
+      <p>&copy; <a href="<%= p.localHref('/') %>">TextWallpaper.com</a> - Generator Wallpaper Teks Gratis</p>
     </footer>
 
     <a class="floating-support-button" href="/id/support/" id="floating-support-button" aria-label="Dukung proyek ini" data-umami-event="support-page-visit">
