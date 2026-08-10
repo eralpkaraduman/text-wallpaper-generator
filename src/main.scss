@@ -637,6 +637,30 @@ $animation_down_postion: $animation_container_height - $moving_icon_height -
   display: flex;
 }
 
+// On phones the mid-height pills sit on top of the intro copy and the
+// editor's centered text — dock them to the bottom corners instead, clear
+// of the credits line and the iOS safe area; the language list opens upward.
+@media (max-width: 700px) {
+  .floating-support-button {
+    top: auto;
+    transform: none;
+    bottom: calc(52px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .floating-lang-switcher {
+    top: auto;
+    transform: none;
+    bottom: calc(52px + env(safe-area-inset-bottom, 0px));
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .floating-lang-switcher .lang-options {
+    margin-top: 0;
+    margin-bottom: 2px;
+  }
+}
+
 .credits-container {
   position: fixed;
   bottom: 0;
