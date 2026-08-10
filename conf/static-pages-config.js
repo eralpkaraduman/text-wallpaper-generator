@@ -2,7 +2,7 @@
  * Generates HtmlWebpackPlugin configurations for all static pages.
  *
  * This module:
- * 1. Finds all HTML files in use-cases/ and localized folders
+ * 1. Finds all HTML files in use-cases/, root landing folders (ROOT_PAGES) and localized folders
  * 2. Determines language, path, and template variables for each
  * 3. Returns array of HtmlWebpackPlugin instances
  */
@@ -13,6 +13,21 @@ const glob = require('glob');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const SRC_DIR = path.join(__dirname, '..', 'src');
+
+// Root-level English landing/static page folders (each contains an index.html).
+// Discovery is glob-based, so folders listed here that don't exist yet are
+// simply skipped until their index.html appears in src/.
+// Localized versions (src/<lang>/<folder>/index.html) are picked up by the
+// existing per-language globs in findStaticPages().
+const ROOT_PAGES = [
+  'name-wallpaper',
+  'iphone-wallpaper-maker',
+  'desktop-wallpaper-maker',
+  'how-to-add-text-to-wallpaper',
+  'wallpaper-maker',
+  'text-screensaver',
+  'support',
+];
 
 // Language configs with their home links and footer text
 const LANG_CONFIG = {
@@ -58,11 +73,64 @@ function getLangUrls(basePath) {
 }
 
 /**
+ * Generate lang URLs for languages whose source file actually exists on disk.
+ *
+ * Like getLangUrls, but an entry is only present when the translation exists:
+ *   en       -> src/<basePath>/index.html
+ *   others   -> src/<lang>/<basePath>/index.html
+ * Special case: when the zh version exists, a `zhHant` entry is added pointing
+ * at the SAME /zh/ URL, so templates can emit hreflang="zh-Hant" as an extra
+ * alternate for Traditional Chinese readers (no separate zh-Hant pages exist).
+ *
+ * HEAD-BLOCK CONTRACT for landing/static pages (what every page template
+ * should emit, driven by these params):
+ *   - <link rel="canonical"> from the page's OWN absolute URL
+ *     (https://textwallpaper.com + availableLangUrls[activeLang]).
+ *   - One <link rel="alternate" hreflang="..."> per entry in
+ *     availableLangUrls ONLY (never langUrls — that lists all site languages
+ *     whether or not a translation exists). Map keys to hreflang codes:
+ *     zh -> "zh-Hans", zhHant -> "zh-Hant", others verbatim.
+ *   - <link rel="alternate" hreflang="x-default"> -> the English URL.
+ * langUrls (all languages, existence not checked) is kept for backward
+ * compatibility; new pages should prefer availableLangUrls.
+ *
+ * HOW TEMPLATES ACCESS PARAMS: html-webpack-plugin 2.x does NOT support
+ * bare template variables (its fallback lodash loader only unwraps
+ * compilation/webpack/webpackConfig/htmlWebpackPlugin). Access params as:
+ *   <%= htmlWebpackPlugin.options.templateParameters.activeLang %>
+ *   <% var p = htmlWebpackPlugin.options.templateParameters; %>
+ *   <% Object.keys(p.availableLangUrls).forEach(function (lang) { ... }); %>
+ * The `templateParameters` option name matches html-webpack-plugin v3+, so
+ * a future plugin upgrade would additionally enable bare <%= activeLang %>.
+ * Note: pages listed here are ALSO copied raw by CopyWebpackPlugin
+ * (webpack.common.js); the HtmlWebpackPlugin-processed output wins in dist
+ * (verified), so EJS in these pages is always rendered.
+ */
+function getAvailableLangUrls(basePath) {
+  const available = {};
+  for (const lang of Object.keys(LANG_CONFIG)) {
+    const sourcePath =
+      lang === 'en'
+        ? path.join(SRC_DIR, basePath, 'index.html')
+        : path.join(SRC_DIR, lang, basePath, 'index.html');
+    if (fs.existsSync(sourcePath)) {
+      available[lang] = lang === 'en' ? basePath : '/' + lang + basePath;
+    }
+  }
+  // zh-Hant alternate points at the same Simplified /zh/ URL
+  if (available.zh) {
+    available.zhHant = available.zh;
+  }
+  return available;
+}
+
+/**
  * Find all static HTML pages
  */
 function findStaticPages() {
   const patterns = [
     'use-cases/**/index.html',
+    ...ROOT_PAGES.map(folder => `${folder}/index.html`),
     'zh/**/index.html',
     'ja/**/index.html',
     'de/**/index.html',
@@ -88,6 +156,7 @@ function generateStaticPagePlugins() {
     const lang = detectLang(relativePath);
     const basePath = getBasePath(relativePath.replace('/index.html', '/'), lang);
     const langUrls = getLangUrls(basePath);
+    const availableLangUrls = getAvailableLangUrls(basePath);
     const langConfig = LANG_CONFIG[lang];
 
     return new HtmlWebpackPlugin({
@@ -104,6 +173,7 @@ function generateStaticPagePlugins() {
         homeLink: langConfig.homeLink,
         footerText: langConfig.footerText,
         langUrls: langUrls,
+        availableLangUrls: availableLangUrls,
       },
     });
   });
@@ -113,4 +183,5 @@ module.exports = {
   generateStaticPagePlugins,
   findStaticPages,
   LANG_CONFIG,
+  ROOT_PAGES,
 };
