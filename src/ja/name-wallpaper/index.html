@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters; %>
+    <title>名前壁紙メーカー — 名前入り壁紙を無料で作成 | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="名前入りの文字壁紙を無料で作成。名前を入力して色と文字サイズを選び、スマホやPCに合うサイズでダウンロード。登録不要・透かしなし・ブラウザだけで完結。" />
+    <meta name="keywords" content="名前 壁紙 作成, 文字壁紙, 壁紙 文字 作成, 名前入り壁紙, 壁紙 名前" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://textwallpaper.com<%= p.availableLangUrls[p.activeLang] %>" />
+    <!-- hreflang -->
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) {
+      var code = lang === 'zh' ? 'zh-Hans' : (lang === 'zhHant' ? 'zh-Hant' : lang); %>
+    <link rel="alternate" hreflang="<%= code %>" href="https://textwallpaper.com<%= p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="https://textwallpaper.com<%= p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://textwallpaper.com/ja/name-wallpaper/" />
+    <meta property="og:title" content="名前壁紙メーカー — 名前入り壁紙を無料で作成" />
+    <meta property="og:description" content="名前を入力して色とサイズを選ぶだけ。スマホ・PC対応の文字壁紙を無料でダウンロード。透かしなし。" />
+    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://textwallpaper.com/ja/name-wallpaper/" />
+    <meta property="twitter:title" content="名前壁紙メーカー — 名前入り壁紙を無料で作成" />
+    <meta property="twitter:description" content="名前を入力して色とサイズを選ぶだけ。無料・透かしなし。" />
+    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "名前壁紙の作成は無料ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい、完全に無料です。会員登録も有料プランもなく、ダウンロードした画像に透かしは入りません。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "日本語や絵文字は使えますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "使えます。文字はお使いの端末のフォントで描画されるため、ひらがな・カタカナ・漢字はもちろん、絵文字もそのまま表示されます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "壁紙の解像度はどのくらいですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ダウンロード前にピクセル単位でサイズを指定できます。スマホの画面サイズから4Kモニターまで、拡大処理なしで指定どおりの解像度で生成されます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "画像に透かしは入りますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "入りません。ダウンロードされる画像は、選んだ背景色と入力した文字だけのシンプルな壁紙です。"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="/shared/static-pages.css">
+  </head>
+  <body>
+    <header class="header">
+      <a href="/ja/">TextWallpaper.com</a>
+    </header>
+    <nav class="lang-nav">
+      <a href="/name-wallpaper/">English</a>
+      <a href="/ja/name-wallpaper/" class="active">日本語</a>
+      <a href="/tr/name-wallpaper/">Türkçe</a>
+    </nav>
+
+    <main class="container">
+      <nav class="breadcrumb">
+        <a href="/ja/">ホーム</a> &rsaquo; 名前壁紙
+      </nav>
+
+      <article class="article-content">
+        <h1>名前壁紙メーカー &mdash; 名前入りの文字壁紙を無料で作成</h1>
+
+        <p class="intro">自分の名前が入った壁紙を作ってみませんか？名前を入力して色を選ぶだけで、数秒でダウンロードできます。アプリのインストールも会員登録も不要。すべてブラウザの中で完結し、透かしも入りません。</p>
+
+        <a href="/ja/" class="cta" data-umami-event="name-wallpaper-cta">名前壁紙を作成する &rarr;</a>
+
+        <h2>名前壁紙の作り方</h2>
+
+        <ol>
+          <li><strong>名前を入力する</strong> &mdash; 本名でも、ニックネームでも、イニシャルでもOK。</li>
+          <li><strong>色と文字サイズを選ぶ</strong> &mdash; 好みに合わせて背景色と文字色を決め、文字の大きさを自由に調整します。</li>
+          <li><strong>サイズを選ぶ</strong> &mdash; スマホ用かPC用か、画面に合った解像度を指定します。</li>
+          <li><strong>ダウンロードする</strong> &mdash; 画像を保存して壁紙に設定すれば完成です。</li>
+        </ol>
+
+        <p>処理はすべてブラウザ内で行われます。入力した名前がサーバーに送信されることはなく、一度ページを開けばオフラインでも使えます。</p>
+
+        <h2>スマホ用？PC用？サイズの選び方</h2>
+
+        <ul>
+          <li><strong>スマホ:</strong> 最近のスマホは 1170&times;2532 や 1440&times;3200 といった縦長の解像度が一般的です。ツールが画面サイズを自動で検出できるので、スマホから開けばそのままで大丈夫です。</li>
+          <li><strong>PC・ノートパソコン:</strong> よく使われるのは 1920&times;1080（フルHD）、2560&times;1440、3840&times;2160（4K）。モニターに合ったサイズを選ぶと文字がくっきり表示されます。</li>
+        </ul>
+
+        <div class="tip-box">
+          <p><strong>ヒント:</strong> スマホでは名前を画面の中央寄りに配置しましょう。ロック画面では上部に時計が表示され、ホーム画面では端がアプリアイコンで隠れます。</p>
+        </div>
+
+        <h2>文字壁紙のアイデア</h2>
+
+        <ul>
+          <li><strong>名前だけ</strong> &mdash; 「ゆき」と大きく一言。シンプルなのに自分だけの壁紙になります。</li>
+          <li><strong>イニシャル</strong> &mdash; アルファベット2〜3文字を大きめに置くと、モノグラム風のおしゃれな壁紙に。</li>
+          <li><strong>ニックネーム</strong> &mdash; 友達に呼ばれている名前のほうが、フルネームよりしっくりくることも。</li>
+          <li><strong>名前＋ひとこと</strong> &mdash; 「はると &mdash; 今日もコツコツ」のように短い言葉を添えれば、毎日目にする合言葉になります。</li>
+          <li><strong>名前＋絵文字</strong> &mdash; 星やハート、炎の絵文字をひとつ添えるだけで雰囲気が変わります。</li>
+        </ul>
+
+        <p>無料で数秒あれば作れるので、家族や友達の名前で作ってプレゼントするのもおすすめです。</p>
+
+        <h2>よくある質問</h2>
+
+        <h3>無料ですか？</h3>
+        <p>はい、完全無料です。登録も有料プランもなく、透かしも入りません。何枚でも作成できます。</p>
+
+        <h3>日本語や絵文字は使えますか？</h3>
+        <p>使えます。文字は端末側で描画されるため、ひらがな・カタカナ・漢字も絵文字もそのまま表示されます。</p>
+
+        <h3>解像度はどのくらいですか？</h3>
+        <p>指定したとおりの解像度です。ダウンロード前にピクセル単位でサイズを決められ、拡大処理なしでその大きさに生成されます。</p>
+
+        <h3>透かしは入りますか？</h3>
+        <p>入りません。ダウンロードした画像には、あなたの文字と背景色だけが含まれます。</p>
+
+        <p>あなたの名前を、あなたの画面に。</p>
+
+        <a href="/ja/" class="cta" data-umami-event="name-wallpaper-cta">名前壁紙を作成する &rarr;</a>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="/ja/">TextWallpaper.com</a> - 無料テキスト壁紙ジェネレーター</p>
+    </footer>
+
+    <!-- Analytics -->
+    <script src="/shared/analytics.js"></script>
+  </body>
+</html>

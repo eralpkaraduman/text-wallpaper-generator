@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters; %>
+    <title>Name Wallpaper Maker — Create a Wallpaper with Your Name | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="Free name wallpaper generator. Create a wallpaper with your name online — pick colors, font size, phone or desktop resolution, and download in HD. No sign-up." />
+    <meta name="keywords" content="name wallpaper generator, create name wallpaper, wallpaper with my name, make wallpaper with name, wallpaper name maker, name wallpaper hd" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://textwallpaper.com<%= p.availableLangUrls[p.activeLang] %>" />
+    <!-- hreflang -->
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) {
+      var code = lang === 'zh' ? 'zh-Hans' : (lang === 'zhHant' ? 'zh-Hant' : lang); %>
+    <link rel="alternate" hreflang="<%= code %>" href="https://textwallpaper.com<%= p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="https://textwallpaper.com<%= p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://textwallpaper.com/name-wallpaper/" />
+    <meta property="og:title" content="Name Wallpaper Maker — Create a Wallpaper with Your Name" />
+    <meta property="og:description" content="Free name wallpaper generator. Type your name, pick colors and size, download in HD for phone or desktop." />
+    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://textwallpaper.com/name-wallpaper/" />
+    <meta property="twitter:title" content="Name Wallpaper Maker — Create a Wallpaper with Your Name" />
+    <meta property="twitter:description" content="Free name wallpaper generator. Type your name, pick colors and size, download in HD." />
+    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is the name wallpaper generator free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, completely free. There is no sign-up, no paid version, and no watermark on your downloads."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use any language or emoji in my name wallpaper?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The generator uses your device's own text rendering, so any alphabet works — Latin, Arabic, Chinese, Japanese, Cyrillic — and so do emoji."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What resolution are the wallpapers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You choose the exact pixel size before downloading, so you can match your phone screen, a 1080p monitor, or a 4K display. The image is rendered at full resolution, not upscaled."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a watermark on the wallpaper?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The downloaded image contains only your text on your chosen background color — no watermark, no logo."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="/shared/static-pages.css">
+  </head>
+  <body>
+    <header class="header">
+      <a href="/">TextWallpaper.com</a>
+    </header>
+    <nav class="lang-nav">
+      <a href="/name-wallpaper/" class="active">English</a>
+      <a href="/ja/name-wallpaper/">日本語</a>
+      <a href="/tr/name-wallpaper/">Türkçe</a>
+    </nav>
+
+    <main class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> &rsaquo; Name Wallpaper
+      </nav>
+
+      <article class="article-content">
+        <h1>Name Wallpaper Maker &mdash; Create a Wallpaper with Your Name</h1>
+
+        <p class="intro">Want a wallpaper with your name on it? Type your name, pick your colors, and download it in seconds. This free name wallpaper generator runs entirely in your browser &mdash; no app to install, no sign-up, no watermark.</p>
+
+        <a href="/" class="cta" data-umami-event="name-wallpaper-cta">Create Your Name Wallpaper &rarr;</a>
+
+        <h2>How to Create a Name Wallpaper Online, Free</h2>
+
+        <ol>
+          <li><strong>Type your name</strong> &mdash; or a nickname, initials, or anything else you want on your screen.</li>
+          <li><strong>Pick colors and font size</strong> &mdash; choose a background color and text color that match your style, and make the name as big or small as you like.</li>
+          <li><strong>Choose your size</strong> &mdash; set the exact resolution for your phone or desktop screen.</li>
+          <li><strong>Download</strong> &mdash; save the image and set it as your wallpaper. Done.</li>
+        </ol>
+
+        <p>Everything happens in your browser: your name is never uploaded anywhere, and once the page has loaded, the maker even works offline.</p>
+
+        <h2>Phone or Desktop? Pick the Right Size</h2>
+
+        <p>To make a wallpaper with your name look sharp, match the image to your screen:</p>
+
+        <ul>
+          <li><strong>Phone:</strong> most modern phones use tall portrait resolutions around 1170&times;2532 or 1440&times;3200. The generator can detect your screen size automatically, so on your phone you usually don't need to change anything.</li>
+          <li><strong>Desktop or laptop:</strong> common sizes are 1920&times;1080 (Full HD), 2560&times;1440, and 3840&times;2160 (4K). Pick the one that matches your monitor for a crisp HD name wallpaper.</li>
+        </ul>
+
+        <div class="tip-box">
+          <p><strong>Tip:</strong> On phones, keep the name roughly centered &mdash; the lock screen clock sits near the top, and app icons cover the edges of the home screen.</p>
+        </div>
+
+        <h2>Ideas for Your Name Wallpaper</h2>
+
+        <ul>
+          <li><strong>Just your first name</strong> &mdash; big and bold, or small and minimal in a corner-friendly size.</li>
+          <li><strong>Initials</strong> &mdash; two or three letters in a large font size make a clean monogram-style wallpaper.</li>
+          <li><strong>Nickname</strong> &mdash; what your friends actually call you often looks better than your full name.</li>
+          <li><strong>Name + a short motto</strong> &mdash; "Maya &mdash; one day at a time" turns your wallpaper into a daily reminder.</li>
+          <li><strong>Name + emoji</strong> &mdash; add a star, heart, or flame after your name for some personality.</li>
+        </ul>
+
+        <p>Since it's free and takes seconds, you can also make wallpapers with someone else's name &mdash; a small gift for a friend, partner, or kid's tablet.</p>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>Is it free?</h3>
+        <p>Yes, completely. No sign-up, no paid tier, no watermark. You can create as many name wallpapers as you want.</p>
+
+        <h3>Does it work for any language or emoji?</h3>
+        <p>Yes. The text is rendered by your own device, so every alphabet your device can display works &mdash; and emoji too.</p>
+
+        <h3>What resolution do I get?</h3>
+        <p>Whatever you choose. Set the exact pixel dimensions before downloading, from small phone screens up to 4K desktop wallpapers. The image is rendered at that size, not stretched.</p>
+
+        <h3>Is there a watermark?</h3>
+        <p>No. The download is just your text on your background color &mdash; nothing else.</p>
+
+        <p>Ready to see your name on your screen?</p>
+
+        <a href="/" class="cta" data-umami-event="name-wallpaper-cta">Create Your Name Wallpaper &rarr;</a>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="/">TextWallpaper.com</a> - Free Text Wallpaper Generator</p>
+    </footer>
+
+    <!-- Analytics -->
+    <script src="/shared/analytics.js"></script>
+  </body>
+</html>
