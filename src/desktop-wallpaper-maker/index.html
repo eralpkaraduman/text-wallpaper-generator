@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters; %>
+    <title>Desktop Wallpaper Maker - Custom Text Wallpapers for PC &amp; Mac | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="Free desktop wallpaper maker. Create custom HD and 4K text wallpapers for PC, Mac, or laptop online - type your text, pick colors, download at any resolution." />
+    <meta name="keywords" content="desktop wallpaper maker, desktop wallpaper creator, laptop wallpaper maker, computer wallpaper maker, desktop background maker, 4k text wallpaper, hd wallpaper maker" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://textwallpaper.com<%= p.availableLangUrls[p.activeLang] %>" />
+    <!-- hreflang -->
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) {
+         var code = lang === 'zh' ? 'zh-Hans' : (lang === 'zhHant' ? 'zh-Hant' : lang); %>
+    <link rel="alternate" hreflang="<%= code %>" href="https://textwallpaper.com<%= p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="https://textwallpaper.com<%= p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://textwallpaper.com/desktop-wallpaper-maker/" />
+    <meta property="og:title" content="Desktop Wallpaper Maker - Custom Text Wallpapers for PC &amp; Mac" />
+    <meta property="og:description" content="Create custom HD and 4K text wallpapers for your PC, Mac, or laptop online. Free, no sign-up, any resolution." />
+    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://textwallpaper.com/desktop-wallpaper-maker/" />
+    <meta property="twitter:title" content="Desktop Wallpaper Maker - Custom Text Wallpapers for PC &amp; Mac" />
+    <meta property="twitter:description" content="Create custom HD and 4K text wallpapers for your PC, Mac, or laptop online." />
+    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is this desktop wallpaper maker free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, completely free. No watermarks, no sign-up, no paid version - every feature is available to everyone."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I make a 4K wallpaper?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Set the resolution to 3840x2160 for 4K UHD, or enter any custom size - including 5K, ultrawide, or multi-monitor dimensions. Text wallpapers stay perfectly sharp at any resolution."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What resolution should a desktop wallpaper be?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Match your monitor's native resolution: 1920x1080 for Full HD, 2560x1440 for QHD, 3840x2160 for 4K, or 3440x1440 for common ultrawide monitors. You can check yours in your display settings."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it work on both Windows and Mac?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The maker runs in any browser, and the downloaded image can be set as the desktop background on Windows, macOS, Linux, or a Chromebook."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="/shared/static-pages.css">
+  </head>
+  <body>
+    <header class="header">
+      <a href="/">TextWallpaper.com</a>
+    </header>
+
+    <main class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> &rsaquo; Desktop Wallpaper Maker
+      </nav>
+
+      <article class="article-content">
+        <h1>Desktop Wallpaper Maker &mdash; Custom Text Wallpapers for PC &amp; Mac</h1>
+
+        <p>Turn any text into a clean desktop background &mdash; a reminder that stays in view all day, a quote, your name, or a minimal one-word wallpaper. This free desktop wallpaper creator runs in your browser: type your text, pick colors, choose a resolution, download.</p>
+
+        <p>Because the wallpaper is generated (not stretched from a photo), it comes out pixel-perfect at any size &mdash; Full HD, QHD, or a crisp 4K text wallpaper for a large monitor. It works the same as a laptop wallpaper maker too: just use your laptop's screen size.</p>
+
+        <a href="/" class="cta" data-umami-event="desktop-page-create-cta">Make Your Desktop Wallpaper &rarr;</a>
+
+        <h2>Common Desktop &amp; Laptop Resolutions</h2>
+
+        <ul>
+          <li><strong>1920&times;1080 (Full HD)</strong> &mdash; most laptops and standard monitors</li>
+          <li><strong>2560&times;1440 (QHD)</strong> &mdash; 27-inch monitors and higher-end laptops</li>
+          <li><strong>3840&times;2160 (4K UHD)</strong> &mdash; 4K monitors and TVs used as displays</li>
+          <li><strong>3440&times;1440 / 2560&times;1080</strong> &mdash; ultrawide monitors</li>
+          <li><strong>Mac displays</strong> &mdash; e.g. 2560&times;1664 (MacBook Air 13&Prime;), 3024&times;1964 (MacBook Pro 14&Prime;), 5120&times;2880 (Studio Display)</li>
+        </ul>
+
+        <p>Not sure what yours is? On Windows check <em>Settings &rarr; System &rarr; Display</em>; on a Mac, <em>System Settings &rarr; Displays</em>. Enter that width and height in the maker and your HD or 4K wallpaper will match your screen exactly.</p>
+
+        <h2>How to Set Your New Wallpaper</h2>
+
+        <h3>Windows 10 / 11</h3>
+        <ol>
+          <li>Create and download your wallpaper from <a href="/">TextWallpaper.com</a>.</li>
+          <li>Right-click the downloaded image and choose <em>Set as desktop background</em> &mdash; or right-click the desktop, choose <em>Personalize &rarr; Background</em>, and browse to the file.</li>
+        </ol>
+
+        <h3>macOS</h3>
+        <ol>
+          <li>Download your wallpaper (it lands in your Downloads folder).</li>
+          <li>Open <em>System Settings &rarr; Wallpaper</em>, click <em>Add Photo / Add Folder</em>, and pick the file. Or right-click the image in Finder and choose <em>Set Desktop Picture</em>.</li>
+        </ol>
+
+        <h2>What People Use Text Wallpapers For</h2>
+
+        <ul>
+          <li><strong>A standing reminder</strong> &mdash; a deadline, a goal, or this week's priority, visible every time you close a window.</li>
+          <li><strong>A quote or mantra</strong> &mdash; short lines read best across a wide screen.</li>
+          <li><strong>Minimal setups</strong> &mdash; one word on a dark background keeps a clean desktop actually clean.</li>
+          <li><strong>Labeling computers</strong> &mdash; IT teams put the machine's name or environment (e.g. "PRODUCTION SERVER") on the desktop so it's obvious which box you're on. See the <a href="/use-cases/server-labels/">server label wallpapers</a> guide.</li>
+        </ul>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>Is it free?</h3>
+        <p>Yes &mdash; free, no watermark, no sign-up.</p>
+
+        <h3>Can I make a 4K wallpaper?</h3>
+        <p>Yes. Enter 3840&times;2160 (or any custom size, including 5K and ultrawide). Since the image is rendered from text, it's sharp at every resolution &mdash; no upscaled, blurry photos.</p>
+
+        <h3>What resolution should I pick?</h3>
+        <p>Your monitor's native resolution &mdash; see the list above, or check your display settings.</p>
+
+        <h3>Windows and Mac both?</h3>
+        <p>Yes. The maker runs in any browser, and the downloaded image works as a background on Windows, macOS, Linux, or ChromeOS.</p>
+
+        <p>Need one for your phone instead? Use the <a href="/iphone-wallpaper-maker/">iPhone wallpaper maker guide</a> for the right phone sizes and iOS steps.</p>
+
+        <a href="/" class="cta cta--large" data-umami-event="desktop-page-create-cta">Create Your Desktop Wallpaper &rarr;</a>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="/">TextWallpaper.com</a> - Free Text Wallpaper Generator</p>
+    </footer>
+
+    <!-- Analytics -->
+    <script src="/shared/analytics.js"></script>
+  </body>
+</html>
