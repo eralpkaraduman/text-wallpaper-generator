@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters;
+       var origin = 'https://textwallpaper.com';
+       var hreflangCodes = { zh: 'zh-Hans', zhHant: 'zh-Hant' };
+       var canonicalUrl = origin + p.availableLangUrls[p.activeLang];
+    %>
+    <title>Free Online Wallpaper Maker — No Sign-Up, No Watermark | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="Free online wallpaper maker — no sign-up, no watermark. Create text wallpapers in any resolution up to 4K, right in your browser. Nothing is uploaded." />
+    <meta name="keywords" content="free online wallpaper maker, wallpaper maker online free, wallpaper maker online free no sign up, wallpaper creator online, online wallpaper generator, wallpaper maker website, create wallpaper online free" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="<%= canonicalUrl %>" />
+    <!-- hreflang -->
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) { %>
+    <link rel="alternate" hreflang="<%= hreflangCodes[lang] || lang %>" href="<%= origin + p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="<%= origin + p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= canonicalUrl %>" />
+    <meta property="og:title" content="Free Online Wallpaper Maker — No Sign-Up, No Watermark" />
+    <meta property="og:description" content="Create text wallpapers in any resolution up to 4K, right in your browser. Free, no account, no watermark." />
+    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="<%= canonicalUrl %>" />
+    <meta property="twitter:title" content="Free Online Wallpaper Maker — No Sign-Up, No Watermark" />
+    <meta property="twitter:description" content="Create text wallpapers in any resolution up to 4K, right in your browser. Free, no account, no watermark." />
+    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is this wallpaper maker really free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, completely free. There is no paid tier, no trial period, and no locked features. Every resolution, color, and font option is available to everyone."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to sign up or create an account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. There is no sign-up, no login, and no email required. Open the page, type your text, and download your wallpaper."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it add a watermark to my wallpaper?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Your downloaded wallpaper contains only your text on your chosen background color — no watermark, no logo, no branding of any kind."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What resolutions can I create wallpapers in?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Any resolution you want. Presets cover common phone and desktop sizes, and you can enter exact custom dimensions — including 1920×1080 Full HD, 2560×1440, and 3840×2160 4K."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use my own photos as the background?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. This is a text-based wallpaper maker: it creates wallpapers from a solid background color plus your text. If you want to place text over a photo or build a collage, a photo editing app is the better tool for that job."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my text uploaded to a server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The wallpaper is rendered entirely in your browser and the file is saved directly to your device. Your text never leaves your computer or phone."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="/shared/static-pages.css">
+  </head>
+  <body>
+    <header class="header">
+      <a href="/">TextWallpaper.com</a>
+    </header>
+    <nav class="lang-nav">
+      <a href="/wallpaper-maker/" class="active">English</a>
+      <a href="/de/wallpaper-maker/">Deutsch</a>
+    </nav>
+
+    <main class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> &rsaquo; Wallpaper Maker
+      </nav>
+
+      <article class="article-content">
+        <h1>Free Online Wallpaper Maker &mdash; No Sign-Up, No Watermark</h1>
+
+        <p>Looking for a wallpaper maker online, free, and with no sign-up? This is it &mdash; with one honest caveat up front: this tool makes <strong>text wallpapers</strong>. You pick a background color, type your text, choose a font and size, and download a crisp wallpaper in any resolution. It is not a photo editor or an AI image generator &mdash; and for text-based wallpapers, that focus is exactly why it works so well.</p>
+
+        <div class="features">
+          <h2>Why People Use This Wallpaper Creator</h2>
+          <ul>
+            <li><strong>100% free</strong> &mdash; no paid tier, no trial, no locked features</li>
+            <li><strong>No account needed</strong> &mdash; no sign-up, no login, no email address</li>
+            <li><strong>No watermark</strong> &mdash; your wallpaper contains only your text, nothing else</li>
+            <li><strong>Any resolution</strong> &mdash; phone, tablet, desktop, even 3840&times;2160 4K</li>
+            <li><strong>Private by design</strong> &mdash; everything renders in your browser; nothing is uploaded anywhere</li>
+            <li><strong>Any language</strong> &mdash; full Unicode support, including emoji</li>
+          </ul>
+        </div>
+
+        <h2>How to Create a Wallpaper Online Free</h2>
+
+        <ol>
+          <li><strong>Open the wallpaper maker</strong> &mdash; it loads instantly, right in your browser</li>
+          <li><strong>Type your text</strong> &mdash; a quote, a name, a reminder, or anything else</li>
+          <li><strong>Pick colors, font, and size</strong> &mdash; choose a preset for your device or enter exact custom dimensions</li>
+          <li><strong>Download</strong> &mdash; save the image and set it as your wallpaper</li>
+        </ol>
+
+        <p>The whole process takes under a minute. No tutorial needed, no template gallery to dig through.</p>
+
+        <a href="/" class="cta" data-umami-event="wallpaper-maker-cta">Open the Wallpaper Maker &rarr;</a>
+
+        <h2>When to Use This vs. a Photo-Based Maker</h2>
+
+        <p>Not every wallpaper tool fits every job. Here is the honest breakdown:</p>
+
+        <h3>Use a photo-based maker or editor when&hellip;</h3>
+        <ul>
+          <li>You want a collage of your own photos</li>
+          <li>You want to place text on top of an existing image</li>
+          <li>You want AI-generated artwork or filters and effects</li>
+        </ul>
+        <p>Plenty of photo editing apps and collage makers handle those jobs well &mdash; that is their specialty, not ours.</p>
+
+        <h3>Use this text wallpaper maker when&hellip;</h3>
+        <ul>
+          <li><strong>Speed matters</strong> &mdash; a finished wallpaper in seconds, with zero learning curve</li>
+          <li><strong>You want perfectly sharp text</strong> &mdash; rendered at exact pixel dimensions, never stretched or compressed</li>
+          <li><strong>Privacy matters</strong> &mdash; nothing you type is uploaded; photo tools usually process your images on their servers</li>
+          <li><strong>You need an exact resolution</strong> &mdash; type in any width and height and get precisely that, up to 4K and beyond</li>
+          <li><strong>Minimalism is the point</strong> &mdash; clean text on a solid color looks intentional, not busy</li>
+        </ul>
+
+        <h2>Popular Ways to Use It</h2>
+
+        <ul>
+          <li><a href="/name-wallpaper/">Name wallpapers</a> &mdash; your name or a monogram as your background</li>
+          <li><a href="/iphone-wallpaper-maker/">iPhone wallpapers</a> &mdash; sized for current iPhone lock and home screens</li>
+          <li><a href="/desktop-wallpaper-maker/">Desktop wallpapers</a> &mdash; Full HD, 1440p, and 4K backgrounds for your computer</li>
+          <li><a href="/use-cases/">More use cases</a> &mdash; motivation mantras, server labels, study reminders, and more</li>
+        </ul>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>Is this wallpaper maker really free?</h3>
+        <p>Yes, completely. No paid tier, no trial period, no locked features. Every resolution, color, and font option is available to everyone.</p>
+
+        <h3>Do I need to sign up?</h3>
+        <p>No. There is no account system at all &mdash; no sign-up, no login, no email. Open the page and start typing.</p>
+
+        <h3>Does it add a watermark?</h3>
+        <p>No. Your download contains only your text on your chosen background. No watermark, no logo, no branding.</p>
+
+        <h3>What resolutions are supported?</h3>
+        <p>Any resolution. Presets cover common phone and desktop sizes, and custom dimensions let you enter exact numbers &mdash; 1920&times;1080, 2560&times;1440, 3840&times;2160 4K, or anything else.</p>
+
+        <h3>Can I use my own photos?</h3>
+        <p>No &mdash; and that is a deliberate limitation, not an oversight. This tool creates wallpapers from a solid color plus text. If you need text over a photo, a photo editor is the right tool for that.</p>
+
+        <h3>Is my text uploaded anywhere?</h3>
+        <p>No. Everything renders locally in your browser and saves directly to your device. Your text never touches a server.</p>
+
+        <p>Ready to make your wallpaper? It is free, instant, and yours stays yours.</p>
+
+        <a href="/" class="cta" data-umami-event="wallpaper-maker-cta">Create Your Wallpaper Now &rarr;</a>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="/">TextWallpaper.com</a> - Free Text Wallpaper Generator</p>
+    </footer>
+
+    <!-- Analytics -->
+    <script src="/shared/analytics.js"></script>
+  </body>
+</html>
