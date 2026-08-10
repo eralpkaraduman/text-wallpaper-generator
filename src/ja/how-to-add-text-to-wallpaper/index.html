@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters;
+       var siteBase = 'https://textwallpaper.com';
+       var canonicalUrl = siteBase + p.availableLangUrls[p.activeLang];
+       var hreflangCodes = { zh: 'zh-Hans', zhHant: 'zh-Hant' };
+    %>
+    <title>文字の壁紙を作成する方法（iPhone・Android・PC）| TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="文字を壁紙にする方法を解説。無料の壁紙文字作成サイトで好きな言葉の待ち受けを数秒で作成し、iPhone・Android・PCに設定する手順をステップごとに紹介します。" />
+    <meta name="keywords" content="文字 壁紙 作成 サイト, 待ち受け 文字 作成, 壁紙 文字 作成, 文字を壁紙にする, 文字壁紙, テキスト壁紙" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="<%= canonicalUrl %>" />
+    <!-- hreflang -->
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) { %>
+    <link rel="alternate" hreflang="<%= hreflangCodes[lang] || lang %>" href="<%= siteBase + p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="<%= siteBase + p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="<%= canonicalUrl %>" />
+    <meta property="og:title" content="文字の壁紙を作成する方法（iPhone・Android・PC）" />
+    <meta property="og:description" content="好きな文字の待ち受け・壁紙を無料で作成。数秒でダウンロードして設定できます。" />
+    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:locale" content="ja_JP" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="<%= canonicalUrl %>" />
+    <meta property="twitter:title" content="文字の壁紙を作成する方法（iPhone・Android・PC）" />
+    <meta property="twitter:description" content="好きな文字の待ち受け・壁紙を無料で作成。数秒でダウンロードして設定できます。" />
+    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+
+    <!-- Structured Data: HowTo -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "文字の壁紙を作成する方法",
+      "description": "無料の壁紙文字作成サイトで好きな言葉の壁紙を作り、iPhone・Android・PCの待ち受けに設定する手順です。",
+      "inLanguage": "ja",
+      "totalTime": "PT2M",
+      "estimatedCost": {
+        "@type": "MonetaryAmount",
+        "currency": "JPY",
+        "value": "0"
+      },
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "TextWallpaper.com 無料テキスト壁紙ジェネレーター"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "作成サイトを開く",
+          "text": "スマホまたはPCのブラウザで textwallpaper.com/ja/ を開きます。登録もアプリのインストールも不要です。",
+          "url": "https://textwallpaper.com/ja/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "文字を入力する",
+          "text": "壁紙にしたい言葉を入力します。名言、名前、リマインダーなど自由に。ひらがな・カタカナ・漢字・絵文字すべて対応しています。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "色とサイズを選ぶ",
+          "text": "文字色と背景色を選び、文字サイズを調整して、画面に合った解像度（スマホ・PC・カスタムサイズ）を設定します。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "壁紙をダウンロードする",
+          "text": "できあがった画像をダウンロードします。透かしなしの通常の画像ファイルとして保存されます。"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "壁紙に設定する",
+          "text": "iPhone：設定 > 壁紙 > 新しい壁紙を追加 > 写真。Android：ホーム画面を長押し > 壁紙とスタイル。Windows：画像を右クリック > デスクトップの背景として設定。macOS：システム設定 > 壁紙。"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: FAQ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "ja",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "文字の壁紙を作成できるサイトはありますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい。TextWallpaper.com は文字を入力するだけで壁紙を作成できる無料サイトです。登録不要・透かしなしで、日本語も絵文字もきれいに表示されます。処理はすべてブラウザ内で行われ、入力した文字がアップロードされることはありません。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "手持ちの写真に文字を入れることはできますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "このツールではできません。TextWallpaper.com は単色の背景に文字を配置した新しい壁紙を生成するツールで、写真編集アプリではありません。写真に文字を重ねたい場合は、iPhoneの「マークアップ」、Googleフォトの編集機能、Windowsのフォト／ペイント、Macのプレビューなど端末標準の機能をお使いください。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "待ち受けに最適なサイズはどれくらいですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "お使いの画面の解像度に合わせるのがおすすめです。最近のスマホはおおよそ1170x2532〜1440x3200ピクセル、PCは1920x1080（フルHD）、2560x1440、3840x2160（4K）が一般的です。プリセットのほか、カスタムサイズも指定できます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "本当に無料ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい、完全に無料です。会員登録は不要で、作成した壁紙に透かしは入りません。"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="/shared/static-pages.css">
+  </head>
+  <body>
+    <header class="header">
+      <a href="/ja/">TextWallpaper.com</a>
+    </header>
+    <nav class="lang-nav">
+      <a href="/how-to-add-text-to-wallpaper/">English</a>
+      <a href="/de/how-to-add-text-to-wallpaper/">Deutsch</a>
+      <a href="/ja/how-to-add-text-to-wallpaper/" class="active">日本語</a>
+    </nav>
+
+    <main class="container">
+      <nav class="breadcrumb">
+        <a href="/ja/">ホーム</a> &rsaquo; 文字の壁紙を作成する方法
+      </nav>
+
+      <article class="article-content">
+        <h1>文字の壁紙を作成する方法（iPhone・Android・PC）</h1>
+
+        <p>好きな言葉や名言、リマインダーをスマホの待ち受けやPCの壁紙にしたい。そんなときの方法は大きく2つあります。</p>
+
+        <ul>
+          <li><strong>文字から新しい壁紙を作成する</strong> &mdash; 文字を入力して色を選び、画面にぴったりのサイズでダウンロードする方法です。<a href="/ja/">TextWallpaper.com</a> はまさにこのためのサイトで、最も速く、どの解像度でも文字がくっきり表示されます。</li>
+          <li><strong>手持ちの写真に文字を重ねる</strong> &mdash; 端末標準の写真編集機能を使う方法です。<a href="#photo-ni-moji">後半で紹介します</a>。</li>
+        </ul>
+
+        <p>「画面に文字を表示したい」だけなら、1つ目の方法が1分もかからず簡単です。手順は次のとおりです。</p>
+
+        <h2>文字の壁紙を作る4ステップ</h2>
+
+        <ol>
+          <li><strong>作成サイトを開く</strong> &mdash; ブラウザで <a href="/ja/" data-umami-event="howto-guide-cta">textwallpaper.com</a> を開きます。無料・登録不要・アプリ不要です。</li>
+          <li><strong>文字を入力する</strong> &mdash; 名言、座右の銘、名前、やることリストなど自由に。ひらがな・カタカナ・漢字・絵文字すべてきれいに表示されます。</li>
+          <li><strong>色とサイズを決める</strong> &mdash; 文字色と背景色を選び、文字サイズを調整して、画面に合った解像度を設定します（スマホ・PC向けプリセットまたはカスタムサイズ）。</li>
+          <li><strong>ダウンロードする</strong> &mdash; できあがった画像を保存します。透かしなし、フル解像度です。</li>
+        </ol>
+
+        <div class="mantra-example">初心忘るべからず</div>
+
+        <p>あとはダウンロードした画像を壁紙に設定するだけです。端末ごとの手順は次のとおりです。</p>
+
+        <h3>iPhoneの場合</h3>
+        <ol>
+          <li><strong>設定 &rsaquo; 壁紙</strong> を開き、<strong>新しい壁紙を追加</strong> をタップします。</li>
+          <li><strong>写真</strong> を選び、ダウンロードした画像を選択します（Safariでのダウンロードは「ファイル」アプリに保存されることがあるので、必要に応じて写真に保存してください）。</li>
+          <li>位置を調整して <strong>追加</strong> をタップし、ロック画面・ホーム画面（または両方）に設定します。</li>
+        </ol>
+
+        <h3>Androidの場合</h3>
+        <ol>
+          <li>ホーム画面の何もない場所を長押しし、<strong>壁紙とスタイル</strong> をタップします（機種により表記が少し異なります）。</li>
+          <li>ギャラリーからダウンロードした画像を選びます。</li>
+          <li><strong>ホーム画面</strong>・<strong>ロック画面</strong>（または両方）を選んで確定します。Googleフォトで画像を開き、メニューから「壁紙として使用」を選ぶ方法もあります。</li>
+        </ol>
+
+        <h3>PC（Windows・Mac）の場合</h3>
+        <ol>
+          <li><strong>Windows：</strong>ダウンロードしたファイルを右クリックし、<strong>デスクトップの背景として設定</strong> を選びます。</li>
+          <li><strong>macOS：</strong>画像を右クリックして <strong>デスクトップピクチャを設定</strong> を選ぶか、<strong>システム設定 &rsaquo; 壁紙</strong> から追加します。</li>
+          <li>マルチモニターの場合は、それぞれの画面のネイティブ解像度で1枚ずつ作成するときれいです。</li>
+        </ol>
+
+        <a href="/ja/" class="cta" data-umami-event="howto-guide-cta">文字の壁紙を作成する &rarr;</a>
+
+        <h2 id="photo-ni-moji">手持ちの写真に文字を入れたい場合</h2>
+
+        <p>はっきりお伝えすると、<strong>TextWallpaper.com は写真編集ツールではありません</strong>。単色の背景に文字を配置した新しい壁紙を生成するツールです。<em>すでにある写真の上</em>に文字を重ねたい場合は、お使いの端末に最初から入っている機能が使えます。</p>
+
+        <ul>
+          <li><strong>iPhone / iPad：</strong>写真アプリで写真を開き、<strong>編集</strong> &rsaquo; マークアップ（ペンのアイコン）&rsaquo; <strong>＋ &rsaquo; テキスト</strong> の順にタップ。入力して位置を調整し、保存します。</li>
+          <li><strong>Android：</strong><strong>Googleフォト</strong> で写真を開き、<strong>編集 &rsaquo; マークアップ &rsaquo; テキスト</strong> を選択。Samsungのギャラリーなど各社のギャラリーアプリにも同様の機能があります。</li>
+          <li><strong>Windows：</strong><strong>フォト</strong> アプリの編集機能で描き込みができ、入力テキストなら <strong>ペイント</strong> の「A」ツールが確実です。</li>
+          <li><strong>macOS：</strong><strong>プレビュー</strong> で画像を開き、<strong>ツール &rsaquo; 注釈 &rsaquo; テキスト</strong> でテキストボックスを追加します。</li>
+        </ul>
+
+        <p>ただし、写真の上の文字は背景がごちゃごちゃしていると読みにくくなりがちです。「言葉を見せる」ことが目的なら、文字から生成した壁紙のほうがいつでもくっきり読みやすく仕上がります。</p>
+
+        <h2>読みやすい文字壁紙のコツ</h2>
+
+        <div class="tip-box tip-box--info">
+          <p><strong>コントラストがすべてです。</strong>濃い背景に明るい文字（またはその逆）が、淡い色の組み合わせよりずっと読みやすくなります。屋外の日差しの下でも一目で読めます。</p>
+        </div>
+
+        <ul>
+          <li><strong>時計の位置に注意：</strong>ロック画面では上部3分の1を時計と日付が、中央を通知が占めます。大事な言葉は短くするか、下寄りに配置しましょう。</li>
+          <li><strong>思ったより大きめに：</strong>編集画面で大きすぎると感じるサイズが、腕を伸ばして見るスマホではちょうどよいことが多いです。</li>
+          <li><strong>短くまとめる：</strong>3〜8文字程度の言葉のほうが、長い文章より印象に残ります。1日に100回以上目にするものです。</li>
+          <li><strong>余白を残す：</strong>スマホは画面の角が丸く、設定時に少し切り取られることもあります。文字を端ぎりぎりに置かないようにしましょう。</li>
+        </ul>
+
+        <h2>よくある質問</h2>
+
+        <h3>文字の壁紙を作成できるサイトはありますか？</h3>
+        <p>はい。<a href="/ja/">TextWallpaper.com</a> は文字を入力するだけで待ち受け・壁紙を作成できる無料サイトです。登録不要・透かしなしで、処理はすべてブラウザ内で完結するため、入力した文字がアップロードされることはありません。</p>
+
+        <h3>手持ちの写真に文字を入れられますか？</h3>
+        <p>このツールではできません。写真への文字入れは、iPhoneのマークアップ、Googleフォト、Windowsのフォト／ペイント、Macのプレビューなど、上で紹介した端末標準の機能をお使いください。</p>
+
+        <h3>最適なサイズはどれくらいですか？</h3>
+        <p>画面の解像度に合わせてください。最近のスマホは約1170&times;2532〜1440&times;3200ピクセル、PCは1920&times;1080、2560&times;1440、3840&times;2160（4K）が一般的です。プリセットもカスタムサイズも選べます。</p>
+
+        <h3>本当に無料ですか？</h3>
+        <p>はい、完全に無料です。会員登録は不要で、透かしも入りません。</p>
+
+        <p>あなたの好きな言葉を、今すぐ画面に。</p>
+
+        <a href="/ja/" class="cta cta--large" data-umami-event="howto-guide-cta">今すぐ壁紙を作成する &rarr;</a>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="/ja/">TextWallpaper.com</a> - 無料テキスト壁紙ジェネレーター</p>
+    </footer>
+
+    <!-- Analytics -->
+    <script src="/shared/analytics.js"></script>
+  </body>
+</html>

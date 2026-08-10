@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters;
+       var siteBase = 'https://textwallpaper.com';
+       var canonicalUrl = siteBase + p.availableLangUrls[p.activeLang];
+       var hreflangCodes = { zh: 'zh-Hans', zhHant: 'zh-Hant' };
+    %>
+    <title>Hintergrundbild mit Text erstellen – online &amp; kostenlos | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="Hintergrundbild mit Text erstellen – online &amp; kostenlos. Text mit Hintergrund für Handy und PC in Sekunden erstellen, herunterladen und als Wallpaper nutzen." />
+    <meta name="keywords" content="hintergrund für text kostenlos, text mit hintergrund erstellen online kostenlos, hintergrundbild mit text erstellen, text hintergrund, wallpaper mit text" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="<%= canonicalUrl %>" />
+    <!-- hreflang -->
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) { %>
+    <link rel="alternate" hreflang="<%= hreflangCodes[lang] || lang %>" href="<%= siteBase + p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="<%= siteBase + p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="<%= canonicalUrl %>" />
+    <meta property="og:title" content="Hintergrundbild mit Text erstellen – online & kostenlos" />
+    <meta property="og:description" content="Text mit Hintergrund für Handy und PC in Sekunden erstellen. Kostenlos, ohne Anmeldung, ohne Wasserzeichen." />
+    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+    <meta property="og:locale" content="de_DE" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="<%= canonicalUrl %>" />
+    <meta property="twitter:title" content="Hintergrundbild mit Text erstellen – online & kostenlos" />
+    <meta property="twitter:description" content="Text mit Hintergrund für Handy und PC in Sekunden erstellen. Kostenlos und ohne Anmeldung." />
+    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+
+    <!-- Structured Data: HowTo -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "Hintergrundbild mit Text erstellen",
+      "description": "Erstellen Sie kostenlos online ein Hintergrundbild mit eigenem Text für Handy oder PC und richten Sie es als Wallpaper ein.",
+      "inLanguage": "de",
+      "totalTime": "PT2M",
+      "estimatedCost": {
+        "@type": "MonetaryAmount",
+        "currency": "EUR",
+        "value": "0"
+      },
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "TextWallpaper.com – kostenloser Text-Hintergrund-Generator"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Generator öffnen",
+          "text": "Öffnen Sie textwallpaper.com/de/ in einem beliebigen Browser auf Handy oder PC. Keine Anmeldung, keine Installation nötig.",
+          "url": "https://textwallpaper.com/de/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Text eingeben",
+          "text": "Tippen Sie den gewünschten Text ein: ein Zitat, einen Namen, eine Erinnerung. Umlaute, ß und Emojis werden perfekt dargestellt."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Farben und Größe wählen",
+          "text": "Wählen Sie Text- und Hintergrundfarbe, passen Sie die Schriftgröße an und stellen Sie eine Auflösung passend zu Ihrem Bildschirm ein."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Bild herunterladen",
+          "text": "Laden Sie das fertige Hintergrundbild herunter. Es wird als normale Bilddatei ohne Wasserzeichen gespeichert."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Als Hintergrund einrichten",
+          "text": "iPhone: Einstellungen > Hintergrundbild > Neues Hintergrundbild. Android: Startbildschirm gedrückt halten > Hintergrund & Stil. Windows: Rechtsklick auf das Bild > Als Desktophintergrund festlegen. macOS: Systemeinstellungen > Hintergrundbild."
+        }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: FAQ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "de",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Wie kann ich kostenlos einen Hintergrund für meinen Text erstellen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Öffnen Sie textwallpaper.com/de/, geben Sie Ihren Text ein, wählen Sie Farben und Auflösung und laden Sie das Bild herunter. Der Generator ist komplett kostenlos, ohne Anmeldung und ohne Wasserzeichen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kann ich mit dem Tool Text auf ein vorhandenes Foto schreiben?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nein. TextWallpaper.com erzeugt ein neues Hintergrundbild aus Ihrem Text auf einfarbigem Hintergrund und ist kein Foto-Editor. Für Text auf einem vorhandenen Foto nutzen Sie die Bordmittel Ihres Geräts: iOS-Markierungen, die Bearbeitung in Google Fotos, die Fotos-App oder Paint unter Windows bzw. die Vorschau am Mac."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Welche Größe sollte das Hintergrundbild haben?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Am besten die Auflösung Ihres Bildschirms: aktuelle Smartphones liegen etwa zwischen 1170x2532 und 1440x3200 Pixeln, gängige PC-Auflösungen sind 1920x1080 (Full HD), 2560x1440 und 3840x2160 (4K). Der Generator bietet Voreinstellungen und freie Größenwahl."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Werden meine Texte irgendwohin hochgeladen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nein. Das Bild wird komplett lokal in Ihrem Browser erzeugt. Ihr Text verlässt Ihr Gerät nicht."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="/shared/static-pages.css">
+  </head>
+  <body>
+    <header class="header">
+      <a href="/de/">TextWallpaper.com</a>
+    </header>
+    <nav class="lang-nav">
+      <a href="/how-to-add-text-to-wallpaper/">English</a>
+      <a href="/de/how-to-add-text-to-wallpaper/" class="active">Deutsch</a>
+      <a href="/ja/how-to-add-text-to-wallpaper/">日本語</a>
+    </nav>
+
+    <main class="container">
+      <nav class="breadcrumb">
+        <a href="/de/">Startseite</a> &rsaquo; Hintergrundbild mit Text erstellen
+      </nav>
+
+      <article class="article-content">
+        <h1>Hintergrundbild mit Text erstellen &ndash; online &amp; kostenlos</h1>
+
+        <p>Sie m&ouml;chten einen Spruch, einen Namen oder eine Erinnerung als Hintergrundbild auf Handy oder PC? Daf&uuml;r gibt es zwei Wege:</p>
+
+        <ul>
+          <li><strong>Einen neuen Text-Hintergrund erstellen</strong> &mdash; Text eintippen, Farben w&auml;hlen, passend zugeschnittenes Bild herunterladen. Genau das macht <a href="/de/">TextWallpaper.com</a>: der schnellste Weg, und der Text bleibt in jeder Aufl&ouml;sung gestochen scharf.</li>
+          <li><strong>Text auf ein vorhandenes Foto schreiben</strong> &mdash; mit den Bordmitteln Ihres Ger&auml;ts. Wie das geht, erkl&auml;ren wir <a href="#text-auf-foto">weiter unten</a>.</li>
+        </ul>
+
+        <p>Wenn Sie einfach nur Worte auf dem Bildschirm haben m&ouml;chten, dauert der erste Weg keine Minute. So funktioniert es:</p>
+
+        <h2>Text mit Hintergrund erstellen &ndash; in 4 Schritten</h2>
+
+        <ol>
+          <li><strong>Generator &ouml;ffnen</strong> &mdash; rufen Sie <a href="/de/" data-umami-event="howto-guide-cta">textwallpaper.com</a> in einem beliebigen Browser auf. Kostenlos, ohne Anmeldung, ohne App.</li>
+          <li><strong>Text eingeben</strong> &mdash; Zitat, Motto, Name oder To-do. Umlaute (&auml;, &ouml;, &uuml;), &szlig; und Emojis werden perfekt dargestellt.</li>
+          <li><strong>Farben und Gr&ouml;&szlig;e festlegen</strong> &mdash; Text- und Hintergrundfarbe w&auml;hlen, Schriftgr&ouml;&szlig;e anpassen und eine Aufl&ouml;sung passend zum Bildschirm einstellen (Voreinstellungen f&uuml;r Handy und PC oder freie Gr&ouml;&szlig;e).</li>
+          <li><strong>Herunterladen</strong> &mdash; das fertige Bild speichern. Ohne Wasserzeichen, in voller Aufl&ouml;sung.</li>
+        </ol>
+
+        <div class="mantra-example">&Uuml;BUNG MACHT DEN MEISTER</div>
+
+        <p>Anschlie&szlig;end richten Sie das Bild als Hintergrund ein &mdash; je nach Ger&auml;t so:</p>
+
+        <h3>Auf dem iPhone</h3>
+        <ol>
+          <li><strong>Einstellungen &rsaquo; Hintergrundbild</strong> &ouml;ffnen und auf <strong>Neues Hintergrundbild</strong> tippen.</li>
+          <li><strong>Fotos</strong> w&auml;hlen und das heruntergeladene Bild ausw&auml;hlen (Downloads aus Safari landen ggf. zuerst in der Dateien-App &mdash; bei Bedarf in Fotos sichern).</li>
+          <li>Bild positionieren, auf <strong>Hinzuf&uuml;gen</strong> tippen und f&uuml;r Sperrbildschirm, Home-Bildschirm oder beides &uuml;bernehmen.</li>
+        </ol>
+
+        <h3>Auf Android</h3>
+        <ol>
+          <li>Eine freie Stelle des Startbildschirms gedr&uuml;ckt halten und <strong>Hintergrund &amp; Stil</strong> antippen (die Bezeichnung variiert je nach Hersteller leicht).</li>
+          <li>Das heruntergeladene Bild aus der Galerie ausw&auml;hlen.</li>
+          <li><strong>Startbildschirm</strong>, <strong>Sperrbildschirm</strong> oder beides w&auml;hlen und best&auml;tigen. Alternativ: Bild in Google Fotos &ouml;ffnen &rsaquo; Drei-Punkte-Men&uuml; &rsaquo; <strong>Verwenden als &rsaquo; Hintergrund</strong>.</li>
+        </ol>
+
+        <h3>Am PC und Mac</h3>
+        <ol>
+          <li><strong>Windows:</strong> Rechtsklick auf die heruntergeladene Datei &rsaquo; <strong>Als Desktophintergrund festlegen</strong>.</li>
+          <li><strong>macOS:</strong> Rechtsklick auf das Bild &rsaquo; <strong>Schreibtischhintergrund festlegen</strong>, oder &uuml;ber <strong>Systemeinstellungen &rsaquo; Hintergrundbild</strong> hinzuf&uuml;gen.</li>
+          <li>Bei mehreren Monitoren: pro Bildschirm ein Bild in der jeweiligen nativen Aufl&ouml;sung erstellen.</li>
+        </ol>
+
+        <a href="/de/" class="cta" data-umami-event="howto-guide-cta">Jetzt Text-Hintergrund erstellen &rarr;</a>
+
+        <h2 id="text-auf-foto">Text auf ein vorhandenes Foto schreiben</h2>
+
+        <p>Zur Klarheit: <strong>TextWallpaper.com bearbeitet keine Fotos</strong> &mdash; es erzeugt ein neues Hintergrundbild aus Ihrem Text auf einfarbigem Hintergrund. Wenn Sie Text <em>auf ein vorhandenes Bild</em> setzen m&ouml;chten, hat Ihr Ger&auml;t daf&uuml;r bereits ein Werkzeug an Bord:</p>
+
+        <ul>
+          <li><strong>iPhone / iPad:</strong> Foto in der Fotos-App &ouml;ffnen, auf <strong>Bearbeiten</strong> tippen, dann das Markierungs-Symbol (Stift) und <strong>+ &rsaquo; Text</strong> w&auml;hlen. Tippen, verschieben, sichern.</li>
+          <li><strong>Android:</strong> Foto in <strong>Google Fotos</strong> &ouml;ffnen, <strong>Bearbeiten &rsaquo; Markierung &rsaquo; Text</strong> w&auml;hlen. Auch die Samsung-Galerie und andere Galerie-Apps haben ein Textwerkzeug.</li>
+          <li><strong>Windows:</strong> Die <strong>Fotos</strong>-App kann Bilder im Bearbeitungsmodus beschriften; f&uuml;r getippten Text funktioniert auch klassisch <strong>Paint</strong> (Textwerkzeug &bdquo;A&ldquo;).</li>
+          <li><strong>macOS:</strong> Bild in der <strong>Vorschau</strong> &ouml;ffnen und &uuml;ber <strong>Werkzeuge &rsaquo; Anmerkungen &rsaquo; Text</strong> ein Textfeld einf&uuml;gen.</li>
+        </ul>
+
+        <p>Der Nachteil: Text auf einem unruhigen Foto ist oft schwer lesbar. Wenn es vor allem um die Botschaft geht, ist ein generierter Text-Hintergrund immer die sch&auml;rfere und ruhigere L&ouml;sung.</p>
+
+        <h2>Tipps f&uuml;r einen gut lesbaren Text-Hintergrund</h2>
+
+        <div class="tip-box tip-box--info">
+          <p><strong>Kontrast ist alles.</strong> Dunkler Hintergrund mit heller Schrift (oder umgekehrt) schl&auml;gt jede dezente Farbkombination &mdash; Sie lesen das Bild im Vorbeigehen, manchmal im Sonnenlicht.</p>
+        </div>
+
+        <ul>
+          <li><strong>An die Uhr denken:</strong> Auf dem Sperrbildschirm belegt die Uhrzeit das obere Drittel, Benachrichtigungen die Mitte. Wichtigen Text eher kurz halten oder nach unten setzen.</li>
+          <li><strong>Gr&ouml;&szlig;er als gedacht:</strong> Eine Schriftgr&ouml;&szlig;e, die im Editor riesig wirkt, ist auf dem Handy in Arml&auml;nge meist genau richtig.</li>
+          <li><strong>Kurz halten:</strong> 3&ndash;8 W&ouml;rter wirken st&auml;rker als ein Absatz.</li>
+          <li><strong>Rand lassen:</strong> Handys runden die Bildschirmecken ab und schneiden beim Positionieren leicht zu &mdash; Text nicht bis an den Rand setzen.</li>
+        </ul>
+
+        <h2>H&auml;ufige Fragen</h2>
+
+        <h3>Wie erstelle ich kostenlos einen Hintergrund f&uuml;r meinen Text?</h3>
+        <p>&Ouml;ffnen Sie <a href="/de/">textwallpaper.com</a>, geben Sie Ihren Text ein, w&auml;hlen Sie Farben und Aufl&ouml;sung und laden Sie das Bild herunter. Komplett kostenlos, ohne Anmeldung, ohne Wasserzeichen.</p>
+
+        <h3>Kann ich Text auf ein vorhandenes Foto setzen?</h3>
+        <p>Nicht mit diesem Tool &mdash; es erzeugt neue Bilder aus Text. Nutzen Sie daf&uuml;r iOS-Markierungen, Google Fotos, die Windows-Fotos-App/Paint oder die Vorschau am Mac (siehe oben).</p>
+
+        <h3>Welche Aufl&ouml;sung ist die richtige?</h3>
+        <p>Die Ihres Bildschirms: Smartphones etwa 1170&times;2532 bis 1440&times;3200 Pixel, PCs meist 1920&times;1080, 2560&times;1440 oder 3840&times;2160 (4K). Voreinstellungen und freie Gr&ouml;&szlig;en sind verf&uuml;gbar.</p>
+
+        <h3>Wird mein Text hochgeladen?</h3>
+        <p>Nein &mdash; alles wird lokal in Ihrem Browser gerendert. Ihr Text verl&auml;sst Ihr Ger&auml;t nicht.</p>
+
+        <p>Bereit, Ihre eigenen Worte auf den Bildschirm zu bringen?</p>
+
+        <a href="/de/" class="cta cta--large" data-umami-event="howto-guide-cta">Hintergrundbild jetzt erstellen &rarr;</a>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="/de/">TextWallpaper.com</a> - Kostenloser Text-Hintergrundbild-Generator</p>
+    </footer>
+
+    <!-- Analytics -->
+    <script src="/shared/analytics.js"></script>
+  </body>
+</html>
