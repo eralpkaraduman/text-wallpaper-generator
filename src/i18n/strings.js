@@ -11,6 +11,7 @@
 import de from './de';
 import en from './en';
 import ja from './ja';
+import tr from './tr';
 import zh from './zh';
 
-export default { de, en, ja, zh };
+export default { de, en, ja, tr, zh };
