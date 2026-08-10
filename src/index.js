@@ -210,6 +210,9 @@ getElement('menu').addEventListener('click', () =>
 );
 
 wallpaperElement.style.backgroundColor = menu.backgroundColor;
+// The body carries a hardcoded #2D2D2D inline style that only coincides with
+// the default background; a ?bg= preset diverges from it, so sync it here too.
+getBody().style.backgroundColor = menu.backgroundColor;
 updateThemeColor(menu.backgroundColor);
 wallpaperElement.addEventListener('click', () => menu.closeAllWindows());
 
