@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters;
+       var siteBase = 'https://textwallpaper.com';
+       var canonicalUrl = siteBase + p.availableLangUrls[p.activeLang];
+       var hreflangCodes = { zh: 'zh-Hans', zhHant: 'zh-Hant' };
+    %>
+    <title>How to Add Text to Your Wallpaper (iPhone, Android &amp; Desktop) | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="How to add text to your wallpaper on iPhone, Android or desktop: generate a text wallpaper in seconds, or write on an existing photo. Free, step by step." />
+    <meta name="keywords" content="how to add text to wallpaper, add text to wallpaper, write on wallpaper, write text on wallpaper, how to make a text wallpaper, text wallpaper iphone" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="<%= canonicalUrl %>" />
+    <!-- hreflang -->
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) { %>
+    <link rel="alternate" hreflang="<%= hreflangCodes[lang] || lang %>" href="<%= siteBase + p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="<%= siteBase + p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="<%= canonicalUrl %>" />
+    <meta property="og:title" content="How to Add Text to Your Wallpaper (iPhone, Android & Desktop)" />
+    <meta property="og:description" content="Generate a text wallpaper in seconds or write on an existing photo. Free step-by-step guide." />
+    <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="<%= canonicalUrl %>" />
+    <meta property="twitter:title" content="How to Add Text to Your Wallpaper (iPhone, Android & Desktop)" />
+    <meta property="twitter:description" content="Generate a text wallpaper in seconds or write on an existing photo. Free step-by-step guide." />
+    <meta property="twitter:image" content="https://textwallpaper.com/shared/og-image.png" />
+
+    <!-- Structured Data: HowTo -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Add Text to Your Wallpaper",
+      "description": "Create a wallpaper with your own text for iPhone, Android or desktop using a free online text wallpaper generator, then set it as your background.",
+      "totalTime": "PT2M",
+      "estimatedCost": {
+        "@type": "MonetaryAmount",
+        "currency": "USD",
+        "value": "0"
+      },
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "TextWallpaper.com free text wallpaper generator"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Open the text wallpaper generator",
+          "text": "Go to textwallpaper.com in any browser on your phone or computer. No sign-up or install is needed.",
+          "url": "https://textwallpaper.com/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Type your text",
+          "text": "Type the words you want on your wallpaper: a quote, a name, a reminder, or anything else. Any language and emoji work."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Choose colors and size",
+          "text": "Pick a text color and background color, adjust the font size, and choose a resolution that matches your screen (phone, desktop, or a custom size)."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Download the wallpaper",
+          "text": "Download the generated image. It is saved as a normal image file on your device, with no watermark."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Set it as your wallpaper",
+          "text": "On iPhone: Settings > Wallpaper > Add New Wallpaper > Photos. On Android: long-press the home screen > Wallpaper & style. On Windows: right-click the image > Set as desktop background. On macOS: System Settings > Wallpaper."
+        }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: FAQ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I add text to my wallpaper on iPhone?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The quickest way is to generate a new text wallpaper: open textwallpaper.com in Safari, type your text, pick colors, download the image, then go to Settings > Wallpaper > Add New Wallpaper > Photos and select it. To write on an existing photo instead, open the photo in the Photos app, tap Edit, then use the Markup pen to add text."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I add text to an existing photo with this tool?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. TextWallpaper.com generates a fresh wallpaper from your text on a solid background color; it is not a photo editor. To overlay text on an existing photo, use your device's built-in tools such as iOS Markup, Google Photos editing, Windows Photos or Paint, or macOS Preview."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it free to make a text wallpaper?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. TextWallpaper.com is completely free, with no sign-up, no watermark, and no downloads. Everything renders locally in your browser, so your text is never uploaded anywhere."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What size should a text wallpaper be?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Match your screen resolution. Modern iPhones and Android phones are around 1170x2532 to 1440x3200 pixels; common desktop sizes are 1920x1080 (Full HD), 2560x1440 and 3840x2160 (4K). The generator lets you pick a preset or enter a custom size."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it work in any language or with emoji?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Any Unicode text works: accented characters, Chinese, Japanese, Arabic, emoji, and symbols all render correctly."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="/shared/static-pages.css">
+  </head>
+  <body>
+    <header class="header">
+      <a href="/">TextWallpaper.com</a>
+    </header>
+    <nav class="lang-nav">
+      <a href="/how-to-add-text-to-wallpaper/" class="active">English</a>
+      <a href="/de/how-to-add-text-to-wallpaper/">Deutsch</a>
+      <a href="/ja/how-to-add-text-to-wallpaper/">日本語</a>
+    </nav>
+
+    <main class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> &rsaquo; How to Add Text to Wallpaper
+      </nav>
+
+      <article class="article-content">
+        <h1>How to Add Text to Your Wallpaper (iPhone, Android &amp; Desktop)</h1>
+
+        <p>Want your phone or desktop background to say something&mdash;a quote, a name, a deadline, a daily reminder? There are two ways to add text to a wallpaper:</p>
+
+        <ul>
+          <li><strong>Generate a fresh text wallpaper</strong> &mdash; type your text, pick colors, download a perfectly sized image. This is what <a href="/">TextWallpaper.com</a> does. It's the fastest option and the text stays razor sharp at any resolution.</li>
+          <li><strong>Overlay text on an existing photo</strong> &mdash; use your device's built-in photo editor to write on a picture you already have. Covered <a href="#write-on-photo">further down</a>.</li>
+        </ul>
+
+        <p>If you just want words on your screen, the first approach takes under a minute. Here's how.</p>
+
+        <h2>Make a Text Wallpaper in 4 Steps</h2>
+
+        <ol>
+          <li><strong>Open the generator</strong> &mdash; go to <a href="/" data-umami-event="howto-guide-cta">textwallpaper.com</a> in any browser. Free, no sign-up, no app to install.</li>
+          <li><strong>Type your text</strong> &mdash; a quote, mantra, name, to-do, or anything else. Any language and emoji work.</li>
+          <li><strong>Set colors and size</strong> &mdash; choose text and background colors, adjust the font size, and pick a resolution that matches your screen (phone or desktop presets, or a custom size).</li>
+          <li><strong>Download</strong> &mdash; save the image to your device. No watermark, full resolution.</li>
+        </ol>
+
+        <div class="mantra-example">MAKE IT HAPPEN</div>
+
+        <p>Then set the downloaded image as your wallpaper. The exact steps depend on your device:</p>
+
+        <h3>On iPhone</h3>
+        <ol>
+          <li>Open <strong>Settings &rsaquo; Wallpaper</strong> and tap <strong>Add New Wallpaper</strong>.</li>
+          <li>Choose <strong>Photos</strong> and select the downloaded image (it's in Recents; downloads from Safari may land in your Downloads album or the Files app first&mdash;save to Photos if needed).</li>
+          <li>Pinch to position it, tap <strong>Add</strong>, then choose whether to use it on the Lock Screen, Home Screen, or both.</li>
+        </ol>
+
+        <h3>On Android</h3>
+        <ol>
+          <li>Long-press an empty spot on the home screen and tap <strong>Wallpaper &amp; style</strong> (wording varies slightly by manufacturer).</li>
+          <li>Choose the downloaded image from your gallery.</li>
+          <li>Pick <strong>Home screen</strong>, <strong>Lock screen</strong>, or both, and confirm. Alternatively: open the image in Google Photos or your Gallery app, tap the three-dot menu, and choose <strong>Use as &rsaquo; Wallpaper</strong>.</li>
+        </ol>
+
+        <h3>On Desktop (Windows &amp; Mac)</h3>
+        <ol>
+          <li><strong>Windows:</strong> right-click the downloaded file and choose <strong>Set as desktop background</strong> (or Set as &rsaquo; Background on Windows 11).</li>
+          <li><strong>macOS:</strong> right-click (Ctrl-click) the image and choose <strong>Set Desktop Picture</strong>, or open <strong>System Settings &rsaquo; Wallpaper</strong> and add the image.</li>
+          <li>For multiple monitors, generate one wallpaper per screen at each screen's native resolution.</li>
+        </ol>
+
+        <a href="/" class="cta" data-umami-event="howto-guide-cta">Create Your Text Wallpaper &rarr;</a>
+
+        <h2 id="write-on-photo">Writing Text on an Existing Photo Instead</h2>
+
+        <p>To be clear: <strong>TextWallpaper.com doesn't edit photos</strong> &mdash; it generates a clean wallpaper from your text on a solid background. If you want words <em>on top of a picture you already have</em>, your device almost certainly has a built-in tool for that:</p>
+
+        <ul>
+          <li><strong>iPhone / iPad:</strong> open the photo in the Photos app, tap <strong>Edit</strong>, then the Markup pen icon, and tap <strong>+</strong> &rsaquo; <strong>Text</strong> (or Add Text). Type, resize, drag into place, and save.</li>
+          <li><strong>Android:</strong> open the photo in <strong>Google Photos</strong>, tap <strong>Edit &rsaquo; Markup &rsaquo; Text</strong>, type your text and pick a color. Samsung Gallery and other gallery apps have similar text tools.</li>
+          <li><strong>Windows:</strong> the <strong>Photos</strong> app's edit/markup mode can draw on images; for typed text, <strong>Paint</strong> (the "A" text tool) still does the job.</li>
+          <li><strong>macOS:</strong> open the image in <strong>Preview</strong>, choose <strong>Tools &rsaquo; Annotate &rsaquo; Text</strong>, and drag the text box where you want it.</li>
+        </ul>
+
+        <p>The trade-off: text over a busy photo is often hard to read, and heavy edits can look pixelated once stretched to full screen. If readability is the point, a generated text wallpaper will always be sharper.</p>
+
+        <h2>Tips for a Wallpaper You Can Actually Read</h2>
+
+        <div class="tip-box tip-box--info">
+          <p><strong>Contrast is everything.</strong> Dark background with light text (or the reverse) beats subtle color pairs&mdash;you'll be reading this at a glance, sometimes in sunlight.</p>
+        </div>
+
+        <ul>
+          <li><strong>Mind the clock:</strong> on lock screens, the top third is occupied by the time and date, and notifications cover the middle. Keep important text low or short.</li>
+          <li><strong>Bigger than you think:</strong> a font size that looks huge in the editor is usually right on a phone held at arm's length.</li>
+          <li><strong>Keep it short:</strong> 3&ndash;8 words hit harder than a paragraph. You'll see it 100+ times a day.</li>
+          <li><strong>Leave margins:</strong> phones round the screen corners and crop slightly when repositioning&mdash;don't push text to the very edge.</li>
+          <li><strong>Match both screens:</strong> set it on lock <em>and</em> home screen, or use two different messages.</li>
+        </ul>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>How do I add text to my wallpaper on iPhone?</h3>
+        <p>Fastest way: generate one. Open <a href="/">textwallpaper.com</a> in Safari, type your text, download, then Settings &rsaquo; Wallpaper &rsaquo; Add New Wallpaper &rsaquo; Photos. To write on an existing photo, use Edit &rsaquo; Markup in the Photos app instead.</p>
+
+        <h3>Can I add text to an existing photo with this tool?</h3>
+        <p>No&mdash;this tool generates a fresh wallpaper from text on a solid background color. For photo overlays, use iOS Markup, Google Photos editing, Windows Photos/Paint, or macOS Preview as described above.</p>
+
+        <h3>Is it free?</h3>
+        <p>Yes. Free, no sign-up, no watermark. Rendering happens entirely in your browser, so your text is never uploaded.</p>
+
+        <h3>What resolution should I use?</h3>
+        <p>Match your screen: recent phones are roughly 1170&times;2532 to 1440&times;3200 pixels; desktops are commonly 1920&times;1080, 2560&times;1440, or 3840&times;2160 (4K). The generator has presets and accepts custom sizes.</p>
+
+        <h3>Does it support other languages and emoji?</h3>
+        <p>Yes&mdash;any Unicode text renders correctly, including accents, CJK scripts, right-to-left languages, and emoji.</p>
+
+        <p>Ready to put your own words on your screen?</p>
+
+        <a href="/" class="cta cta--large" data-umami-event="howto-guide-cta">Make Your Wallpaper Now &rarr;</a>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="/">TextWallpaper.com</a> - Free Text Wallpaper Generator</p>
+    </footer>
+
+    <!-- Analytics -->
+    <script src="/shared/analytics.js"></script>
+  </body>
+</html>
