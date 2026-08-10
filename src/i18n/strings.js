@@ -8,7 +8,11 @@
 // 'en' is special: it only contains the strings JS code consumes (and per-key
 // fallbacks); the English DOM is never written to — English UI text is baked
 // into the HTML markup itself.
+import de from './de';
 import en from './en';
+import id from './id';
 import ja from './ja';
+import tr from './tr';
+import zh from './zh';
 
-export default { en, ja };
+export default { de, en, id, ja, tr, zh };
