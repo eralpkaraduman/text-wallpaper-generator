@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters;
+       var origin = 'https://textwallpaper.com';
+       var hreflangCodes = { zh: 'zh-Hans', zhHant: 'zh-Hant' };
+       var canonicalUrl = origin + p.availableLangUrls[p.activeLang];
+    %>
+    <title>Buat Wallpaper Online Gratis — Tanpa Daftar, Tanpa Watermark | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="Buat wallpaper online gratis. Ketik teks Anda, pilih warna, lalu unduh dalam resolusi apa pun hingga 4K. Tanpa daftar, tanpa watermark — semuanya berjalan di browser." />
+    <meta name="keywords" content="buat wallpaper online, membuat wallpaper gratis, generator wallpaper online, aplikasi pembuat wallpaper, buat wallpaper sendiri, wallpaper teks" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="<%= canonicalUrl %>" />
+    <!-- hreflang -->
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) { %>
+    <link rel="alternate" hreflang="<%= hreflangCodes[lang] || lang %>" href="<%= origin + p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="<%= origin + p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= canonicalUrl %>" />
+    <meta property="og:title" content="Buat Wallpaper Online Gratis — Tanpa Daftar, Tanpa Watermark" />
+    <meta property="og:description" content="Ketik teks Anda, pilih warna, lalu unduh dalam resolusi apa pun hingga 4K. Gratis, tanpa akun, tanpa watermark — semuanya di browser." />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
+    <meta property="og:locale" content="id_ID" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="<%= canonicalUrl %>" />
+    <meta property="twitter:title" content="Buat Wallpaper Online Gratis — Tanpa Daftar" />
+    <meta property="twitter:description" content="Ketik teks, pilih warna, unduh hingga 4K. Gratis dan tanpa watermark." />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Apakah pembuat wallpaper ini benar-benar gratis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ya, sepenuhnya gratis. Tidak ada versi premium, masa uji coba, atau fitur terkunci. Semua resolusi, warna, dan jenis huruf tersedia untuk siapa saja."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apakah saya harus mendaftar atau membuat akun?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tidak. Tanpa pendaftaran, tanpa login, tanpa alamat email. Buka halamannya, ketik teks Anda, unduh wallpaper — selesai."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apakah gambarnya diberi watermark?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tidak. Gambar yang Anda unduh hanya berisi teks Anda di atas warna latar yang dipilih — tanpa watermark, tanpa logo, tanpa iklan."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Resolusi apa saja yang didukung?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Resolusi apa pun. Ada preset untuk ukuran ponsel dan komputer yang umum, dan Anda juga bisa memasukkan ukuran sendiri — misalnya 1920×1080 Full HD, 2560×1440, atau 3840×2160 4K."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Bisakah saya memakai foto sendiri sebagai latar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tidak. Alat ini membuat wallpaper teks: latar satu warna ditambah teks Anda. Kalau ingin menaruh teks di atas foto atau membuat kolase, aplikasi edit foto lebih cocok."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apakah teks saya diunggah ke server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tidak. Wallpaper dibuat sepenuhnya di browser dan langsung tersimpan di perangkat Anda. Teks Anda tidak pernah meninggalkan komputer atau ponsel Anda."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="/shared/static-pages.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="app-header-brand" href="/">TextWallpaper.com</a>
+      <div class="app-header-actions">
+        <% var onSupportPage = /\/support\/$/.test(p.availableLangUrls[p.activeLang]); %>
+        <a class="app-header-pill<%= onSupportPage ? ' active' : '' %>" href="<%= p.localHref('/support/') %>" aria-label="<%= p.supportAria %>"<%= onSupportPage ? ' aria-current="page"' : '' %> data-umami-event="support-page-visit"><span class="app-header-heart" aria-hidden="true">&#9829;</span> <%= p.supportLabel %></a>
+        <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
+        <% if (navLangs.length > 1) { %>
+        <details class="app-header-lang">
+          <summary><span aria-hidden="true">&#127760;</span> <%= p.langLabels[p.activeLang] %></summary>
+          <div class="lang-options">
+            <% navLangs.forEach(function (lang) { %>
+            <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
+            <% }); %>
+          </div>
+        </details>
+        <% } %>
+      </div>
+    </header>
+
+
+    <main class="container">
+      <nav class="breadcrumb">
+        <a href="/id/">Beranda</a> &rsaquo; Buat Wallpaper
+      </nav>
+
+      <article class="article-content">
+        <h1>Buat Wallpaper Online &mdash; Gratis, Tanpa Daftar, Tanpa Watermark</h1>
+
+        <p>Ingin membuat wallpaper online &mdash; gratis dan tanpa perlu mendaftar? Alat ini memang dibuat untuk itu, dengan satu penjelasan jujur di awal: yang dihasilkan di sini adalah <strong>wallpaper teks</strong>. Anda memilih warna latar, mengetik teks, mengatur jenis huruf dan ukurannya, lalu mengunduh wallpaper yang tajam sempurna dalam resolusi apa pun. Ini bukan editor foto dan bukan generator gambar AI &mdash; dan justru kesederhanaan itulah yang membuat hasilnya begitu rapi.</p>
+
+        <div class="features">
+          <h2>Apa yang membedakan pembuat wallpaper ini</h2>
+          <ul>
+            <li><strong>100&nbsp;% gratis</strong> &mdash; tanpa versi premium, tanpa masa uji coba, tanpa fitur terkunci</li>
+            <li><strong>Tanpa akun</strong> &mdash; tanpa pendaftaran, tanpa login, tanpa email</li>
+            <li><strong>Tanpa watermark</strong> &mdash; gambar Anda hanya berisi teks Anda, tidak ada yang lain</li>
+            <li><strong>Resolusi apa pun</strong> &mdash; ponsel, tablet, komputer, hingga 3840&times;2160 4K</li>
+            <li><strong>Privasi terjaga</strong> &mdash; semuanya dibuat di browser; tidak ada yang diunggah</li>
+            <li><strong>Semua bahasa</strong> &mdash; bahasa Indonesia, emoji, dan seluruh karakter Unicode</li>
+          </ul>
+        </div>
+
+        <h2>Cara membuat wallpaper Anda</h2>
+
+        <ol>
+          <li><strong>Buka pembuatnya</strong> &mdash; langsung terbuka di browser, tanpa instalasi</li>
+          <li><strong>Ketik teks Anda</strong> &mdash; kutipan, nama, pengingat, atau apa pun yang Anda mau</li>
+          <li><strong>Pilih warna, huruf, dan ukuran</strong> &mdash; pakai preset untuk perangkat Anda atau masukkan ukuran persis</li>
+          <li><strong>Unduh</strong> &mdash; simpan gambarnya dan pasang sebagai wallpaper</li>
+        </ol>
+
+        <p>Semuanya selesai kurang dari satu menit. Tidak perlu panduan, tidak perlu membolak-balik galeri template.</p>
+
+        <a href="/id/" class="cta" data-umami-event="wallpaper-maker-cta">Buat wallpaper &rarr;</a>
+
+        <h2>Kapan pakai alat ini, kapan pakai aplikasi foto?</h2>
+
+        <p>Tidak ada alat yang cocok untuk segalanya. Ini perbandingan jujurnya:</p>
+
+        <h3>Aplikasi foto lebih cocok kalau&hellip;</h3>
+        <ul>
+          <li>Anda ingin membuat kolase dari foto sendiri</li>
+          <li>Anda ingin menaruh teks di atas gambar yang sudah ada</li>
+          <li>Anda mencari gambar hasil AI, filter, atau efek</li>
+        </ul>
+        <p>Untuk semua itu sudah banyak aplikasi edit foto dan kolase &mdash; itu keahlian mereka, bukan kami.</p>
+
+        <h3>Alat ini lebih cocok kalau&hellip;</h3>
+        <ul>
+          <li><strong>Anda ingin cepat</strong> &mdash; wallpaper jadi dalam hitungan detik, tanpa perlu belajar dulu</li>
+          <li><strong>teksnya harus tajam sempurna</strong> &mdash; dirender presisi per piksel, tidak pernah diperbesar hingga pecah</li>
+          <li><strong>privasi penting bagi Anda</strong> &mdash; tidak ada yang diunggah; alat foto biasanya memproses gambar di server mereka</li>
+          <li><strong>Anda butuh resolusi persis</strong> &mdash; lebar dan tinggi bebas diisi, sampai 4K bahkan lebih</li>
+          <li><strong>Anda suka gaya minimalis</strong> &mdash; teks jelas di atas satu warna terlihat rapi, bukan ramai</li>
+        </ul>
+
+        <h2>Ide penggunaan populer</h2>
+
+        <ul>
+          <li>Kutipan motivasi sebagai teman harian di layar kunci</li>
+          <li>Nama atau inisial Anda sebagai wallpaper &mdash; coba <a href="/id/name-wallpaper/">pembuat wallpaper nama</a></li>
+          <li>Pengingat belajar di ponsel saat musim ujian</li>
+          <li>Wallpaper desktop minimalis dalam Full HD atau 4K</li>
+          <li><a href="<%= p.localHref('/use-cases/') %>">Lihat contoh penggunaan lainnya &rarr;</a></li>
+        </ul>
+
+        <h2>Pertanyaan yang sering diajukan</h2>
+
+        <h3>Benar-benar gratis?</h3>
+        <p>Ya, sepenuhnya. Tanpa versi premium, tanpa uji coba, tanpa biaya tersembunyi. Semua resolusi, warna, dan jenis huruf terbuka untuk siapa saja.</p>
+
+        <h3>Apakah saya harus mendaftar?</h3>
+        <p>Tidak. Sistem akun memang tidak ada &mdash; tanpa pendaftaran, tanpa login, tanpa email. Buka halamannya dan mulai mengetik.</p>
+
+        <h3>Apakah ada watermark di gambar?</h3>
+        <p>Tidak. Unduhan hanya berisi teks Anda di atas warna latar pilihan Anda. Tanpa watermark, tanpa logo.</p>
+
+        <h3>Resolusi apa saja yang didukung?</h3>
+        <p>Semua. Ada preset untuk ukuran ponsel dan komputer yang umum, plus kolom ukuran bebas &mdash; 1920&times;1080, 2560&times;1440, 3840&times;2160 4K, atau format lain apa pun.</p>
+
+        <h3>Bisakah saya memakai foto sendiri?</h3>
+        <p>Tidak &mdash; dan itu disengaja, bukan kekurangan. Alat ini membuat wallpaper dari warna plus teks. Untuk teks di atas foto, aplikasi edit foto adalah alat yang tepat.</p>
+
+        <h3>Apakah teks saya diunggah ke mana pun?</h3>
+        <p>Tidak. Semuanya dibuat secara lokal di browser dan langsung tersimpan di perangkat Anda. Teks Anda tidak pernah sampai ke server mana pun.</p>
+
+        <p>Siap? Wallpaper Anda hanya beberapa detik lagi &mdash; gratis dan sepenuhnya privat.</p>
+
+        <a href="/id/" class="cta" data-umami-event="wallpaper-maker-cta">Buat wallpaper sekarang &rarr;</a>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
+    </footer>
+
+    <!-- Analytics -->
+    <script src="/shared/analytics.js"></script>
+  </body>
+</html>

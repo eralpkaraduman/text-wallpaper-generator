@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters; %>
+    <title>名字壁纸生成器 — 免费制作带名字的壁纸 | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="免费制作带你名字的文字壁纸。输入名字，挑选颜色和字号，按手机或电脑尺寸下载。无需注册、没有水印，全程在浏览器里完成。" />
+    <meta name="keywords" content="名字壁纸, 名字壁纸生成器, 姓名壁纸, 带名字的壁纸, 名字壁纸制作" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://textwallpaper.com<%= p.availableLangUrls[p.activeLang] %>" />
+    <!-- hreflang -->
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) {
+      var code = lang === 'zh' ? 'zh-Hans' : (lang === 'zhHant' ? 'zh-Hant' : lang); %>
+    <link rel="alternate" hreflang="<%= code %>" href="https://textwallpaper.com<%= p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="https://textwallpaper.com<%= p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://textwallpaper.com/zh/name-wallpaper/" />
+    <meta property="og:title" content="名字壁纸生成器 — 免费制作带名字的壁纸" />
+    <meta property="og:description" content="输入名字，挑选颜色和尺寸，免费下载适合手机或电脑的名字壁纸。没有水印。" />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://textwallpaper.com/zh/name-wallpaper/" />
+    <meta property="twitter:title" content="名字壁纸生成器 — 免费制作带名字的壁纸" />
+    <meta property="twitter:description" content="输入名字，挑选颜色和尺寸，免费下载。没有水印。" />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "制作名字壁纸是免费的吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "是的，完全免费。不用注册会员，没有付费版本，下载的图片也不带水印。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "支持中文和表情符号吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "支持。文字由你的设备自带字体渲染，所以汉字、拼音、英文字母和表情符号都能正常显示。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "壁纸的分辨率是多少？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "下载前你可以按像素自选尺寸。从手机屏幕到 4K 显示器，图片按你指定的分辨率直接生成，不经过放大处理。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "图片会带水印吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不会。下载的图片只包含你选的背景颜色和你输入的文字，没有标志或水印。"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="/shared/static-pages.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="app-header-brand" href="/">TextWallpaper.com</a>
+      <div class="app-header-actions">
+        <% var onSupportPage = /\/support\/$/.test(p.availableLangUrls[p.activeLang]); %>
+        <a class="app-header-pill<%= onSupportPage ? ' active' : '' %>" href="<%= p.localHref('/support/') %>" aria-label="<%= p.supportAria %>"<%= onSupportPage ? ' aria-current="page"' : '' %> data-umami-event="support-page-visit"><span class="app-header-heart" aria-hidden="true">&#9829;</span> <%= p.supportLabel %></a>
+        <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
+        <% if (navLangs.length > 1) { %>
+        <details class="app-header-lang">
+          <summary><span aria-hidden="true">&#127760;</span> <%= p.langLabels[p.activeLang] %></summary>
+          <div class="lang-options">
+            <% navLangs.forEach(function (lang) { %>
+            <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
+            <% }); %>
+          </div>
+        </details>
+        <% } %>
+      </div>
+    </header>
+
+
+    <main class="container">
+      <nav class="breadcrumb">
+        <a href="/zh/">首页</a> &rsaquo; 名字壁纸
+      </nav>
+
+      <article class="article-content">
+        <h1>名字壁纸生成器 &mdash; 免费制作带你名字的壁纸</h1>
+
+        <p class="intro">想在屏幕上看到自己的名字吗？输入名字、挑好颜色，几秒钟就能下载。这个免费工具完全在浏览器里运行&mdash;&mdash;不用装应用、不用注册，也没有水印。</p>
+
+        <a href="/zh/" class="cta" data-umami-event="name-wallpaper-cta">制作名字壁纸 &rarr;</a>
+
+        <h2>名字壁纸怎么做</h2>
+
+        <ol>
+          <li><strong>输入名字</strong> &mdash; 本名、昵称、姓名首字母，或任何你想写的文字。</li>
+          <li><strong>选颜色和字号</strong> &mdash; 挑一组合你风格的背景色和文字颜色，字号随意调整。</li>
+          <li><strong>选尺寸</strong> &mdash; 按手机或电脑屏幕选择合适的分辨率。</li>
+          <li><strong>下载</strong> &mdash; 保存图片，设为壁纸，就完成了。</li>
+        </ol>
+
+        <p>一切都在你的浏览器里进行：输入的名字不会发送到任何服务器，页面加载完成后，即使断网也能继续使用。</p>
+
+        <h2>手机还是电脑？选对尺寸</h2>
+
+        <ul>
+          <li><strong>手机：</strong>现在的手机大多用 1170&times;2532、1440&times;3200 这类竖屏分辨率。工具可以自动检测你的屏幕尺寸，从手机打开的话通常什么都不用调。</li>
+          <li><strong>电脑：</strong>常见尺寸有 1920&times;1080（全高清）、2560&times;1440 和 3840&times;2160（4K）。选跟显示器一致的尺寸，文字会格外清晰。</li>
+        </ul>
+
+        <div class="tip-box">
+          <p><strong>小提示：</strong>在手机上，把名字放在靠近屏幕中央的位置&mdash;&mdash;锁屏时上方有时钟，主屏幕的边缘则会被应用图标挡住。</p>
+        </div>
+
+        <h2>名字壁纸的几种玩法</h2>
+
+        <ul>
+          <li><strong>只放名字</strong> &mdash; 大大方方写个&ldquo;小美&rdquo;，简单却是独一无二的壁纸。</li>
+          <li><strong>姓名首字母</strong> &mdash; 两三个字母放大摆好，就是一张字母组合风格的优雅壁纸。</li>
+          <li><strong>昵称</strong> &mdash; 朋友们平时叫你的那个名字，往往比全名更有味道。</li>
+          <li><strong>名字＋一句话</strong> &mdash; 像&ldquo;阿伟 &mdash; 每天进步一点&rdquo;这样加一行短句，壁纸就成了每天的提醒。</li>
+          <li><strong>名字＋表情符号</strong> &mdash; 在名字旁边加一颗星星、一颗爱心或一团火焰，气氛立刻不同。</li>
+        </ul>
+
+        <p>反正免费又只要几秒钟，也可以用家人朋友的名字做一张送出去&mdash;&mdash;给朋友一个小惊喜，或者放在孩子的平板上。</p>
+
+        <h2>常见问题</h2>
+
+        <h3>免费吗？</h3>
+        <p>是的，完全免费。不用注册，没有付费套餐，也没有水印。想做多少张都可以。</p>
+
+        <h3>支持中文和表情符号吗？</h3>
+        <p>支持。文字由你的设备渲染，汉字、字母和表情符号都能正常显示。</p>
+
+        <h3>分辨率是多少？</h3>
+        <p>你选多大就是多大。下载前按像素设定尺寸，图片按该尺寸直接生成，不会事后放大。</p>
+
+        <h3>有水印吗？</h3>
+        <p>没有。下载的图片里只有你的文字和背景颜色。</p>
+
+        <p>把你的名字，放上你的屏幕。</p>
+
+        <a href="/zh/" class="cta" data-umami-event="name-wallpaper-cta">制作名字壁纸 &rarr;</a>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
+    </footer>
+
+    <!-- Analytics -->
+    <script src="/shared/analytics.js"></script>
+  </body>
+</html>

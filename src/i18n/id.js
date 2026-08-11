@@ -6,7 +6,7 @@
 // input.
 //
 // Href overrides exist only for pages with an /id/ version (support,
-// use-cases); other links keep their English targets.
+// use-cases, name-wallpaper); other links keep their English targets.
 export default {
   'meta.nativeName': 'Indonesia',
   // Intro screen
@@ -28,6 +28,7 @@ export default {
     'Klik <i class="fas fa-question button-icon"></i> untuk melihat petunjuk ini lagi.',
   'intro.start': 'MULAI',
   'intro.linkName': 'Wallpaper Nama',
+  'intro.linkNameHref': '/id/name-wallpaper/',
   'intro.linkIphone': 'Wallpaper iPhone',
   'intro.linkDesktop': 'Wallpaper Desktop',
   'intro.linkHowto': 'Cara Menambahkan Teks',
