@@ -55,28 +55,27 @@
 
     <meta name="theme-color" content="#2D2D2D" />
     <link rel="stylesheet" href="/shared/static-pages.css">
-    <style>
-      /* Floating support button — same look as the app's main.scss rules.
-         This static page doesn't load main.scss or Font Awesome, so the
-         styles are inlined and the heart glyph is drawn via ::before. */
-      .floating-support-button { position: fixed; right: 0; top: 35%; transform: translateY(-50%); z-index: 999; display: flex; flex-direction: row; align-items: center; gap: 5px; padding: 8px 11px; background-color: #ecf0f1; color: #2d2d2d; font-size: 0.75em; font-weight: bold; text-decoration: none; border-radius: 0.25em 0 0 0.25em; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35); }
-      .floating-support-button:hover, .floating-support-button:active { color: #ecf0f1; background-color: #5a7fb4; }
-      .floating-support-button .fa-heart::before { content: "\2665"; font-style: normal; }
-    </style>
   </head>
   <body>
-    <header class="header">
-      <a href="<%= p.localHref('/') %>">TextWallpaper.com</a>
+    <header class="app-header">
+      <a class="app-header-brand" href="<%= p.homeLink %>">TextWallpaper.com</a>
+      <div class="app-header-actions">
+        <% var onSupportPage = /\/support\/$/.test(p.availableLangUrls[p.activeLang]); %>
+        <a class="app-header-pill<%= onSupportPage ? ' active' : '' %>" href="<%= p.localHref('/support/') %>" aria-label="<%= p.supportAria %>"<%= onSupportPage ? ' aria-current="page"' : '' %> data-umami-event="support-page-visit"><span class="app-header-heart" aria-hidden="true">&#9829;</span> <%= p.supportLabel %></a>
+        <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
+        <% if (navLangs.length > 1) { %>
+        <details class="app-header-lang">
+          <summary><span aria-hidden="true">&#127760;</span> <%= p.langLabels[p.activeLang] %></summary>
+          <div class="lang-options">
+            <% navLangs.forEach(function (lang) { %>
+            <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
+            <% }); %>
+          </div>
+        </details>
+        <% } %>
+      </div>
     </header>
 
-    <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
-    <% if (navLangs.length > 1) { %>
-    <nav class="lang-nav">
-      <% navLangs.forEach(function (lang) { %>
-      <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
-      <% }); %>
-    </nav>
-    <% } %>
 
     <main class="container">
       <h1>Generator Wallpaper Teks</h1>
@@ -115,13 +114,9 @@
     </main>
 
     <footer class="footer">
-      <p>&copy; <a href="<%= p.localHref('/') %>">TextWallpaper.com</a> - Generator Wallpaper Teks Gratis</p>
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
     </footer>
 
-    <a class="floating-support-button" href="/id/support/" id="floating-support-button" aria-label="Dukung proyek ini" data-umami-event="support-page-visit">
-      <i class="fas fa-heart"></i>
-      <span>Dukung</span>
-    </a>
 
     <!-- Analytics -->
     <script src="/shared/analytics.js"></script>

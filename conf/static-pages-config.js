@@ -53,14 +53,46 @@ const ROOT_PAGES = [
   'support',
 ];
 
-// Language configs with their home links and footer text
+// Language configs with their home links, footer text and the header's
+// Support-pill label + aria text (referenced in templates as p.supportLabel /
+// p.supportAria). Labels match the app's i18n dictionaries.
 const LANG_CONFIG = {
-  en: { homeLink: '/', footerText: 'Free Text Wallpaper Generator' },
-  zh: { homeLink: '/zh/', footerText: '免费文字壁纸生成器' },
-  ja: { homeLink: '/ja/', footerText: '無料テキスト壁紙ジェネレーター' },
-  de: { homeLink: '/de/', footerText: 'Kostenloser Text-Hintergrundbild-Generator' },
-  tr: { homeLink: '/tr/', footerText: 'Ücretsiz Metin Duvar Kağıdı Oluşturucu' },
-  id: { homeLink: '/id/', footerText: 'Generator Wallpaper Teks Gratis' },
+  en: {
+    homeLink: '/',
+    footerText: 'Free Text Wallpaper Generator',
+    supportLabel: 'Support',
+    supportAria: 'Support this project',
+  },
+  zh: {
+    homeLink: '/zh/',
+    footerText: '免费文字壁纸生成器',
+    supportLabel: '支持',
+    supportAria: '支持这个项目',
+  },
+  ja: {
+    homeLink: '/ja/',
+    footerText: '無料テキスト壁紙ジェネレーター',
+    supportLabel: '応援する',
+    supportAria: 'このプロジェクトを応援する',
+  },
+  de: {
+    homeLink: '/de/',
+    footerText: 'Kostenloser Text-Hintergrundbild-Generator',
+    supportLabel: 'Unterstützen',
+    supportAria: 'Dieses Projekt unterstützen',
+  },
+  tr: {
+    homeLink: '/tr/',
+    footerText: 'Ücretsiz Metin Duvar Kağıdı Oluşturucu',
+    supportLabel: 'Destek',
+    supportAria: 'Bu projeye destek ol',
+  },
+  id: {
+    homeLink: '/id/',
+    footerText: 'Generator Wallpaper Teks Gratis',
+    supportLabel: 'Dukung',
+    supportAria: 'Dukung proyek ini',
+  },
 };
 
 /**
@@ -233,6 +265,8 @@ function generateStaticPagePlugins() {
         activeLang: lang,
         homeLink: langConfig.homeLink,
         footerText: langConfig.footerText,
+        supportLabel: langConfig.supportLabel,
+        supportAria: langConfig.supportAria,
         langUrls: langUrls,
         availableLangUrls: availableLangUrls,
         stripeDonateUrl: STRIPE_DONATE_URL,
