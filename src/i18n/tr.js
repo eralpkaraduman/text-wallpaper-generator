@@ -41,6 +41,8 @@ export default {
   'menu.clickToSave': 'Kaydetmek için aşağıdaki görsele tıklayın',
   'menu.creating': 'Duvar kağıdınız oluşturuluyor…',
   'menu.supportAria': 'Bu projeye destek ol',
+  'menu.resetSize': 'Ekranım',
+  'menu.resetSizeAria': 'Ekran boyutuma sıfırla',
 
   // Text editor
   'editor.placeholder': 'Bir şeyler yazın…',

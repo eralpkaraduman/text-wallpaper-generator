@@ -37,6 +37,8 @@ export default {
   'menu.clickToSave': '下の画像をクリックして保存してください',
   'menu.creating': '壁紙を作成しています…',
   'menu.supportAria': 'このプロジェクトを応援する',
+  'menu.resetSize': '端末の画面',
+  'menu.resetSizeAria': 'この端末の画面サイズにリセット',
 
   // Text editor
   'editor.placeholder': '何か入力してください…',

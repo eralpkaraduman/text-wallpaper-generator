@@ -38,6 +38,8 @@ export default {
   'menu.clickToSave': '아래 이미지를 클릭해서 저장하세요',
   'menu.creating': '배경화면을 만들고 있어요…',
   'menu.supportAria': '이 프로젝트를 후원해 주세요',
+  'menu.resetSize': '내 화면',
+  'menu.resetSizeAria': '내 화면 크기로 재설정',
 
   // Text editor
   'editor.placeholder': '무언가 적어 보세요…',

@@ -41,6 +41,8 @@ export default {
   'menu.clickToSave': 'Cliquez sur l\'image ci-dessous pour l\'enregistrer',
   'menu.creating': 'Création de votre fond d\'écran…',
   'menu.supportAria': 'Soutenez ce projet',
+  'menu.resetSize': 'Mon écran',
+  'menu.resetSizeAria': 'Réinitialiser à la taille de mon écran',
 
   // Text editor
   'editor.placeholder': 'Écrivez quelque chose…',

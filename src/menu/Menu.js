@@ -19,6 +19,7 @@ export type MenuCallbacks = {
   onTextColorChanged: string => void,
   onBackgroundColorChanged: string => void,
   onImageSizeChanged: (width: number, height: number) => void,
+  onImageSizeReset: () => void,
   onInfoButtonClicked: () => void,
 };
 export type MenuOptions = {
@@ -118,6 +119,7 @@ export default class Menu {
         imageSizeWindow.height = this.height;
         imageSizeWindow.scale = this.scale;
       },
+      this._handleOnImageSizeResetRequested,
     );
 
     this._menuWindows = {
@@ -249,6 +251,27 @@ export default class Menu {
     this.width = width || this._initialOptions.width;
     this.height = height || this._initialOptions.height;
     this.scale = scale || this._initialOptions.scale;
+  };
+
+  _handleOnImageSizeResetRequested = () => {
+    // Read at click time so a rotation between load and click is reflected.
+    const width = window.screen.width;
+    const height = window.screen.height;
+    const scale = window.devicePixelRatio || 1;
+    this.width = width;
+    this.height = height;
+    this.scale = scale;
+    // Rewrite the size fields of _initialOptions so a later blank input falls
+    // back to the system values, not a stale ?w/?h preset. Leave textSize and
+    // colors untouched — resetStyles() still needs them.
+    this._initialOptions.width = width;
+    this._initialOptions.height = height;
+    this._initialOptions.scale = scale;
+    this._menuWindows.imageSize.width = width;
+    this._menuWindows.imageSize.height = height;
+    this._menuWindows.imageSize.scale = scale;
+    track('image_size_reset', { width, height, scale });
+    this._callbacks.onImageSizeReset();
   };
 
   _handleOnBackgroundColorChangeRequested = (newBackgrundColor: string) => {

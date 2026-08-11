@@ -193,6 +193,19 @@ const menuCallbacks: MenuCallbacks = {
     updateSelectionStyles();
   },
   onImageSizeChanged: () => {},
+  onImageSizeReset: () => {
+    // Strip only the stale w/h presets so a reload no longer re-applies them;
+    // ?lang/?bg/?fg/?text survive. No-op when neither was present.
+    const query = new URLSearchParams(window.location.search);
+    if (!query.has('w') && !query.has('h')) {
+      return;
+    }
+    query.delete('w');
+    query.delete('h');
+    const qs = query.toString();
+    const path = window.location.pathname; // do not hardcode '/'
+    history.replaceState(null, '', qs ? `${path}?${qs}` : path);
+  },
   onInfoButtonClicked: () => {
     track('info_button');
     intro.onShow();

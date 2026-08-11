@@ -40,6 +40,8 @@ export default {
   'menu.clickToSave': 'Klik gambar di bawah untuk menyimpannya',
   'menu.creating': 'Membuat wallpaper Anda…',
   'menu.supportAria': 'Dukung proyek ini',
+  'menu.resetSize': 'Layar saya',
+  'menu.resetSizeAria': 'Atur ulang ke ukuran layar saya',
 
   // Text editor
   'editor.placeholder': 'Ketik sesuatu…',

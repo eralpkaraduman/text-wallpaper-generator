@@ -43,6 +43,8 @@ export default {
   'menu.clickToSave': 'Klicken Sie auf das Bild unten, um es zu speichern',
   'menu.creating': 'Ihr Wallpaper wird erstellt…',
   'menu.supportAria': 'Dieses Projekt unterstützen',
+  'menu.resetSize': 'Mein Bildschirm',
+  'menu.resetSizeAria': 'Auf meine Bildschirmgröße zurücksetzen',
 
   // Text editor
   'editor.placeholder': 'Geben Sie etwas Text ein…',
