@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Page Not Found | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#2D2D2D" />
+    <!-- Send the visitor back to the homepage after a short pause.
+         The page itself still returns a real 404 status. -->
+    <meta http-equiv="refresh" content="3;url=/" />
+    <style>
+      /* Self-contained on purpose: no external CSS so this page renders
+         even if other assets are unreachable. */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        line-height: 1.6;
+        color: #ecf0f1;
+        background-color: #2D2D2D;
+        display: flex;
+        flex-direction: column;
+      }
+      .app-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        width: 100%;
+        padding: max(6px, env(safe-area-inset-top)) max(10px, env(safe-area-inset-right)) 6px max(10px, env(safe-area-inset-left));
+        background-color: #2D2D2D;
+      }
+      a.app-header-brand {
+        color: #ecf0f1;
+        font-size: 0.85em;
+        font-weight: bold;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+      main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 24px 16px;
+      }
+      h1 {
+        font-size: 1.6em;
+        margin-bottom: 8px;
+      }
+      .message {
+        color: #bdc3c7;
+        max-width: 34em;
+        margin-bottom: 24px;
+      }
+      a.home-link {
+        display: inline-block;
+        background-color: #ecf0f1;
+        color: #2D2D2D;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 10px 22px;
+        border-radius: 16px;
+      }
+      a.home-link:hover {
+        background-color: #ffffff;
+      }
+      .langs {
+        margin-top: 32px;
+        font-size: 0.85em;
+        color: #7f8c8d;
+      }
+      .langs a {
+        color: #bdc3c7;
+        text-decoration: none;
+        margin: 0 6px;
+      }
+      .langs a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="app-header-brand" href="/">TextWallpaper.com</a>
+    </header>
+
+    <main>
+      <h1>Page not found</h1>
+      <p class="message">
+        This page doesn&rsquo;t exist. Taking you back to the homepage in a few
+        seconds&hellip;
+      </p>
+      <a class="home-link" href="/">Go to the homepage &rarr;</a>
+      <p class="langs">
+        <a href="/es/" lang="es">Espa&ntilde;ol</a>
+        <a href="/ja/" lang="ja">&#26085;&#26412;&#35486;</a>
+        <a href="/de/" lang="de">Deutsch</a>
+        <a href="/tr/" lang="tr">T&uuml;rk&ccedil;e</a>
+        <a href="/zh/" lang="zh-Hans">&#20013;&#25991;</a>
+        <a href="/id/" lang="id">Bahasa Indonesia</a>
+      </p>
+    </main>
+
+    <!-- Analytics (loads asynchronously; page works fine without it) -->
+    <script src="/shared/analytics.js"></script>
+  </body>
+</html>
