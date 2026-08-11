@@ -484,3 +484,35 @@ h1.landing-title {
   font-size: 0.95rem;
   margin: 0;
 }
+
+
+/* Support pill: warm accent + gentle heartbeat so it stands out */
+.app-header a.app-header-pill {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.app-header a.app-header-pill:hover,
+.app-header a.app-header-pill:active,
+.app-header a.app-header-pill.active {
+  background-color: #c0392b;
+  color: #fff;
+}
+
+.app-header-heart {
+  display: inline-block;
+  animation: support-heartbeat 2.6s ease-in-out infinite;
+}
+
+@keyframes support-heartbeat {
+  0%, 30%, 100% { transform: scale(1); }
+  6% { transform: scale(1.3); }
+  14% { transform: scale(1); }
+  20% { transform: scale(1.18); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-header-heart {
+    animation: none;
+  }
+}
