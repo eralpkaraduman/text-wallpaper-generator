@@ -97,6 +97,7 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       { from: 'robots.txt', to: 'robots.txt' },
+      { from: '404.html', to: '404.html' },
       { from: 'sitemap.xml', to: 'sitemap.xml' },
       { from: 'shared', to: 'shared' },
       { from: 'use-cases', to: 'use-cases' },
