@@ -37,6 +37,10 @@ const LANG_LABELS = {
   tr: 'Türkçe',
   id: 'Indonesia',
   es: 'Español',
+  fr: 'Français',
+  it: 'Italiano',
+  ko: '한국어',
+  pt: 'Português',
 };
 
 // Root-level English landing/static page folders (each contains an index.html).
@@ -100,6 +104,30 @@ const LANG_CONFIG = {
     supportLabel: 'Apoyar',
     supportAria: 'Apoya este proyecto',
   },
+  fr: {
+    homeLink: '/fr/',
+    footerText: "Générateur de Fonds d'Écran Texte Gratuit",
+    supportLabel: 'Soutenir',
+    supportAria: 'Soutenez ce projet',
+  },
+  it: {
+    homeLink: '/it/',
+    footerText: 'Generatore Gratuito di Sfondi con Testo',
+    supportLabel: 'Sostieni',
+    supportAria: 'Sostieni questo progetto',
+  },
+  ko: {
+    homeLink: '/ko/',
+    footerText: '무료 텍스트 배경화면 생성기',
+    supportLabel: '후원하기',
+    supportAria: '이 프로젝트를 후원해 주세요',
+  },
+  pt: {
+    homeLink: '/pt/',
+    footerText: 'Gerador de Papel de Parede de Texto Grátis',
+    supportLabel: 'Apoiar',
+    supportAria: 'Apoie este projeto',
+  },
 };
 
 /**
@@ -108,7 +136,7 @@ const LANG_CONFIG = {
  * /zh/use-cases/motivation/ -> 'zh'
  */
 function detectLang(relativePath) {
-  const match = relativePath.match(/^(zh|ja|de|tr|id|es)\//);
+  const match = relativePath.match(/^(zh|ja|de|tr|id|es|fr|it|ko|pt)\//);
   return match ? match[1] : 'en';
 }
 
@@ -133,6 +161,10 @@ function getLangUrls(basePath) {
     tr: '/tr' + basePath,
     id: '/id' + basePath,
     es: '/es' + basePath,
+    fr: '/fr' + basePath,
+    it: '/it' + basePath,
+    ko: '/ko' + basePath,
+    pt: '/pt' + basePath,
   };
 }
 
@@ -238,6 +270,10 @@ function findStaticPages() {
     'tr/**/index.html',
     'id/**/index.html',
     'es/**/index.html',
+    'fr/**/index.html',
+    'it/**/index.html',
+    'ko/**/index.html',
+    'pt/**/index.html',
   ];
 
   const pages = [];

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters;
+       var origin = 'https://textwallpaper.com';
+       var hreflangCodes = { zh: 'zh-Hans', zhHant: 'zh-Hant' };
+       var canonicalUrl = origin + p.availableLangUrls[p.activeLang];
+    %>
+    <title>배경화면 만들기 — 무료 배경화면 생성기, 회원가입 없음 | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="무료 배경화면 생성기. 원하는 글자로 온라인에서 배경화면 만들기: 회원가입 없음, 워터마크 없음, 4K까지 원하는 해상도로, 브라우저에서 바로 만들어요." />
+    <meta name="keywords" content="배경화면 만들기, 배경화면 생성기, 무료 배경화면 만들기, 텍스트 배경화면, 글자 배경화면 만들기, 온라인 배경화면 제작" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="<%= canonicalUrl %>" />
+    <!-- hreflang -->
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) { %>
+    <link rel="alternate" hreflang="<%= hreflangCodes[lang] || lang %>" href="<%= origin + p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="<%= origin + p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= canonicalUrl %>" />
+    <meta property="og:title" content="배경화면 만들기 — 무료 배경화면 생성기, 회원가입 없음" />
+    <meta property="og:description" content="원하는 글자로 온라인에서 배경화면을 만들어요 — 무료, 계정 없음, 4K까지 어떤 해상도든. 모든 과정이 브라우저 안에서 이루어져요." />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
+    <meta property="og:locale" content="ko_KR" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="<%= canonicalUrl %>" />
+    <meta property="twitter:title" content="배경화면 만들기 — 무료 생성기, 회원가입 없음" />
+    <meta property="twitter:description" content="원하는 글자로 배경화면을 만들어요 — 무료, 계정 없음, 4K까지. 전부 브라우저 안에서." />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "배경화면 생성기가 정말 무료인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "네, 완전히 무료예요. 프리미엄 버전도, 체험 기간도, 잠긴 기능도 없어요. 모든 해상도, 색상, 글꼴을 누구나 쓸 수 있어요."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "회원가입이나 계정이 필요한가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "아니요. 회원가입도, 로그인도, 이메일도 필요 없어요. 페이지를 열고 글자를 입력한 뒤 배경화면을 다운로드하면 끝이에요."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "이미지에 워터마크가 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "아니요. 다운로드한 이미지에는 선택한 배경색 위에 입력한 글자만 들어가요 — 워터마크, 로고, 광고가 전혀 없어요."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "어떤 해상도를 쓸 수 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "어떤 해상도든 가능해요. 휴대폰과 컴퓨터의 일반적인 크기는 프리셋으로 제공되고, 정확한 크기를 직접 입력할 수도 있어요 — 예를 들어 1920×1080 풀HD, 2560×1440, 3840×2160 4K."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "내 사진을 배경으로 쓸 수 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "아니요. 이 도구는 텍스트 배경화면을 만들어요: 단색 배경 위에 글자를 얹는 방식이에요. 사진 위에 글자를 넣거나 콜라주를 만들고 싶다면 사진 편집 앱이 더 좋은 선택이에요."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "입력한 글자가 서버로 전송되나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "아니요. 배경화면은 전부 브라우저 안에서 생성되고 기기에 바로 저장돼요. 입력한 글자는 컴퓨터나 휴대폰 밖으로 나가지 않아요."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="/shared/static-pages.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="app-header-brand" href="/">TextWallpaper.com</a>
+      <div class="app-header-actions">
+        <% var onSupportPage = /\/support\/$/.test(p.availableLangUrls[p.activeLang]); %>
+        <a class="app-header-pill<%= onSupportPage ? ' active' : '' %>" href="<%= p.localHref('/support/') %>" aria-label="<%= p.supportAria %>"<%= onSupportPage ? ' aria-current="page"' : '' %> data-umami-event="support-page-visit"><span class="app-header-heart" aria-hidden="true">&#9829;</span> <%= p.supportLabel %></a>
+        <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
+        <% if (navLangs.length > 1) { %>
+        <details class="app-header-lang">
+          <summary><span aria-hidden="true">&#127760;</span> <%= p.langLabels[p.activeLang] %></summary>
+          <div class="lang-options">
+            <% navLangs.forEach(function (lang) { %>
+            <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
+            <% }); %>
+          </div>
+        </details>
+        <% } %>
+      </div>
+    </header>
+
+
+    <main class="container">
+      <nav class="breadcrumb">
+        <a href="/ko/">홈</a> &rsaquo; 배경화면 만들기
+      </nav>
+
+      <article class="article-content">
+        <h1>배경화면 만들기 &mdash; 무료, 회원가입 없음, 워터마크 없음</h1>
+
+        <p>온라인에서 무료로, 회원가입 없이 배경화면을 만들고 싶으신가요? 바로 그걸 위한 도구예요. 먼저 솔직하게 말씀드리면, 여기서 만드는 건 <strong>텍스트 배경화면</strong>이에요. 배경색을 고르고, 글자를 입력하고, 글꼴과 크기를 조절한 다음, 원하는 해상도로 또렷한 배경화면을 다운로드해요. 사진 편집기도 AI 이미지 생성기도 아니에요 &mdash; 그리고 바로 그 단순함 덕분에 결과물이 깔끔하게 나와요.</p>
+
+        <div class="features">
+          <h2>이 배경화면 생성기의 특징</h2>
+          <ul>
+            <li><strong>100&nbsp;% 무료</strong> &mdash; 프리미엄 버전도, 체험 기간도, 잠긴 기능도 없어요</li>
+            <li><strong>계정 불필요</strong> &mdash; 회원가입, 로그인, 이메일이 전혀 필요 없어요</li>
+            <li><strong>워터마크 없음</strong> &mdash; 이미지에는 입력한 글자만 들어가요</li>
+            <li><strong>모든 해상도</strong> &mdash; 휴대폰, 태블릿, 컴퓨터, 3840&times;2160 4K까지</li>
+            <li><strong>개인정보 보호</strong> &mdash; 전부 브라우저 안에서 생성되고, 어디에도 업로드되지 않아요</li>
+            <li><strong>모든 언어</strong> &mdash; 한글, 이모지, 모든 유니코드 문자 지원</li>
+          </ul>
+        </div>
+
+        <h2>배경화면 만드는 방법</h2>
+
+        <ol>
+          <li><strong>생성기를 열어요</strong> &mdash; 브라우저에서 바로, 즉시 실행돼요</li>
+          <li><strong>글자를 입력해요</strong> &mdash; 문구, 이름, 메모, 뭐든 좋아요</li>
+          <li><strong>색상, 글꼴, 크기를 골라요</strong> &mdash; 기기에 맞는 프리셋을 쓰거나 정확한 크기를 직접 입력해요</li>
+          <li><strong>다운로드해요</strong> &mdash; 이미지를 저장하고 배경화면으로 설정하면 끝</li>
+        </ol>
+
+        <p>전 과정이 1분도 안 걸려요. 설명서를 읽거나 템플릿 갤러리를 뒤질 필요가 없어요.</p>
+
+        <a href="/ko/" class="cta" data-umami-event="wallpaper-maker-cta">배경화면 만들기 &rarr;</a>
+
+        <h2>이 도구를 쓸 때와 사진 앱을 쓸 때</h2>
+
+        <p>모든 걸 다 하는 도구는 없어요. 솔직한 비교예요:</p>
+
+        <h3>사진 앱이 더 나은 경우&hellip;</h3>
+        <ul>
+          <li>내 사진들로 콜라주를 만들고 싶을 때</li>
+          <li>기존 이미지 위에 글자를 얹고 싶을 때</li>
+          <li>AI 생성 이미지, 필터, 효과를 원할 때</li>
+        </ul>
+        <p>그런 용도라면 사진 편집·콜라주 앱이 많아요 &mdash; 그건 그쪽의 전문 분야예요.</p>
+
+        <h3>이 도구가 더 나은 경우&hellip;</h3>
+        <ul>
+          <li><strong>빠르게 만들고 싶을 때</strong> &mdash; 몇 초면 배경화면 완성, 배울 것도 없어요</li>
+          <li><strong>글자가 또렷해야 할 때</strong> &mdash; 픽셀 단위로 정확히 렌더링, 확대나 깨짐이 없어요</li>
+          <li><strong>개인정보가 중요할 때</strong> &mdash; 아무것도 업로드되지 않아요. 사진 도구는 보통 서버에서 이미지를 처리해요</li>
+          <li><strong>정확한 해상도가 필요할 때</strong> &mdash; 가로세로 자유 입력, 4K 그 이상도 가능해요</li>
+          <li><strong>미니멀한 걸 좋아할 때</strong> &mdash; 단색 위의 또렷한 글자는 깔끔하고 정돈된 느낌을 줘요</li>
+        </ul>
+
+        <h2>인기 있는 활용법</h2>
+
+        <ul>
+          <li>잠금 화면에서 매일 만나는 동기부여 문구</li>
+          <li>내 이름이나 이니셜 배경화면 &mdash; <a href="/ko/name-wallpaper/">이름 배경화면 만들기</a>를 써 보세요</li>
+          <li>시험 기간 휴대폰 속 공부 다짐 문구</li>
+          <li>풀HD나 4K 미니멀 데스크톱 배경화면</li>
+          <li><a href="<%= p.localHref('/use-cases/') %>">더 많은 활용 예시 보기 &rarr;</a></li>
+        </ul>
+
+        <h2>자주 묻는 질문</h2>
+
+        <h3>정말 무료인가요?</h3>
+        <p>네, 전부요. 프리미엄 버전도, 체험판도, 숨은 비용도 없어요. 모든 해상도, 색상, 글꼴이 누구에게나 열려 있어요.</p>
+
+        <h3>회원가입이 필요한가요?</h3>
+        <p>아니요. 계정 시스템 자체가 없어요 &mdash; 회원가입도, 로그인도, 이메일도요. 페이지를 열고 바로 입력하면 돼요.</p>
+
+        <h3>이미지에 워터마크가 있나요?</h3>
+        <p>아니요. 다운로드에는 선택한 배경색 위의 글자만 들어가요. 워터마크도 로고도 없어요.</p>
+
+        <h3>어떤 해상도를 지원하나요?</h3>
+        <p>전부요. 휴대폰과 컴퓨터의 일반적인 크기는 프리셋으로, 그 외에는 자유 입력으로 &mdash; 1920&times;1080, 2560&times;1440, 3840&times;2160 4K 등 어떤 크기든 가능해요.</p>
+
+        <h3>내 사진을 쓸 수 있나요?</h3>
+        <p>아니요 &mdash; 실수가 아니라 의도한 거예요. 이 도구는 단색 배경 + 글자 방식의 배경화면을 만들어요. 사진 위에 글자를 넣으려면 사진 편집 앱이 맞는 도구예요.</p>
+
+        <h3>입력한 글자가 어딘가로 전송되나요?</h3>
+        <p>아니요. 전부 브라우저 안에서 로컬로 생성되고 기기에 바로 저장돼요. 입력한 글자는 서버에 도달하지 않아요.</p>
+
+        <p>준비되셨나요? 배경화면까지 몇 초면 충분해요 &mdash; 무료이고 완전히 프라이빗해요.</p>
+
+        <a href="/ko/" class="cta" data-umami-event="wallpaper-maker-cta">지금 배경화면 만들기 &rarr;</a>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
+    </footer>
+
+    <!-- Analytics -->
+    <script src="/shared/analytics.js"></script>
+  </body>
+</html>

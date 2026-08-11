@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters;
+       var origin = 'https://textwallpaper.com';
+       var hreflangCodes = { zh: 'zh-Hans', zhHant: 'zh-Hant' };
+       var canonicalUrl = origin + p.availableLangUrls[p.activeLang];
+    %>
+    <title>Generatore di Sfondi Gratis — Senza Registrazione, Senza Filigrana | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="Generatore di sfondi gratis. Crea online uno sfondo con il tuo testo: senza registrazione, senza filigrana, in qualsiasi risoluzione fino al 4K, direttamente nel browser." />
+    <meta name="keywords" content="generatore di sfondi gratis, creare sfondo con testo, sfondo con scritte, creare sfondo online, sfondo personalizzato gratis, creare wallpaper online" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="<%= canonicalUrl %>" />
+    <!-- hreflang -->
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) { %>
+    <link rel="alternate" hreflang="<%= hreflangCodes[lang] || lang %>" href="<%= origin + p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="<%= origin + p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= canonicalUrl %>" />
+    <meta property="og:title" content="Generatore di Sfondi Gratis — Senza Registrazione, Senza Filigrana" />
+    <meta property="og:description" content="Crea online uno sfondo con il tuo testo — gratis, senza account, in qualsiasi risoluzione fino al 4K. Tutto avviene nel tuo browser." />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
+    <meta property="og:locale" content="it_IT" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="<%= canonicalUrl %>" />
+    <meta property="twitter:title" content="Generatore di Sfondi Gratis — Senza Registrazione" />
+    <meta property="twitter:description" content="Crea online uno sfondo con il tuo testo — gratis, senza account, fino al 4K. Tutto nel tuo browser." />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Il generatore di sfondi è davvero gratis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sì, completamente gratis. Non c'è una versione premium, né un periodo di prova, né funzionalità bloccate. Tutte le risoluzioni, i colori e i caratteri sono disponibili per chiunque."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Devo registrarmi o creare un account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Niente registrazione, niente login, niente email. Apri la pagina, scrivi il tuo testo e scarica il tuo sfondo — fatto."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "L'immagine ha una filigrana?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. L'immagine scaricata contiene solo il tuo testo sul colore di sfondo che scegli — senza filigrana, senza logo, senza pubblicità."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quali risoluzioni posso usare?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Qualsiasi risoluzione. Ci sono preimpostazioni per le dimensioni più comuni di telefoni e computer, e puoi anche inserire misure esatte — per esempio 1920×1080 Full HD, 2560×1440 o 3840×2160 4K."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Posso usare le mie foto come sfondo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Questo strumento crea sfondi con testo: un colore di sfondo a tinta unita più il tuo testo. Se vuoi mettere del testo sopra una foto o fare un collage, un'app di fotoritocco è una scelta migliore."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Il mio testo viene caricato su qualche server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Lo sfondo viene generato interamente nel tuo browser e salvato direttamente sul tuo dispositivo. Il tuo testo non lascia mai il tuo computer o il tuo telefono."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="/shared/static-pages.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="app-header-brand" href="/">TextWallpaper.com</a>
+      <div class="app-header-actions">
+        <% var onSupportPage = /\/support\/$/.test(p.availableLangUrls[p.activeLang]); %>
+        <a class="app-header-pill<%= onSupportPage ? ' active' : '' %>" href="<%= p.localHref('/support/') %>" aria-label="<%= p.supportAria %>"<%= onSupportPage ? ' aria-current="page"' : '' %> data-umami-event="support-page-visit"><span class="app-header-heart" aria-hidden="true">&#9829;</span> <%= p.supportLabel %></a>
+        <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
+        <% if (navLangs.length > 1) { %>
+        <details class="app-header-lang">
+          <summary><span aria-hidden="true">&#127760;</span> <%= p.langLabels[p.activeLang] %></summary>
+          <div class="lang-options">
+            <% navLangs.forEach(function (lang) { %>
+            <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
+            <% }); %>
+          </div>
+        </details>
+        <% } %>
+      </div>
+    </header>
+
+
+    <main class="container">
+      <nav class="breadcrumb">
+        <a href="/it/">Home</a> &rsaquo; Generatore di sfondi
+      </nav>
+
+      <article class="article-content">
+        <h1>Generatore di Sfondi &mdash; Gratis, Senza Registrazione, Senza Filigrana</h1>
+
+        <p>Vuoi creare uno sfondo online, gratis e senza registrarti? Questo strumento serve proprio a questo, con una premessa onesta: qui si creano <strong>sfondi con testo</strong>. Scegli un colore di sfondo, scrivi il tuo testo, regoli carattere e dimensione, e scarichi uno sfondo perfettamente nitido nella risoluzione che preferisci. Non è un editor di foto né un generatore di immagini con IA &mdash; ed è proprio questa semplicità a rendere il risultato così pulito.</p>
+
+        <div class="features">
+          <h2>Cosa distingue questo generatore di sfondi</h2>
+          <ul>
+            <li><strong>100&nbsp;% gratis</strong> &mdash; niente versione premium, niente periodo di prova, niente funzionalità bloccate</li>
+            <li><strong>Senza account</strong> &mdash; niente registrazione, niente login, niente email</li>
+            <li><strong>Senza filigrana</strong> &mdash; la tua immagine contiene solo il tuo testo, nient'altro</li>
+            <li><strong>Qualsiasi risoluzione</strong> &mdash; telefono, tablet, computer, fino a 3840&times;2160 4K</li>
+            <li><strong>Privacy inclusa</strong> &mdash; tutto viene generato nel tuo browser; niente viene caricato da nessuna parte</li>
+            <li><strong>Tutte le lingue</strong> &mdash; lettere accentate, emoji e tutti i caratteri Unicode</li>
+          </ul>
+        </div>
+
+        <h2>Come creare il tuo sfondo</h2>
+
+        <ol>
+          <li><strong>Apri il generatore</strong> &mdash; si carica all'istante, direttamente nel browser</li>
+          <li><strong>Scrivi il tuo testo</strong> &mdash; una frase, un nome, un promemoria o quello che vuoi</li>
+          <li><strong>Scegli colori, carattere e dimensione</strong> &mdash; usa una preimpostazione per il tuo dispositivo o inserisci misure esatte</li>
+          <li><strong>Scarica</strong> &mdash; salva l'immagine e impostala come sfondo</li>
+        </ol>
+
+        <p>L'intero processo richiede meno di un minuto. Non servono istruzioni né gallerie di modelli da sfogliare.</p>
+
+        <a href="/it/" class="cta" data-umami-event="wallpaper-maker-cta">Crea uno sfondo &rarr;</a>
+
+        <h2>Quando usare questo strumento e quando un'app per foto?</h2>
+
+        <p>Nessuno strumento va bene per tutto. Ecco il confronto onesto:</p>
+
+        <h3>Un'app per foto &egrave; meglio se&hellip;</h3>
+        <ul>
+          <li>vuoi comporre un collage con le tue foto</li>
+          <li>vuoi mettere del testo sopra un'immagine esistente</li>
+          <li>cerchi immagini generate con l'IA, filtri o effetti</li>
+        </ul>
+        <p>Per questo esistono tante app di fotoritocco e collage &mdash; quella è la loro specialità, non la nostra.</p>
+
+        <h3>Questo strumento &egrave; meglio se&hellip;</h3>
+        <ul>
+          <li><strong>vuoi rapidità</strong> &mdash; sfondo pronto in pochi secondi, senza curva di apprendimento</li>
+          <li><strong>vuoi un testo perfettamente nitido</strong> &mdash; renderizzato al pixel esatto, mai ingrandito né sgranato</li>
+          <li><strong>ci tieni alla privacy</strong> &mdash; niente viene caricato; gli strumenti per foto spesso elaborano le immagini sui loro server</li>
+          <li><strong>ti serve una risoluzione esatta</strong> &mdash; larghezza e altezza libere, fino al 4K e oltre</li>
+          <li><strong>cerchi il minimalismo</strong> &mdash; testo leggibile su un colore a tinta unita risulta ordinato, non caotico</li>
+        </ul>
+
+        <h2>Idee d'uso popolari</h2>
+
+        <ul>
+          <li>Frasi motivazionali come compagnia quotidiana sulla schermata di blocco</li>
+          <li>Il tuo nome o un monogramma come sfondo &mdash; prova il <a href="/it/name-wallpaper/">generatore di sfondi con il tuo nome</a></li>
+          <li>Promemoria di studio sul telefono durante la sessione d'esami</li>
+          <li>Sfondi desktop minimalisti in Full HD o 4K</li>
+          <li><a href="<%= p.localHref('/use-cases/') %>">Vedi altri esempi di utilizzo &rarr;</a></li>
+        </ul>
+
+        <h2>Domande frequenti</h2>
+
+        <h3>&Egrave; davvero gratis?</h3>
+        <p>Sì, del tutto. Niente versione premium, niente prove, niente costi nascosti. Tutte le risoluzioni, i colori e i caratteri sono aperti a chiunque.</p>
+
+        <h3>Devo registrarmi?</h3>
+        <p>No. Semplicemente non esiste un sistema di account &mdash; né registrazione, né login, né email. Apri la pagina e inizia a scrivere.</p>
+
+        <h3>L'immagine ha una filigrana?</h3>
+        <p>No. Il download contiene solo il tuo testo sul colore di sfondo scelto. Senza filigrana, senza logo.</p>
+
+        <h3>Quali risoluzioni supporta?</h3>
+        <p>Tutte. Preimpostazioni per le dimensioni più comuni di telefoni e computer, più misure libere &mdash; 1920&times;1080, 2560&times;1440, 3840&times;2160 4K o qualsiasi altro formato.</p>
+
+        <h3>Posso usare le mie foto?</h3>
+        <p>No &mdash; ed è una scelta, non una svista. Questo strumento crea sfondi di colore più testo. Per mettere testo sulle foto, lo strumento giusto è un'app di fotoritocco.</p>
+
+        <h3>Il mio testo viene caricato da qualche parte?</h3>
+        <p>No. Tutto viene generato localmente nel tuo browser e salvato direttamente sul tuo dispositivo. Il tuo testo non raggiunge mai un server.</p>
+
+        <p>Pronto? Il tuo sfondo è a pochi secondi di distanza &mdash; gratis e totalmente privato.</p>
+
+        <a href="/it/" class="cta" data-umami-event="wallpaper-maker-cta">Crea subito il mio sfondo &rarr;</a>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
+    </footer>
+
+    <!-- Analytics -->
+    <script src="/shared/analytics.js"></script>
+  </body>
+</html>

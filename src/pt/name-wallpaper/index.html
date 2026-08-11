@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters; %>
+    <title>Papel de Parede com Nome — Crie um Papel de Parede com o Seu Nome | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="Crie grátis um papel de parede com o seu nome. Digite seu nome, escolha cores e tamanho da letra, e baixe para celular ou computador. Sem cadastro e sem marca d'água." />
+    <meta name="keywords" content="papel de parede com nome, papel de parede com meu nome, criar papel de parede com nome, wallpaper com nome, papel de parede personalizado com nome" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://textwallpaper.com<%= p.availableLangUrls[p.activeLang] %>" />
+    <!-- hreflang -->
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) {
+      var code = lang === 'zh' ? 'zh-Hans' : (lang === 'zhHant' ? 'zh-Hant' : lang); %>
+    <link rel="alternate" hreflang="<%= code %>" href="https://textwallpaper.com<%= p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="https://textwallpaper.com<%= p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://textwallpaper.com/pt/name-wallpaper/" />
+    <meta property="og:title" content="Papel de Parede com Nome — Crie um Papel de Parede com o Seu Nome" />
+    <meta property="og:description" content="Digite seu nome, escolha as cores e baixe grátis no tamanho de celular ou computador. Sem marca d'água." />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://textwallpaper.com/pt/name-wallpaper/" />
+    <meta property="twitter:title" content="Papel de Parede com Nome — Crie um Papel de Parede com o Seu Nome" />
+    <meta property="twitter:description" content="Digite seu nome, escolha as cores e baixe grátis. Sem marca d'água." />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Criar um papel de parede com meu nome é grátis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim, totalmente grátis. Não precisa se cadastrar, não há versão paga e a imagem baixada não tem marca d'água."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Acentos, ç e emojis funcionam?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim. O texto é desenhado com as fontes do seu próprio aparelho, então á, é, ã, õ, ç e todos os emojis funcionam sem problema."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Em qual resolução o papel de parede é baixado?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Você escolhe o tamanho em pixels antes de baixar. Da tela de um celular a um monitor 4K, a imagem é gerada em tamanho real, sem ampliações."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "A imagem tem marca d'água?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não. A imagem baixada contém apenas a cor de fundo que você escolheu e o texto que você digitou; não há logotipo nem marca d'água."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="/shared/static-pages.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="app-header-brand" href="/">TextWallpaper.com</a>
+      <div class="app-header-actions">
+        <% var onSupportPage = /\/support\/$/.test(p.availableLangUrls[p.activeLang]); %>
+        <a class="app-header-pill<%= onSupportPage ? ' active' : '' %>" href="<%= p.localHref('/support/') %>" aria-label="<%= p.supportAria %>"<%= onSupportPage ? ' aria-current="page"' : '' %> data-umami-event="support-page-visit"><span class="app-header-heart" aria-hidden="true">&#9829;</span> <%= p.supportLabel %></a>
+        <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
+        <% if (navLangs.length > 1) { %>
+        <details class="app-header-lang">
+          <summary><span aria-hidden="true">&#127760;</span> <%= p.langLabels[p.activeLang] %></summary>
+          <div class="lang-options">
+            <% navLangs.forEach(function (lang) { %>
+            <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
+            <% }); %>
+          </div>
+        </details>
+        <% } %>
+      </div>
+    </header>
+
+
+    <main class="container">
+      <nav class="breadcrumb">
+        <a href="/pt/">Início</a> &rsaquo; Papel de parede com nome
+      </nav>
+
+      <article class="article-content">
+        <h1>Papel de Parede com Nome &mdash; Crie um Papel de Parede com o Seu Nome</h1>
+
+        <p class="intro">Que tal ver o seu próprio nome na tela? Digite seu nome, escolha suas cores e baixe em segundos. Esta ferramenta gratuita funciona inteiramente no seu navegador &mdash; sem baixar apps, sem cadastro e sem marca d'água.</p>
+
+        <a href="/pt/" class="cta" data-umami-event="name-wallpaper-cta">Crie seu papel de parede com nome &rarr;</a>
+
+        <h2>Como criar um papel de parede com o seu nome?</h2>
+
+        <ol>
+          <li><strong>Digite seu nome</strong> &mdash; ou seu apelido, suas iniciais ou qualquer texto que tiver em mente.</li>
+          <li><strong>Escolha cores e tamanho da letra</strong> &mdash; combine um fundo e uma cor de texto com o seu estilo; aumente a letra o quanto quiser.</li>
+          <li><strong>Defina o tamanho</strong> &mdash; selecione a resolução certa para a tela do seu celular ou computador.</li>
+          <li><strong>Baixe</strong> &mdash; salve a imagem e defina como papel de parede. Só isso.</li>
+        </ol>
+
+        <p>Tudo acontece no seu navegador: o nome que você digita não é enviado a nenhum servidor e, depois que a página carrega, a ferramenta funciona até sem internet.</p>
+
+        <h2>Celular ou computador? Escolha o tamanho certo</h2>
+
+        <ul>
+          <li><strong>Celular:</strong> os celulares atuais costumam usar resoluções verticais como 1170&times;2532 ou 1440&times;3200. A ferramenta pode detectar automaticamente o tamanho da sua tela, então na maioria das vezes você não precisa ajustar nada.</li>
+          <li><strong>Computador:</strong> os tamanhos comuns são 1920&times;1080 (Full HD), 2560&times;1440 e 3840&times;2160 (4K). Escolhendo o tamanho do seu monitor, o texto fica perfeitamente nítido.</li>
+        </ul>
+
+        <div class="tip-box">
+          <p><strong>Dica:</strong> No celular, posicione o texto perto do centro &mdash; na tela de bloqueio o relógio fica em cima, e na tela inicial os ícones cobrem as bordas.</p>
+        </div>
+
+        <h2>Ideias para o seu papel de parede com nome</h2>
+
+        <ul>
+          <li><strong>Só o seu nome</strong> &mdash; enorme e marcante, ou pequeno e discreto: &laquo;Ana&raquo; fica bem dos dois jeitos.</li>
+          <li><strong>Iniciais</strong> &mdash; duas ou três letras em tamanho grande criam um elegante fundo estilo monograma.</li>
+          <li><strong>Apelido</strong> &mdash; o nome que seus amigos usam de verdade costuma ficar melhor que o nome completo.</li>
+          <li><strong>Nome + uma frase curta</strong> &mdash; uma linha como &laquo;João &mdash; um passo por dia&raquo; transforma seu papel de parede em um lembrete diário.</li>
+          <li><strong>Nome + emoji</strong> &mdash; acrescente uma estrela, um coração ou uma chama ao lado do seu nome.</li>
+        </ul>
+
+        <p>Como é grátis e leva só alguns segundos, você também pode preparar papéis de parede com o nome de quem você gosta &mdash; uma pequena surpresa para uma amiga ou para o tablet dos seus filhos.</p>
+
+        <h2>Perguntas frequentes</h2>
+
+        <h3>&Eacute; gr&aacute;tis?</h3>
+        <p>Sim, totalmente. Sem cadastro, sem planos pagos, sem marca d'água. Você pode criar quantos papéis de parede quiser.</p>
+
+        <h3>Acentos, &ccedil; e emojis funcionam?</h3>
+        <p>Sim. Como o texto é desenhado pelo seu próprio aparelho, todos os caracteres do português &mdash; á, é, ã, õ, ç &mdash; e os emojis aparecem sem problema.</p>
+
+        <h3>Em qual resolu&ccedil;&atilde;o &eacute; baixado?</h3>
+        <p>Na que você escolher. Antes de baixar, você define as medidas em pixels; a imagem é gerada nesse tamanho, sem ampliação depois.</p>
+
+        <h3>Tem marca d'&aacute;gua?</h3>
+        <p>Não. A imagem baixada contém apenas o seu texto e a cor de fundo que você escolheu.</p>
+
+        <p>Sua tela está pronta para mostrar o seu nome?</p>
+
+        <a href="/pt/" class="cta" data-umami-event="name-wallpaper-cta">Crie seu papel de parede com nome &rarr;</a>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
+    </footer>
+
+    <!-- Analytics -->
+    <script src="/shared/analytics.js"></script>
+  </body>
+</html>

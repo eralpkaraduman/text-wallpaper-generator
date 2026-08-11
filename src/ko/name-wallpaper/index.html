@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters; %>
+    <title>이름 배경화면 만들기 — 내 이름으로 배경화면 만들기 | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="내 이름으로 배경화면을 무료로 만들어요. 이름을 입력하고 색상과 글자 크기를 고른 뒤 휴대폰이나 컴퓨터용으로 다운로드하세요. 회원가입도 워터마크도 없어요." />
+    <meta name="keywords" content="이름 배경화면 만들기, 내 이름 배경화면, 이름 배경화면, 이름으로 배경화면 만들기, 이니셜 배경화면" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://textwallpaper.com<%= p.availableLangUrls[p.activeLang] %>" />
+    <!-- hreflang -->
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) {
+      var code = lang === 'zh' ? 'zh-Hans' : (lang === 'zhHant' ? 'zh-Hant' : lang); %>
+    <link rel="alternate" hreflang="<%= code %>" href="https://textwallpaper.com<%= p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="https://textwallpaper.com<%= p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://textwallpaper.com/ko/name-wallpaper/" />
+    <meta property="og:title" content="이름 배경화면 만들기 — 내 이름으로 배경화면 만들기" />
+    <meta property="og:description" content="이름을 입력하고 색상을 골라 휴대폰·컴퓨터용 크기로 무료 다운로드. 워터마크 없음." />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://textwallpaper.com/ko/name-wallpaper/" />
+    <meta property="twitter:title" content="이름 배경화면 만들기 — 내 이름으로 배경화면 만들기" />
+    <meta property="twitter:description" content="이름을 입력하고 색상을 골라 무료로 다운로드. 워터마크 없음." />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "이름 배경화면 만들기는 무료인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "네, 완전히 무료예요. 회원가입이 필요 없고, 유료 버전도 없고, 다운로드한 이미지에 워터마크도 없어요."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "한글과 이모지도 잘 나오나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "네. 글자는 사용자의 기기에 있는 글꼴로 그려지기 때문에 한글, 받침, 이모지까지 전부 문제없이 표시돼요."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "배경화면은 어떤 해상도로 다운로드되나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "다운로드 전에 픽셀 크기를 직접 정해요. 휴대폰 화면부터 4K 모니터까지, 이미지는 확대 없이 실제 크기 그대로 생성돼요."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "이미지에 워터마크가 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "아니요. 다운로드한 이미지에는 선택한 배경색과 입력한 글자만 들어가요. 로고도 워터마크도 없어요."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="/shared/static-pages.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="app-header-brand" href="/">TextWallpaper.com</a>
+      <div class="app-header-actions">
+        <% var onSupportPage = /\/support\/$/.test(p.availableLangUrls[p.activeLang]); %>
+        <a class="app-header-pill<%= onSupportPage ? ' active' : '' %>" href="<%= p.localHref('/support/') %>" aria-label="<%= p.supportAria %>"<%= onSupportPage ? ' aria-current="page"' : '' %> data-umami-event="support-page-visit"><span class="app-header-heart" aria-hidden="true">&#9829;</span> <%= p.supportLabel %></a>
+        <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
+        <% if (navLangs.length > 1) { %>
+        <details class="app-header-lang">
+          <summary><span aria-hidden="true">&#127760;</span> <%= p.langLabels[p.activeLang] %></summary>
+          <div class="lang-options">
+            <% navLangs.forEach(function (lang) { %>
+            <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
+            <% }); %>
+          </div>
+        </details>
+        <% } %>
+      </div>
+    </header>
+
+
+    <main class="container">
+      <nav class="breadcrumb">
+        <a href="/ko/">홈</a> &rsaquo; 이름 배경화면
+      </nav>
+
+      <article class="article-content">
+        <h1>이름 배경화면 만들기 &mdash; 내 이름으로 배경화면을 만들어 보세요</h1>
+
+        <p class="intro">화면에 내 이름이 떠 있으면 어떨까요? 이름을 입력하고, 마음에 드는 색을 고르고, 몇 초 만에 다운로드하세요. 이 무료 도구는 전부 브라우저 안에서 작동해요 &mdash; 앱 설치도, 회원가입도, 워터마크도 없어요.</p>
+
+        <a href="/ko/" class="cta" data-umami-event="name-wallpaper-cta">이름 배경화면 만들기 &rarr;</a>
+
+        <h2>이름 배경화면, 이렇게 만들어요</h2>
+
+        <ol>
+          <li><strong>이름을 입력해요</strong> &mdash; 본명, 별명, 이니셜, 마음에 둔 어떤 글자든 좋아요.</li>
+          <li><strong>색상과 글자 크기를 골라요</strong> &mdash; 취향에 맞는 배경색과 글자색을 고르고, 글자를 원하는 만큼 키워요.</li>
+          <li><strong>크기를 정해요</strong> &mdash; 휴대폰이나 컴퓨터 화면에 맞는 해상도를 선택해요.</li>
+          <li><strong>다운로드해요</strong> &mdash; 이미지를 저장하고 배경화면으로 설정하면 끝이에요.</li>
+        </ol>
+
+        <p>모든 과정이 브라우저 안에서 이루어져요. 입력한 이름은 어떤 서버로도 전송되지 않고, 페이지를 한 번 불러온 뒤에는 인터넷 없이도 작동해요.</p>
+
+        <h2>휴대폰과 컴퓨터, 알맞은 크기 고르기</h2>
+
+        <ul>
+          <li><strong>휴대폰:</strong> 요즘 휴대폰은 보통 1170&times;2532나 1440&times;3200 같은 세로 해상도를 써요. 도구가 화면 크기를 자동으로 감지할 수 있어서 대부분은 따로 조절할 필요가 없어요.</li>
+          <li><strong>컴퓨터:</strong> 흔한 크기는 1920&times;1080(풀HD), 2560&times;1440, 3840&times;2160(4K)이에요. 모니터 크기에 맞춰 고르면 글자가 아주 또렷하게 나와요.</li>
+        </ul>
+
+        <div class="tip-box">
+          <p><strong>팁:</strong> 휴대폰에서는 글자를 화면 중앙 근처에 배치하세요 &mdash; 잠금 화면에서는 시계가 위쪽을 차지하고, 홈 화면에서는 아이콘이 가장자리를 가려요.</p>
+        </div>
+
+        <h2>이름 배경화면 아이디어</h2>
+
+        <ul>
+          <li><strong>이름만</strong> &mdash; 크고 당당하게, 혹은 작고 은은하게: &laquo;지민&raquo;은 어느 쪽이든 잘 어울려요.</li>
+          <li><strong>이니셜</strong> &mdash; 두세 글자를 크게 넣으면 모노그램 스타일의 세련된 배경화면이 돼요.</li>
+          <li><strong>별명</strong> &mdash; 친구들이 실제로 부르는 이름이 본명보다 더 멋지게 보일 때가 많아요.</li>
+          <li><strong>이름 + 짧은 문구</strong> &mdash; &laquo;서준 &mdash; 매일 한 걸음&raquo; 같은 한 줄이면 배경화면이 매일의 다짐이 돼요.</li>
+          <li><strong>이름 + 이모지</strong> &mdash; 이름 옆에 별, 하트, 불꽃을 하나 더해 보세요.</li>
+        </ul>
+
+        <p>무료인 데다 몇 초밖에 안 걸리니, 소중한 사람의 이름으로도 만들어 보세요 &mdash; 친구를 위한 작은 선물이나 아이 태블릿용으로도 좋아요.</p>
+
+        <h2>자주 묻는 질문</h2>
+
+        <h3>무료인가요?</h3>
+        <p>네, 전부요. 회원가입도, 유료 요금제도, 워터마크도 없어요. 원하는 만큼 몇 장이든 만들 수 있어요.</p>
+
+        <h3>한글과 이모지도 잘 나오나요?</h3>
+        <p>네. 글자를 그리는 건 사용자의 기기이기 때문에 한글의 모든 글자와 이모지가 문제없이 표시돼요.</p>
+
+        <h3>어떤 해상도로 다운로드되나요?</h3>
+        <p>직접 정한 해상도로요. 다운로드 전에 픽셀 크기를 정하면 이미지가 그 크기 그대로 생성되고, 이후 확대되지 않아요.</p>
+
+        <h3>워터마크가 있나요?</h3>
+        <p>아니요. 다운로드한 이미지에는 입력한 글자와 선택한 배경색만 들어가요.</p>
+
+        <p>화면에 이름을 새길 준비가 되셨나요?</p>
+
+        <a href="/ko/" class="cta" data-umami-event="name-wallpaper-cta">이름 배경화면 만들기 &rarr;</a>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
+    </footer>
+
+    <!-- Analytics -->
+    <script src="/shared/analytics.js"></script>
+  </body>
+</html>

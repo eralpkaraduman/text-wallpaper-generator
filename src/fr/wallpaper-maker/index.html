@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters;
+       var origin = 'https://textwallpaper.com';
+       var hreflangCodes = { zh: 'zh-Hans', zhHant: 'zh-Hant' };
+       var canonicalUrl = origin + p.availableLangUrls[p.activeLang];
+    %>
+    <title>Générateur de Fond d'Écran Gratuit — Sans Inscription, Sans Filigrane | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="Générateur de fond d'écran gratuit. Créez un fond d'écran avec texte en ligne : sans inscription, sans filigrane, dans n'importe quelle résolution jusqu'à 4K, directement dans votre navigateur." />
+    <meta name="keywords" content="générateur de fond d'écran gratuit, créer un fond d'écran avec texte, fond d'écran texte personnalisé, créer fond d'écran en ligne, fond d'écran personnalisé gratuit" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="<%= canonicalUrl %>" />
+    <!-- hreflang -->
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) { %>
+    <link rel="alternate" hreflang="<%= hreflangCodes[lang] || lang %>" href="<%= origin + p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="<%= origin + p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= canonicalUrl %>" />
+    <meta property="og:title" content="Générateur de Fond d'Écran Gratuit — Sans Inscription, Sans Filigrane" />
+    <meta property="og:description" content="Créez un fond d'écran avec votre texte en ligne — gratuit, sans compte, dans n'importe quelle résolution jusqu'à 4K. Tout se passe dans votre navigateur." />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
+    <meta property="og:locale" content="fr_FR" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="<%= canonicalUrl %>" />
+    <meta property="twitter:title" content="Générateur de Fond d'Écran Gratuit — Sans Inscription" />
+    <meta property="twitter:description" content="Créez un fond d'écran avec votre texte en ligne — gratuit, sans compte, jusqu'à 4K. Tout dans votre navigateur." />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Le générateur de fond d'écran est-il vraiment gratuit ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, entièrement gratuit. Pas de version premium, pas de période d'essai, pas de fonctionnalités verrouillées. Toutes les résolutions, couleurs et polices sont disponibles pour tout le monde."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il s'inscrire ou créer un compte ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Pas d'inscription, pas de connexion, pas d'e-mail. Ouvrez la page, écrivez votre texte et téléchargez votre fond d'écran — c'est tout."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "L'image comporte-t-elle un filigrane ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. L'image téléchargée contient uniquement votre texte sur la couleur de fond de votre choix — sans filigrane, sans logo, sans publicité."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelles résolutions puis-je utiliser ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "N'importe laquelle. Des préréglages existent pour les tailles courantes de téléphone et d'ordinateur, et vous pouvez aussi saisir des dimensions exactes — par exemple 1920×1080 Full HD, 2560×1440 ou 3840×2160 4K."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Puis-je utiliser mes propres photos comme fond ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Cet outil crée des fonds d'écran texte : une couleur de fond unie plus votre texte. Pour placer du texte sur une photo ou faire un collage, une application de retouche photo est un meilleur choix."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Mon texte est-il envoyé sur un serveur ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Le fond d'écran est généré entièrement dans votre navigateur et enregistré directement sur votre appareil. Votre texte ne quitte jamais votre ordinateur ou votre téléphone."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="/shared/static-pages.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="app-header-brand" href="/">TextWallpaper.com</a>
+      <div class="app-header-actions">
+        <% var onSupportPage = /\/support\/$/.test(p.availableLangUrls[p.activeLang]); %>
+        <a class="app-header-pill<%= onSupportPage ? ' active' : '' %>" href="<%= p.localHref('/support/') %>" aria-label="<%= p.supportAria %>"<%= onSupportPage ? ' aria-current="page"' : '' %> data-umami-event="support-page-visit"><span class="app-header-heart" aria-hidden="true">&#9829;</span> <%= p.supportLabel %></a>
+        <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
+        <% if (navLangs.length > 1) { %>
+        <details class="app-header-lang">
+          <summary><span aria-hidden="true">&#127760;</span> <%= p.langLabels[p.activeLang] %></summary>
+          <div class="lang-options">
+            <% navLangs.forEach(function (lang) { %>
+            <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
+            <% }); %>
+          </div>
+        </details>
+        <% } %>
+      </div>
+    </header>
+
+
+    <main class="container">
+      <nav class="breadcrumb">
+        <a href="/fr/">Accueil</a> &rsaquo; Générateur de fond d'écran
+      </nav>
+
+      <article class="article-content">
+        <h1>Générateur de Fond d'Écran &mdash; Gratuit, Sans Inscription, Sans Filigrane</h1>
+
+        <p>Vous voulez créer un fond d'écran en ligne, gratuitement et sans vous inscrire&nbsp;? C'est exactement le rôle de cet outil, avec une précision honnête d'emblée&nbsp;: ici, on crée des <strong>fonds d'écran texte</strong>. Vous choisissez une couleur de fond, vous écrivez votre texte, vous ajustez la police et la taille, puis vous téléchargez un fond d'écran parfaitement net dans la résolution de votre choix. Ce n'est ni un éditeur photo ni un générateur d'images par IA &mdash; et c'est justement cette simplicité qui donne un résultat aussi propre.</p>
+
+        <div class="features">
+          <h2>Ce qui distingue ce générateur de fond d'écran</h2>
+          <ul>
+            <li><strong>100&nbsp;% gratuit</strong> &mdash; pas de version premium, pas de période d'essai, pas de fonctionnalités verrouillées</li>
+            <li><strong>Sans compte</strong> &mdash; pas d'inscription, pas de connexion, pas d'e-mail</li>
+            <li><strong>Sans filigrane</strong> &mdash; votre image contient uniquement votre texte, rien d'autre</li>
+            <li><strong>Toutes les résolutions</strong> &mdash; téléphone, tablette, ordinateur, jusqu'à 3840&times;2160 4K</li>
+            <li><strong>Confidentialité intégrée</strong> &mdash; tout est généré dans votre navigateur&nbsp;; rien n'est envoyé nulle part</li>
+            <li><strong>Toutes les langues</strong> &mdash; accents, ligatures, emojis et tous les caractères Unicode</li>
+          </ul>
+        </div>
+
+        <h2>Comment créer votre fond d'écran</h2>
+
+        <ol>
+          <li><strong>Ouvrez le générateur</strong> &mdash; il se charge instantanément, directement dans le navigateur</li>
+          <li><strong>Écrivez votre texte</strong> &mdash; une citation, un prénom, un rappel ou ce que vous voulez</li>
+          <li><strong>Choisissez couleurs, police et taille</strong> &mdash; utilisez un préréglage pour votre appareil ou saisissez des dimensions exactes</li>
+          <li><strong>Téléchargez</strong> &mdash; enregistrez l'image et définissez-la comme fond d'écran</li>
+        </ol>
+
+        <p>L'ensemble prend moins d'une minute. Pas besoin de mode d'emploi ni de galeries de modèles à parcourir.</p>
+
+        <a href="/fr/" class="cta" data-umami-event="wallpaper-maker-cta">Créer un fond d'écran &rarr;</a>
+
+        <h2>Quand utiliser cet outil, et quand pr&eacute;f&eacute;rer une app photo&nbsp;?</h2>
+
+        <p>Aucun outil ne fait tout. Voici la comparaison honnête&nbsp;:</p>
+
+        <h3>Une app photo est meilleure si&hellip;</h3>
+        <ul>
+          <li>vous voulez composer un collage avec vos propres photos</li>
+          <li>vous voulez placer du texte par-dessus une image existante</li>
+          <li>vous cherchez des images générées par IA, des filtres ou des effets</li>
+        </ul>
+        <p>Il existe de nombreuses apps de retouche et de collage pour cela &mdash; c'est leur spécialité, pas la nôtre.</p>
+
+        <h3>Cet outil est meilleur si&hellip;</h3>
+        <ul>
+          <li><strong>vous voulez de la rapidité</strong> &mdash; fond d'écran prêt en quelques secondes, sans apprentissage</li>
+          <li><strong>vous voulez un texte parfaitement net</strong> &mdash; rendu au pixel près, jamais agrandi ni pixellisé</li>
+          <li><strong>la confidentialité compte pour vous</strong> &mdash; rien n'est envoyé&nbsp;; les outils photo traitent souvent les images sur leurs serveurs</li>
+          <li><strong>vous avez besoin d'une résolution exacte</strong> &mdash; largeur et hauteur libres, jusqu'à la 4K et au-delà</li>
+          <li><strong>vous aimez le minimalisme</strong> &mdash; un texte lisible sur une couleur unie fait net, pas surchargé</li>
+        </ul>
+
+        <h2>Idées d'utilisation populaires</h2>
+
+        <ul>
+          <li>Citations motivantes en compagnon quotidien sur l'écran de verrouillage</li>
+          <li>Votre prénom ou un monogramme en fond d'écran &mdash; essayez le <a href="/fr/name-wallpaper/">générateur de fond d'écran avec prénom</a></li>
+          <li>Rappels de révisions sur le téléphone en période d'examens</li>
+          <li>Fonds d'écran de bureau minimalistes en Full HD ou 4K</li>
+          <li><a href="<%= p.localHref('/use-cases/') %>">Voir plus d'exemples d'utilisation &rarr;</a></li>
+        </ul>
+
+        <h2>Questions fréquentes</h2>
+
+        <h3>Est-ce vraiment gratuit&nbsp;?</h3>
+        <p>Oui, totalement. Pas de version premium, pas d'essai, pas de coûts cachés. Toutes les résolutions, couleurs et polices sont ouvertes à tout le monde.</p>
+
+        <h3>Faut-il s'inscrire&nbsp;?</h3>
+        <p>Non. Il n'existe tout simplement pas de système de comptes &mdash; ni inscription, ni connexion, ni e-mail. Ouvrez la page et commencez à écrire.</p>
+
+        <h3>L'image comporte-t-elle un filigrane&nbsp;?</h3>
+        <p>Non. Le téléchargement contient uniquement votre texte sur la couleur de fond choisie. Sans filigrane, sans logo.</p>
+
+        <h3>Quelles r&eacute;solutions sont prises en charge&nbsp;?</h3>
+        <p>Toutes. Des préréglages pour les tailles courantes de téléphone et d'ordinateur, plus des dimensions libres &mdash; 1920&times;1080, 2560&times;1440, 3840&times;2160 4K ou tout autre format.</p>
+
+        <h3>Puis-je utiliser mes propres photos&nbsp;?</h3>
+        <p>Non &mdash; et c'est voulu, pas un oubli. Cet outil crée des fonds d'écran couleur plus texte. Pour placer du texte sur des photos, l'outil adapté est une app de retouche.</p>
+
+        <h3>Mon texte est-il envoy&eacute; quelque part&nbsp;?</h3>
+        <p>Non. Tout est généré localement dans votre navigateur et enregistré directement sur votre appareil. Votre texte n'atteint jamais un serveur.</p>
+
+        <p>Prêt&nbsp;? Votre fond d'écran n'est qu'à quelques secondes &mdash; gratuit et entièrement privé.</p>
+
+        <a href="/fr/" class="cta" data-umami-event="wallpaper-maker-cta">Créer mon fond d'écran maintenant &rarr;</a>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
+    </footer>
+
+    <!-- Analytics -->
+    <script src="/shared/analytics.js"></script>
+  </body>
+</html>
