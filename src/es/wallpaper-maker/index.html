@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters;
+       var origin = 'https://textwallpaper.com';
+       var hreflangCodes = { zh: 'zh-Hans', zhHant: 'zh-Hant' };
+       var canonicalUrl = origin + p.availableLangUrls[p.activeLang];
+    %>
+    <title>Creador de Fondos de Pantalla Gratis — Sin Registro, Sin Marca de Agua | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="Creador de fondos de pantalla gratis. Crea un fondo de pantalla online con tu texto: sin registro, sin marca de agua, en cualquier resolución hasta 4K, directo en tu navegador." />
+    <meta name="keywords" content="creador de fondos de pantalla gratis, crear fondo de pantalla online, generador de fondos de pantalla, hacer fondo de pantalla, fondo de pantalla con texto, crear wallpaper online gratis" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="<%= canonicalUrl %>" />
+    <!-- hreflang -->
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) { %>
+    <link rel="alternate" hreflang="<%= hreflangCodes[lang] || lang %>" href="<%= origin + p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="<%= origin + p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= canonicalUrl %>" />
+    <meta property="og:title" content="Creador de Fondos de Pantalla Gratis — Sin Registro, Sin Marca de Agua" />
+    <meta property="og:description" content="Crea un fondo de pantalla online con tu texto — gratis, sin cuenta, en cualquier resolución hasta 4K. Todo ocurre en tu navegador." />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
+    <meta property="og:locale" content="es_ES" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="<%= canonicalUrl %>" />
+    <meta property="twitter:title" content="Creador de Fondos de Pantalla Gratis — Sin Registro" />
+    <meta property="twitter:description" content="Crea un fondo de pantalla online con tu texto — gratis, sin cuenta, hasta 4K. Todo en tu navegador." />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿El creador de fondos de pantalla es realmente gratis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, completamente gratis. No hay versión premium, ni periodo de prueba, ni funciones bloqueadas. Todas las resoluciones, colores y tipografías están disponibles para cualquiera."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Tengo que registrarme o crear una cuenta?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Sin registro, sin inicio de sesión, sin correo electrónico. Abre la página, escribe tu texto y descarga tu fondo de pantalla — listo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿La imagen lleva marca de agua?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. La imagen descargada contiene solo tu texto sobre el color de fondo que elijas — sin marca de agua, sin logotipo, sin publicidad."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué resoluciones puedo usar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cualquier resolución. Hay ajustes predefinidos para los tamaños habituales de móvil y ordenador, y también puedes escribir medidas exactas — por ejemplo 1920×1080 Full HD, 2560×1440 o 3840×2160 4K."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo usar mis propias fotos como fondo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Esta herramienta crea fondos de pantalla de texto: un color de fondo liso más tu texto. Si quieres poner texto sobre una foto o hacer un collage, una app de edición de fotos es mejor opción."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Mi texto se sube a algún servidor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. El fondo de pantalla se genera por completo en tu navegador y se guarda directamente en tu dispositivo. Tu texto nunca sale de tu ordenador o de tu móvil."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="/shared/static-pages.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="app-header-brand" href="<%= p.homeLink %>">TextWallpaper.com</a>
+      <div class="app-header-actions">
+        <% var onSupportPage = /\/support\/$/.test(p.availableLangUrls[p.activeLang]); %>
+        <a class="app-header-pill<%= onSupportPage ? ' active' : '' %>" href="<%= p.localHref('/support/') %>" aria-label="<%= p.supportAria %>"<%= onSupportPage ? ' aria-current="page"' : '' %> data-umami-event="support-page-visit"><span class="app-header-heart" aria-hidden="true">&#9829;</span> <%= p.supportLabel %></a>
+        <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
+        <% if (navLangs.length > 1) { %>
+        <details class="app-header-lang">
+          <summary><span aria-hidden="true">&#127760;</span> <%= p.langLabels[p.activeLang] %></summary>
+          <div class="lang-options">
+            <% navLangs.forEach(function (lang) { %>
+            <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
+            <% }); %>
+          </div>
+        </details>
+        <% } %>
+      </div>
+    </header>
+
+
+    <main class="container">
+      <nav class="breadcrumb">
+        <a href="/es/">Inicio</a> &rsaquo; Creador de fondos de pantalla
+      </nav>
+
+      <article class="article-content">
+        <h1>Creador de Fondos de Pantalla &mdash; Gratis, Sin Registro, Sin Marca de Agua</h1>
+
+        <p>&iquest;Quieres crear un fondo de pantalla online, gratis y sin registrarte? Para eso existe esta herramienta, con una aclaración honesta por delante: aquí se crean <strong>fondos de pantalla de texto</strong>. Eliges un color de fondo, escribes tu texto, ajustas la tipografía y el tamaño, y descargas un fondo de pantalla perfectamente nítido en la resolución que quieras. No es un editor de fotos ni un generador de imágenes con IA &mdash; y justo esa sencillez es lo que hace que el resultado quede tan bien.</p>
+
+        <div class="features">
+          <h2>Qué distingue a este generador de fondos de pantalla</h2>
+          <ul>
+            <li><strong>100&nbsp;% gratis</strong> &mdash; sin versión premium, sin periodo de prueba, sin funciones bloqueadas</li>
+            <li><strong>Sin cuenta</strong> &mdash; sin registro, sin inicio de sesión, sin correo electrónico</li>
+            <li><strong>Sin marca de agua</strong> &mdash; tu imagen contiene solo tu texto, nada más</li>
+            <li><strong>Cualquier resolución</strong> &mdash; móvil, tablet, ordenador, hasta 3840&times;2160 4K</li>
+            <li><strong>Privacidad incluida</strong> &mdash; todo se genera en tu navegador; nada se sube a ningún sitio</li>
+            <li><strong>Todos los idiomas</strong> &mdash; tildes, la ñ, emojis y todos los caracteres Unicode</li>
+          </ul>
+        </div>
+
+        <h2>Cómo crear tu fondo de pantalla</h2>
+
+        <ol>
+          <li><strong>Abre el generador</strong> &mdash; carga al instante, directamente en el navegador</li>
+          <li><strong>Escribe tu texto</strong> &mdash; una frase, un nombre, un recordatorio o lo que quieras</li>
+          <li><strong>Elige colores, tipografía y tamaño</strong> &mdash; usa un ajuste predefinido para tu dispositivo o escribe medidas exactas</li>
+          <li><strong>Descarga</strong> &mdash; guarda la imagen y ponla como fondo de pantalla</li>
+        </ol>
+
+        <p>Todo el proceso lleva menos de un minuto. No hacen falta instrucciones ni galerías de plantillas que revisar.</p>
+
+        <a href="/es/" class="cta" data-umami-event="wallpaper-maker-cta">Crear fondo de pantalla &rarr;</a>
+
+        <h2>&iquest;Cu&aacute;ndo usar esta herramienta y cu&aacute;ndo una app de fotos?</h2>
+
+        <p>No todas las herramientas sirven para todo. Aquí va la comparación honesta:</p>
+
+        <h3>Una app de fotos es mejor si&hellip;</h3>
+        <ul>
+          <li>quieres montar un collage con tus propias fotos</li>
+          <li>quieres poner texto encima de una imagen existente</li>
+          <li>buscas imágenes generadas con IA, filtros o efectos</li>
+        </ul>
+        <p>Para eso hay muchas apps de edición y collage &mdash; esa es su especialidad, no la nuestra.</p>
+
+        <h3>Esta herramienta es mejor si&hellip;</h3>
+        <ul>
+          <li><strong>quieres rapidez</strong> &mdash; fondo de pantalla listo en segundos, sin curva de aprendizaje</li>
+          <li><strong>quieres el texto perfectamente nítido</strong> &mdash; renderizado al píxel exacto, nunca escalado ni pixelado</li>
+          <li><strong>te importa la privacidad</strong> &mdash; nada se sube; las herramientas de fotos suelen procesar las imágenes en sus servidores</li>
+          <li><strong>necesitas una resolución exacta</strong> &mdash; ancho y alto libres, hasta 4K y más allá</li>
+          <li><strong>buscas minimalismo</strong> &mdash; texto claro sobre un color se ve ordenado, no recargado</li>
+        </ul>
+
+        <h2>Ideas de uso populares</h2>
+
+        <ul>
+          <li>Frases motivadoras como compañía diaria en la pantalla de bloqueo</li>
+          <li>Tu nombre o un monograma como fondo &mdash; prueba el <a href="/es/name-wallpaper/">creador de fondos con tu nombre</a></li>
+          <li>Recordatorios de estudio en el móvil en época de exámenes</li>
+          <li>Fondos de escritorio minimalistas en Full HD o 4K</li>
+          <li><a href="<%= p.localHref('/use-cases/') %>">Ver más ejemplos de uso &rarr;</a></li>
+        </ul>
+
+        <h2>Preguntas frecuentes</h2>
+
+        <h3>&iquest;De verdad es gratis?</h3>
+        <p>Sí, del todo. Sin versión premium, sin pruebas, sin costes ocultos. Todas las resoluciones, colores y tipografías están abiertas a cualquiera.</p>
+
+        <h3>&iquest;Tengo que registrarme?</h3>
+        <p>No. Directamente no existe un sistema de cuentas &mdash; ni registro, ni inicio de sesión, ni correo. Abre la página y empieza a escribir.</p>
+
+        <h3>&iquest;La imagen lleva marca de agua?</h3>
+        <p>No. La descarga contiene únicamente tu texto sobre el color de fondo elegido. Sin marca de agua, sin logotipo.</p>
+
+        <h3>&iquest;Qu&eacute; resoluciones admite?</h3>
+        <p>Todas. Ajustes predefinidos para los tamaños habituales de móvil y ordenador, más medidas libres &mdash; 1920&times;1080, 2560&times;1440, 3840&times;2160 4K o cualquier otro formato.</p>
+
+        <h3>&iquest;Puedo usar mis propias fotos?</h3>
+        <p>No &mdash; y es a propósito, no un descuido. Esta herramienta crea fondos de pantalla de color más texto. Para poner texto sobre fotos, la herramienta adecuada es una app de edición.</p>
+
+        <h3>&iquest;Mi texto se sube a alg&uacute;n sitio?</h3>
+        <p>No. Todo se genera localmente en tu navegador y se guarda directamente en tu dispositivo. Tu texto nunca llega a un servidor.</p>
+
+        <p>&iquest;Listo? Tu fondo de pantalla está a solo unos segundos &mdash; gratis y totalmente privado.</p>
+
+        <a href="/es/" class="cta" data-umami-event="wallpaper-maker-cta">Crear mi fondo de pantalla ahora &rarr;</a>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
+    </footer>
+
+    <!-- Analytics -->
+    <script src="/shared/analytics.js"></script>
+  </body>
+</html>

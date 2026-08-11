@@ -36,6 +36,7 @@ const LANG_LABELS = {
   de: 'Deutsch',
   tr: 'Türkçe',
   id: 'Indonesia',
+  es: 'Español',
 };
 
 // Root-level English landing/static page folders (each contains an index.html).
@@ -93,6 +94,12 @@ const LANG_CONFIG = {
     supportLabel: 'Dukung',
     supportAria: 'Dukung proyek ini',
   },
+  es: {
+    homeLink: '/es/',
+    footerText: 'Generador de Fondos de Pantalla de Texto Gratis',
+    supportLabel: 'Apoyar',
+    supportAria: 'Apoya este proyecto',
+  },
 };
 
 /**
@@ -101,7 +108,7 @@ const LANG_CONFIG = {
  * /zh/use-cases/motivation/ -> 'zh'
  */
 function detectLang(relativePath) {
-  const match = relativePath.match(/^(zh|ja|de|tr|id)\//);
+  const match = relativePath.match(/^(zh|ja|de|tr|id|es)\//);
   return match ? match[1] : 'en';
 }
 
@@ -125,6 +132,7 @@ function getLangUrls(basePath) {
     de: '/de' + basePath,
     tr: '/tr' + basePath,
     id: '/id' + basePath,
+    es: '/es' + basePath,
   };
 }
 
@@ -229,6 +237,7 @@ function findStaticPages() {
     'de/**/index.html',
     'tr/**/index.html',
     'id/**/index.html',
+    'es/**/index.html',
   ];
 
   const pages = [];

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters; %>
+    <title>Fondo de Pantalla con Mi Nombre — Crear Fondo de Pantalla con Nombre | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="Crea gratis un fondo de pantalla con tu nombre. Escribe tu nombre, elige colores y tamaño de letra, y descárgalo para móvil u ordenador. Sin registro y sin marca de agua." />
+    <meta name="keywords" content="fondo de pantalla con mi nombre, crear fondo de pantalla con nombre, fondo de pantalla personalizado con nombre, wallpaper con nombre, fondo con tu nombre" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://textwallpaper.com<%= p.availableLangUrls[p.activeLang] %>" />
+    <!-- hreflang -->
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) {
+      var code = lang === 'zh' ? 'zh-Hans' : (lang === 'zhHant' ? 'zh-Hant' : lang); %>
+    <link rel="alternate" hreflang="<%= code %>" href="https://textwallpaper.com<%= p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="https://textwallpaper.com<%= p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://textwallpaper.com/es/name-wallpaper/" />
+    <meta property="og:title" content="Fondo de Pantalla con Mi Nombre — Crear Fondo de Pantalla con Nombre" />
+    <meta property="og:description" content="Escribe tu nombre, elige colores y descárgalo gratis en tamaño de móvil u ordenador. Sin marca de agua." />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://textwallpaper.com/es/name-wallpaper/" />
+    <meta property="twitter:title" content="Fondo de Pantalla con Mi Nombre — Crear Fondo de Pantalla con Nombre" />
+    <meta property="twitter:description" content="Escribe tu nombre, elige colores y descárgalo gratis. Sin marca de agua." />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Crear un fondo de pantalla con mi nombre es gratis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, totalmente gratis. No hace falta registrarse, no hay versión de pago y la imagen descargada no lleva marca de agua."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Funcionan las tildes, la ñ y los emojis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. El texto se dibuja con las tipografías de tu propio dispositivo, así que á, é, í, ó, ú, la ñ y todos los emojis funcionan sin problema."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿En qué resolución se descarga el fondo de pantalla?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tú eliges el tamaño en píxeles antes de descargar. Desde la pantalla de un móvil hasta un monitor 4K, la imagen se genera a tamaño completo, sin ampliaciones."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿La imagen lleva marca de agua?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. La imagen descargada contiene únicamente el color de fondo que elegiste y el texto que escribiste; no hay logotipo ni marca de agua."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="/shared/static-pages.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="app-header-brand" href="<%= p.homeLink %>">TextWallpaper.com</a>
+      <div class="app-header-actions">
+        <% var onSupportPage = /\/support\/$/.test(p.availableLangUrls[p.activeLang]); %>
+        <a class="app-header-pill<%= onSupportPage ? ' active' : '' %>" href="<%= p.localHref('/support/') %>" aria-label="<%= p.supportAria %>"<%= onSupportPage ? ' aria-current="page"' : '' %> data-umami-event="support-page-visit"><span class="app-header-heart" aria-hidden="true">&#9829;</span> <%= p.supportLabel %></a>
+        <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
+        <% if (navLangs.length > 1) { %>
+        <details class="app-header-lang">
+          <summary><span aria-hidden="true">&#127760;</span> <%= p.langLabels[p.activeLang] %></summary>
+          <div class="lang-options">
+            <% navLangs.forEach(function (lang) { %>
+            <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
+            <% }); %>
+          </div>
+        </details>
+        <% } %>
+      </div>
+    </header>
+
+
+    <main class="container">
+      <nav class="breadcrumb">
+        <a href="/es/">Inicio</a> &rsaquo; Fondo de pantalla con nombre
+      </nav>
+
+      <article class="article-content">
+        <h1>Fondo de Pantalla con Mi Nombre &mdash; Crea un Fondo de Pantalla con tu Nombre</h1>
+
+        <p class="intro">&iquest;Te gustaría ver tu propio nombre en la pantalla? Escribe tu nombre, elige tus colores y descárgalo en segundos. Esta herramienta gratuita funciona por completo en tu navegador &mdash; sin descargar apps, sin registro y sin marca de agua.</p>
+
+        <a href="/es/" class="cta" data-umami-event="name-wallpaper-cta">Crea tu fondo de pantalla con nombre &rarr;</a>
+
+        <h2>&iquest;C&oacute;mo crear un fondo de pantalla con tu nombre?</h2>
+
+        <ol>
+          <li><strong>Escribe tu nombre</strong> &mdash; o tu apodo, tus iniciales o cualquier texto que tengas en mente.</li>
+          <li><strong>Elige colores y tamaño de letra</strong> &mdash; escoge un fondo y un color de texto que vayan con tu estilo; agranda la letra tanto como quieras.</li>
+          <li><strong>Define el tamaño</strong> &mdash; selecciona la resolución adecuada para la pantalla de tu móvil u ordenador.</li>
+          <li><strong>Descarga</strong> &mdash; guarda la imagen y ponla como fondo de pantalla. Eso es todo.</li>
+        </ol>
+
+        <p>Todo sucede en tu navegador: el nombre que escribes no se envía a ningún servidor y, una vez cargada la página, la herramienta funciona incluso sin internet.</p>
+
+        <h2>&iquest;M&oacute;vil u ordenador? Elige el tama&ntilde;o correcto</h2>
+
+        <ul>
+          <li><strong>Móvil:</strong> los teléfonos actuales suelen usar resoluciones verticales como 1170&times;2532 o 1440&times;3200. La herramienta puede detectar automáticamente el tamaño de tu pantalla, así que la mayoría de las veces no tendrás que ajustar nada.</li>
+          <li><strong>Ordenador:</strong> los tamaños habituales son 1920&times;1080 (Full HD), 2560&times;1440 y 3840&times;2160 (4K). Si eliges el tamaño de tu monitor, el texto se verá perfectamente nítido.</li>
+        </ul>
+
+        <div class="tip-box">
+          <p><strong>Consejo:</strong> En el móvil, coloca el texto cerca del centro &mdash; en la pantalla de bloqueo el reloj queda arriba, y en la pantalla de inicio los iconos tapan los bordes.</p>
+        </div>
+
+        <h2>Ideas para tu fondo con nombre</h2>
+
+        <ul>
+          <li><strong>Solo tu nombre</strong> &mdash; enorme y con presencia, o pequeño y discreto: &laquo;Lucía&raquo; queda bien de las dos formas.</li>
+          <li><strong>Iniciales</strong> &mdash; dos o tres letras en tamaño grande crean un elegante fondo estilo monograma.</li>
+          <li><strong>Apodo</strong> &mdash; el nombre con el que te llaman de verdad tus amigos suele quedar mejor que el nombre completo.</li>
+          <li><strong>Nombre + una frase corta</strong> &mdash; una línea como &laquo;Mateo &mdash; un paso cada día&raquo; convierte tu fondo en un recordatorio diario.</li>
+          <li><strong>Nombre + emoji</strong> &mdash; añade una estrella, un corazón o una llama junto a tu nombre.</li>
+        </ul>
+
+        <p>Como es gratis y solo lleva unos segundos, también puedes preparar fondos con el nombre de tus seres queridos &mdash; una pequeña sorpresa para una amiga o para la tablet de tus hijos.</p>
+
+        <h2>Preguntas frecuentes</h2>
+
+        <h3>&iquest;Es gratis?</h3>
+        <p>Sí, del todo. Sin registro, sin planes de pago, sin marca de agua. Puedes crear tantos fondos de pantalla como quieras.</p>
+
+        <h3>&iquest;Funcionan las tildes, la &ntilde; y los emojis?</h3>
+        <p>Sí. Como el texto lo dibuja tu propio dispositivo, todos los caracteres del español &mdash; á, é, í, ó, ú, ñ, ¿, ¡ &mdash; y los emojis se ven sin problema.</p>
+
+        <h3>&iquest;En qu&eacute; resoluci&oacute;n se descarga?</h3>
+        <p>En la que tú elijas. Antes de descargar defines las medidas en píxeles; la imagen se genera a ese tamaño, sin ampliarse después.</p>
+
+        <h3>&iquest;Lleva marca de agua?</h3>
+        <p>No. La imagen descargada contiene únicamente tu texto y el color de fondo que elegiste.</p>
+
+        <p>&iquest;Lista tu pantalla para lucir tu nombre?</p>
+
+        <a href="/es/" class="cta" data-umami-event="name-wallpaper-cta">Crea tu fondo de pantalla con nombre &rarr;</a>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
+    </footer>
+
+    <!-- Analytics -->
+    <script src="/shared/analytics.js"></script>
+  </body>
+</html>
