@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const { generateStaticPagePlugins } = require('./static-pages-config.js');
+const { generateStaticPagePlugins, ANALYTICS_SRC } = require('./static-pages-config.js');
 
 const extractSass = new ExtractTextPlugin({
   filename: '[name].[contenthash].css',
@@ -93,6 +93,11 @@ module.exports = {
       minify: {
         removeComments: true,
         collapseWhitespace: true,
+      },
+      // Cache-busted analytics URL, same as the static pages (accessed in the
+      // template as htmlWebpackPlugin.options.templateParameters.analyticsSrc).
+      templateParameters: {
+        analyticsSrc: ANALYTICS_SRC,
       },
     }),
     new CopyWebpackPlugin([

@@ -9,10 +9,33 @@
 
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 const glob = require('glob');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const SRC_DIR = path.join(__dirname, '..', 'src');
+
+/**
+ * Cache-busting for the two unversioned shared static assets.
+ *
+ * /shared/static-pages.css and /shared/analytics.js are copied verbatim by
+ * CopyWebpackPlugin (no content hash in the filename) and Cloudflare caches
+ * them for 24h, so restyles could lag a day behind a deploy. We compute a
+ * short content hash of each file at config-load (= build) time and expose
+ * versioned URLs as template params:
+ *   <link rel="stylesheet" href="<%= p.staticCssHref %>">
+ *   <script src="<%= p.analyticsSrc %>"></script>
+ * The query string changes whenever the file content changes, forcing CDN and
+ * browser caches to refetch; the server ignores the query and serves the same
+ * file. 404.html is plain-copied (no EJS pass), so it keeps the bare URLs.
+ */
+function shortContentHash(relativeSrcPath) {
+  const content = fs.readFileSync(path.join(SRC_DIR, relativeSrcPath));
+  return crypto.createHash('md5').update(content).digest('hex').slice(0, 8);
+}
+
+const STATIC_CSS_HREF = `/shared/static-pages.css?v=${shortContentHash('shared/static-pages.css')}`;
+const ANALYTICS_SRC = `/shared/analytics.js?v=${shortContentHash('shared/analytics.js')}`;
 
 // Single source of truth for the Stripe payment link used by all support pages
 // (referenced in templates as p.stripeDonateUrl).
@@ -56,6 +79,8 @@ const ROOT_PAGES = [
   'wallpaper-maker',
   'text-screensaver',
   'support',
+  'privacy',
+  'terms',
 ];
 
 // Language configs with their home links, footer text and the header's
@@ -319,6 +344,8 @@ function generateStaticPagePlugins() {
         ogImageUrl: OG_IMAGE_URL,
         langLabels: LANG_LABELS,
         localHref: makeLocalHref(lang),
+        staticCssHref: STATIC_CSS_HREF,
+        analyticsSrc: ANALYTICS_SRC,
       },
     });
   });
@@ -329,4 +356,6 @@ module.exports = {
   findStaticPages,
   LANG_CONFIG,
   ROOT_PAGES,
+  STATIC_CSS_HREF,
+  ANALYTICS_SRC,
 };

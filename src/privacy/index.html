@@ -7,6 +7,7 @@
     <meta name="description" content="Privacy policy for TextWallpaper.com: no accounts, no personal data collection, wallpapers generated entirely in your browser, anonymized analytics only." />
     <meta name="author" content="Eralp Karaduman" />
     <meta name="robots" content="index, follow" />
+    <% var p = htmlWebpackPlugin.options.templateParameters; %>
     <link rel="canonical" href="https://textwallpaper.com/privacy/" />
 
     <!-- Open Graph -->
@@ -17,11 +18,26 @@
     <meta property="og:image" content="https://textwallpaper.com/shared/og-image.png" />
 
     <meta name="theme-color" content="#2D2D2D" />
-    <link rel="stylesheet" href="/shared/static-pages.css">
+    <link rel="stylesheet" href="<%= p.staticCssHref %>">
   </head>
   <body>
-    <header class="header">
-      <a href="/">TextWallpaper.com</a>
+    <header class="app-header">
+      <a class="app-header-brand" href="/">TextWallpaper.com</a>
+      <div class="app-header-actions">
+        <% var onSupportPage = /\/support\/$/.test(p.availableLangUrls[p.activeLang]); %>
+        <a class="app-header-pill<%= onSupportPage ? ' active' : '' %>" href="<%= p.localHref('/support/') %>" aria-label="<%= p.supportAria %>"<%= onSupportPage ? ' aria-current="page"' : '' %> data-umami-event="support-page-visit"><span class="app-header-heart" aria-hidden="true">&#9829;</span> <%= p.supportLabel %></a>
+        <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
+        <% if (navLangs.length > 1) { %>
+        <details class="app-header-lang">
+          <summary><span aria-hidden="true">&#127760;</span> <%= p.langLabels[p.activeLang] %></summary>
+          <div class="lang-options">
+            <% navLangs.forEach(function (lang) { %>
+            <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
+            <% }); %>
+          </div>
+        </details>
+        <% } %>
+      </div>
     </header>
 
     <main class="container">
@@ -66,6 +82,6 @@
     </footer>
 
     <!-- Analytics -->
-    <script src="/shared/analytics.js"></script>
+    <script src="<%= p.analyticsSrc %>"></script>
   </body>
 </html>
