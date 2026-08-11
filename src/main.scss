@@ -426,6 +426,16 @@ a.intro-start-button {
   color: $default_dark_color;
 }
 
+#image-size-window-reset-button {
+  /* The shared .root a rule stacks children vertically; this row wants
+     icon + label side by side, filling the row like the inputs above. */
+  flex-direction: row;
+  gap: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+}
+
 .download-window-image {
   margin: 0;
   padding: 0;

@@ -4,6 +4,7 @@ import TextInput from '../TextInput';
 import MenuWindow from './MenuWindow';
 
 type UpdateRequestedHandler = () => void;
+type ResetRequestedHandler = () => void;
 type SizeChangeRequestHandler = (
   width: number,
   height: number,
@@ -13,6 +14,7 @@ type SizeChangeRequestHandler = (
 export default class ImageSizeWindow extends MenuWindow {
   _requestSizeChangeHandler: SizeChangeRequestHandler;
   _updateRequestedHandler: UpdateRequestedHandler;
+  _resetRequestedHandler: ResetRequestedHandler;
   _widthInput: TextInput;
   _heightInput: TextInput;
   _scaleInput: TextInput;
@@ -33,10 +35,15 @@ export default class ImageSizeWindow extends MenuWindow {
     elementId: string,
     onRequestSizeChange: SizeChangeRequestHandler,
     onUpdateRequested: UpdateRequestedHandler,
+    onResetRequested: ResetRequestedHandler,
   ) {
     super(elementId);
     this._requestSizeChangeHandler = onRequestSizeChange;
     this._updateRequestedHandler = onUpdateRequested;
+    this._resetRequestedHandler = onResetRequested;
+    getElement('image-size-window-reset-button').addEventListener('click', () =>
+      this._resetRequestedHandler(),
+    );
     this._widthInput = new TextInput(
       getElement('menu-image-size-label-width'),
       TextInput.MASKING_MODE_PIXEL,

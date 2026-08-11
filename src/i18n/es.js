@@ -41,6 +41,8 @@ export default {
   'menu.clickToSave': 'Haz clic en la imagen de abajo para guardarla',
   'menu.creating': 'Creando tu fondo de pantalla…',
   'menu.supportAria': 'Apoya este proyecto',
+  'menu.resetSize': 'Mi pantalla',
+  'menu.resetSizeAria': 'Restablecer al tamaño de mi pantalla',
 
   // Text editor
   'editor.placeholder': 'Escribe algo…',

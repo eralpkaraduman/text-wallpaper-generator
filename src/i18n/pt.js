@@ -41,6 +41,8 @@ export default {
   'menu.clickToSave': 'Clique na imagem abaixo para salvá-la',
   'menu.creating': 'Criando seu papel de parede…',
   'menu.supportAria': 'Apoie este projeto',
+  'menu.resetSize': 'Minha tela',
+  'menu.resetSizeAria': 'Redefinir para o tamanho da minha tela',
 
   // Text editor
   'editor.placeholder': 'Escreva alguma coisa…',

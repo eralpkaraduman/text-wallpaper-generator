@@ -37,6 +37,8 @@ export default {
   'menu.clickToSave': '点击下方图片即可保存',
   'menu.creating': '正在生成壁纸…',
   'menu.supportAria': '支持这个项目',
+  'menu.resetSize': '本机屏幕',
+  'menu.resetSizeAria': '重置为本机屏幕尺寸',
 
   // Text editor
   'editor.placeholder': '输入一些文字…',
