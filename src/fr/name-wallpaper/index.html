@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters; %>
+    <title>Fond d'Écran avec Prénom — Créer un Fond d'Écran à Votre Nom | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="Créez gratuitement un fond d'écran avec votre prénom. Écrivez votre nom, choisissez couleurs et taille de police, puis téléchargez-le pour téléphone ou ordinateur. Sans inscription ni filigrane." />
+    <meta name="keywords" content="fond d'écran avec prénom, créer fond d'écran avec son nom, fond d'écran personnalisé prénom, fond d'écran à mon nom, fond d'écran nom" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://textwallpaper.com<%= p.availableLangUrls[p.activeLang] %>" />
+    <!-- hreflang -->
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) {
+      var code = lang === 'zh' ? 'zh-Hans' : (lang === 'zhHant' ? 'zh-Hant' : lang); %>
+    <link rel="alternate" hreflang="<%= code %>" href="https://textwallpaper.com<%= p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="https://textwallpaper.com<%= p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://textwallpaper.com/fr/name-wallpaper/" />
+    <meta property="og:title" content="Fond d'Écran avec Prénom — Créer un Fond d'Écran à Votre Nom" />
+    <meta property="og:description" content="Écrivez votre prénom, choisissez vos couleurs et téléchargez gratuitement au format téléphone ou ordinateur. Sans filigrane." />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://textwallpaper.com/fr/name-wallpaper/" />
+    <meta property="twitter:title" content="Fond d'Écran avec Prénom — Créer un Fond d'Écran à Votre Nom" />
+    <meta property="twitter:description" content="Écrivez votre prénom, choisissez vos couleurs et téléchargez gratuitement. Sans filigrane." />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Créer un fond d'écran avec mon prénom est-il gratuit ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, totalement gratuit. Aucune inscription nécessaire, pas de version payante, et l'image téléchargée ne comporte aucun filigrane."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Les accents et les emojis fonctionnent-ils ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. Le texte est dessiné avec les polices de votre propre appareil, donc é, è, à, ç, œ et tous les emojis fonctionnent sans problème."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Dans quelle résolution le fond d'écran est-il téléchargé ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vous choisissez la taille en pixels avant de télécharger. De l'écran d'un téléphone à un moniteur 4K, l'image est générée à taille réelle, sans agrandissement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "L'image comporte-t-elle un filigrane ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. L'image téléchargée contient uniquement la couleur de fond choisie et le texte que vous avez écrit ; il n'y a ni logo ni filigrane."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="/shared/static-pages.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="app-header-brand" href="/">TextWallpaper.com</a>
+      <div class="app-header-actions">
+        <% var onSupportPage = /\/support\/$/.test(p.availableLangUrls[p.activeLang]); %>
+        <a class="app-header-pill<%= onSupportPage ? ' active' : '' %>" href="<%= p.localHref('/support/') %>" aria-label="<%= p.supportAria %>"<%= onSupportPage ? ' aria-current="page"' : '' %> data-umami-event="support-page-visit"><span class="app-header-heart" aria-hidden="true">&#9829;</span> <%= p.supportLabel %></a>
+        <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
+        <% if (navLangs.length > 1) { %>
+        <details class="app-header-lang">
+          <summary><span aria-hidden="true">&#127760;</span> <%= p.langLabels[p.activeLang] %></summary>
+          <div class="lang-options">
+            <% navLangs.forEach(function (lang) { %>
+            <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
+            <% }); %>
+          </div>
+        </details>
+        <% } %>
+      </div>
+    </header>
+
+
+    <main class="container">
+      <nav class="breadcrumb">
+        <a href="/fr/">Accueil</a> &rsaquo; Fond d'écran avec prénom
+      </nav>
+
+      <article class="article-content">
+        <h1>Fond d'&Eacute;cran avec Pr&eacute;nom &mdash; Cr&eacute;ez un Fond d'&Eacute;cran &agrave; Votre Nom</h1>
+
+        <p class="intro">Envie de voir votre propre prénom sur votre écran&nbsp;? Écrivez votre nom, choisissez vos couleurs et téléchargez le résultat en quelques secondes. Cet outil gratuit fonctionne entièrement dans votre navigateur &mdash; sans application à installer, sans inscription et sans filigrane.</p>
+
+        <a href="/fr/" class="cta" data-umami-event="name-wallpaper-cta">Créez votre fond d'écran avec prénom &rarr;</a>
+
+        <h2>Comment cr&eacute;er un fond d'&eacute;cran avec votre pr&eacute;nom&nbsp;?</h2>
+
+        <ol>
+          <li><strong>Écrivez votre prénom</strong> &mdash; ou votre surnom, vos initiales ou tout autre texte qui vous tient à cœur.</li>
+          <li><strong>Choisissez couleurs et taille de police</strong> &mdash; sélectionnez un fond et une couleur de texte à votre goût&nbsp;; agrandissez la police autant que vous voulez.</li>
+          <li><strong>Définissez la taille</strong> &mdash; choisissez la résolution adaptée à l'écran de votre téléphone ou de votre ordinateur.</li>
+          <li><strong>Téléchargez</strong> &mdash; enregistrez l'image et définissez-la comme fond d'écran. C'est tout.</li>
+        </ol>
+
+        <p>Tout se passe dans votre navigateur&nbsp;: le prénom que vous écrivez n'est envoyé à aucun serveur et, une fois la page chargée, l'outil fonctionne même sans connexion internet.</p>
+
+        <h2>T&eacute;l&eacute;phone ou ordinateur&nbsp;? Choisissez la bonne taille</h2>
+
+        <ul>
+          <li><strong>Téléphone&nbsp;:</strong> les téléphones actuels utilisent des résolutions verticales comme 1170&times;2532 ou 1440&times;3200. L'outil peut détecter automatiquement la taille de votre écran, donc la plupart du temps vous n'aurez rien à régler.</li>
+          <li><strong>Ordinateur&nbsp;:</strong> les tailles courantes sont 1920&times;1080 (Full HD), 2560&times;1440 et 3840&times;2160 (4K). En choisissant la taille de votre moniteur, le texte restera parfaitement net.</li>
+        </ul>
+
+        <div class="tip-box">
+          <p><strong>Astuce&nbsp;:</strong> Sur téléphone, placez le texte près du centre &mdash; sur l'écran de verrouillage, l'horloge occupe le haut, et sur l'écran d'accueil, les icônes masquent les bords.</p>
+        </div>
+
+        <h2>Id&eacute;es pour votre fond d'&eacute;cran avec pr&eacute;nom</h2>
+
+        <ul>
+          <li><strong>Votre prénom seul</strong> &mdash; en très grand et affirmé, ou en petit et discret&nbsp;: &laquo;&nbsp;Léa&nbsp;&raquo; fonctionne dans les deux styles.</li>
+          <li><strong>Initiales</strong> &mdash; deux ou trois lettres en grande taille créent un élégant fond façon monogramme.</li>
+          <li><strong>Surnom</strong> &mdash; le nom que vos amis utilisent vraiment rend souvent mieux que le prénom complet.</li>
+          <li><strong>Prénom + une phrase courte</strong> &mdash; une ligne comme &laquo;&nbsp;Hugo &mdash; un pas chaque jour&nbsp;&raquo; transforme votre fond d'écran en rappel quotidien.</li>
+          <li><strong>Prénom + emoji</strong> &mdash; ajoutez une étoile, un cœur ou une flamme à côté de votre prénom.</li>
+        </ul>
+
+        <p>Comme c'est gratuit et que cela ne prend que quelques secondes, vous pouvez aussi préparer des fonds d'écran au prénom de vos proches &mdash; une petite surprise pour une amie ou pour la tablette de vos enfants.</p>
+
+        <h2>Questions fr&eacute;quentes</h2>
+
+        <h3>Est-ce gratuit&nbsp;?</h3>
+        <p>Oui, totalement. Sans inscription, sans formules payantes, sans filigrane. Vous pouvez créer autant de fonds d'écran que vous voulez.</p>
+
+        <h3>Les accents et les emojis fonctionnent-ils&nbsp;?</h3>
+        <p>Oui. Comme le texte est dessiné par votre propre appareil, tous les caractères du français &mdash; é, è, à, ç, œ &mdash; et les emojis s'affichent sans problème.</p>
+
+        <h3>Dans quelle r&eacute;solution le t&eacute;l&eacute;chargement se fait-il&nbsp;?</h3>
+        <p>Dans celle que vous choisissez. Avant de télécharger, vous définissez les dimensions en pixels&nbsp;; l'image est générée à cette taille, sans agrandissement ultérieur.</p>
+
+        <h3>Y a-t-il un filigrane&nbsp;?</h3>
+        <p>Non. L'image téléchargée contient uniquement votre texte et la couleur de fond que vous avez choisie.</p>
+
+        <p>Votre écran est prêt à porter votre prénom&nbsp;?</p>
+
+        <a href="/fr/" class="cta" data-umami-event="name-wallpaper-cta">Créez votre fond d'écran avec prénom &rarr;</a>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
+    </footer>
+
+    <!-- Analytics -->
+    <script src="/shared/analytics.js"></script>
+  </body>
+</html>

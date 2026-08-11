@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>이 프로젝트를 후원해 주세요 | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="TextWallpaper.com이 계속 무료로, 광고 없이, 개인정보를 지키며 운영되도록 도와주세요. 후원금은 서버 비용과 새 기능 개발에 쓰여요. 계정도 광고도 없어요." />
+    <meta name="keywords" content="textwallpaper 후원, 기부, 무료 배경화면 생성기, 오픈소스, 광고 없음" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <% var p = htmlWebpackPlugin.options.templateParameters; %>
+    <link rel="canonical" href="https://textwallpaper.com<%= p.availableLangUrls[p.activeLang] %>" />
+
+    <!-- hreflang (driven by availableLangUrls — only languages whose source exists) -->
+    <% var hreflangCodes = { zh: 'zh-Hans', zhHant: 'zh-Hant' }; %>
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) { %>
+    <link rel="alternate" hreflang="<%= hreflangCodes[lang] || lang %>" href="https://textwallpaper.com<%= p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="https://textwallpaper.com<%= p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://textwallpaper.com/ko/support/" />
+    <meta property="og:title" content="이 프로젝트를 후원해 주세요 - TextWallpaper.com" />
+    <meta property="og:description" content="TextWallpaper.com이 계속 무료로, 광고 없이 운영되도록 도와주세요. 후원금은 서버 비용과 새 기능 개발에 쓰여요." />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
+    <meta property="og:locale" content="ko_KR" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://textwallpaper.com/ko/support/" />
+    <meta property="twitter:title" content="이 프로젝트를 후원해 주세요 - TextWallpaper.com" />
+    <meta property="twitter:description" content="TextWallpaper.com이 계속 무료로, 광고 없이 운영되도록 도와주세요." />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "이 프로젝트를 후원해 주세요",
+      "description": "TextWallpaper.com이 계속 무료로, 광고 없이, 개인정보를 지키며 운영되도록 도와주세요. 후원금은 서버 비용과 새 기능 개발에 쓰여요.",
+      "url": "https://textwallpaper.com/ko/support/",
+      "inLanguage": "ko",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "TextWallpaper.com",
+        "url": "https://textwallpaper.com"
+      }
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="/shared/static-pages.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="app-header-brand" href="/">TextWallpaper.com</a>
+      <div class="app-header-actions">
+        <% var onSupportPage = /\/support\/$/.test(p.availableLangUrls[p.activeLang]); %>
+        <a class="app-header-pill<%= onSupportPage ? ' active' : '' %>" href="<%= p.localHref('/support/') %>" aria-label="<%= p.supportAria %>"<%= onSupportPage ? ' aria-current="page"' : '' %> data-umami-event="support-page-visit"><span class="app-header-heart" aria-hidden="true">&#9829;</span> <%= p.supportLabel %></a>
+        <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
+        <% if (navLangs.length > 1) { %>
+        <details class="app-header-lang">
+          <summary><span aria-hidden="true">&#127760;</span> <%= p.langLabels[p.activeLang] %></summary>
+          <div class="lang-options">
+            <% navLangs.forEach(function (lang) { %>
+            <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
+            <% }); %>
+          </div>
+        </details>
+        <% } %>
+      </div>
+    </header>
+
+
+    <main class="container">
+      <div id="thanks-banner" class="features" style="display: none; border-left: 4px solid #28a745;">
+        <h2>감사합니다! &#10084;</h2>
+        <p>정말 큰 힘이 돼요. 기능 요청을 남기셨다면 꼭 읽어볼게요. 앱은 앞으로도 지금처럼 무료로, 개인정보를 지키며 운영됩니다.</p>
+        <div style="text-align: center; margin-top: 1.5rem;">
+          <a href="/ko/" class="cta" style="margin-top: 0;">배경화면 만들러 가기 &rarr;</a>
+        </div>
+      </div>
+
+      <h1>이 프로젝트를 후원해 주세요</h1>
+
+      <p class="intro">Text Wallpaper는 한 사람이 만드는 무료 앱이고, 개인정보를 소중히 여겨요. 후원금은 서버 요금을 내고 앱을 모두에게 무료로 유지하는 데 쓰입니다. 후원은 전적으로 자율이에요 &mdash; 후원 여부와 상관없이 앱은 똑같이 작동해요.</p>
+
+      <div style="text-align: center; margin: 1.5rem 0 2rem;">
+        <a href="<%= p.stripeDonateUrl %>" target="_blank" rel="noopener" class="cta cta--large" style="margin-top: 0;" data-umami-event="donate-click">Stripe로 후원하기 &#10084;</a>
+      </div>
+
+      <div class="features">
+        <h2>왜 후원인가요?</h2>
+        <p>계정이 없고, 아무것도 판매하거나 공유하지 않아요. 익명 사용 통계만 수집해요: 어떤 기능이 쓰이는지는 알지만, 누가 쓰는지는 몰라요. 광고도 유료 버전도 없어요. 모든 기능이 누구에게나 무료예요. 광고나 구독을 넣으면 앱이 나빠지기 때문에 넣지 않기로 했어요.</p>
+        <p style="margin-top: 1rem;">이건 한 사람이 운영하는 프로젝트예요. 저는 평범한 직장과 가족이 있고, 남는 시간에 이 앱을 만들어요. 서버 비용은 매달 실제로 나가고, 제 돈으로 내고 있어요. 후원금 덕분에 앱이 계속 온라인에서 무료로 운영돼요.</p>
+        <p style="margin-top: 1rem;">그리고 이 앱은 <a target="_blank" rel="noopener" href="<%= p.githubRepoUrl %>">GitHub에 공개된 오픈소스</a>예요 &mdash; 누구나 코드를 읽어볼 수 있어요.</p>
+      </div>
+
+      <div class="features">
+        <h2>추가하고 싶은 기능이 있나요?</h2>
+        <p>결제할 때 &laquo;Feature Request&raquo;라는 선택 입력란이 보일 거예요. 거기에 아이디어를 적어 주세요. 하나도 빠짐없이 읽고 있고, 다음에 무엇을 만들지 정할 때 후원자의 아이디어를 더 눈여겨봐요.</p>
+      </div>
+
+      <div class="features">
+        <h2>Hall of Fame</h2>
+        <p>5유로(&euro;) 이상 후원하시면 이름이 여기에 실릴 수 있어요. 결제할 때 &laquo;Hall of Fame&raquo; 입력란에 이름이나 닉네임을 적어 주세요. 비워 두면 익명으로 남아요. 더 좋은 자리를 돈으로 살 수는 없어요 &mdash; 모든 이름이 똑같이 표시돼요.</p>
+        <p style="margin-top: 1rem;">이름에 웹사이트 링크를 걸 수도 있어요. 같은 입력란에 이름 뒤에 주소를 적으면 돼요. 예: &laquo;지민 (example.com)&raquo;. 링크는 nofollow이고, 광고처럼 보이는 링크는 거절할 수 있어요.</p>
+        <!-- Donor names live in the shared partial (src/shared/partials/hall-of-fame.html) — edit them there, once, for all languages. -->
+        <%= require('html-loader!../../shared/partials/hall-of-fame.html') %>
+        <p style="margin-top: 0.5rem; padding-left: 1.25rem;"><em>당신의 이름도 여기에 실릴 수 있어요.</em></p>
+      </div>
+
+      <div style="text-align: center; margin: 2rem 0 1rem;">
+        <a href="<%= p.stripeDonateUrl %>" target="_blank" rel="noopener" class="cta cta--large" style="margin-top: 0;" data-umami-event="donate-click">Stripe로 후원하기 &#10084;</a>
+      </div>
+
+      <div style="text-align: center; margin: 1rem 0 2rem;">
+        <a href="/ko/" class="cta" style="margin-top: 0;">배경화면 만들러 가기 &rarr;</a>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
+      <p><a href="<%= p.localHref('/privacy/') %>">개인정보 처리방침</a> &middot; <a href="<%= p.localHref('/terms/') %>">이용 약관</a></p>
+    </footer>
+
+    <script>
+      // Show the thank-you banner when arriving from Stripe's post-checkout redirect (?thanks=1)
+      if (new URLSearchParams(window.location.search).has('thanks')) {
+        document.getElementById('thanks-banner').style.display = 'block';
+        // Umami loads async via /shared/analytics.js; poll briefly so the event isn't lost
+        var donationEventTimer = setInterval(function () {
+          if (window.umami) {
+            window.umami.track('donation-complete');
+            clearInterval(donationEventTimer);
+          }
+        }, 500);
+        setTimeout(function () { clearInterval(donationEventTimer); }, 10000);
+      }
+    </script>
+
+    <!-- Analytics -->
+    <script src="/shared/analytics.js"></script>
+  </body>
+</html>

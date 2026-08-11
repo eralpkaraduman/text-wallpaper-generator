@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <title>Sostieni questo progetto | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="Aiuta TextWallpaper.com a restare gratuito, privato e senza pubblicità. Le donazioni coprono i server e finanziano nuove funzionalità. Niente account né annunci." />
+    <meta name="keywords" content="sostenere textwallpaper, donare, generatore di sfondi gratis, open source, senza pubblicità" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <% var p = htmlWebpackPlugin.options.templateParameters; %>
+    <link rel="canonical" href="https://textwallpaper.com<%= p.availableLangUrls[p.activeLang] %>" />
+
+    <!-- hreflang (driven by availableLangUrls — only languages whose source exists) -->
+    <% var hreflangCodes = { zh: 'zh-Hans', zhHant: 'zh-Hant' }; %>
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) { %>
+    <link rel="alternate" hreflang="<%= hreflangCodes[lang] || lang %>" href="https://textwallpaper.com<%= p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="https://textwallpaper.com<%= p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://textwallpaper.com/it/support/" />
+    <meta property="og:title" content="Sostieni questo progetto - TextWallpaper.com" />
+    <meta property="og:description" content="Aiuta TextWallpaper.com a restare gratuito, privato e senza pubblicità. Le donazioni coprono i server e finanziano nuove funzionalità." />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
+    <meta property="og:locale" content="it_IT" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://textwallpaper.com/it/support/" />
+    <meta property="twitter:title" content="Sostieni questo progetto - TextWallpaper.com" />
+    <meta property="twitter:description" content="Aiuta TextWallpaper.com a restare gratuito, privato e senza pubblicità." />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Sostieni questo progetto",
+      "description": "Aiuta TextWallpaper.com a restare gratuito, privato e senza pubblicità. Le donazioni coprono i server e finanziano nuove funzionalità.",
+      "url": "https://textwallpaper.com/it/support/",
+      "inLanguage": "it",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "TextWallpaper.com",
+        "url": "https://textwallpaper.com"
+      }
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="/shared/static-pages.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="app-header-brand" href="/">TextWallpaper.com</a>
+      <div class="app-header-actions">
+        <% var onSupportPage = /\/support\/$/.test(p.availableLangUrls[p.activeLang]); %>
+        <a class="app-header-pill<%= onSupportPage ? ' active' : '' %>" href="<%= p.localHref('/support/') %>" aria-label="<%= p.supportAria %>"<%= onSupportPage ? ' aria-current="page"' : '' %> data-umami-event="support-page-visit"><span class="app-header-heart" aria-hidden="true">&#9829;</span> <%= p.supportLabel %></a>
+        <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
+        <% if (navLangs.length > 1) { %>
+        <details class="app-header-lang">
+          <summary><span aria-hidden="true">&#127760;</span> <%= p.langLabels[p.activeLang] %></summary>
+          <div class="lang-options">
+            <% navLangs.forEach(function (lang) { %>
+            <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
+            <% }); %>
+          </div>
+        </details>
+        <% } %>
+      </div>
+    </header>
+
+
+    <main class="container">
+      <div id="thanks-banner" class="features" style="display: none; border-left: 4px solid #28a745;">
+        <h2>Grazie! &#10084;</h2>
+        <p>Questo aiuta davvero. Se hai lasciato una richiesta di funzionalità, la leggerò. L'app resterà gratuita e privata, come sempre.</p>
+        <div style="text-align: center; margin-top: 1.5rem;">
+          <a href="/it/" class="cta" style="margin-top: 0;">Crea il tuo sfondo &rarr;</a>
+        </div>
+      </div>
+
+      <h1>Sostieni questo progetto</h1>
+
+      <p class="intro">Text Wallpaper è un'app gratuita e rispettosa della privacy, sviluppata da una sola persona. Le donazioni pagano le bollette dei server e mantengono l'app gratuita per tutti. Donare è volontario &mdash; l'app funziona esattamente allo stesso modo, che tu doni o no.</p>
+
+      <div style="text-align: center; margin: 1.5rem 0 2rem;">
+        <a href="<%= p.stripeDonateUrl %>" target="_blank" rel="noopener" class="cta cta--large" style="margin-top: 0;" data-umami-event="donate-click">Dona con Stripe &#10084;</a>
+      </div>
+
+      <div class="features">
+        <h2>Perch&eacute; le donazioni?</h2>
+        <p>Non ci sono account, e niente viene venduto o condiviso. Conservo solo statistiche d'uso anonime: quali funzionalità vengono usate, ma non da chi. Non ci sono pubblicità né versioni a pagamento. Tutte le funzionalità sono gratuite per tutti. Annunci o abbonamenti renderebbero l'app peggiore, quindi li lascio fuori.</p>
+        <p style="margin-top: 1rem;">Questo è un progetto di una sola persona. Ho un lavoro normale e una famiglia, e costruisco tutto questo nel tempo libero. I server costano soldi veri ogni mese, che pago di tasca mia. Le donazioni mantengono l'app online e gratuita.</p>
+        <p style="margin-top: 1rem;">Inoltre, l'app è <a target="_blank" rel="noopener" href="<%= p.githubRepoUrl %>">open source su GitHub</a> &mdash; chiunque può leggere il codice.</p>
+      </div>
+
+      <div class="features">
+        <h2>Hai un'idea per una funzionalit&agrave;?</h2>
+        <p>Al momento del pagamento vedrai un campo facoltativo chiamato &laquo;Feature Request&raquo;. Scrivi lì la tua idea. Le leggo tutte, una per una, e le idee di chi dona ricevono un'attenzione in più quando decido cosa costruire dopo.</p>
+      </div>
+
+      <div class="features">
+        <h2>Hall of Fame</h2>
+        <p>Se doni 5 &euro; o più, il tuo nome può comparire qui. Scrivi il tuo nome o nickname nel campo &laquo;Hall of Fame&raquo; al momento del pagamento. Se lo lasci vuoto, resterai anonimo. Non si può comprare un posto migliore nella lista &mdash; tutti i nomi appaiono allo stesso modo.</p>
+        <p style="margin-top: 1rem;">Il tuo nome può anche rimandare al tuo sito web. Basta scrivere l'indirizzo dopo il nome nello stesso campo, per esempio &laquo;Giulia (example.com)&raquo;. I link sono nofollow, e posso rifiutare quelli che sembrano pubblicità.</p>
+        <!-- Donor names live in the shared partial (src/shared/partials/hall-of-fame.html) — edit them there, once, for all languages. -->
+        <%= require('html-loader!../../shared/partials/hall-of-fame.html') %>
+        <p style="margin-top: 0.5rem; padding-left: 1.25rem;"><em>Anche il tuo nome potrebbe essere qui.</em></p>
+      </div>
+
+      <div style="text-align: center; margin: 2rem 0 1rem;">
+        <a href="<%= p.stripeDonateUrl %>" target="_blank" rel="noopener" class="cta cta--large" style="margin-top: 0;" data-umami-event="donate-click">Dona con Stripe &#10084;</a>
+      </div>
+
+      <div style="text-align: center; margin: 1rem 0 2rem;">
+        <a href="/it/" class="cta" style="margin-top: 0;">Crea il tuo sfondo &rarr;</a>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
+      <p><a href="<%= p.localHref('/privacy/') %>">Informativa sulla privacy</a> &middot; <a href="<%= p.localHref('/terms/') %>">Termini di utilizzo</a></p>
+    </footer>
+
+    <script>
+      // Show the thank-you banner when arriving from Stripe's post-checkout redirect (?thanks=1)
+      if (new URLSearchParams(window.location.search).has('thanks')) {
+        document.getElementById('thanks-banner').style.display = 'block';
+        // Umami loads async via /shared/analytics.js; poll briefly so the event isn't lost
+        var donationEventTimer = setInterval(function () {
+          if (window.umami) {
+            window.umami.track('donation-complete');
+            clearInterval(donationEventTimer);
+          }
+        }, 500);
+        setTimeout(function () { clearInterval(donationEventTimer); }, 10000);
+      }
+    </script>
+
+    <!-- Analytics -->
+    <script src="/shared/analytics.js"></script>
+  </body>
+</html>

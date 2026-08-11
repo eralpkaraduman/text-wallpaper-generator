@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters; %>
+    <title>Sfondo Personalizzato con Nome — Crea uno Sfondo con il Tuo Nome | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="Crea gratis uno sfondo con il tuo nome. Scrivi il nome, scegli colori e dimensione del testo, e scaricalo per telefono o computer. Senza registrazione e senza filigrana." />
+    <meta name="keywords" content="sfondo personalizzato con nome, sfondo con il mio nome, creare sfondo con nome, wallpaper con nome, sfondo con scritte nome" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://textwallpaper.com<%= p.availableLangUrls[p.activeLang] %>" />
+    <!-- hreflang -->
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) {
+      var code = lang === 'zh' ? 'zh-Hans' : (lang === 'zhHant' ? 'zh-Hant' : lang); %>
+    <link rel="alternate" hreflang="<%= code %>" href="https://textwallpaper.com<%= p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="https://textwallpaper.com<%= p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://textwallpaper.com/it/name-wallpaper/" />
+    <meta property="og:title" content="Sfondo Personalizzato con Nome — Crea uno Sfondo con il Tuo Nome" />
+    <meta property="og:description" content="Scrivi il tuo nome, scegli i colori e scaricalo gratis in formato telefono o computer. Senza filigrana." />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://textwallpaper.com/it/name-wallpaper/" />
+    <meta property="twitter:title" content="Sfondo Personalizzato con Nome — Crea uno Sfondo con il Tuo Nome" />
+    <meta property="twitter:description" content="Scrivi il tuo nome, scegli i colori e scaricalo gratis. Senza filigrana." />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Creare uno sfondo con il mio nome è gratis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sì, totalmente gratis. Non serve registrarsi, non c'è una versione a pagamento e l'immagine scaricata non ha filigrana."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Funzionano le lettere accentate e le emoji?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sì. Il testo viene disegnato con i caratteri del tuo stesso dispositivo, quindi à, è, é, ì, ò, ù e tutte le emoji funzionano senza problemi."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "In quale risoluzione viene scaricato lo sfondo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Scegli tu la dimensione in pixel prima di scaricare. Dallo schermo di un telefono a un monitor 4K, l'immagine viene generata a dimensione piena, senza ingrandimenti."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "L'immagine ha una filigrana?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. L'immagine scaricata contiene solo il colore di sfondo che hai scelto e il testo che hai scritto; non c'è nessun logo né filigrana."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="/shared/static-pages.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="app-header-brand" href="/">TextWallpaper.com</a>
+      <div class="app-header-actions">
+        <% var onSupportPage = /\/support\/$/.test(p.availableLangUrls[p.activeLang]); %>
+        <a class="app-header-pill<%= onSupportPage ? ' active' : '' %>" href="<%= p.localHref('/support/') %>" aria-label="<%= p.supportAria %>"<%= onSupportPage ? ' aria-current="page"' : '' %> data-umami-event="support-page-visit"><span class="app-header-heart" aria-hidden="true">&#9829;</span> <%= p.supportLabel %></a>
+        <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
+        <% if (navLangs.length > 1) { %>
+        <details class="app-header-lang">
+          <summary><span aria-hidden="true">&#127760;</span> <%= p.langLabels[p.activeLang] %></summary>
+          <div class="lang-options">
+            <% navLangs.forEach(function (lang) { %>
+            <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
+            <% }); %>
+          </div>
+        </details>
+        <% } %>
+      </div>
+    </header>
+
+
+    <main class="container">
+      <nav class="breadcrumb">
+        <a href="/it/">Home</a> &rsaquo; Sfondo con nome
+      </nav>
+
+      <article class="article-content">
+        <h1>Sfondo Personalizzato con Nome &mdash; Crea uno Sfondo con il Tuo Nome</h1>
+
+        <p class="intro">Ti piacerebbe vedere il tuo nome sullo schermo? Scrivi il tuo nome, scegli i tuoi colori e scaricalo in pochi secondi. Questo strumento gratuito funziona interamente nel tuo browser &mdash; senza app da installare, senza registrazione e senza filigrana.</p>
+
+        <a href="/it/" class="cta" data-umami-event="name-wallpaper-cta">Crea il tuo sfondo con nome &rarr;</a>
+
+        <h2>Come creare uno sfondo con il tuo nome?</h2>
+
+        <ol>
+          <li><strong>Scrivi il tuo nome</strong> &mdash; oppure il tuo soprannome, le tue iniziali o qualsiasi testo tu abbia in mente.</li>
+          <li><strong>Scegli colori e dimensione del testo</strong> &mdash; abbina uno sfondo e un colore del testo al tuo stile; ingrandisci il testo quanto vuoi.</li>
+          <li><strong>Imposta la dimensione</strong> &mdash; seleziona la risoluzione giusta per lo schermo del tuo telefono o computer.</li>
+          <li><strong>Scarica</strong> &mdash; salva l'immagine e impostala come sfondo. Tutto qui.</li>
+        </ol>
+
+        <p>Tutto avviene nel tuo browser: il nome che scrivi non viene inviato a nessun server e, una volta caricata la pagina, lo strumento funziona anche senza internet.</p>
+
+        <h2>Telefono o computer? Scegli la dimensione giusta</h2>
+
+        <ul>
+          <li><strong>Telefono:</strong> i telefoni attuali usano di solito risoluzioni verticali come 1170&times;2532 o 1440&times;3200. Lo strumento può rilevare automaticamente la dimensione del tuo schermo, quindi nella maggior parte dei casi non dovrai regolare nulla.</li>
+          <li><strong>Computer:</strong> le dimensioni più comuni sono 1920&times;1080 (Full HD), 2560&times;1440 e 3840&times;2160 (4K). Scegliendo la dimensione del tuo monitor, il testo resterà perfettamente nitido.</li>
+        </ul>
+
+        <div class="tip-box">
+          <p><strong>Consiglio:</strong> Sul telefono, posiziona il testo vicino al centro &mdash; nella schermata di blocco l'orologio sta in alto, e nella schermata home le icone coprono i bordi.</p>
+        </div>
+
+        <h2>Idee per il tuo sfondo con nome</h2>
+
+        <ul>
+          <li><strong>Solo il tuo nome</strong> &mdash; enorme e d'impatto, o piccolo e discreto: &laquo;Giulia&raquo; sta bene in entrambi i modi.</li>
+          <li><strong>Iniziali</strong> &mdash; due o tre lettere in grande creano un elegante sfondo in stile monogramma.</li>
+          <li><strong>Soprannome</strong> &mdash; il nome con cui ti chiamano davvero gli amici spesso rende meglio del nome completo.</li>
+          <li><strong>Nome + una frase breve</strong> &mdash; una riga come &laquo;Marco &mdash; un passo al giorno&raquo; trasforma lo sfondo in un promemoria quotidiano.</li>
+          <li><strong>Nome + emoji</strong> &mdash; aggiungi una stella, un cuore o una fiamma accanto al tuo nome.</li>
+        </ul>
+
+        <p>Visto che è gratis e richiede solo pochi secondi, puoi anche preparare sfondi con il nome delle persone a cui vuoi bene &mdash; una piccola sorpresa per un'amica o per il tablet dei tuoi figli.</p>
+
+        <h2>Domande frequenti</h2>
+
+        <h3>&Egrave; gratis?</h3>
+        <p>Sì, del tutto. Senza registrazione, senza piani a pagamento, senza filigrana. Puoi creare tutti gli sfondi che vuoi.</p>
+
+        <h3>Funzionano le lettere accentate e le emoji?</h3>
+        <p>Sì. Poiché il testo viene disegnato dal tuo stesso dispositivo, tutte le lettere dell'italiano &mdash; à, è, é, ì, ò, ù &mdash; e le emoji si vedono senza problemi.</p>
+
+        <h3>In quale risoluzione viene scaricato?</h3>
+        <p>In quella che scegli tu. Prima di scaricare imposti le misure in pixel; l'immagine viene generata a quella dimensione, senza ingrandimenti successivi.</p>
+
+        <h3>C'&egrave; una filigrana?</h3>
+        <p>No. L'immagine scaricata contiene solo il tuo testo e il colore di sfondo che hai scelto.</p>
+
+        <p>Il tuo schermo è pronto a mostrare il tuo nome?</p>
+
+        <a href="/it/" class="cta" data-umami-event="name-wallpaper-cta">Crea il tuo sfondo con nome &rarr;</a>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
+    </footer>
+
+    <!-- Analytics -->
+    <script src="/shared/analytics.js"></script>
+  </body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters;
+       var origin = 'https://textwallpaper.com';
+       var hreflangCodes = { zh: 'zh-Hans', zhHant: 'zh-Hant' };
+       var canonicalUrl = origin + p.availableLangUrls[p.activeLang];
+    %>
+    <title>Criador de Papel de Parede Grátis — Sem Cadastro, Sem Marca d'Água | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="Gerador de papel de parede grátis. Crie um papel de parede online com seu texto: sem cadastro, sem marca d'água, em qualquer resolução até 4K, direto no navegador." />
+    <meta name="keywords" content="criar papel de parede online grátis, gerador de papel de parede, papel de parede com texto, criador de papel de parede, fazer papel de parede, wallpaper personalizado grátis" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="<%= canonicalUrl %>" />
+    <!-- hreflang -->
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) { %>
+    <link rel="alternate" hreflang="<%= hreflangCodes[lang] || lang %>" href="<%= origin + p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="<%= origin + p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= canonicalUrl %>" />
+    <meta property="og:title" content="Criador de Papel de Parede Grátis — Sem Cadastro, Sem Marca d'Água" />
+    <meta property="og:description" content="Crie um papel de parede online com seu texto — grátis, sem conta, em qualquer resolução até 4K. Tudo acontece no seu navegador." />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
+    <meta property="og:locale" content="pt_BR" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="<%= canonicalUrl %>" />
+    <meta property="twitter:title" content="Criador de Papel de Parede Grátis — Sem Cadastro" />
+    <meta property="twitter:description" content="Crie um papel de parede online com seu texto — grátis, sem conta, até 4K. Tudo no seu navegador." />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "O criador de papel de parede é grátis mesmo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim, completamente grátis. Não há versão premium, nem período de teste, nem recursos bloqueados. Todas as resoluções, cores e fontes estão disponíveis para qualquer pessoa."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Preciso me cadastrar ou criar uma conta?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não. Sem cadastro, sem login, sem e-mail. Abra a página, digite seu texto e baixe seu papel de parede — pronto."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "A imagem tem marca d'água?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não. A imagem baixada contém apenas o seu texto sobre a cor de fundo que você escolher — sem marca d'água, sem logotipo, sem propaganda."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quais resoluções posso usar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Qualquer resolução. Há predefinições para os tamanhos comuns de celular e computador, e você também pode digitar medidas exatas — por exemplo 1920×1080 Full HD, 2560×1440 ou 3840×2160 4K."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Posso usar minhas próprias fotos como fundo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não. Esta ferramenta cria papéis de parede de texto: uma cor de fundo lisa mais o seu texto. Se você quer colocar texto sobre uma foto ou fazer uma colagem, um app de edição de fotos é uma escolha melhor."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Meu texto é enviado para algum servidor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não. O papel de parede é gerado inteiramente no seu navegador e salvo direto no seu dispositivo. Seu texto nunca sai do seu computador ou celular."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="/shared/static-pages.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="app-header-brand" href="/">TextWallpaper.com</a>
+      <div class="app-header-actions">
+        <% var onSupportPage = /\/support\/$/.test(p.availableLangUrls[p.activeLang]); %>
+        <a class="app-header-pill<%= onSupportPage ? ' active' : '' %>" href="<%= p.localHref('/support/') %>" aria-label="<%= p.supportAria %>"<%= onSupportPage ? ' aria-current="page"' : '' %> data-umami-event="support-page-visit"><span class="app-header-heart" aria-hidden="true">&#9829;</span> <%= p.supportLabel %></a>
+        <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
+        <% if (navLangs.length > 1) { %>
+        <details class="app-header-lang">
+          <summary><span aria-hidden="true">&#127760;</span> <%= p.langLabels[p.activeLang] %></summary>
+          <div class="lang-options">
+            <% navLangs.forEach(function (lang) { %>
+            <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
+            <% }); %>
+          </div>
+        </details>
+        <% } %>
+      </div>
+    </header>
+
+
+    <main class="container">
+      <nav class="breadcrumb">
+        <a href="/pt/">Início</a> &rsaquo; Criador de papel de parede
+      </nav>
+
+      <article class="article-content">
+        <h1>Criador de Papel de Parede &mdash; Gr&aacute;tis, Sem Cadastro, Sem Marca d'&Aacute;gua</h1>
+
+        <p>Quer criar um papel de parede online, grátis e sem se cadastrar? É para isso que esta ferramenta existe, com um aviso honesto logo de início: aqui se criam <strong>papéis de parede de texto</strong>. Você escolhe uma cor de fundo, digita seu texto, ajusta a fonte e o tamanho, e baixa um papel de parede perfeitamente nítido na resolução que quiser. Não é um editor de fotos nem um gerador de imagens com IA &mdash; e é justamente essa simplicidade que faz o resultado ficar tão bom.</p>
+
+        <div class="features">
+          <h2>O que diferencia este gerador de papel de parede</h2>
+          <ul>
+            <li><strong>100&nbsp;% grátis</strong> &mdash; sem versão premium, sem período de teste, sem recursos bloqueados</li>
+            <li><strong>Sem conta</strong> &mdash; sem cadastro, sem login, sem e-mail</li>
+            <li><strong>Sem marca d'água</strong> &mdash; sua imagem contém só o seu texto, nada mais</li>
+            <li><strong>Qualquer resolução</strong> &mdash; celular, tablet, computador, até 3840&times;2160 4K</li>
+            <li><strong>Privacidade incluída</strong> &mdash; tudo é gerado no seu navegador; nada é enviado para lugar nenhum</li>
+            <li><strong>Todos os idiomas</strong> &mdash; acentos, o ç, emojis e todos os caracteres Unicode</li>
+          </ul>
+        </div>
+
+        <h2>Como criar seu papel de parede</h2>
+
+        <ol>
+          <li><strong>Abra o gerador</strong> &mdash; carrega na hora, direto no navegador</li>
+          <li><strong>Digite seu texto</strong> &mdash; uma frase, um nome, um lembrete ou o que quiser</li>
+          <li><strong>Escolha cores, fonte e tamanho</strong> &mdash; use uma predefinição para o seu aparelho ou digite medidas exatas</li>
+          <li><strong>Baixe</strong> &mdash; salve a imagem e defina como papel de parede</li>
+        </ol>
+
+        <p>O processo todo leva menos de um minuto. Não precisa de manual nem de galerias de modelos para revirar.</p>
+
+        <a href="/pt/" class="cta" data-umami-event="wallpaper-maker-cta">Criar papel de parede &rarr;</a>
+
+        <h2>Quando usar esta ferramenta e quando usar um app de fotos?</h2>
+
+        <p>Nenhuma ferramenta serve para tudo. Aqui vai a comparação honesta:</p>
+
+        <h3>Um app de fotos &eacute; melhor se&hellip;</h3>
+        <ul>
+          <li>você quer montar uma colagem com as suas fotos</li>
+          <li>você quer colocar texto por cima de uma imagem existente</li>
+          <li>você procura imagens geradas por IA, filtros ou efeitos</li>
+        </ul>
+        <p>Para isso há muitos apps de edição e colagem &mdash; essa é a especialidade deles, não a nossa.</p>
+
+        <h3>Esta ferramenta &eacute; melhor se&hellip;</h3>
+        <ul>
+          <li><strong>você quer rapidez</strong> &mdash; papel de parede pronto em segundos, sem curva de aprendizado</li>
+          <li><strong>você quer o texto perfeitamente nítido</strong> &mdash; renderizado no pixel exato, nunca ampliado nem serrilhado</li>
+          <li><strong>você se importa com privacidade</strong> &mdash; nada é enviado; ferramentas de foto costumam processar as imagens nos servidores delas</li>
+          <li><strong>você precisa de uma resolução exata</strong> &mdash; largura e altura livres, até 4K e além</li>
+          <li><strong>você curte minimalismo</strong> &mdash; texto legível sobre uma cor lisa fica limpo, não poluído</li>
+        </ul>
+
+        <h2>Ideias de uso populares</h2>
+
+        <ul>
+          <li>Frases motivacionais como companhia diária na tela de bloqueio</li>
+          <li>Seu nome ou um monograma como fundo &mdash; experimente o <a href="/pt/name-wallpaper/">criador de papel de parede com nome</a></li>
+          <li>Lembretes de estudo no celular em época de provas</li>
+          <li>Papéis de parede de desktop minimalistas em Full HD ou 4K</li>
+          <li><a href="<%= p.localHref('/use-cases/') %>">Ver mais exemplos de uso &rarr;</a></li>
+        </ul>
+
+        <h2>Perguntas frequentes</h2>
+
+        <h3>&Eacute; gr&aacute;tis mesmo?</h3>
+        <p>Sim, totalmente. Sem versão premium, sem testes, sem custos escondidos. Todas as resoluções, cores e fontes estão abertas para qualquer pessoa.</p>
+
+        <h3>Preciso me cadastrar?</h3>
+        <p>Não. Simplesmente não existe sistema de contas &mdash; nem cadastro, nem login, nem e-mail. Abra a página e comece a digitar.</p>
+
+        <h3>A imagem tem marca d'&aacute;gua?</h3>
+        <p>Não. O download contém apenas o seu texto sobre a cor de fundo escolhida. Sem marca d'água, sem logotipo.</p>
+
+        <h3>Quais resolu&ccedil;&otilde;es s&atilde;o aceitas?</h3>
+        <p>Todas. Predefinições para os tamanhos comuns de celular e computador, mais medidas livres &mdash; 1920&times;1080, 2560&times;1440, 3840&times;2160 4K ou qualquer outro formato.</p>
+
+        <h3>Posso usar minhas pr&oacute;prias fotos?</h3>
+        <p>Não &mdash; e é de propósito, não um descuido. Esta ferramenta cria papéis de parede de cor mais texto. Para colocar texto sobre fotos, a ferramenta certa é um app de edição.</p>
+
+        <h3>Meu texto &eacute; enviado para algum lugar?</h3>
+        <p>Não. Tudo é gerado localmente no seu navegador e salvo direto no seu dispositivo. Seu texto nunca chega a um servidor.</p>
+
+        <p>Pronto? Seu papel de parede está a poucos segundos de distância &mdash; grátis e totalmente privado.</p>
+
+        <a href="/pt/" class="cta" data-umami-event="wallpaper-maker-cta">Criar meu papel de parede agora &rarr;</a>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
+    </footer>
+
+    <!-- Analytics -->
+    <script src="/shared/analytics.js"></script>
+  </body>
+</html>

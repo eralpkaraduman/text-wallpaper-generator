@@ -109,7 +109,11 @@ module.exports = {
       { from: 'de', to: 'de' },
       { from: 'tr', to: 'tr' },
       { from: 'id', to: 'id' },
-      { from: 'es', to: 'es' }
+      { from: 'es', to: 'es' },
+      { from: 'fr', to: 'fr' },
+      { from: 'it', to: 'it' },
+      { from: 'ko', to: 'ko' },
+      { from: 'pt', to: 'pt' }
     ]),
     // Static pages (use-cases, root landing pages, localized pages) rendered
     // as individual EJS templates. Registered AFTER CopyWebpackPlugin so the

@@ -11,9 +11,13 @@
 import de from './de';
 import en from './en';
 import es from './es';
+import fr from './fr';
 import id from './id';
+import it from './it';
 import ja from './ja';
+import ko from './ko';
+import pt from './pt';
 import tr from './tr';
 import zh from './zh';
 
-export default { de, en, es, id, ja, tr, zh };
+export default { de, en, es, fr, id, it, ja, ko, pt, tr, zh };
