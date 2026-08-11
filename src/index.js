@@ -217,6 +217,16 @@ const presetColor = (name: string): string | null => {
 };
 const presetWidth = presetSize('w');
 const presetHeight = presetSize('h');
+const presetTextColor = presetColor('fg');
+const presetBackgroundColor = presetColor('bg');
+// ?text= — prefill the editor content (URLSearchParams already percent-decodes,
+// so %0A arrives as a real '\n'). Same fallback contract as the presets above:
+// absent/empty/whitespace-only values are ignored entirely; anything longer
+// than 500 chars is truncated rather than rejected.
+const presetText: string | null = (() => {
+  const value = (urlParams.get('text') || '').trim();
+  return value ? value.slice(0, 500) : null;
+})();
 
 // ?lang= — runtime UI language. Whitelist is exactly the dictionary keys,
 // validated like the presets above: absent/unknown/malformed/empty values all
@@ -291,8 +301,8 @@ menu.onStart({
   height: presetHeight || window.screen.height,
   scale: presetWidth && presetHeight ? 1 : window.devicePixelRatio || 1,
   textSize: 24,
-  textColor: presetColor('fg') || colors.flat_clouds,
-  backgroundColor: presetColor('bg') || colors.mac_7,
+  textColor: presetTextColor || colors.flat_clouds,
+  backgroundColor: presetBackgroundColor || colors.mac_7,
 });
 
 updateSelectionStyles();
@@ -300,6 +310,9 @@ updateSelectionStyles();
 textEditor.onStart();
 textEditor.textSize = menu.textSize;
 textEditor.textColor = menu.textColor;
+if (presetText != null) {
+  textEditor.text = presetText;
+}
 
 textEditor.textInputElement.addEventListener('input', updateDownloadHint);
 getElement('menu-button-download').addEventListener('click', () => {
@@ -326,15 +339,35 @@ wallpaperElement.addEventListener('click', (event: MouseEvent) => {
   }
 });
 
+// Shared by the intro START button and the preset deep-link path below, so
+// both entry points go through the exact same show/focus sequence.
+const startEditor = () => {
+  intro.onHide();
+  menu.onShow();
+  textEditor.onShow();
+  textEditor.focus();
+};
+
 const intro = new Intro({
-  onComplete: () => {
-    intro.onHide();
-    menu.onShow();
-    textEditor.onShow();
-    textEditor.focus();
-  },
+  onComplete: startEditor,
 });
 
 document.addEventListener('DOMContentLoaded', () => {
   intro.onStart();
+  // Arriving with any valid content/appearance preset (?text/w/h/bg/fg) means
+  // the visitor followed a deep link to a specific wallpaper — skip the intro
+  // and open the editor directly (the intro stays reachable via the ? toolbar
+  // button). ?lang= alone deliberately does NOT skip: localized homepage CTAs
+  // link to /?lang=xx and those visitors should still see the localized intro.
+  const hasValidPreset =
+    presetText != null ||
+    presetWidth != null ||
+    presetHeight != null ||
+    presetTextColor != null ||
+    presetBackgroundColor != null;
+  if (hasValidPreset) {
+    startEditor();
+    // Only meaningful once the editor is visible; reflects prefilled text.
+    updateDownloadHint();
+  }
 });

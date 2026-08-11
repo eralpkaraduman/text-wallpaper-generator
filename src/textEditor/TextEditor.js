@@ -25,7 +25,21 @@ export default class TextEditor {
   }
 
   set text(value: string): void {
-    this.textInputElement.textContent = value;
+    // The contenteditable renders without `white-space: pre-wrap`, so a plain
+    // textContent assignment would collapse '\n' into spaces. Build the same
+    // structure the editor produces while typing — text nodes separated by
+    // <br> — so multi-line values render as real line breaks and innerText
+    // (used by the canvas export) still reads them back as '\n'. Only DOM
+    // text nodes are created, so the value can never be parsed as HTML.
+    this.textInputElement.textContent = '';
+    value.split('\n').forEach((line, index) => {
+      if (index > 0) {
+        this.textInputElement.appendChild(document.createElement('br'));
+      }
+      if (line.length > 0) {
+        this.textInputElement.appendChild(document.createTextNode(line));
+      }
+    });
   }
 
   get text(): string {
