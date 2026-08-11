@@ -522,4 +522,29 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <!-- Spanish (es) pages -->
+  <url>
+    <loc>https://textwallpaper.com/es/</loc>
+    <lastmod>2026-08-11T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://textwallpaper.com/es/support/</loc>
+    <lastmod>2026-08-11T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://textwallpaper.com/es/wallpaper-maker/</loc>
+    <lastmod>2026-08-11T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://textwallpaper.com/es/name-wallpaper/</loc>
+    <lastmod>2026-08-11T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
