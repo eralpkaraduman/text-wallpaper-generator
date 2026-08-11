@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters; %>
+    <title>Wallpaper Nama — Buat Wallpaper dengan Nama Anda Gratis | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="Buat wallpaper nama gratis. Ketik nama Anda, pilih warna dan ukuran huruf, lalu unduh untuk ponsel atau komputer. Tanpa daftar dan tanpa watermark." />
+    <meta name="keywords" content="wallpaper nama, buat wallpaper nama, wallpaper nama sendiri, wallpaper dengan nama, pembuat wallpaper nama" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://textwallpaper.com<%= p.availableLangUrls[p.activeLang] %>" />
+    <!-- hreflang -->
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) {
+      var code = lang === 'zh' ? 'zh-Hans' : (lang === 'zhHant' ? 'zh-Hant' : lang); %>
+    <link rel="alternate" hreflang="<%= code %>" href="https://textwallpaper.com<%= p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="https://textwallpaper.com<%= p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://textwallpaper.com/id/name-wallpaper/" />
+    <meta property="og:title" content="Wallpaper Nama — Buat Wallpaper dengan Nama Anda Gratis" />
+    <meta property="og:description" content="Ketik nama Anda, pilih warna, lalu unduh gratis dalam ukuran ponsel atau komputer. Tanpa watermark." />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://textwallpaper.com/id/name-wallpaper/" />
+    <meta property="twitter:title" content="Wallpaper Nama — Buat Wallpaper dengan Nama Anda Gratis" />
+    <meta property="twitter:description" content="Ketik nama Anda, pilih warna, unduh gratis. Tanpa watermark." />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Apakah membuat wallpaper nama gratis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ya, sepenuhnya gratis. Tidak perlu mendaftar, tidak ada versi berbayar, dan gambar yang diunduh tidak diberi watermark."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apakah huruf Indonesia dan emoji didukung?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ya. Teks digambar dengan font perangkat Anda sendiri, jadi semua huruf dan emoji tampil tanpa masalah."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Berapa resolusi wallpaper yang diunduh?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Anda sendiri yang memilih ukuran pikselnya sebelum mengunduh. Dari layar ponsel hingga monitor 4K, gambar dibuat langsung dalam ukuran penuh tanpa pembesaran."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apakah gambarnya ada watermark?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tidak. Gambar yang Anda unduh hanya berisi warna latar pilihan Anda dan teks yang Anda ketik; tanpa logo atau watermark."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="/shared/static-pages.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="app-header-brand" href="/">TextWallpaper.com</a>
+      <div class="app-header-actions">
+        <% var onSupportPage = /\/support\/$/.test(p.availableLangUrls[p.activeLang]); %>
+        <a class="app-header-pill<%= onSupportPage ? ' active' : '' %>" href="<%= p.localHref('/support/') %>" aria-label="<%= p.supportAria %>"<%= onSupportPage ? ' aria-current="page"' : '' %> data-umami-event="support-page-visit"><span class="app-header-heart" aria-hidden="true">&#9829;</span> <%= p.supportLabel %></a>
+        <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
+        <% if (navLangs.length > 1) { %>
+        <details class="app-header-lang">
+          <summary><span aria-hidden="true">&#127760;</span> <%= p.langLabels[p.activeLang] %></summary>
+          <div class="lang-options">
+            <% navLangs.forEach(function (lang) { %>
+            <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
+            <% }); %>
+          </div>
+        </details>
+        <% } %>
+      </div>
+    </header>
+
+
+    <main class="container">
+      <nav class="breadcrumb">
+        <a href="/id/">Beranda</a> &rsaquo; Wallpaper Nama
+      </nav>
+
+      <article class="article-content">
+        <h1>Wallpaper Nama &mdash; Buat Wallpaper dengan Nama Anda, Gratis</h1>
+
+        <p class="intro">Ingin melihat nama Anda sendiri di layar? Ketik nama Anda, pilih warnanya, dan unduh dalam hitungan detik. Alat gratis ini berjalan sepenuhnya di browser &mdash; tanpa memasang aplikasi, tanpa daftar, dan tanpa watermark.</p>
+
+        <a href="/id/" class="cta" data-umami-event="name-wallpaper-cta">Buat wallpaper nama Anda &rarr;</a>
+
+        <h2>Cara membuat wallpaper nama</h2>
+
+        <ol>
+          <li><strong>Ketik nama Anda</strong> &mdash; boleh juga nama panggilan, inisial, atau teks apa pun yang Anda mau.</li>
+          <li><strong>Pilih warna dan ukuran huruf</strong> &mdash; tentukan warna latar dan warna teks sesuai gaya Anda; besarkan hurufnya sesuka hati.</li>
+          <li><strong>Tentukan ukurannya</strong> &mdash; pilih resolusi yang pas untuk layar ponsel atau komputer Anda.</li>
+          <li><strong>Unduh</strong> &mdash; simpan gambarnya dan pasang sebagai wallpaper. Selesai.</li>
+        </ol>
+
+        <p>Semuanya terjadi di browser Anda: nama yang diketik tidak dikirim ke server mana pun, dan setelah halaman termuat, alat ini bahkan bisa dipakai tanpa internet.</p>
+
+        <h2>Ponsel atau komputer? Pilih ukuran yang tepat</h2>
+
+        <ul>
+          <li><strong>Ponsel:</strong> ponsel masa kini umumnya memakai resolusi vertikal seperti 1170&times;2532 atau 1440&times;3200. Alat ini bisa mendeteksi ukuran layar Anda secara otomatis, jadi kalau dibuka dari ponsel biasanya tidak perlu mengatur apa-apa.</li>
+          <li><strong>Komputer dan laptop:</strong> ukuran yang umum adalah 1920&times;1080 (Full HD), 2560&times;1440, dan 3840&times;2160 (4K). Pilih ukuran yang sama dengan monitor Anda agar teksnya tampil setajam mungkin.</li>
+        </ul>
+
+        <div class="tip-box">
+          <p><strong>Tips:</strong> Di ponsel, letakkan nama mendekati tengah layar &mdash; di layar kunci ada jam di bagian atas, dan di layar utama pinggirannya tertutup ikon aplikasi.</p>
+        </div>
+
+        <h2>Ide untuk wallpaper nama Anda</h2>
+
+        <ul>
+          <li><strong>Nama saja</strong> &mdash; besar dan percaya diri, atau kecil dan kalem: &ldquo;Putri&rdquo; tampak bagus dengan dua cara itu.</li>
+          <li><strong>Inisial</strong> &mdash; dua atau tiga huruf berukuran besar menghasilkan wallpaper elegan bergaya monogram.</li>
+          <li><strong>Nama panggilan</strong> &mdash; nama yang benar-benar dipakai teman untuk memanggil Anda sering terlihat lebih pas daripada nama lengkap.</li>
+          <li><strong>Nama + kalimat pendek</strong> &mdash; satu baris seperti &ldquo;Budi &mdash; selangkah setiap hari&rdquo; mengubah wallpaper menjadi pengingat harian.</li>
+          <li><strong>Nama + emoji</strong> &mdash; tambahkan bintang, hati, atau api di samping nama Anda.</li>
+        </ul>
+
+        <p>Karena gratis dan hanya butuh beberapa detik, Anda juga bisa membuatkan wallpaper dengan nama orang tersayang &mdash; kejutan kecil untuk sahabat atau untuk tablet anak Anda.</p>
+
+        <h2>Pertanyaan yang sering diajukan</h2>
+
+        <h3>Apakah gratis?</h3>
+        <p>Ya, sepenuhnya. Tanpa daftar, tanpa paket berbayar, tanpa watermark. Anda bisa membuat wallpaper sebanyak yang Anda mau.</p>
+
+        <h3>Apakah semua huruf dan emoji didukung?</h3>
+        <p>Ya. Karena teks digambar oleh perangkat Anda sendiri, semua huruf dan emoji tampil dengan baik.</p>
+
+        <h3>Berapa resolusinya?</h3>
+        <p>Sesuai pilihan Anda. Sebelum mengunduh, Anda menentukan ukuran pikselnya; gambar dibuat persis dalam ukuran itu, tanpa pembesaran.</p>
+
+        <h3>Apakah ada watermark?</h3>
+        <p>Tidak. Gambar yang diunduh hanya berisi teks dan warna latar Anda.</p>
+
+        <p>Siap melihat nama Anda di layar?</p>
+
+        <a href="/id/" class="cta" data-umami-event="name-wallpaper-cta">Buat wallpaper nama Anda &rarr;</a>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
+    </footer>
+
+    <!-- Analytics -->
+    <script src="/shared/analytics.js"></script>
+  </body>
+</html>

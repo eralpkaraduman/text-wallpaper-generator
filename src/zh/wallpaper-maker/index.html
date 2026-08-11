@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters;
+       var origin = 'https://textwallpaper.com';
+       var hreflangCodes = { zh: 'zh-Hans', zhHant: 'zh-Hant' };
+       var canonicalUrl = origin + p.availableLangUrls[p.activeLang];
+    %>
+    <title>壁纸生成器 — 免费在线制作壁纸，无需注册、无水印 | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="免费在线壁纸生成器。输入文字，挑选颜色，下载最高 4K 的任意分辨率壁纸。无需注册、没有水印，一切都在浏览器里完成。" />
+    <meta name="keywords" content="壁纸生成器, 在线制作壁纸, 免费壁纸制作, 壁纸制作工具, 文字壁纸生成器, 自定义壁纸" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="<%= canonicalUrl %>" />
+    <!-- hreflang -->
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) { %>
+    <link rel="alternate" hreflang="<%= hreflangCodes[lang] || lang %>" href="<%= origin + p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="<%= origin + p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= canonicalUrl %>" />
+    <meta property="og:title" content="壁纸生成器 — 免费在线制作壁纸，无需注册、无水印" />
+    <meta property="og:description" content="输入文字，挑选颜色，下载最高 4K 的任意分辨率壁纸。免费、无账号、无水印，一切都在浏览器里完成。" />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
+    <meta property="og:locale" content="zh_CN" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="<%= canonicalUrl %>" />
+    <meta property="twitter:title" content="壁纸生成器 — 免费在线制作壁纸，无需注册" />
+    <meta property="twitter:description" content="输入文字，挑选颜色，下载最高 4K 壁纸。免费、无水印，全程在浏览器里完成。" />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "这个壁纸生成器真的免费吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "是的，完全免费。没有付费版本，没有试用期，也没有锁定的功能。所有分辨率、颜色和字体人人可用。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "需要注册或创建账号吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不需要。无需注册、无需登录、无需邮箱。打开页面，输入文字，下载壁纸——就这么简单。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "图片会带水印吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不会。下载的图片只包含你选的背景颜色和你输入的文字——没有水印、没有标志、没有广告。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "支持哪些分辨率？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "任意分辨率。有常见手机和电脑尺寸的预设，也可以自己输入精确尺寸——比如 1920×1080 全高清、2560×1440 或 3840×2160 4K。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "可以用自己的照片当背景吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不可以。这个工具生成的是文字壁纸：纯色背景加上你的文字。如果想在照片上加字或制作拼贴，用图片编辑应用会更合适。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "我输入的文字会上传到服务器吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不会。壁纸完全在浏览器里生成，直接保存到你的设备上。你输入的文字从不离开你的电脑或手机。"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="/shared/static-pages.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="app-header-brand" href="/">TextWallpaper.com</a>
+      <div class="app-header-actions">
+        <% var onSupportPage = /\/support\/$/.test(p.availableLangUrls[p.activeLang]); %>
+        <a class="app-header-pill<%= onSupportPage ? ' active' : '' %>" href="<%= p.localHref('/support/') %>" aria-label="<%= p.supportAria %>"<%= onSupportPage ? ' aria-current="page"' : '' %> data-umami-event="support-page-visit"><span class="app-header-heart" aria-hidden="true">&#9829;</span> <%= p.supportLabel %></a>
+        <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
+        <% if (navLangs.length > 1) { %>
+        <details class="app-header-lang">
+          <summary><span aria-hidden="true">&#127760;</span> <%= p.langLabels[p.activeLang] %></summary>
+          <div class="lang-options">
+            <% navLangs.forEach(function (lang) { %>
+            <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
+            <% }); %>
+          </div>
+        </details>
+        <% } %>
+      </div>
+    </header>
+
+
+    <main class="container">
+      <nav class="breadcrumb">
+        <a href="/zh/">首页</a> &rsaquo; 壁纸生成器
+      </nav>
+
+      <article class="article-content">
+        <h1>壁纸生成器 &mdash; 免费在线制作壁纸，无需注册、无水印</h1>
+
+        <p>想在线制作壁纸，还要免费、不用注册？这个工具就是为此而生的&mdash;&mdash;先说句实话：这里生成的是<strong>文字壁纸</strong>。你挑一个背景颜色，输入文字，调整字体和大小，就能下载一张任意分辨率、清晰锐利的壁纸。它不是照片编辑器，也不是 AI 绘图工具&mdash;&mdash;正是这种专注，让成品格外好看。</p>
+
+        <div class="features">
+          <h2>这个壁纸生成器的特别之处</h2>
+          <ul>
+            <li><strong>100% 免费</strong> &mdash; 没有付费版本，没有试用期，没有锁定功能</li>
+            <li><strong>无需账号</strong> &mdash; 不用注册、不用登录、不用邮箱</li>
+            <li><strong>没有水印</strong> &mdash; 图片里只有你的文字，别无其他</li>
+            <li><strong>任意分辨率</strong> &mdash; 手机、平板、电脑，最高 3840&times;2160 4K</li>
+            <li><strong>隐私无忧</strong> &mdash; 一切都在浏览器里生成，什么都不会上传</li>
+            <li><strong>支持所有语言</strong> &mdash; 中文、表情符号以及全部 Unicode 字符</li>
+          </ul>
+        </div>
+
+        <h2>如何制作你的壁纸</h2>
+
+        <ol>
+          <li><strong>打开生成器</strong> &mdash; 秒开，直接在浏览器里运行</li>
+          <li><strong>输入文字</strong> &mdash; 一句话、一个名字、一条提醒，想写什么都行</li>
+          <li><strong>选择颜色、字体和尺寸</strong> &mdash; 用适合你设备的预设，或输入精确尺寸</li>
+          <li><strong>下载</strong> &mdash; 保存图片，设为壁纸即可</li>
+        </ol>
+
+        <p>整个过程不到一分钟。不用看教程，也不用在模板库里翻来翻去。</p>
+
+        <a href="/zh/" class="cta" data-umami-event="wallpaper-maker-cta">开始制作壁纸 &rarr;</a>
+
+        <h2>什么时候用这个工具，什么时候用修图应用？</h2>
+
+        <p>没有万能的工具。下面是实话实说的对比：</p>
+
+        <h3>修图应用更合适，如果你想&hellip;</h3>
+        <ul>
+          <li>用自己的照片做拼贴</li>
+          <li>在已有的图片上叠加文字</li>
+          <li>使用 AI 生成的图像、滤镜或特效</li>
+        </ul>
+        <p>做这些事有很多图片编辑和拼贴应用&mdash;&mdash;那是它们的专长，不是我们的。</p>
+
+        <h3>这个工具更合适，如果你&hellip;</h3>
+        <ul>
+          <li><strong>想快点搞定</strong> &mdash; 几秒钟出成品，不用学怎么用</li>
+          <li><strong>要文字绝对清晰</strong> &mdash; 按像素精确渲染，绝不会放大变糊</li>
+          <li><strong>在意隐私</strong> &mdash; 什么都不上传；修图工具大多在自己的服务器上处理图片</li>
+          <li><strong>需要精确的分辨率</strong> &mdash; 宽度高度随意输入，4K 甚至更高</li>
+          <li><strong>喜欢极简风格</strong> &mdash; 纯色背景配清晰文字，干净利落不花哨</li>
+        </ul>
+
+        <h2>热门用法</h2>
+
+        <ul>
+          <li>把激励语设为锁屏，每天见到它</li>
+          <li>用自己的名字或姓名首字母做壁纸 &mdash; 试试<a href="/zh/name-wallpaper/">名字壁纸生成器</a></li>
+          <li>备考期间给手机设一条学习提醒</li>
+          <li>全高清或 4K 的极简电脑桌面</li>
+          <li><a href="<%= p.localHref('/use-cases/') %>">查看更多使用场景 &rarr;</a></li>
+        </ul>
+
+        <h2>常见问题</h2>
+
+        <h3>真的免费吗？</h3>
+        <p>是的，完全免费。没有付费版本，没有试用期，没有隐藏收费。所有分辨率、颜色和字体人人可用。</p>
+
+        <h3>需要注册吗？</h3>
+        <p>不需要。这里根本没有账号系统&mdash;&mdash;不用注册、不用登录、不用邮箱。打开页面就能开始输入。</p>
+
+        <h3>图片会带水印吗？</h3>
+        <p>不会。下载的文件里只有你选的背景颜色和你的文字。没有水印，没有标志。</p>
+
+        <h3>支持哪些分辨率？</h3>
+        <p>全部。常见手机和电脑尺寸有预设，也可以自由输入尺寸&mdash;&mdash;1920&times;1080、2560&times;1440、3840&times;2160 4K 或其他任何规格。</p>
+
+        <h3>可以用自己的照片吗？</h3>
+        <p>不可以&mdash;&mdash;这是刻意的取舍，不是疏漏。这个工具用颜色加文字生成壁纸。想在照片上加字，图片编辑应用才是对的工具。</p>
+
+        <h3>我输入的文字会被上传吗？</h3>
+        <p>不会。一切都在浏览器本地生成，直接保存到你的设备。你的文字永远不会到达任何服务器。</p>
+
+        <p>准备好了吗？你的壁纸只差几秒钟&mdash;&mdash;免费，而且完全私密。</p>
+
+        <a href="/zh/" class="cta" data-umami-event="wallpaper-maker-cta">立即制作壁纸 &rarr;</a>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
+    </footer>
+
+    <!-- Analytics -->
+    <script src="/shared/analytics.js"></script>
+  </body>
+</html>

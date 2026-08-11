@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters;
+       var origin = 'https://textwallpaper.com';
+       var hreflangCodes = { zh: 'zh-Hans', zhHant: 'zh-Hant' };
+       var canonicalUrl = origin + p.availableLangUrls[p.activeLang];
+    %>
+    <title>壁紙メーカー — 壁紙を無料で作成、登録不要・透かしなし | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="壁紙を無料で作成できるオンライン壁紙メーカー。文字を入力して色とサイズを選ぶだけ。登録不要・透かしなし、4Kまで好きな解像度でダウンロード。すべてブラウザで完結します。" />
+    <meta name="keywords" content="壁紙 作成 無料, 壁紙 メーカー, 壁紙 作成 サイト, オンライン 壁紙 作成, 文字壁紙 作成, 壁紙 ジェネレーター" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="<%= canonicalUrl %>" />
+    <!-- hreflang -->
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) { %>
+    <link rel="alternate" hreflang="<%= hreflangCodes[lang] || lang %>" href="<%= origin + p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="<%= origin + p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= canonicalUrl %>" />
+    <meta property="og:title" content="壁紙メーカー — 壁紙を無料で作成、登録不要・透かしなし" />
+    <meta property="og:description" content="文字を入力して色とサイズを選ぶだけ。登録不要・透かしなし、4Kまで対応の無料壁紙メーカー。すべてブラウザで完結します。" />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
+    <meta property="og:locale" content="ja_JP" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="<%= canonicalUrl %>" />
+    <meta property="twitter:title" content="壁紙メーカー — 壁紙を無料で作成、登録不要" />
+    <meta property="twitter:description" content="文字を入力して色とサイズを選ぶだけ。無料・透かしなし・4K対応。すべてブラウザで完結。" />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "この壁紙メーカーは本当に無料ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい、完全に無料です。有料プランも試用期間もなく、機能制限もありません。すべての解像度・色・フォントをどなたでも使えます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "会員登録は必要ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不要です。登録もログインもメールアドレスもいりません。ページを開いて文字を入力し、壁紙をダウンロードするだけです。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "画像に透かしは入りますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "入りません。ダウンロードした画像に含まれるのは、選んだ背景色とあなたの文字だけです。透かしもロゴも広告もありません。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "どんな解像度で作成できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "どんな解像度でも作成できます。スマホやPCの一般的なサイズのプリセットに加え、1920×1080 フルHD、2560×1440、3840×2160 4Kなど、ピクセル単位で自由に指定できます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "自分の写真を背景に使えますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "使えません。このツールが作るのは、単色の背景に文字を載せた文字壁紙です。写真に文字を重ねたい場合やコラージュを作りたい場合は、写真編集アプリのほうが適しています。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "入力した文字はサーバーに送信されますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "送信されません。壁紙はすべてブラウザ内で生成され、そのまま端末に保存されます。入力した文字がスマホやPCの外に出ることはありません。"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="/shared/static-pages.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="app-header-brand" href="/">TextWallpaper.com</a>
+      <div class="app-header-actions">
+        <% var onSupportPage = /\/support\/$/.test(p.availableLangUrls[p.activeLang]); %>
+        <a class="app-header-pill<%= onSupportPage ? ' active' : '' %>" href="<%= p.localHref('/support/') %>" aria-label="<%= p.supportAria %>"<%= onSupportPage ? ' aria-current="page"' : '' %> data-umami-event="support-page-visit"><span class="app-header-heart" aria-hidden="true">&#9829;</span> <%= p.supportLabel %></a>
+        <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
+        <% if (navLangs.length > 1) { %>
+        <details class="app-header-lang">
+          <summary><span aria-hidden="true">&#127760;</span> <%= p.langLabels[p.activeLang] %></summary>
+          <div class="lang-options">
+            <% navLangs.forEach(function (lang) { %>
+            <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
+            <% }); %>
+          </div>
+        </details>
+        <% } %>
+      </div>
+    </header>
+
+
+    <main class="container">
+      <nav class="breadcrumb">
+        <a href="/ja/">ホーム</a> &rsaquo; 壁紙メーカー
+      </nav>
+
+      <article class="article-content">
+        <h1>壁紙メーカー &mdash; 壁紙を無料で作成、登録不要・透かしなし</h1>
+
+        <p>無料で、登録なしで、オンラインで壁紙を作りたい&mdash;&mdash;このツールはまさにそのためのものです。最初に正直にお伝えすると、ここで作れるのは<strong>文字壁紙</strong>です。背景色を選び、文字を入力し、フォントとサイズを調整して、好きな解像度のくっきりした壁紙をダウンロードできます。写真エディタでもAI画像生成でもありません&mdash;&mdash;この割り切りこそが、仕上がりの美しさの理由です。</p>
+
+        <div class="features">
+          <h2>この壁紙メーカーの特長</h2>
+          <ul>
+            <li><strong>100%無料</strong> &mdash; 有料プランなし、試用期間なし、機能制限なし</li>
+            <li><strong>登録不要</strong> &mdash; アカウントもログインもメールアドレスも不要</li>
+            <li><strong>透かしなし</strong> &mdash; 画像に含まれるのはあなたの文字だけ</li>
+            <li><strong>好きな解像度</strong> &mdash; スマホ、タブレット、PC、3840&times;2160 4Kまで対応</li>
+            <li><strong>プライバシーも安心</strong> &mdash; すべてブラウザ内で生成され、何もアップロードされません</li>
+            <li><strong>あらゆる言語に対応</strong> &mdash; 日本語、絵文字、すべてのUnicode文字が使えます</li>
+          </ul>
+        </div>
+
+        <h2>壁紙の作り方</h2>
+
+        <ol>
+          <li><strong>メーカーを開く</strong> &mdash; ブラウザで即座に起動します</li>
+          <li><strong>文字を入力する</strong> &mdash; 好きな言葉、名前、心に留めたい一言など何でも</li>
+          <li><strong>色・フォント・サイズを選ぶ</strong> &mdash; 端末に合わせたプリセットか、ピクセル単位の指定で</li>
+          <li><strong>ダウンロードする</strong> &mdash; 画像を保存して壁紙に設定すれば完成です</li>
+        </ol>
+
+        <p>全部で1分もかかりません。説明書も、延々と眺めるテンプレート集も不要です。</p>
+
+        <a href="/ja/" class="cta" data-umami-event="wallpaper-maker-cta">壁紙を作成する &rarr;</a>
+
+        <h2>このツールと写真アプリ、どちらを使うべき？</h2>
+
+        <p>どんな道具にも向き不向きがあります。正直に整理してみましょう。</p>
+
+        <h3>写真アプリが向いているのは&hellip;</h3>
+        <ul>
+          <li>自分の写真でコラージュを作りたいとき</li>
+          <li>既存の画像に文字を重ねたいとき</li>
+          <li>AI生成の画像やフィルター、エフェクトを使いたいとき</li>
+        </ul>
+        <p>こうした用途には写真編集アプリやコラージュアプリがたくさんあります&mdash;&mdash;それは向こうの得意分野で、私たちの領分ではありません。</p>
+
+        <h3>このツールが向いているのは&hellip;</h3>
+        <ul>
+          <li><strong>とにかく早く作りたい</strong> &mdash; 数秒で完成、使い方を覚える必要なし</li>
+          <li><strong>文字を完璧にくっきり表示したい</strong> &mdash; ピクセル単位で描画され、拡大でぼやけません</li>
+          <li><strong>プライバシーが気になる</strong> &mdash; 何もアップロードされません。写真系ツールは多くの場合サーバー上で画像を処理します</li>
+          <li><strong>正確な解像度が必要</strong> &mdash; 幅と高さを自由に指定、4Kやそれ以上も</li>
+          <li><strong>ミニマルなデザインが好き</strong> &mdash; 単色の背景にすっきりした文字は、ごちゃつかず洗練された印象に</li>
+        </ul>
+
+        <h2>人気の使い方</h2>
+
+        <ul>
+          <li>ロック画面に毎日目にするモチベーションの言葉を</li>
+          <li>自分の名前やイニシャルを壁紙に &mdash; <a href="/ja/name-wallpaper/">名前壁紙メーカー</a>もどうぞ</li>
+          <li>試験期間中のスマホに勉強リマインダーを</li>
+          <li>フルHDや4KのミニマルなPC壁紙を</li>
+          <li><a href="<%= p.localHref('/use-cases/') %>">その他の活用例を見る &rarr;</a></li>
+        </ul>
+
+        <h2>よくある質問</h2>
+
+        <h3>本当に無料ですか？</h3>
+        <p>はい、完全に無料です。有料版も試用期間も隠れた費用もありません。すべての解像度・色・フォントをどなたでも使えます。</p>
+
+        <h3>登録は必要ですか？</h3>
+        <p>不要です。そもそもアカウントの仕組みがありません&mdash;&mdash;登録もログインもメールも不要。ページを開いて入力を始めるだけです。</p>
+
+        <h3>画像に透かしは入りますか？</h3>
+        <p>入りません。ダウンロードされるのは、選んだ背景色の上にあなたの文字が載っただけの画像です。透かしもロゴもありません。</p>
+
+        <h3>対応している解像度は？</h3>
+        <p>すべてです。スマホ・PCの一般的なサイズのプリセットに加え、1920&times;1080、2560&times;1440、3840&times;2160 4Kなど、自由なサイズをピクセル単位で指定できます。</p>
+
+        <h3>自分の写真は使えますか？</h3>
+        <p>使えません&mdash;&mdash;これは手抜きではなく、意図的な設計です。このツールは背景色＋文字の壁紙を作るためのもの。写真に文字を載せるなら、写真編集アプリが適任です。</p>
+
+        <h3>入力した文字はどこかに送信されますか？</h3>
+        <p>されません。すべてブラウザ内でローカルに生成され、そのまま端末に保存されます。あなたの文字がサーバーに届くことはありません。</p>
+
+        <p>準備はいいですか？あなたの壁紙まで、あと数秒です&mdash;&mdash;無料で、完全にプライベートに。</p>
+
+        <a href="/ja/" class="cta" data-umami-event="wallpaper-maker-cta">今すぐ壁紙を作成する &rarr;</a>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
+    </footer>
+
+    <!-- Analytics -->
+    <script src="/shared/analytics.js"></script>
+  </body>
+</html>

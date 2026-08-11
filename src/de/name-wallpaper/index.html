@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters; %>
+    <title>Hintergrundbild mit Namen Erstellen — Kostenlos & Ohne Wasserzeichen | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="Hintergrundbild mit Namen erstellen — kostenlos. Namen eingeben, Farben und Schriftgröße wählen, für Handy oder PC herunterladen. Ohne Anmeldung, ohne Wasserzeichen." />
+    <meta name="keywords" content="hintergrundbild mit namen erstellen, wallpaper mit namen, hintergrund mit eigenem namen, namen wallpaper erstellen, handy hintergrund mit namen" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://textwallpaper.com<%= p.availableLangUrls[p.activeLang] %>" />
+    <!-- hreflang -->
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) {
+      var code = lang === 'zh' ? 'zh-Hans' : (lang === 'zhHant' ? 'zh-Hant' : lang); %>
+    <link rel="alternate" hreflang="<%= code %>" href="https://textwallpaper.com<%= p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="https://textwallpaper.com<%= p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://textwallpaper.com/de/name-wallpaper/" />
+    <meta property="og:title" content="Hintergrundbild mit Namen Erstellen — Kostenlos & Ohne Wasserzeichen" />
+    <meta property="og:description" content="Namen eingeben, Farben wählen, kostenlos in Handy- oder PC-Größe herunterladen. Ohne Wasserzeichen." />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://textwallpaper.com/de/name-wallpaper/" />
+    <meta property="twitter:title" content="Hintergrundbild mit Namen Erstellen — Kostenlos & Ohne Wasserzeichen" />
+    <meta property="twitter:description" content="Namen eingeben, Farben wählen, kostenlos herunterladen. Ohne Wasserzeichen." />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Ist das Erstellen eines Hintergrundbilds mit Namen kostenlos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja, vollständig kostenlos. Es gibt keine Anmeldung, keine Bezahlversion, und das heruntergeladene Bild enthält kein Wasserzeichen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Funktionieren Umlaute, ß und Emojis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Der Text wird mit den Schriftarten Ihres eigenen Geräts gezeichnet, daher werden ä, ö, ü, ß und alle Emojis problemlos dargestellt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "In welcher Auflösung wird das Hintergrundbild heruntergeladen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sie wählen die Pixelmaße vor dem Herunterladen selbst. Vom Handy-Display bis zum 4K-Monitor wird das Bild in voller Größe erzeugt, ohne nachträgliche Vergrößerung."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Enthält das Bild ein Wasserzeichen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nein. Das heruntergeladene Bild enthält nur die gewählte Hintergrundfarbe und Ihren Text — kein Logo, kein Wasserzeichen."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="/shared/static-pages.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="app-header-brand" href="/">TextWallpaper.com</a>
+      <div class="app-header-actions">
+        <% var onSupportPage = /\/support\/$/.test(p.availableLangUrls[p.activeLang]); %>
+        <a class="app-header-pill<%= onSupportPage ? ' active' : '' %>" href="<%= p.localHref('/support/') %>" aria-label="<%= p.supportAria %>"<%= onSupportPage ? ' aria-current="page"' : '' %> data-umami-event="support-page-visit"><span class="app-header-heart" aria-hidden="true">&#9829;</span> <%= p.supportLabel %></a>
+        <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
+        <% if (navLangs.length > 1) { %>
+        <details class="app-header-lang">
+          <summary><span aria-hidden="true">&#127760;</span> <%= p.langLabels[p.activeLang] %></summary>
+          <div class="lang-options">
+            <% navLangs.forEach(function (lang) { %>
+            <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
+            <% }); %>
+          </div>
+        </details>
+        <% } %>
+      </div>
+    </header>
+
+
+    <main class="container">
+      <nav class="breadcrumb">
+        <a href="/de/">Startseite</a> &rsaquo; Hintergrundbild mit Namen
+      </nav>
+
+      <article class="article-content">
+        <h1>Hintergrundbild mit Namen Erstellen &mdash; Kostenlos und Ohne Wasserzeichen</h1>
+
+        <p class="intro">Möchten Sie Ihren eigenen Namen auf dem Bildschirm sehen? Geben Sie Ihren Namen ein, wählen Sie Ihre Farben und laden Sie das Ergebnis in Sekunden herunter. Dieses kostenlose Tool läuft vollständig im Browser &mdash; ohne App-Installation, ohne Anmeldung und ohne Wasserzeichen.</p>
+
+        <a href="/de/" class="cta" data-umami-event="name-wallpaper-cta">Hintergrundbild mit Namen erstellen &rarr;</a>
+
+        <h2>So erstellen Sie ein Hintergrundbild mit Ihrem Namen</h2>
+
+        <ol>
+          <li><strong>Namen eingeben</strong> &mdash; oder Spitznamen, Initialen oder jeden anderen Text, der Ihnen vorschwebt.</li>
+          <li><strong>Farben und Schriftgröße wählen</strong> &mdash; Hintergrund- und Textfarbe passend zu Ihrem Stil; die Schrift lässt sich beliebig vergrößern.</li>
+          <li><strong>Größe festlegen</strong> &mdash; die passende Auflösung für Handy- oder PC-Bildschirm wählen.</li>
+          <li><strong>Herunterladen</strong> &mdash; Bild speichern und als Hintergrund einrichten. Das war's.</li>
+        </ol>
+
+        <p>Alles geschieht in Ihrem Browser: Der eingegebene Name wird an keinen Server gesendet, und einmal geladen funktioniert das Tool sogar ohne Internet.</p>
+
+        <h2>Handy oder PC? Die richtige Größe wählen</h2>
+
+        <ul>
+          <li><strong>Handy:</strong> Aktuelle Smartphones nutzen meist Hochformat-Auflösungen wie 1170&times;2532 oder 1440&times;3200. Das Tool erkennt Ihre Bildschirmgröße automatisch &mdash; meistens müssen Sie also gar nichts einstellen.</li>
+          <li><strong>PC und Laptop:</strong> Üblich sind 1920&times;1080 (Full HD), 2560&times;1440 und 3840&times;2160 (4K). Wählen Sie die Größe Ihres Monitors, damit der Text gestochen scharf erscheint.</li>
+        </ul>
+
+        <div class="tip-box">
+          <p><strong>Tipp:</strong> Platzieren Sie den Namen auf dem Handy eher mittig &mdash; auf dem Sperrbildschirm sitzt oben die Uhr, und auf dem Startbildschirm verdecken App-Symbole die Ränder.</p>
+        </div>
+
+        <h2>Ideen für Ihr Namens-Wallpaper</h2>
+
+        <ul>
+          <li><strong>Nur der Name</strong> &mdash; groß und selbstbewusst oder klein und dezent: &bdquo;Lena&ldquo; wirkt auf beide Arten.</li>
+          <li><strong>Initialen</strong> &mdash; zwei oder drei Buchstaben in großer Schrift ergeben ein elegantes Hintergrundbild im Monogramm-Stil.</li>
+          <li><strong>Spitzname</strong> &mdash; der Name, mit dem Freunde Sie wirklich rufen, sieht oft besser aus als der volle Name.</li>
+          <li><strong>Name + kurzer Spruch</strong> &mdash; eine Zeile wie &bdquo;Max &mdash; jeden Tag ein Schritt&ldquo; macht aus dem Hintergrund eine tägliche Erinnerung.</li>
+          <li><strong>Name + Emoji</strong> &mdash; ein Stern, ein Herz oder eine Flamme neben dem Namen setzt einen Akzent.</li>
+        </ul>
+
+        <p>Da es kostenlos ist und nur Sekunden dauert, können Sie auch Hintergrundbilder mit den Namen Ihrer Liebsten gestalten &mdash; als kleine Überraschung für eine Freundin oder fürs Tablet der Kinder.</p>
+
+        <h2>Häufige Fragen</h2>
+
+        <h3>Ist es kostenlos?</h3>
+        <p>Ja, vollständig. Keine Anmeldung, keine Bezahlversion, kein Wasserzeichen. Sie können so viele Hintergrundbilder erstellen, wie Sie möchten.</p>
+
+        <h3>Funktionieren Umlaute, &szlig; und Emojis?</h3>
+        <p>Ja. Da der Text von Ihrem eigenen Gerät gezeichnet wird, werden ä, ö, ü, ß und alle Emojis einwandfrei dargestellt.</p>
+
+        <h3>In welcher Aufl&ouml;sung wird heruntergeladen?</h3>
+        <p>In der, die Sie wählen. Vor dem Herunterladen legen Sie die Pixelmaße fest; das Bild wird genau in dieser Größe erzeugt und nicht nachträglich vergrößert.</p>
+
+        <h3>Enth&auml;lt das Bild ein Wasserzeichen?</h3>
+        <p>Nein. Das heruntergeladene Bild enthält nur Ihren Text und die gewählte Hintergrundfarbe.</p>
+
+        <p>Bereit, Ihren Namen auf dem Bildschirm zu sehen?</p>
+
+        <a href="/de/" class="cta" data-umami-event="name-wallpaper-cta">Hintergrundbild mit Namen erstellen &rarr;</a>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
+    </footer>
+
+    <!-- Analytics -->
+    <script src="/shared/analytics.js"></script>
+  </body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters;
+       var origin = 'https://textwallpaper.com';
+       var hreflangCodes = { zh: 'zh-Hans', zhHant: 'zh-Hant' };
+       var canonicalUrl = origin + p.availableLangUrls[p.activeLang];
+    %>
+    <title>Duvar Kağıdı Oluşturucu — Ücretsiz, Üyeliksiz, Filigransız | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="Ücretsiz duvar kağıdı oluşturucu. Yazınızı girin, renkleri seçin, 4K'ya kadar dilediğiniz çözünürlükte indirin. Üyelik yok, filigran yok — her şey tarayıcınızda." />
+    <meta name="keywords" content="duvar kağıdı oluşturucu, duvar kağıdı yapma, ücretsiz duvar kağıdı oluşturma, online duvar kağıdı yapma, yazılı duvar kağıdı oluşturucu, duvar kağıdı tasarlama" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="<%= canonicalUrl %>" />
+    <!-- hreflang -->
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) { %>
+    <link rel="alternate" hreflang="<%= hreflangCodes[lang] || lang %>" href="<%= origin + p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="<%= origin + p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= canonicalUrl %>" />
+    <meta property="og:title" content="Duvar Kağıdı Oluşturucu — Ücretsiz, Üyeliksiz, Filigransız" />
+    <meta property="og:description" content="Yazınızı girin, renkleri seçin, 4K'ya kadar dilediğiniz çözünürlükte indirin. Üyelik yok, filigran yok — her şey tarayıcınızda." />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
+    <meta property="og:locale" content="tr_TR" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="<%= canonicalUrl %>" />
+    <meta property="twitter:title" content="Duvar Kağıdı Oluşturucu — Ücretsiz, Üyeliksiz" />
+    <meta property="twitter:description" content="Yazınızı girin, renkleri seçin, 4K'ya kadar indirin. Ücretsiz ve filigransız." />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Duvar kağıdı oluşturucu gerçekten ücretsiz mi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Evet, tamamen ücretsiz. Premium sürüm, deneme süresi veya kilitli özellik yok. Tüm çözünürlükler, renkler ve yazı tipleri herkese açık."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Üye olmam veya hesap açmam gerekiyor mu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hayır. Üyelik, giriş veya e-posta adresi gerekmiyor. Sayfayı açın, yazınızı girin, duvar kağıdınızı indirin — hepsi bu."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Görsele filigran ekleniyor mu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hayır. İndirdiğiniz görselde yalnızca seçtiğiniz arka plan rengi ve yazdığınız metin bulunur — filigran, logo veya reklam yoktur."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hangi çözünürlükler destekleniyor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hepsi. Yaygın telefon ve bilgisayar boyutları için hazır ayarlar var; ayrıca 1920×1080 Full HD, 2560×1440 veya 3840×2160 4K gibi ölçüleri kendiniz de girebilirsiniz."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kendi fotoğraflarımı arka plan olarak kullanabilir miyim?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hayır. Bu araç yazılı duvar kağıtları oluşturur: düz renkli bir arka plan ve yazınız. Fotoğraf üzerine yazı eklemek veya kolaj yapmak isterseniz bir fotoğraf düzenleme uygulaması daha uygundur."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Yazdıklarım bir sunucuya gönderiliyor mu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hayır. Duvar kağıdı tamamen tarayıcınızda oluşturulur ve doğrudan cihazınıza kaydedilir. Yazdıklarınız bilgisayarınızdan veya telefonunuzdan asla çıkmaz."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="/shared/static-pages.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="app-header-brand" href="/">TextWallpaper.com</a>
+      <div class="app-header-actions">
+        <% var onSupportPage = /\/support\/$/.test(p.availableLangUrls[p.activeLang]); %>
+        <a class="app-header-pill<%= onSupportPage ? ' active' : '' %>" href="<%= p.localHref('/support/') %>" aria-label="<%= p.supportAria %>"<%= onSupportPage ? ' aria-current="page"' : '' %> data-umami-event="support-page-visit"><span class="app-header-heart" aria-hidden="true">&#9829;</span> <%= p.supportLabel %></a>
+        <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
+        <% if (navLangs.length > 1) { %>
+        <details class="app-header-lang">
+          <summary><span aria-hidden="true">&#127760;</span> <%= p.langLabels[p.activeLang] %></summary>
+          <div class="lang-options">
+            <% navLangs.forEach(function (lang) { %>
+            <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
+            <% }); %>
+          </div>
+        </details>
+        <% } %>
+      </div>
+    </header>
+
+
+    <main class="container">
+      <nav class="breadcrumb">
+        <a href="/tr/">Ana Sayfa</a> &rsaquo; Duvar Kağıdı Oluşturucu
+      </nav>
+
+      <article class="article-content">
+        <h1>Duvar Kağıdı Oluşturucu &mdash; Ücretsiz, Üyeliksiz, Filigransız</h1>
+
+        <p>Online, ücretsiz ve üyeliksiz duvar kağıdı yapmak mı istiyorsunuz? Bu araç tam bunun için var &mdash; ve baştan dürüst olalım: burada <strong>yazılı duvar kağıtları</strong> oluşturursunuz. Bir arka plan rengi seçer, yazınızı girer, yazı tipini ve boyutunu ayarlar, dilediğiniz çözünürlükte kusursuz netlikte bir duvar kağıdı indirirsiniz. Bu bir fotoğraf düzenleyici veya yapay zekâ görsel üretici değil &mdash; işte bu sadelik, sonucun bu kadar iyi görünmesinin nedeni.</p>
+
+        <div class="features">
+          <h2>Bu duvar kağıdı oluşturucuyu farklı kılan ne?</h2>
+          <ul>
+            <li><strong>%100 ücretsiz</strong> &mdash; premium sürüm yok, deneme süresi yok, kilitli özellik yok</li>
+            <li><strong>Hesap gerekmez</strong> &mdash; üyelik yok, giriş yok, e-posta yok</li>
+            <li><strong>Filigran yok</strong> &mdash; görselinizde yalnızca yazınız bulunur, başka hiçbir şey</li>
+            <li><strong>Her çözünürlük</strong> &mdash; telefon, tablet, bilgisayar, 3840&times;2160 4K'ya kadar</li>
+            <li><strong>Gizlilik dahil</strong> &mdash; her şey tarayıcınızda oluşturulur; hiçbir şey yüklenmez</li>
+            <li><strong>Tüm diller</strong> &mdash; Türkçe karakterler, emojiler ve tüm Unicode karakterleri</li>
+          </ul>
+        </div>
+
+        <h2>Duvar kağıdınızı nasıl oluşturursunuz?</h2>
+
+        <ol>
+          <li><strong>Oluşturucuyu açın</strong> &mdash; anında, doğrudan tarayıcınızda yüklenir</li>
+          <li><strong>Yazınızı girin</strong> &mdash; bir söz, bir isim, bir hatırlatma ya da aklınızdaki her şey</li>
+          <li><strong>Renk, yazı tipi ve boyut seçin</strong> &mdash; cihazınıza uygun hazır ayarı kullanın veya ölçüleri kendiniz girin</li>
+          <li><strong>İndirin</strong> &mdash; görseli kaydedin ve duvar kağıdı olarak ayarlayın</li>
+        </ol>
+
+        <p>Hepsi bir dakikadan kısa sürer. Kılavuza gerek yok, karıştırılacak şablon galerisi de yok.</p>
+
+        <a href="/tr/" class="cta" data-umami-event="wallpaper-maker-cta">Duvar kağıdı oluşturun &rarr;</a>
+
+        <h2>Ne zaman bu araç, ne zaman bir fotoğraf uygulaması?</h2>
+
+        <p>Her araç her işe uymaz. İşte dürüst karşılaştırma:</p>
+
+        <h3>Bir fotoğraf uygulaması daha iyidir, eğer&hellip;</h3>
+        <ul>
+          <li>kendi fotoğraflarınızdan kolaj yapmak istiyorsanız</li>
+          <li>var olan bir görselin üzerine yazı eklemek istiyorsanız</li>
+          <li>yapay zekâ görselleri, filtreler veya efektler arıyorsanız</li>
+        </ul>
+        <p>Bunlar için pek çok fotoğraf düzenleme ve kolaj uygulaması var &mdash; o alan onların uzmanlığı, bizim değil.</p>
+
+        <h3>Bu araç daha iyidir, eğer&hellip;</h3>
+        <ul>
+          <li><strong>hız istiyorsanız</strong> &mdash; saniyeler içinde hazır duvar kağıdı, öğrenme süreci yok</li>
+          <li><strong>yazının kusursuz net olmasını istiyorsanız</strong> &mdash; piksel piksel çizilir, asla büyütülüp bulanıklaşmaz</li>
+          <li><strong>gizlilik sizin için önemliyse</strong> &mdash; hiçbir şey yüklenmez; fotoğraf araçları görselleri çoğunlukla kendi sunucularında işler</li>
+          <li><strong>tam çözünürlük gerekiyorsa</strong> &mdash; genişlik ve yüksekliği serbestçe girin, 4K ve ötesi</li>
+          <li><strong>sade bir görünüm istiyorsanız</strong> &mdash; düz renk üzerinde net yazı, kalabalık değil derli toplu durur</li>
+        </ul>
+
+        <h2>Popüler kullanım fikirleri</h2>
+
+        <ul>
+          <li>Kilit ekranında her gün karşınıza çıkan motivasyon sözleri</li>
+          <li>Adınız veya baş harfleriniz duvar kağıdı olarak &mdash; <a href="/tr/name-wallpaper/">isimli duvar kağıdı aracını</a> deneyin</li>
+          <li>Sınav döneminde telefonunuza ders çalışma hatırlatmaları</li>
+          <li>Full HD veya 4K sade masaüstü arka planları</li>
+          <li><a href="<%= p.localHref('/use-cases/') %>">Daha fazla kullanım örneği görün &rarr;</a></li>
+        </ul>
+
+        <h2>Sık Sorulan Sorular</h2>
+
+        <h3>Gerçekten ücretsiz mi?</h3>
+        <p>Evet, tamamen. Premium sürüm, deneme süresi veya gizli ücret yok. Tüm çözünürlükler, renkler ve yazı tipleri herkese açık.</p>
+
+        <h3>Üye olmam gerekiyor mu?</h3>
+        <p>Hayır. Ortada bir hesap sistemi bile yok &mdash; üyelik, giriş veya e-posta gerekmiyor. Sayfayı açın ve yazmaya başlayın.</p>
+
+        <h3>Görsele filigran ekleniyor mu?</h3>
+        <p>Hayır. İndirdiğiniz dosyada yalnızca seçtiğiniz arka plan rengi üzerinde yazınız bulunur. Filigran yok, logo yok.</p>
+
+        <h3>Hangi çözünürlükler destekleniyor?</h3>
+        <p>Hepsi. Yaygın telefon ve bilgisayar boyutları için hazır ayarlar, ayrıca serbest ölçü girişi &mdash; 1920&times;1080, 2560&times;1440, 3840&times;2160 4K veya dilediğiniz başka bir boyut.</p>
+
+        <h3>Kendi fotoğraflarımı kullanabilir miyim?</h3>
+        <p>Hayır &mdash; ve bu bir eksik değil, bilinçli bir tercih. Bu araç renk artı yazıdan duvar kağıdı oluşturur. Fotoğraf üzerine yazı için doğru araç bir fotoğraf düzenleme uygulamasıdır.</p>
+
+        <h3>Yazdıklarım bir yere yükleniyor mu?</h3>
+        <p>Hayır. Her şey tarayıcınızda yerel olarak oluşturulur ve doğrudan cihazınıza kaydedilir. Yazdıklarınız hiçbir sunucuya ulaşmaz.</p>
+
+        <p>Hazır mısınız? Duvar kağıdınız yalnızca birkaç saniye uzağınızda &mdash; ücretsiz ve tamamen gizli.</p>
+
+        <a href="/tr/" class="cta" data-umami-event="wallpaper-maker-cta">Şimdi duvar kağıdı oluşturun &rarr;</a>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
+    </footer>
+
+    <!-- Analytics -->
+    <script src="/shared/analytics.js"></script>
+  </body>
+</html>

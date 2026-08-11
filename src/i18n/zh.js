@@ -5,7 +5,7 @@
 // they are our own build-shipped constants, never user input.
 //
 // Href overrides exist only for pages with a /zh/ version (support,
-// use-cases); other links keep their English targets.
+// use-cases, name-wallpaper); other links keep their English targets.
 export default {
   'meta.nativeName': '中文',
   // Intro screen
@@ -25,6 +25,7 @@ export default {
     '点击 <i class="fas fa-question button-icon"></i> 可再次查看这些使用说明。',
   'intro.start': '开始',
   'intro.linkName': '名字壁纸',
+  'intro.linkNameHref': '/zh/name-wallpaper/',
   'intro.linkIphone': 'iPhone壁纸',
   'intro.linkDesktop': '电脑壁纸',
   'intro.linkHowto': '壁纸添加文字教程',

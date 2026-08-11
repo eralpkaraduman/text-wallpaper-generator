@@ -135,6 +135,18 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://textwallpaper.com/zh/wallpaper-maker/</loc>
+    <lastmod>2026-08-11T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://textwallpaper.com/zh/name-wallpaper/</loc>
+    <lastmod>2026-08-11T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://textwallpaper.com/zh/use-cases/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -210,6 +222,12 @@
   <url>
     <loc>https://textwallpaper.com/ja/name-wallpaper/</loc>
     <lastmod>2026-08-10T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://textwallpaper.com/ja/wallpaper-maker/</loc>
+    <lastmod>2026-08-11T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -305,6 +323,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://textwallpaper.com/de/name-wallpaper/</loc>
+    <lastmod>2026-08-11T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://textwallpaper.com/de/how-to-add-text-to-wallpaper/</loc>
     <lastmod>2026-08-10T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -390,6 +414,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://textwallpaper.com/tr/wallpaper-maker/</loc>
+    <lastmod>2026-08-11T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://textwallpaper.com/tr/use-cases/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -461,6 +491,18 @@
     <lastmod>2026-08-10T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://textwallpaper.com/id/wallpaper-maker/</loc>
+    <lastmod>2026-08-11T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://textwallpaper.com/id/name-wallpaper/</loc>
+    <lastmod>2026-08-11T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://textwallpaper.com/id/use-cases/</loc>

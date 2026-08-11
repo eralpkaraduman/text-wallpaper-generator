@@ -5,8 +5,8 @@
 // tags, anchors) — they are our own build-shipped constants, never user input.
 //
 // Href overrides exist only for pages with a /de/ version (support,
-// use-cases, how-to-add-text-to-wallpaper); other links keep their English
-// targets.
+// use-cases, how-to-add-text-to-wallpaper, name-wallpaper); other links keep
+// their English targets.
 export default {
   'meta.nativeName': 'Deutsch',
   // Intro screen
@@ -30,6 +30,7 @@ export default {
     'Klicken Sie auf <i class="fas fa-question button-icon"></i>, um diese Anleitung erneut anzuzeigen.',
   'intro.start': 'START',
   'intro.linkName': 'Namens-Wallpaper',
+  'intro.linkNameHref': '/de/name-wallpaper/',
   'intro.linkIphone': 'iPhone-Wallpaper',
   'intro.linkDesktop': 'Desktop-Wallpaper',
   'intro.linkHowto': 'Text zum Wallpaper hinzufügen',
