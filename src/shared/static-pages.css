@@ -26,7 +26,121 @@ html[lang="zh-Hans"] body {
 }
 
 /* ==========================================================================
-   Header
+   App Header (ported from the app's .app-header rules in main.scss)
+   Brand left; Support pill + native no-JS language dropdown right.
+   ========================================================================== */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: max(6px, env(safe-area-inset-top)) max(10px, env(safe-area-inset-right)) 6px max(10px, env(safe-area-inset-left));
+  background-color: #2D2D2D;
+}
+
+a.app-header-brand {
+  color: #ecf0f1;
+  font-size: 0.85em;
+  font-weight: bold;
+  text-decoration: none;
+  white-space: nowrap;
+  /* Very narrow screens: truncate rather than overflow the actions */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  flex: 0 1 auto;
+}
+
+.app-header-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+}
+
+.app-header a.app-header-pill,
+.app-header-lang summary,
+.app-header-lang .lang-options a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  box-sizing: border-box;
+  height: 32px;
+  line-height: 1;
+  padding: 0 10px;
+  border: none;
+  cursor: pointer;
+  background-color: #ecf0f1;
+  color: #2D2D2D;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 0.25em;
+  white-space: nowrap;
+}
+
+.app-header a.app-header-pill:hover,
+.app-header a.app-header-pill:active,
+.app-header a.app-header-pill.active,
+.app-header-lang summary:hover,
+.app-header-lang .lang-options a:hover {
+  color: #ecf0f1;
+  background-color: #5A7FB4;
+}
+
+/* Native <details> dropdown — works without JavaScript */
+.app-header-lang {
+  position: relative;
+}
+
+.app-header-lang summary {
+  list-style: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.app-header-lang summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Typical dropdown: one solid panel, compact full-width rows */
+.app-header-lang .lang-options {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-width: 100%;
+  padding: 4px 0;
+  background-color: #ecf0f1;
+  border-radius: 0.25em;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+  z-index: 101;
+}
+
+.app-header-lang .lang-options a {
+  height: 28px;
+  padding: 0 14px;
+  justify-content: flex-start;
+  border-radius: 0;
+  width: 100%;
+}
+
+.app-header-lang .lang-options a.active {
+  color: #ecf0f1;
+  background-color: #2D2D2D;
+}
+
+/* ==========================================================================
+   Legacy Header — used ONLY by the untemplated privacy/terms pages
    ========================================================================== */
 .header {
   background: #2D2D2D;
@@ -43,31 +157,6 @@ html[lang="zh-Hans"] body {
 
 .header a:hover {
   text-decoration: underline;
-}
-
-/* ==========================================================================
-   Language Navigation
-   ========================================================================== */
-.lang-nav {
-  background: #444;
-  padding: 0.5rem;
-  text-align: center;
-  font-size: 0.875rem;
-}
-
-.lang-nav a {
-  color: #ccc;
-  text-decoration: none;
-  margin: 0 0.5rem;
-}
-
-.lang-nav a:hover {
-  color: #fff;
-}
-
-.lang-nav a.active {
-  color: #fff;
-  font-weight: 600;
 }
 
 /* ==========================================================================
