@@ -496,3 +496,28 @@ h1.landing-title {
     animation: none;
   }
 }
+
+/* ==========================================================================
+   Template links (prefill deep links into the editor via ?text=&bg=&fg=)
+   ========================================================================== */
+.template-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 0.5rem;
+}
+
+.template-links a {
+  padding: 0.5rem 1rem;
+  border: 1px solid #007bff;
+  border-radius: 999px;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.template-links a:hover {
+  background: #007bff;
+  color: #fff;
+}
