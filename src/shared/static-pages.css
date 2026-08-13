@@ -535,3 +535,35 @@ h1.landing-title {
   text-align: left;
   font-size: 0.95rem;
 }
+
+/* Example boxes converted to prefill deep links: keep the box look, add a
+   click affordance. The box classes on the same element supply colors. */
+a.example-link {
+  display: block;
+  text-decoration: none;
+  position: relative;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+a.example-link::after {
+  content: "\2197";
+  position: absolute;
+  top: 0.4rem;
+  right: 0.6rem;
+  font-size: 0.8rem;
+  opacity: 0.45;
+}
+
+a.example-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a.example-link {
+    transition: none;
+  }
+  a.example-link:hover {
+    transform: none;
+  }
+}
