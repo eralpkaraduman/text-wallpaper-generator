@@ -10,9 +10,6 @@ package-lock.json
 aws-credentials.json
 flow-typed
 
-# bv (beads viewer) local config and caches
-.bv/
-
 # Claude Code project config (local, not shared)
 .claude/
 
