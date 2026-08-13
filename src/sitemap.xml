@@ -121,6 +121,36 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://textwallpaper.com/bible-verse-wallpaper/</loc>
+    <lastmod>2026-08-13T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://textwallpaper.com/dont-touch-my-laptop-wallpaper/</loc>
+    <lastmod>2026-08-13T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://textwallpaper.com/study-motivation-wallpaper/</loc>
+    <lastmod>2026-08-13T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://textwallpaper.com/phone-number-lock-screen/</loc>
+    <lastmod>2026-08-13T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://textwallpaper.com/use-cases/safety-slogans/</loc>
+    <lastmod>2026-08-13T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <!-- Chinese (zh) pages -->
   <url>
     <loc>https://textwallpaper.com/zh/</loc>
@@ -302,6 +332,12 @@
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://textwallpaper.com/ja/use-cases/safety-slogans/</loc>
+    <lastmod>2026-08-13T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <!-- German (de) pages -->
   <url>
