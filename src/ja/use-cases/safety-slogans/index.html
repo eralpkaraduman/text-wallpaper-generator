@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters; %>
+    <title>安全標語・安全目標の壁紙を作成 — 職場のPC・ディスプレイに | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="安全標語や月間安全目標を壁紙画像にして、職場のPCやディスプレイに掲示。月間目標＋日付入りの本日の重点項目を毎日更新。印刷不要、無料でその場で作成できます。" />
+    <meta name="keywords" content="安全標語 壁紙, 安全目標 壁紙, 安全標語 デスクトップ, 月間安全目標, 安全衛生 掲示, 職場 安全 ディスプレイ, 指差呼称, ご安全に, 安全標語 作成" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://textwallpaper.com<%= p.availableLangUrls[p.activeLang] %>" />
+    <!-- hreflang (driven by availableLangUrls — only languages whose source exists) -->
+    <% var hreflangCodes = { zh: 'zh-Hans', zhHant: 'zh-Hant' }; %>
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) { %>
+    <link rel="alternate" hreflang="<%= hreflangCodes[lang] || lang %>" href="https://textwallpaper.com<%= p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="https://textwallpaper.com<%= p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://textwallpaper.com/ja/use-cases/safety-slogans/" />
+    <meta property="og:title" content="安全標語・安全目標の壁紙を作成 — 職場のPC・ディスプレイに" />
+    <meta property="og:description" content="安全標語や月間安全目標を壁紙画像にして、職場のPCやディスプレイに掲示。印刷不要、無料でその場で作成。" />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://textwallpaper.com/ja/use-cases/safety-slogans/" />
+    <meta property="twitter:title" content="安全標語・安全目標の壁紙を作成 — 職場のPC・ディスプレイに" />
+    <meta property="twitter:description" content="安全標語や月間安全目標を壁紙画像にして、職場のPCやディスプレイに掲示。印刷不要、無料でその場で作成。" />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "安全標語・安全目標の壁紙を作成 — 職場のPC・ディスプレイに",
+      "description": "安全標語や月間安全目標を壁紙画像にして、職場のPCやディスプレイに掲示。月間目標＋日付入りの本日の重点項目を毎日更新。印刷不要、無料でその場で作成できます。",
+      "url": "https://textwallpaper.com/ja/use-cases/safety-slogans/",
+      "author": {
+        "@type": "Person",
+        "name": "Eralp Karaduman"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "TextWallpaper.com",
+        "url": "https://textwallpaper.com"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://textwallpaper.com/ja/use-cases/safety-slogans/"
+      }
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="<%= p.staticCssHref %>">
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="app-header-brand" href="/">TextWallpaper.com</a>
+      <div class="app-header-actions">
+        <% var onSupportPage = /\/support\/$/.test(p.availableLangUrls[p.activeLang]); %>
+        <a class="app-header-pill<%= onSupportPage ? ' active' : '' %>" href="<%= p.localHref('/support/') %>" aria-label="<%= p.supportAria %>"<%= onSupportPage ? ' aria-current="page"' : '' %> data-umami-event="support-page-visit"><span class="app-header-heart" aria-hidden="true">&#9829;</span> <%= p.supportLabel %></a>
+        <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
+        <% if (navLangs.length > 1) { %>
+        <details class="app-header-lang">
+          <summary><span aria-hidden="true">&#127760;</span> <%= p.langLabels[p.activeLang] %></summary>
+          <div class="lang-options">
+            <% navLangs.forEach(function (lang) { %>
+            <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
+            <% }); %>
+          </div>
+        </details>
+        <% } %>
+      </div>
+    </header>
+
+
+    <main class="container">
+      <nav class="breadcrumb">
+        <a href="/ja/">ホーム</a> &rsaquo; <a href="/ja/use-cases/">活用事例</a> &rsaquo; 安全標語
+      </nav>
+
+      <article class="article-content">
+        <h1>安全標語・安全目標を壁紙にして、職場の画面に掲示する</h1>
+
+        <p>事務所や詰所に貼った安全ポスターは、一週間もすれば風景の一部になってしまいます。一方、毎日必ず目にする場所があります。パソコンのデスクトップ画面です。ログインのたび、席に戻るたび、画面に目をやるたびに今月の安全目標が視界に入る。掲示物としてこれほど「見られる」場所はありません。</p>
+
+        <p>TextWallpaper.comなら、標語を入力するだけで壁紙画像がその場で作成できます。インストール不要・無料で、運送会社の営業所から工場・倉庫まで、実際にこの方法で日々の安全掲示を運用している職場があります。</p>
+
+        <h2>紙の掲示より画面が優れている理由</h2>
+
+        <ul>
+          <li><strong>目に入る回数が桁違い</strong> - 従業員は勤務中に何十回も画面を見ます。壁のポスターは素通りされても、デスクトップは必ず視界に入ります。</li>
+          <li><strong>更新にコストがかからない</strong> - 印刷もラミネートも貼り替え作業も不要。文字を打ち替えてダウンロードし、画像を差し替えるだけです。</li>
+          <li><strong>古い掲示がすぐわかる</strong> - 標語に日付を入れておけば、更新が止まった画面は一目瞭然。「貼りっぱなし」が起こりません。</li>
+          <li><strong>全端末で統一できる</strong> - どの営業所のどのPCでも、同じ日に同じ目標が表示されます。</li>
+        </ul>
+
+        <h2>月間目標＋本日の重点項目という型</h2>
+
+        <p>実際の運用でいちばん効果的なのが、2行構成の型です。1行目に今月の安全目標（月内は固定）、2行目に日付入りの本日の重点項目（毎日更新）を置きます。</p>
+
+        <div class="code-block">
+９月の安全目標　基本動作の徹底　焦らず一つずつ
+9月15日　後退時は一旦降車して後方確認　ヨシ！
+        </div>
+
+        <p>月間目標が活動の軸になり、日替わりの重点項目が「今日も新しい」と伝えて読み飛ばしを防ぎます。日付が入っているので更新漏れは誰の目にも明らかで、掲示の鮮度が自然に保たれます。あるバス会社では、この形式で1か月分の壁紙をまとめて作成し、営業所のPCに毎日展開しています。</p>
+
+        <h2>職場への展開方法</h2>
+
+        <ul>
+          <li><strong>事務所・営業所のPC</strong> - グループポリシー（または資産管理ツール）でデスクトップ壁紙を共有フォルダの画像に指定し、毎朝その画像を差し替えるだけで全台一斉に更新できます。</li>
+          <li><strong>共用端末</strong> - 点呼場のPC、タイムレコーダー横の端末、倉庫のキオスク端末など、全員が使う数台に手動で設定するのも効果的です。</li>
+          <li><strong>ロビー・現場のディスプレイ</strong> - ディスプレイの解像度に合わせて画像を書き出し、全画面表示すればデジタルサイネージ代わりになります。</li>
+        </ul>
+
+        <p>解像度は自由に設定できるので、フルHDのデスクトップ用も、縦型サイネージ用も、同じ標語からすぐに作れます。</p>
+
+        <h2>効く安全標語の作り方</h2>
+
+        <p>「安全第一」だけでは、すぐに読み流されてしまいます。短く、動作を促す言葉で、具体的な危険を名指しするのがコツです。指差呼称の「ヨシ！」や「ご安全に」など、現場に根付いた言葉を取り入れると自然に読まれます。例えば：</p>
+
+        <ul>
+          <li><strong>慣れた作業に　潜む危険　初心に戻って　指差確認</strong> - 慣れによる油断を突く定番の型。</li>
+          <li><strong>後退時　降りて確認　指差呼称でヨシ！</strong> - 場面と動作を具体的に指定。</li>
+          <li><strong>フォークリフト通路　立ち止まって　右ヨシ！左ヨシ！</strong> - 危険源を名指しし、行動を一つに絞る。</li>
+          <li><strong>今日も無事故で　笑顔で帰ろう　ご安全に！</strong> - 締めくくりや月初の掲示に。</li>
+        </ul>
+
+        <div class="tip-box">
+          <p><strong>配色のヒント：</strong>安全色の深緑や紺の背景に白文字が定番です。離れた場所からも読みやすく、安全衛生委員会の記録写真にも映えます。配色を固定しておけば、毎日の壁紙も統一感を保てます。</p>
+        </div>
+
+        <h2>テンプレートから始める</h2>
+
+        <p>ワンクリックで、テキストと配色が入力済みのエディタが開きます。標語と日付を書き換えて、壁紙をダウンロードするだけです。</p>
+
+        <div class="template-links">
+          <a href="/?text=%EF%BC%99%E6%9C%88%E3%81%AE%E5%AE%89%E5%85%A8%E7%9B%AE%E6%A8%99%0A%E5%9F%BA%E6%9C%AC%E5%8B%95%E4%BD%9C%E3%81%AE%E5%BE%B9%E5%BA%95%E3%80%80%E7%84%A6%E3%82%89%E3%81%9A%E4%B8%80%E3%81%A4%E3%81%9A%E3%81%A4%0A%EF%BC%99%E6%9C%88%EF%BC%91%EF%BC%95%E6%97%A5%EF%BC%9A%E5%BE%8C%E9%80%80%E6%99%82%E3%81%AF%E9%99%8D%E3%82%8A%E3%81%A6%E7%A2%BA%E8%AA%8D%E3%80%80%E3%83%A8%E3%82%B7%EF%BC%81&amp;bg=1b4332&amp;fg=ffffff&amp;ref=uc-safety-slogans&amp;lang=ja" data-umami-event="template-open" data-umami-event-template="uc-safety-slogans">月間目標＋本日の重点項目</a>
+          <a href="/?text=%E6%85%A3%E3%82%8C%E3%81%9F%E4%BD%9C%E6%A5%AD%E3%81%AB%E3%80%80%E6%BD%9C%E3%82%80%E5%8D%B1%E9%99%BA%0A%E5%88%9D%E5%BF%83%E3%81%AB%E6%88%BB%E3%81%A3%E3%81%A6%E3%80%80%E6%8C%87%E5%B7%AE%E7%A2%BA%E8%AA%8D&amp;bg=1b4332&amp;fg=ffffff&amp;ref=uc-safety-slogans&amp;lang=ja" data-umami-event="template-open" data-umami-event-template="uc-safety-slogans">定番の安全標語</a>
+          <a href="/?text=%E3%81%94%E5%AE%89%E5%85%A8%E3%81%AB%EF%BC%81%0A%E4%BB%8A%E6%97%A5%E3%82%82%E7%84%A1%E4%BA%8B%E6%95%85%E3%81%A7%E3%80%80%E7%AC%91%E9%A1%94%E3%81%A7%E5%B8%B0%E3%82%8D%E3%81%86&amp;bg=1a1a2e&amp;fg=ffffff&amp;ref=uc-safety-slogans&amp;lang=ja" data-umami-event="template-open" data-umami-event-template="uc-safety-slogans">ご安全に！</a>
+        </div>
+
+        <a href="<%= p.localHref('/') %>" class="cta">安全標語の壁紙を作成する &rarr;</a>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
+    </footer>
+
+    <!-- Analytics -->
+    <script src="<%= p.analyticsSrc %>"></script>
+  </body>
+</html>

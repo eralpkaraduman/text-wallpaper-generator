@@ -521,3 +521,17 @@ h1.landing-title {
   background: #007bff;
   color: #fff;
 }
+
+/* Preformatted example blocks (used by server-labels, safety-slogans, ...).
+   Class predates this rule; it previously fell through to body text. */
+.code-block {
+  background: #2D2D2D;
+  color: #fff;
+  font-family: monospace;
+  padding: 1rem 1.5rem;
+  border-radius: 4px;
+  margin: 1rem 0;
+  white-space: pre-line;
+  text-align: left;
+  font-size: 0.95rem;
+}

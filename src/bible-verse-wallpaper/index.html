@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters; %>
+    <title>Bible Verse Wallpaper Maker — Create Custom Scripture Wallpapers | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="Free Bible verse wallpaper maker. Turn any verse into a custom lock screen wallpaper — pick colors, match your screen size, and download in seconds. No sign-up." />
+    <meta name="keywords" content="bible verse wallpaper, bible verse wallpaper maker, custom scripture wallpaper, bible verse lock screen, scripture wallpaper generator, christian wallpaper maker" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://textwallpaper.com<%= p.availableLangUrls[p.activeLang] %>" />
+    <!-- hreflang (driven by availableLangUrls — only languages whose source exists) -->
+    <% var hreflangCodes = { zh: 'zh-Hans', zhHant: 'zh-Hant' }; %>
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) { %>
+    <link rel="alternate" hreflang="<%= hreflangCodes[lang] || lang %>" href="https://textwallpaper.com<%= p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="https://textwallpaper.com<%= p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://textwallpaper.com/bible-verse-wallpaper/" />
+    <meta property="og:title" content="Bible Verse Wallpaper Maker — Create Custom Scripture Wallpapers" />
+    <meta property="og:description" content="Turn any Bible verse into a custom lock screen wallpaper. Free, no sign-up — pick colors, match your screen size, download in seconds." />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://textwallpaper.com/bible-verse-wallpaper/" />
+    <meta property="twitter:title" content="Bible Verse Wallpaper Maker — Create Custom Scripture Wallpapers" />
+    <meta property="twitter:description" content="Turn any Bible verse into a custom lock screen wallpaper. Free, no sign-up — pick colors, match your screen size, download in seconds." />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Bible Verse Wallpaper Maker — Create Custom Scripture Wallpapers",
+      "description": "Free Bible verse wallpaper maker. Turn any verse into a custom lock screen wallpaper — pick colors, match your screen size, and download in seconds. No sign-up.",
+      "url": "https://textwallpaper.com/bible-verse-wallpaper/",
+      "author": {
+        "@type": "Person",
+        "name": "Eralp Karaduman"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "TextWallpaper.com",
+        "url": "https://textwallpaper.com"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://textwallpaper.com/bible-verse-wallpaper/"
+      }
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="<%= p.staticCssHref %>">
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="app-header-brand" href="/">TextWallpaper.com</a>
+      <div class="app-header-actions">
+        <% var onSupportPage = /\/support\/$/.test(p.availableLangUrls[p.activeLang]); %>
+        <a class="app-header-pill<%= onSupportPage ? ' active' : '' %>" href="<%= p.localHref('/support/') %>" aria-label="<%= p.supportAria %>"<%= onSupportPage ? ' aria-current="page"' : '' %> data-umami-event="support-page-visit"><span class="app-header-heart" aria-hidden="true">&#9829;</span> <%= p.supportLabel %></a>
+        <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
+        <% if (navLangs.length > 1) { %>
+        <details class="app-header-lang">
+          <summary><span aria-hidden="true">&#127760;</span> <%= p.langLabels[p.activeLang] %></summary>
+          <div class="lang-options">
+            <% navLangs.forEach(function (lang) { %>
+            <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
+            <% }); %>
+          </div>
+        </details>
+        <% } %>
+      </div>
+    </header>
+
+
+    <main class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> &rsaquo; Bible Verse Wallpaper
+      </nav>
+
+      <article class="article-content">
+        <h1>Bible Verse Wallpaper Maker &mdash; Create Custom Scripture Wallpapers</h1>
+
+        <p class="intro">Put the verse you're holding onto this week right on your lock screen. Type any Bible verse, pick your colors, and download a custom scripture wallpaper in seconds &mdash; free, no app to install, no sign-up, no watermark.</p>
+
+        <a href="/" class="cta" data-umami-event="bible-verse-wallpaper-cta">Create Your Bible Verse Wallpaper &rarr;</a>
+
+        <h2>Why Put Scripture on Your Lock Screen?</h2>
+
+        <p>Most of us check our phones dozens of times a day. A Bible verse lock screen turns every one of those unlocks into a small moment of remembrance &mdash; the verse is simply there, again and again, without you having to open an app or remember to read it. It's one of the easiest devotional habits to keep, because your phone does the reminding for you.</p>
+
+        <p>Many people pair it with whatever they're currently reading or memorizing: the verse from Sunday's sermon, a line from this morning's devotional, or a promise they're leaning on through a hard season. When the verse changes, the wallpaper changes with it.</p>
+
+        <h2>How to Make a Bible Verse Wallpaper</h2>
+
+        <ol>
+          <li><strong>Type the verse</strong> &mdash; write out the words, then put the reference (like &ldquo;Psalm 23:1&rdquo;) on its own line at the end.</li>
+          <li><strong>Choose your colors</strong> &mdash; pick a background and text color. Calm, deep backgrounds with light text tend to work best.</li>
+          <li><strong>Match your screen size</strong> &mdash; on a phone, the maker can detect your screen automatically; on desktop, set your monitor's resolution.</li>
+          <li><strong>Download and set it</strong> &mdash; save the image and set it as your lock screen or home screen wallpaper.</li>
+        </ol>
+
+        <p>Everything happens in your browser. The verse you type is never uploaded anywhere, and you can make a new wallpaper whenever you like &mdash; it takes under a minute.</p>
+
+        <h2>Popular Verses for Wallpapers</h2>
+
+        <p>Any verse that speaks to you is the right one, but these are the ones people reach for most:</p>
+
+        <ul>
+          <li><strong>Psalm 23:1</strong> &mdash; &ldquo;The LORD is my shepherd; I shall not want.&rdquo;</li>
+          <li><strong>Philippians 4:13</strong> &mdash; &ldquo;I can do all things through Christ which strengtheneth me.&rdquo;</li>
+          <li><strong>Jeremiah 29:11</strong> &mdash; God's promise of &ldquo;thoughts of peace, and not of evil&rdquo; &mdash; plans of hope and a future.</li>
+          <li><strong>Isaiah 41:10</strong> &mdash; &ldquo;Fear not, for I am with thee.&rdquo;</li>
+          <li><strong>Proverbs 3:5-6</strong> &mdash; &ldquo;Trust in the LORD with all thine heart; and lean not unto thine own understanding.&rdquo;</li>
+        </ul>
+
+        <p>A short verse in large type is easier to take in at a glance than a long passage in small type. If the verse you love is long, pick its strongest line for the wallpaper &mdash; you know the rest by heart anyway.</p>
+
+        <h2>Tips for a Wallpaper You'll Actually Read</h2>
+
+        <ul>
+          <li><strong>Dark background, light text</strong> &mdash; a deep navy, black, or forest green background with white or gold text stays readable behind the clock and over app icons.</li>
+          <li><strong>Keep it to 2&ndash;6 lines</strong> &mdash; break the verse where the phrases naturally pause, rather than letting it wrap wherever it happens to.</li>
+          <li><strong>Reference on its own line</strong> &mdash; a blank line before &ldquo;Psalm 23:1&rdquo; gives the verse room to breathe and makes the reference easy to find.</li>
+          <li><strong>Center it</strong> &mdash; the lock screen clock sits near the top of the screen, so a roughly centered verse stays clear of it.</li>
+        </ul>
+
+        <div class="tip-box">
+          <p><strong>Memorization habit:</strong> make a new wallpaper each week with the verse you're learning. Seeing it at every unlock &mdash; often 50+ times a day &mdash; is a surprisingly effective way to hide it in your heart. By the time you swap in the next verse, the old one is yours.</p>
+        </div>
+
+        <h2>Start From a Template</h2>
+
+        <p>One click opens the editor with the verse and colors already filled in &mdash; tweak anything, then download your wallpaper.</p>
+
+        <div class="template-links">
+          <a href="/?text=The+LORD+is+my+shepherd%3B%0AI+shall+not+want.%0A%0APsalm+23%3A1&amp;bg=1a1a2e&amp;fg=f5f0e8&amp;ref=bible-verse-wallpaper" data-umami-event="template-open" data-umami-event-template="bible-verse-wallpaper">Psalm 23:1 &mdash; navy &amp; warm white</a>
+          <a href="/?text=I+can+do+all+things%0Athrough+Christ+which%0Astrengtheneth+me.%0A%0APhilippians+4%3A13&amp;bg=000000&amp;fg=FFD700&amp;ref=bible-verse-wallpaper" data-umami-event="template-open" data-umami-event-template="bible-verse-wallpaper">Philippians 4:13 &mdash; black &amp; gold</a>
+          <a href="/?text=Trust+in+the+LORD%0Awith+all+thine+heart.%0A%0AProverbs+3%3A5&amp;bg=1b4332&amp;fg=ffffff&amp;ref=bible-verse-wallpaper" data-umami-event="template-open" data-umami-event-template="bible-verse-wallpaper">Proverbs 3:5 &mdash; deep green &amp; white</a>
+          <a href="/?text=Fear+not%2C%0Afor+I+am+with+thee.%0A%0AIsaiah+41%3A10&amp;bg=3e2723&amp;fg=f5e6c8&amp;ref=bible-verse-wallpaper" data-umami-event="template-open" data-umami-event-template="bible-verse-wallpaper">Isaiah 41:10 &mdash; brown &amp; cream</a>
+        </div>
+
+        <a href="/" class="cta" data-umami-event="bible-verse-wallpaper-cta">Create Your Bible Verse Wallpaper &rarr;</a>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
+    </footer>
+
+    <!-- Analytics -->
+    <script src="<%= p.analyticsSrc %>"></script>
+  </body>
+</html>

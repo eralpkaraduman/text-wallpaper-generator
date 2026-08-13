@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters; %>
+    <title>Study Motivation Wallpaper — Make Your Own Exam Countdown | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="Make a free study motivation wallpaper: exam countdown, target school or rank, study rules. Type your goal, pick colors, download for phone or laptop. No sign-up." />
+    <meta name="keywords" content="study motivation wallpaper, study wallpaper, exam motivation wallpaper, exam countdown wallpaper, aesthetic study motivation wallpaper laptop, study motivation lock screen" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://textwallpaper.com<%= p.availableLangUrls[p.activeLang] %>" />
+    <!-- hreflang (driven by availableLangUrls — only languages whose source exists) -->
+    <% var hreflangCodes = { zh: 'zh-Hans', zhHant: 'zh-Hant' }; %>
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) { %>
+    <link rel="alternate" hreflang="<%= hreflangCodes[lang] || lang %>" href="https://textwallpaper.com<%= p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="https://textwallpaper.com<%= p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://textwallpaper.com/study-motivation-wallpaper/" />
+    <meta property="og:title" content="Study Motivation Wallpaper — Make Your Own Exam Countdown" />
+    <meta property="og:description" content="Type your goal, exam countdown, or target rank and turn it into a lock screen wallpaper. Free, no sign-up, no watermark." />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://textwallpaper.com/study-motivation-wallpaper/" />
+    <meta property="twitter:title" content="Study Motivation Wallpaper — Make Your Own Exam Countdown" />
+    <meta property="twitter:description" content="Type your goal, exam countdown, or target rank and turn it into a lock screen wallpaper. Free, no sign-up, no watermark." />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Study Motivation Wallpaper — Make Your Own Exam Countdown",
+      "description": "How students turn their lock screens into study motivation: exam countdowns, target schools and ranks, study rules, and mantras — and how to make your own wallpaper in seconds.",
+      "url": "https://textwallpaper.com/study-motivation-wallpaper/",
+      "author": {
+        "@type": "Person",
+        "name": "Eralp Karaduman"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "TextWallpaper.com",
+        "url": "https://textwallpaper.com"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://textwallpaper.com/study-motivation-wallpaper/"
+      }
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="<%= p.staticCssHref %>">
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="app-header-brand" href="/">TextWallpaper.com</a>
+      <div class="app-header-actions">
+        <% var onSupportPage = /\/support\/$/.test(p.availableLangUrls[p.activeLang]); %>
+        <a class="app-header-pill<%= onSupportPage ? ' active' : '' %>" href="<%= p.localHref('/support/') %>" aria-label="<%= p.supportAria %>"<%= onSupportPage ? ' aria-current="page"' : '' %> data-umami-event="support-page-visit"><span class="app-header-heart" aria-hidden="true">&#9829;</span> <%= p.supportLabel %></a>
+        <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
+        <% if (navLangs.length > 1) { %>
+        <details class="app-header-lang">
+          <summary><span aria-hidden="true">&#127760;</span> <%= p.langLabels[p.activeLang] %></summary>
+          <div class="lang-options">
+            <% navLangs.forEach(function (lang) { %>
+            <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
+            <% }); %>
+          </div>
+        </details>
+        <% } %>
+      </div>
+    </header>
+
+
+    <main class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> &rsaquo; Study Motivation Wallpaper
+      </nav>
+
+      <article class="article-content">
+        <h1>Study Motivation Wallpaper &mdash; Make Your Own Exam Countdown</h1>
+
+        <p class="intro">The most effective study motivation wallpaper isn't one you download from a Pinterest board &mdash; it's one with <em>your</em> exam, <em>your</em> target score, and <em>your</em> number of days left. Type it, pick two colors, and set it as your lock screen in under a minute. Free, no sign-up, no watermark.</p>
+
+        <a href="/" class="cta" data-umami-event="study-motivation-cta">Make Your Study Wallpaper &rarr;</a>
+
+        <h2>Your Lock Screen Is Prime Motivation Real Estate</h2>
+
+        <p>You check your phone somewhere north of 100 times a day &mdash; usually right when you're tempted to stop studying. That makes your lock screen the single most-viewed surface in your life. Put your goal there, and every reflexive glance becomes a small confrontation: <em>this is what you said you wanted.</em> A quote taped to your desk gets ignored after a week; the screen you unlock a hundred times a day doesn't.</p>
+
+        <p>Students everywhere have figured this out independently. Some make their wallpaper a warning to themselves and everyone else &mdash; "don't talk to me, I need to get into my dream school." Others make it a contract: the exam name, the rank they're chasing, and nothing else.</p>
+
+        <h2>What to Put on a Study Wallpaper</h2>
+
+        <ul>
+          <li><strong>Your target</strong> &mdash; the school, the rank, the score. "AIR 1." "650+." The name of the university you want on your acceptance letter.</li>
+          <li><strong>A countdown</strong> &mdash; the number of days until the exam. Nothing focuses the mind like watching that number shrink.</li>
+          <li><strong>A rule</strong> &mdash; one you keep breaking. "Phone down after 9pm." "No games until mocks are done." Seeing the rule at the exact moment you're about to break it is the whole point.</li>
+          <li><strong>A mantra</strong> &mdash; short and personal. "Exams first, everything else after." "This year is different."</li>
+        </ul>
+
+        <h2>The Same Idea, Every Exam on Earth</h2>
+
+        <p>This habit shows up wherever high-stakes exams exist. Chinese students make gaokao countdown lock screens with the days remaining in huge numerals. Indian students preparing for NEET or JEE type their target rank &mdash; "NEET 2027 / AIR 1" &mdash; and stare at it for a year. Students prepping for the SAT put their goal score on their laptop wallpaper; students in finals week just write "survive December." Different exams, same move: turn the screen you can't stop looking at into the goal you can't afford to forget.</p>
+
+        <h2>The Update Ritual: Remake It Weekly</h2>
+
+        <p>A countdown wallpaper only works if the number is true. So every Sunday, remake it: open the editor, type the new number of days, download, set. It takes thirty seconds, and the ritual matters as much as the wallpaper &mdash; retyping your goal every week is itself an act of commitment. If the number went from 184 to 177 and you didn't study, you'll feel it while typing. That's the feature, not the bug.</p>
+
+        <h2>Tips for a Wallpaper That Actually Works</h2>
+
+        <ul>
+          <li><strong>Make the number biggest.</strong> Days left or target rank should dominate the screen &mdash; a big font size, everything else smaller.</li>
+          <li><strong>Bold, high-contrast colors.</strong> White or gold text on black, white on deep red. It has to be readable in the one-second glance before you unlock.</li>
+          <li><strong>Keep it short.</strong> Two lines beat a paragraph. You're not going to read an essay on your lock screen; you will absorb four words.</li>
+          <li><strong>Leave the middle-top clear on phones</strong> &mdash; the clock sits there. Keep your text centered or slightly low.</li>
+          <li><strong>Match your laptop too.</strong> An aesthetic study motivation wallpaper on your laptop &mdash; same goal, same colors, sized 1920&times;1080 or whatever your screen is &mdash; keeps the message in view during actual study sessions.</li>
+        </ul>
+
+        <p>Exam done? The habit still works for gym goals, savings targets, and any other daily reminder &mdash; see <a href="/use-cases/motivation/">quote and mantra wallpapers</a> for the general version.</p>
+
+        <h2>Start From a Template</h2>
+
+        <p>One click opens the editor with the text and colors already filled in &mdash; swap in your own exam, number, and target, then download your wallpaper.</p>
+
+        <div class="template-links">
+          <a href="/?text=STAY+FOCUSED%0AExams+first.+Everything+else+after.&amp;bg=000000&amp;fg=FFD700&amp;ref=study-motivation-wallpaper" data-umami-event="template-open" data-umami-event-template="study-motivation-wallpaper">Stay focused</a>
+          <a href="/?text=184+DAYS%0AMake+them+count.&amp;bg=1a1a2e&amp;fg=ffffff&amp;ref=study-motivation-wallpaper" data-umami-event="template-open" data-umami-event-template="study-motivation-wallpaper">Exam countdown</a>
+          <a href="/?text=Dream+school.%0AEarned+daily.&amp;bg=000000&amp;fg=ffffff&amp;ref=study-motivation-wallpaper" data-umami-event="template-open" data-umami-event-template="study-motivation-wallpaper">Dream school</a>
+          <a href="/?text=PHONE+DOWN.%0ABOOKS+OPEN.&amp;bg=dc3545&amp;fg=ffffff&amp;ref=study-motivation-wallpaper" data-umami-event="template-open" data-umami-event-template="study-motivation-wallpaper">Phone down</a>
+        </div>
+
+        <a href="/" class="cta" data-umami-event="study-motivation-cta">Make Your Study Wallpaper &rarr;</a>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
+    </footer>
+
+    <!-- Analytics -->
+    <script src="<%= p.analyticsSrc %>"></script>
+  </body>
+</html>

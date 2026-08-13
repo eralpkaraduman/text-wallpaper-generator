@@ -73,6 +73,10 @@ const LANG_LABELS = {
 // existing per-language globs in findStaticPages().
 const ROOT_PAGES = [
   'name-wallpaper',
+  'bible-verse-wallpaper',
+  'dont-touch-my-laptop-wallpaper',
+  'study-motivation-wallpaper',
+  'phone-number-lock-screen',
   'iphone-wallpaper-maker',
   'desktop-wallpaper-maker',
   'how-to-add-text-to-wallpaper',

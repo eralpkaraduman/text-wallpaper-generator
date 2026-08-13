@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters; %>
+    <title>Don't Touch My Laptop Wallpaper — Make Your Own Warning | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="Skip the download galleries — type your own 'don't touch my laptop' wallpaper. Your name, your threat level, your colors. Free, no sign-up, ready in 30 seconds." />
+    <meta name="keywords" content="dont touch my laptop wallpaper, don't touch my computer wallpaper, get off my laptop wallpaper, funny warning wallpaper, do not touch wallpaper, keep off my laptop background" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://textwallpaper.com<%= p.availableLangUrls[p.activeLang] %>" />
+    <!-- hreflang (driven by availableLangUrls — only languages whose source exists) -->
+    <% var hreflangCodes = { zh: 'zh-Hans', zhHant: 'zh-Hant' }; %>
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) { %>
+    <link rel="alternate" hreflang="<%= hreflangCodes[lang] || lang %>" href="https://textwallpaper.com<%= p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="https://textwallpaper.com<%= p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://textwallpaper.com/dont-touch-my-laptop-wallpaper/" />
+    <meta property="og:title" content="Don't Touch My Laptop Wallpaper — Make Your Own Warning" />
+    <meta property="og:description" content="Why download someone else's warning? Type your own 'don't touch my laptop' wallpaper with your name on it. Free, instant, no sign-up." />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://textwallpaper.com/dont-touch-my-laptop-wallpaper/" />
+    <meta property="twitter:title" content="Don't Touch My Laptop Wallpaper — Make Your Own Warning" />
+    <meta property="twitter:description" content="Type your own 'don't touch my laptop' wallpaper with your name on it. Free, instant, no sign-up." />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Don't Touch My Laptop Wallpaper — Make Your Own Warning",
+      "description": "How to make a custom 'don't touch my laptop' warning wallpaper with your own name and wording — funny, menacing, or politely passive-aggressive. Free and instant.",
+      "url": "https://textwallpaper.com/dont-touch-my-laptop-wallpaper/",
+      "author": {
+        "@type": "Person",
+        "name": "Eralp Karaduman"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "TextWallpaper.com",
+        "url": "https://textwallpaper.com"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://textwallpaper.com/dont-touch-my-laptop-wallpaper/"
+      }
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="<%= p.staticCssHref %>">
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="app-header-brand" href="/">TextWallpaper.com</a>
+      <div class="app-header-actions">
+        <% var onSupportPage = /\/support\/$/.test(p.availableLangUrls[p.activeLang]); %>
+        <a class="app-header-pill<%= onSupportPage ? ' active' : '' %>" href="<%= p.localHref('/support/') %>" aria-label="<%= p.supportAria %>"<%= onSupportPage ? ' aria-current="page"' : '' %> data-umami-event="support-page-visit"><span class="app-header-heart" aria-hidden="true">&#9829;</span> <%= p.supportLabel %></a>
+        <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
+        <% if (navLangs.length > 1) { %>
+        <details class="app-header-lang">
+          <summary><span aria-hidden="true">&#127760;</span> <%= p.langLabels[p.activeLang] %></summary>
+          <div class="lang-options">
+            <% navLangs.forEach(function (lang) { %>
+            <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
+            <% }); %>
+          </div>
+        </details>
+        <% } %>
+      </div>
+    </header>
+
+
+    <main class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> &rsaquo; Don't Touch My Laptop Wallpaper
+      </nav>
+
+      <article class="article-content">
+        <h1>Don't Touch My Laptop Wallpaper &mdash; Make Your Own Warning</h1>
+
+        <p class="intro">Looking for a "don't touch my laptop" wallpaper? You could download the same one as everyone else &mdash; or you could type your own warning, with your name in it, in the exact shade of menace you're going for. It takes about 30 seconds, it's free, and nobody else on earth will have your wallpaper.</p>
+
+        <a href="/" class="cta" data-umami-event="dont-touch-cta">Make My Warning Wallpaper &rarr;</a>
+
+        <h2>Why a Warning Wallpaper Actually Works</h2>
+
+        <p>Think about the order of operations when someone grabs your laptop. Sibling, roommate, coworker, "helpful" relative &mdash; the very first thing they see is your screen. Before they open a single tab, your wallpaper has already spoken. A sticky note falls off. A verbal warning gets forgotten. But GET OFF MY LAPTOP in 200-point letters? That's a message with perfect timing and zero effort on your part.</p>
+
+        <p>It's also socially perfect: you never had to say anything out loud. The wallpaper is the bad cop so you don't have to be.</p>
+
+        <h2>Ideas by Vibe</h2>
+
+        <ul>
+          <li><strong>Funny threats</strong> &mdash; "DON'T TOUCH MY LAPTOP. I will know. I always know." or "Step away from the keyboard and no one gets judged."</li>
+          <li><strong>Polite notices</strong> &mdash; "please do not touch, thanks so much!" in soft pastels. The politeness is the joke; the message is still no.</li>
+          <li><strong>Personalized</strong> &mdash; "This is Maya's laptop &mdash; touch it and perish." Swapping NAME for <em>your</em> name is exactly the thing a downloaded gallery wallpaper can't do.</li>
+          <li><strong>Guilt trips</strong> &mdash; "This laptop belongs to someone with your browser history." Let them think about it.</li>
+          <li><strong>Lock screen vs desktop</strong> &mdash; put the scary one on the lock screen, where snoopers actually land, and keep something calmer on the desktop for your own eyes. Or run the same warning on both for full perimeter defense.</li>
+        </ul>
+
+        <h2>How to Make One in 30 Seconds</h2>
+
+        <ol>
+          <li><strong>Type your warning</strong> &mdash; funny, menacing, polite, or all three. Any language, emoji included.</li>
+          <li><strong>Pick your colors</strong> &mdash; background and text color, anything you like.</li>
+          <li><strong>Set the size</strong> &mdash; match your laptop's screen resolution so the text stays razor sharp.</li>
+          <li><strong>Download and set it</strong> &mdash; done. No sign-up, no watermark, no app.</li>
+        </ol>
+
+        <p>Everything runs in your browser, so your masterpiece of passive aggression is never uploaded anywhere.</p>
+
+        <h2>Tips for Maximum Effect</h2>
+
+        <div class="tip-box">
+          <p><strong>Go huge.</strong> The whole point is across-the-room readability. Crank the font size until the warning fills the screen &mdash; if your roommate can read it from the doorway, they can't claim they didn't see it.</p>
+        </div>
+
+        <ul>
+          <li><strong>Red or black for menace</strong> &mdash; white text on a red background reads as an alarm; red on black reads as a final warning. Both work before anyone has consciously read a word.</li>
+          <li><strong>Pastels for irony</strong> &mdash; a death threat in baby pink with a heart is, somehow, more unsettling. Use responsibly.</li>
+          <li><strong>Put your name in it</strong> &mdash; "This is Deniz's laptop" hits harder than any anonymous warning, and it's the one thing static wallpaper galleries will never give you.</li>
+          <li><strong>Short beats clever</strong> &mdash; one big line plus one small punchline is the sweet spot. Nobody reads a paragraph on a lock screen.</li>
+        </ul>
+
+        <p>Ready to defend your territory?</p>
+
+        <h2>Start From a Template</h2>
+
+        <p>One click opens the editor with the text and colors already filled in &mdash; swap in your own name or wording, then download your wallpaper.</p>
+
+        <div class="template-links">
+          <a href="/?text=DON%27T+TOUCH+MY+LAPTOP%0AI+will+know.&amp;bg=dc3545&amp;fg=ffffff&amp;ref=dont-touch-my-laptop-wallpaper" data-umami-event="template-open" data-umami-event-template="dont-touch-my-laptop-wallpaper">Classic red alert</a>
+          <a href="/?text=GET+OFF+MY+LAPTOP&amp;bg=000000&amp;fg=ff2d2d&amp;ref=dont-touch-my-laptop-wallpaper" data-umami-event="template-open" data-umami-event-template="dont-touch-my-laptop-wallpaper">Final warning</a>
+          <a href="/?text=This+laptop+belongs+to+someone%0Awith+your+browser+history.&amp;bg=2d2d2d&amp;fg=ffffff&amp;ref=dont-touch-my-laptop-wallpaper" data-umami-event="template-open" data-umami-event-template="dont-touch-my-laptop-wallpaper">Guilt trip</a>
+          <a href="/?text=please+do+not+touch%0Athanks+so+much%21+%E2%99%A5&amp;bg=ffd9e3&amp;fg=8a3b52&amp;ref=dont-touch-my-laptop-wallpaper" data-umami-event="template-open" data-umami-event-template="dont-touch-my-laptop-wallpaper">Aggressively polite</a>
+        </div>
+
+        <a href="/" class="cta" data-umami-event="dont-touch-cta">Make My Warning Wallpaper &rarr;</a>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
+    </footer>
+
+    <!-- Analytics -->
+    <script src="<%= p.analyticsSrc %>"></script>
+  </body>
+</html>

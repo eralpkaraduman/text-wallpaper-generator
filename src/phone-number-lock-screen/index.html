@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% var p = htmlWebpackPlugin.options.templateParameters; %>
+    <title>Phone Number Lock Screen Wallpaper — If Found, Call | TextWallpaper.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
+    <meta name="description" content="Put a phone number on your lock screen — an 'if found, please call' wallpaper for lost phones, or line-number labels for shared work phones. Free, no sign-up." />
+    <meta name="keywords" content="phone number lock screen, if found call wallpaper, lost phone wallpaper, contact info lock screen, phone number wallpaper, if found please call lock screen" />
+    <meta name="author" content="Eralp Karaduman" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://textwallpaper.com<%= p.availableLangUrls[p.activeLang] %>" />
+    <!-- hreflang -->
+    <% var hreflangCodes = { zh: 'zh-Hans', zhHant: 'zh-Hant' }; %>
+    <% Object.keys(p.availableLangUrls).forEach(function (lang) { %>
+    <link rel="alternate" hreflang="<%= hreflangCodes[lang] || lang %>" href="https://textwallpaper.com<%= p.availableLangUrls[lang] %>" />
+    <% }); %>
+    <link rel="alternate" hreflang="x-default" href="https://textwallpaper.com<%= p.availableLangUrls.en %>" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://textwallpaper.com/phone-number-lock-screen/" />
+    <meta property="og:title" content="Phone Number Lock Screen Wallpaper — If Found, Call" />
+    <meta property="og:description" content="Put a phone number on your lock screen — a lost-phone contact wallpaper or a work-phone line label. Free, no sign-up." />
+    <meta property="og:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://textwallpaper.com/phone-number-lock-screen/" />
+    <meta property="twitter:title" content="Phone Number Lock Screen Wallpaper — If Found, Call" />
+    <meta property="twitter:description" content="Put a phone number on your lock screen — a lost-phone contact wallpaper or a work-phone line label. Free, no sign-up." />
+    <meta property="twitter:image" content="<%= p.ogImageUrl %>" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Phone Number Lock Screen Wallpaper — If Found, Call",
+      "description": "How to put a phone number on your lock screen: an 'if found, please call' wallpaper that helps a lost phone find its way home, or line-number labels for shared work phones.",
+      "url": "https://textwallpaper.com/phone-number-lock-screen/",
+      "author": {
+        "@type": "Person",
+        "name": "Eralp Karaduman"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "TextWallpaper.com",
+        "url": "https://textwallpaper.com"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://textwallpaper.com/phone-number-lock-screen/"
+      }
+    }
+    </script>
+
+    <meta name="theme-color" content="#2D2D2D" />
+    <link rel="stylesheet" href="<%= p.staticCssHref %>">
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="app-header-brand" href="/">TextWallpaper.com</a>
+      <div class="app-header-actions">
+        <% var onSupportPage = /\/support\/$/.test(p.availableLangUrls[p.activeLang]); %>
+        <a class="app-header-pill<%= onSupportPage ? ' active' : '' %>" href="<%= p.localHref('/support/') %>" aria-label="<%= p.supportAria %>"<%= onSupportPage ? ' aria-current="page"' : '' %> data-umami-event="support-page-visit"><span class="app-header-heart" aria-hidden="true">&#9829;</span> <%= p.supportLabel %></a>
+        <% var navLangs = Object.keys(p.availableLangUrls).filter(function (l) { return p.langLabels[l]; }); %>
+        <% if (navLangs.length > 1) { %>
+        <details class="app-header-lang">
+          <summary><span aria-hidden="true">&#127760;</span> <%= p.langLabels[p.activeLang] %></summary>
+          <div class="lang-options">
+            <% navLangs.forEach(function (lang) { %>
+            <a href="<%= p.availableLangUrls[lang] %>"<%= lang === p.activeLang ? ' class="active"' : '' %>><%= p.langLabels[lang] %></a>
+            <% }); %>
+          </div>
+        </details>
+        <% } %>
+      </div>
+    </header>
+
+
+    <main class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> &rsaquo; Phone Number Lock Screen
+      </nav>
+
+      <article class="article-content">
+        <h1>Phone Number Lock Screen Wallpaper &mdash; If Found, Please Call</h1>
+
+        <p class="intro">Your lock screen is the one thing a stranger can read without unlocking your phone. Put a phone number on it &mdash; whether that's an "if found, please call" message that helps a lost phone find its way home, or a line number that tells staff which work phone they're holding. Type it, download it, set it as your lock screen. Free, no app, no sign-up.</p>
+
+        <a href="/" class="cta" data-umami-event="phone-number-lock-screen-cta">Make Your Lock Screen Wallpaper &rarr;</a>
+
+        <h2>The Lost Phone Problem</h2>
+
+        <p>When an honest person finds a lost phone, they hit a wall immediately: the phone is locked. They can't open your contacts, can't see who you are, can't do much except hand it to lost-and-found and hope. Calling the phone doesn't help either &mdash; they're holding it.</p>
+
+        <p>A contact-info lock screen fixes this. The finder turns on the screen and sees exactly what to do: an alternate number to call, or an email address to write to. No unlocking required.</p>
+
+        <h2>What to Put on a Lost-Phone Lock Screen</h2>
+
+        <ul>
+          <li><strong>A second number you can actually answer</strong> &mdash; a partner's phone, a home or office line, a family member. Not the number of the lost phone itself.</li>
+          <li><strong>An email address</strong> &mdash; useful on its own or as a backup, since the finder can write from any device.</li>
+          <li><strong>"Reward offered"</strong> &mdash; optional, but it gives a stranger one more reason to make the call.</li>
+        </ul>
+
+        <p>And what <em>not</em> to include: skip your full name and never put your home address on it. The message will be visible to everyone who glances at your phone, not just a well-meaning finder. "If found, please call" plus a reachable number or email is enough &mdash; it gets the phone back without handing out your identity.</p>
+
+        <h2>Labeling Work Phones with Their Line Numbers</h2>
+
+        <p>The second reason people put phone numbers on lock screens has nothing to do with losing them. Companies that run fleets of identical phones &mdash; dispatch desks, shared shift phones, CCTV and security posts &mdash; label each device with its own line number and role, right on the lock screen.</p>
+
+        <p>The problem it solves is simple: five identical phones on a charging shelf, and someone shouting "which one is the dispatch line?" A wallpaper that reads <em>DISPATCH LINE 2</em> with the number underneath means staff grab the right phone on the first try, and a caller asking "what number is this?" gets an instant answer. It's the same trick IT teams use for <a href="/use-cases/device-labeling/">labeling shared tablets and devices</a> &mdash; the label is always visible, needs no software, and survives every reboot.</p>
+
+        <h2>How to Make One</h2>
+
+        <ol>
+          <li><strong>Type your message</strong> &mdash; the "if found" line and your contact info, or the line number and department for a work phone.</li>
+          <li><strong>Size it to your phone</strong> &mdash; the generator can detect your screen automatically; otherwise pick your phone model's resolution.</li>
+          <li><strong>Download the image</strong> and open your phone's wallpaper settings.</li>
+          <li><strong>Set it as the lock screen</strong> &mdash; specifically. Phones let you set lock screen and home screen separately, and this wallpaper belongs on the <em>lock</em> screen: that's the one a stranger sees. Your home screen can stay whatever you like.</li>
+        </ol>
+
+        <div class="tip-box">
+          <p><strong>Tip:</strong> The clock sits in the top part of most lock screens, and notifications stack below it. Keep the font big, and after setting the wallpaper, lock the phone and check that the number is still readable &mdash; if the clock or notifications cover it, adjust the layout and font size until it's clearly visible at a glance.</p>
+        </div>
+
+        <p>One more habit worth keeping: when your alternate number changes, remake the wallpaper. It takes under a minute, and an out-of-date contact number is worse than none.</p>
+
+        <h2>Start From a Template</h2>
+
+        <p>One click opens the editor with the text and colors already filled in &mdash; swap in your own number, then download your wallpaper.</p>
+
+        <div class="template-links">
+          <a href="/?text=If+found%2C+please+call%0A%28555%29+010-4477&amp;bg=2d2d2d&amp;fg=ffffff&amp;ref=phone-number-lock-screen" data-umami-event="template-open" data-umami-event-template="phone-number-lock-screen">If found, please call</a>
+          <a href="/?text=This+phone+belongs+to%0Aalex%40example.com%0AReward+if+returned&amp;bg=00304a&amp;fg=ffd700&amp;ref=phone-number-lock-screen" data-umami-event="template-open" data-umami-event-template="phone-number-lock-screen">Email + reward</a>
+          <a href="/?text=DISPATCH+LINE+2%0A%28555%29+010-2288&amp;bg=1a1a2e&amp;fg=00ff41&amp;ref=phone-number-lock-screen" data-umami-event="template-open" data-umami-event-template="phone-number-lock-screen">Dispatch line label</a>
+          <a href="/?text=SECURITY+%2F+CCTV+POST%0A%28555%29+010-0199&amp;bg=dc3545&amp;fg=ffffff&amp;ref=phone-number-lock-screen" data-umami-event="template-open" data-umami-event-template="phone-number-lock-screen">Security post phone</a>
+        </div>
+
+        <a href="/" class="cta" data-umami-event="phone-number-lock-screen-cta">Create Your Lock Screen Wallpaper &rarr;</a>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <a href="<%= p.homeLink %>">TextWallpaper.com</a> - <%= p.footerText %></p>
+    </footer>
+
+    <!-- Analytics -->
+    <script src="<%= p.analyticsSrc %>"></script>
+  </body>
+</html>
