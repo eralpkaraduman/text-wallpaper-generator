@@ -24,6 +24,12 @@ export default class TextEditor {
     this._updateTextColor();
   }
 
+  _fontFamily: string;
+  set fontFamily(value: string): void {
+    this._fontFamily = value;
+    this._updateFontFamily();
+  }
+
   set text(value: string): void {
     // The contenteditable renders without `white-space: pre-wrap`, so a plain
     // textContent assignment would collapse '\n' into spaces. Build the same
@@ -109,6 +115,10 @@ export default class TextEditor {
     this.textInputElement.style.color = this._textColor;
     // $FlowFixMe
     this.textInputElement.style.caretColor = this._textColor;
+  };
+
+  _updateFontFamily = () => {
+    this.textInputElement.style.fontFamily = this._fontFamily;
   };
 
   _updateTextSize = () => {

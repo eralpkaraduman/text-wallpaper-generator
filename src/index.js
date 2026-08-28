@@ -4,6 +4,7 @@ import '@fortawesome/fontawesome-free/css/fontawesome.css';
 import '@fortawesome/fontawesome-free/css/solid.css';
 import 'normalize.css/normalize.css';
 import colors from './colors';
+import { getFonts, DEFAULT_FONT_ID } from './fonts';
 import DICTIONARIES from './i18n/strings';
 // Removed html2canvas - now using off-screen canvas approach
 import smoothscroll from 'smoothscroll-polyfill';
@@ -130,6 +131,10 @@ async function generateCanvas(
   const fontStyle = computedStyle.fontStyle;
   const fontSize = menu.textSize * scale;
   
+  // Custom bundled fonts load asynchronously; without this the canvas can
+  // rasterize text before the @font-face swap lands and silently fall back.
+  await document.fonts.ready;
+
   // Draw background
   ctx.fillStyle = backgroundColor;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -185,6 +190,10 @@ const menuCallbacks: MenuCallbacks = {
   onTextColorChanged: (newTextColor: string) => {
     textEditor.textColor = newTextColor;
     updateSelectionStyles();
+  },
+  onFontChanged: (newFontId: string) => {
+    const font = getFonts().find(f => f.id === newFontId);
+    textEditor.fontFamily = font ? font.cssFontFamily : '';
   },
   onBackgroundColorChanged: (newBackgroundColor: string) => {
     wallpaperElement.style.backgroundColor = newBackgroundColor;
@@ -316,6 +325,7 @@ menu.onStart({
   textSize: 24,
   textColor: presetTextColor || colors.flat_clouds,
   backgroundColor: presetBackgroundColor || colors.mac_7,
+  fontId: DEFAULT_FONT_ID,
 });
 
 updateSelectionStyles();
@@ -323,6 +333,7 @@ updateSelectionStyles();
 textEditor.onStart();
 textEditor.textSize = menu.textSize;
 textEditor.textColor = menu.textColor;
+textEditor.fontFamily = getFonts().find(f => f.id === menu.fontId).cssFontFamily;
 if (presetText != null) {
   textEditor.text = presetText;
 }

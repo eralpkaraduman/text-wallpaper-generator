@@ -1,6 +1,7 @@
 // @flow
 export type GenerateCanvasCallback = () => Promise<HTMLCanvasElement>;
 export type GenerateFileNameCallback = () => string;
+export type GetFontIdCallback = () => string;
 
 import 'blob.js';
 import * as utils from '../utils';
@@ -15,6 +16,7 @@ export default class DownloadWindow extends MenuWindow {
   _activityIndicatorElement: HTMLElement;
   _onGenerateImage: GenerateCanvasCallback;
   _onGenerateFileName: GenerateFileNameCallback;
+  _getFontId: GetFontIdCallback;
   _mobileInfoTextElement: HTMLElement;
   _desktopInfoTextElement: HTMLElement;
   _progresInfoTextElement: HTMLElement;
@@ -23,10 +25,12 @@ export default class DownloadWindow extends MenuWindow {
     elementId: string,
     onGenerateImage: GenerateCanvasCallback,
     onGenerateFileName: GenerateFileNameCallback,
+    getFontId: GetFontIdCallback,
   ) {
     super(elementId);
     this._onGenerateImage = onGenerateImage;
     this._onGenerateFileName = onGenerateFileName;
+    this._getFontId = getFontId;
     const imageElement = utils.getElement('download-window-image');
     this._imageElement = ((imageElement: any): HTMLImageElement);
     this._imageElement.addEventListener('load', this.onImageLoaded);
@@ -81,6 +85,7 @@ export default class DownloadWindow extends MenuWindow {
       height: canvas.height,
       text: text,
       textLength: text.length,
+      font: this._getFontId(),
     });
   }
 
@@ -93,7 +98,7 @@ export default class DownloadWindow extends MenuWindow {
   }
 
   onDownloadClick = (event: Event) => {
-    track('download_wallpaper');
+    track('download_wallpaper', { font: this._getFontId() });
     // On phones, prefer the native share sheet — it offers "Save Image"
     // straight into the photo library on iOS/Android. Desktop keeps the
     // instant file download (a share dialog would be a detour there), and

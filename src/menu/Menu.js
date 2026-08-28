@@ -6,6 +6,7 @@ import type { GenerateCanvasCallback } from './DownloadWindow';
 import TextSizeWindow from './TextSizeWindow';
 import ImageSizeWindow from './ImageSizeWindow';
 import ColorWindow from './ColorWindow';
+import FontWindow from './FontWindow';
 import MenuWindow from './MenuWindow';
 
 export type MenuCallbacks = {
@@ -18,6 +19,7 @@ export type MenuCallbacks = {
   onTextSizeChanged: number => void,
   onTextColorChanged: string => void,
   onBackgroundColorChanged: string => void,
+  onFontChanged: string => void,
   onImageSizeChanged: (width: number, height: number) => void,
   onImageSizeReset: () => void,
   onInfoButtonClicked: () => void,
@@ -29,11 +31,13 @@ export type MenuOptions = {
   scale: number,
   backgroundColor: string,
   textColor: string,
+  fontId: string,
 };
 type ButtonElements = {
   textColor: HTMLElement,
   backgroundColor: HTMLElement,
   textSize: HTMLElement,
+  font: HTMLElement,
   imageSize: HTMLElement,
   download: HTMLElement,
   info: HTMLElement,
@@ -44,6 +48,7 @@ type MenuWindows = {
   imageSize: ImageSizeWindow,
   textColor: ColorWindow,
   backgroundColor: ColorWindow,
+  font: FontWindow,
 };
 
 export default class Menu {
@@ -62,6 +67,7 @@ export default class Menu {
   scale: number;
   backgroundColor: string;
   textColor: string;
+  fontId: string;
   buttonElements: ButtonElements;
   scale: number;
   textColor: string;
@@ -78,6 +84,7 @@ export default class Menu {
     this.textSize = options.textSize;
     this.textColor = options.textColor;
     this.backgroundColor = options.backgroundColor;
+    this.fontId = options.fontId;
 
     this._containerElement = utils.getElement('menu-container');
     this._element = utils.getElement('menu');
@@ -111,6 +118,13 @@ export default class Menu {
     backgroundColorWindow.color = this.backgroundColor;
     this._backgroundColorButtonColorRectangleElement.style.backgroundColor = this.backgroundColor;
 
+    const fontWindow = new FontWindow(
+      'menu-editor-font',
+      'font-window-font-buttons-container',
+      this._handleOnFontChangeRequested,
+    );
+    fontWindow.fontId = this.fontId;
+
     const imageSizeWindow = new ImageSizeWindow(
       'menu-editor-image-size',
       this._handleOnImageSizeChangeRequested,
@@ -127,17 +141,20 @@ export default class Menu {
         'menu-editor-download',
         this._handleOnGenerateImage,
         this._handleonGenerateFileName,
+        () => this.fontId,
       ),
       textSize: textSizeWindow,
       imageSize: imageSizeWindow,
       textColor: textColorWindow,
       backgroundColor: backgroundColorWindow,
+      font: fontWindow,
     };
 
     this.buttonElements = {
       textColor: utils.getElement('menu-button-text-color'),
       backgroundColor: utils.getElement('menu-button-background-color'),
       textSize: utils.getElement('menu-button-text-size'),
+      font: utils.getElement('menu-button-font'),
       imageSize: utils.getElement('menu-button-image-size'),
       download: utils.getElement('menu-button-download'),
       info: utils.getElement('menu-button-info'),
@@ -161,6 +178,10 @@ export default class Menu {
       this._menuWindows.textSize,
     );
     setMenuToggleHandler(
+      this.buttonElements.font,
+      this._menuWindows.font,
+    );
+    setMenuToggleHandler(
       this.buttonElements.imageSize,
       this._menuWindows.imageSize,
     );
@@ -181,6 +202,7 @@ export default class Menu {
     this._handleOnBackgroundColorChangeRequested(
       this._initialOptions.backgroundColor,
     );
+    this._handleOnFontChangeRequested(this._initialOptions.fontId);
   };
 
   onShow = () => {
@@ -241,6 +263,14 @@ export default class Menu {
       this._menuWindows.textColor,
       false,
     );
+  };
+
+  _handleOnFontChangeRequested = (newFontId: string) => {
+    this.fontId = newFontId;
+    this._menuWindows.font.fontId = this.fontId;
+    this._callbacks.onFontChanged(this.fontId);
+    track('font_change', { font: newFontId });
+    this.onToggleMenuWindow(this.buttonElements.font, this._menuWindows.font, false);
   };
 
   _handleOnImageSizeChangeRequested = (
