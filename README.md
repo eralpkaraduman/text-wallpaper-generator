@@ -1,6 +1,6 @@
 # TextWallpaper.com
 
-Create Simple Wallpapers with Text!
+Create Simple Wallpapers with Text
 
 #### [TextWallpaper.com](https://textwallpaper.com)
 
